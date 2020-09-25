@@ -50405,10 +50405,15 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
       resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
 
-  /**
-   * Gets the initial query
-   */
+  var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators),
+      getValueEditorTypeMain = _useQueryBuilderProps.getValueEditorTypeMain,
+      getInputTypeMain = _useQueryBuilderProps.getInputTypeMain,
+      getOperatorsMain = _useQueryBuilderProps.getOperatorsMain,
+      getRuleDefaultValue = _useQueryBuilderProps.getRuleDefaultValue,
+      getValuesMain = _useQueryBuilderProps.getValuesMain;
+
   var getInitialQuery = function getInitialQuery() {
+    // Gets the initial query   
     return query && Object(_utils__WEBPACK_IMPORTED_MODULE_8__["generateValidQuery"])(query) || createRuleGroup();
   };
 
@@ -50430,86 +50435,14 @@ var QueryBuilder = function QueryBuilder(_ref) {
       not: false
     };
   };
-  /**
-   * Gets the ValueEditor type for a given field and operator
-   */
-
-
-  var getValueEditorTypeMain = function getValueEditorTypeMain(field, operator) {
-    if (getValueEditorType) {
-      var vet = getValueEditorType(field, operator);
-      if (vet) return vet;
-    }
-
-    return 'text';
-  };
-  /**
-   * Gets the `<input />` type for a given field and operator
-   */
-
-
-  var getInputTypeMain = function getInputTypeMain(field, operator) {
-    if (getInputType) {
-      var inputType = getInputType(field, operator);
-      if (inputType) return inputType;
-    }
-
-    return 'text';
-  };
-  /**
-   * Gets the list of valid values for a given field and operator
-   */
-
-
-  var getValuesMain = function getValuesMain(field, operator) {
-    if (getValues) {
-      var vals = getValues(field, operator);
-      if (vals) return vals;
-    }
-
-    return [];
-  };
-  /**
-   * Gets the operators for a given field
-   */
-
-
-  var getOperatorsMain = function getOperatorsMain(field) {
-    if (getOperators) {
-      var ops = getOperators(field);
-      if (ops) return ops;
-    }
-
-    return operators;
-  };
-
-  var getRuleDefaultValue = function getRuleDefaultValue(rule) {
-    var value = '';
-    var values = getValuesMain(rule.field, rule.operator);
-
-    if (values.length) {
-      value = values[0].name;
-    } else {
-      var editorType = getValueEditorTypeMain(rule.field, rule.operator);
-
-      if (editorType === 'checkbox') {
-        value = false;
-      }
-    }
-
-    return value;
-  };
-  /**
-   * Adds a rule to the query
-   */
-
 
   var onRuleAdd = function onRuleAdd(rule, parentId) {
+    // Adds a rule to the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
-    /* istanbul ignore else */
 
     if (parent) {
+      // istanbul ignore else 
       parent.rules.push(_objectSpread(_objectSpread({}, rule), {}, {
         value: getRuleDefaultValue(rule)
       }));
@@ -50518,17 +50451,14 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _notifyQueryChange(rootCopy);
     }
   };
-  /**
-   * Adds a rule group to the query
-   */
-
 
   var onGroupAdd = function onGroupAdd(group, parentId) {
+    //Adds a rule group to the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
-    /* istanbul ignore else */
 
     if (parent) {
+      // istanbul ignore else
       parent.rules.push(group);
       setRoot(rootCopy);
 
@@ -50539,12 +50469,13 @@ var QueryBuilder = function QueryBuilder(_ref) {
   var onPropChange = function onPropChange(prop, value, ruleId) {
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
     var rule = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(ruleId, rootCopy);
-    /* istanbul ignore else */
 
     if (rule) {
-      object_assign__WEBPACK_IMPORTED_MODULE_3___default()(rule, _defineProperty({}, prop, value)); // Reset operator and set default value for field change
+      // istanbul ignore else 
+      object_assign__WEBPACK_IMPORTED_MODULE_3___default()(rule, _defineProperty({}, prop, value));
 
       if (resetOnFieldChange && prop === 'field') {
+        // Reset operator and set default value for field change
         object_assign__WEBPACK_IMPORTED_MODULE_3___default()(rule, {
           operator: getOperatorsMain(rule.field)[0].name,
           value: getRuleDefaultValue(rule)
@@ -50562,17 +50493,14 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _notifyQueryChange(rootCopy);
     }
   };
-  /**
-   * Removes a rule from the query
-   */
-
 
   var onRuleRemove = function onRuleRemove(ruleId, parentId) {
+    //Removes a rule from the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
-    /* istanbul ignore else */
 
     if (parent) {
+      // istanbul ignore else 
       var index = array_find_index__WEBPACK_IMPORTED_MODULE_0___default()(parent.rules, function (x) {
         return x.id === ruleId;
       });
@@ -50582,17 +50510,14 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _notifyQueryChange(rootCopy);
     }
   };
-  /**
-   * Removes a rule group from the query
-   */
-
 
   var onGroupRemove = function onGroupRemove(groupId, parentId) {
+    //Removes a rule group from the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
-    /* istanbul ignore else */
 
     if (parent) {
+      // istanbul ignore else 
       var index = array_find_index__WEBPACK_IMPORTED_MODULE_0___default()(parent.rules, function (x) {
         return x.id === groupId;
       });
@@ -50602,22 +50527,16 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _notifyQueryChange(rootCopy);
     }
   };
-  /**
-   * Gets the level of the rule with the provided ID
-   */
-
 
   var getLevelFromRoot = function getLevelFromRoot(id) {
+    //Gets the level of the rule with the provided ID
     return Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getLevel"])(id, 0, root);
   };
-  /**
-   * Executes the `onQueryChange` function, if provided
-   */
-
 
   var _notifyQueryChange = function _notifyQueryChange(newRoot) {
-    /* istanbul ignore else */
+    // Executes the `onQueryChange` function, if provided   
     if (onQueryChange) {
+      // istanbul ignore else
       var newQuery = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(newRoot);
       onQueryChange(newQuery);
     }
@@ -50648,13 +50567,13 @@ var QueryBuilder = function QueryBuilder(_ref) {
     getValues: getValuesMain,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showNotToggle: showNotToggle
-  }; // Set the query state when a new query prop comes in
-
+  };
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    // Set the query state when a new query prop comes in
     setRoot(Object(_utils__WEBPACK_IMPORTED_MODULE_8__["generateValidQuery"])(query || getInitialQuery()));
-  }, [query]); // Notify a query change on mount
-
+  }, [query]);
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    // Notify a query change on mount
     _notifyQueryChange(root);
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
@@ -50668,6 +50587,74 @@ var QueryBuilder = function QueryBuilder(_ref) {
     not: !!root.not
   }));
 };
+
+var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators) {
+  var getValueEditorTypeMain = function getValueEditorTypeMain(field, operator) {
+    // Gets the ValueEditor type for a given field and operator  
+    if (getValueEditorType) {
+      var vet = getValueEditorType(field, operator);
+      if (vet) return vet;
+    }
+
+    return 'text';
+  };
+
+  var getInputTypeMain = function getInputTypeMain(field, operator) {
+    // Gets the `<input />` type for a given field and operator  
+    if (getInputType) {
+      var inputType = getInputType(field, operator);
+      if (inputType) return inputType;
+    }
+
+    return 'text';
+  };
+
+  var getValuesMain = function getValuesMain(field, operator) {
+    // Gets the list of valid values for a given field and operator  
+    if (getValues) {
+      var vals = getValues(field, operator);
+      if (vals) return vals;
+    }
+
+    return [];
+  };
+
+  var getOperatorsMain = function getOperatorsMain(field) {
+    // Gets the operators for a given field
+    if (getOperators) {
+      var ops = getOperators(field);
+      if (ops) return ops;
+    }
+
+    return operators;
+  };
+
+  var getRuleDefaultValue = function getRuleDefaultValue(rule) {
+    var value = '';
+    var values = getValuesMain(rule.field, rule.operator);
+
+    if (values.length) {
+      value = values[0].name;
+    } else {
+      var editorType = getValueEditorTypeMain(rule.field, rule.operator);
+
+      if (editorType === 'checkbox') {
+        value = false;
+      }
+    }
+
+    return value;
+  };
+
+  return {
+    getValueEditorTypeMain: getValueEditorTypeMain,
+    getInputTypeMain: getInputTypeMain,
+    getOperatorsMain: getOperatorsMain,
+    getRuleDefaultValue: getRuleDefaultValue,
+    getValuesMain: getValuesMain
+  };
+};
+
 QueryBuilder.displayName = 'QueryBuilder';
 
 /***/ }),
@@ -50943,12 +50930,15 @@ var ActionElement = function ActionElement(_ref) {
       handleOnClick = _ref.handleOnClick,
       label = _ref.label,
       title = _ref.title;
+
+  var onClick = function onClick(e) {
+    return handleOnClick(e);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: className,
     title: title,
-    onClick: function onClick(e) {
-      return handleOnClick(e);
-    }
+    onClick: onClick
   }, label);
 };
 
@@ -50975,16 +50965,23 @@ var NotToggle = function NotToggle(_ref) {
       handleOnChange = _ref.handleOnChange,
       title = _ref.title,
       checked = _ref.checked;
+
+  var onChange = function onChange(e) {
+    return handleOnChange(e.target.checked);
+  }; // tslint:disable-next-line: react-a11y-input-elements
+
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: className,
     title: title
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    role: "checkbox",
+    placeholder: "",
+    "aria-checked": !!checked,
     type: "checkbox",
-    onChange: function onChange(e) {
-      return handleOnChange(e.target.checked);
-    },
-    checked: !!checked
-  }), "Not");
+    onChange: onChange,
+    checked: !checked
+  }), " ");
 };
 
 NotToggle.displayName = 'NotToggle';
@@ -51019,30 +51016,41 @@ var ValueEditor = function ValueEditor(_ref) {
     return null;
   }
 
+  var onSelectChange = function onSelectChange(e) {
+    return handleOnChange(e.target.value);
+  };
+
+  var onCheckboxChange = function onCheckboxChange(e) {
+    return handleOnChange(e.target.checked);
+  };
+
   switch (type) {
     case 'select':
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: className,
         title: title,
-        onChange: function onChange(e) {
-          return handleOnChange(e.target.value);
-        },
+        onChange: onSelectChange,
+        onBlur: onSelectChange,
         value: value
       }, values.map(function (v) {
+        var isSelected = v.name == value;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          role: "option",
           key: v.name,
-          value: v.name
+          value: v.name,
+          "aria-selected": isSelected
         }, v.label);
       }));
 
     case 'checkbox':
+      // tslint:disable-next-line: react-a11y-input-elements
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        role: "checkbox",
         type: "checkbox",
         className: className,
         title: title,
-        onChange: function onChange(e) {
-          return handleOnChange(e.target.checked);
-        },
+        onChange: onCheckboxChange,
+        "aria-checked": !!value,
         checked: !!value
       });
 
@@ -51051,15 +51059,15 @@ var ValueEditor = function ValueEditor(_ref) {
         className: className,
         title: title
       }, values.map(function (v) {
+        var isChecked = value === v.name;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           key: v.name
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "radio",
           value: v.name,
-          checked: value === v.name,
-          onChange: function onChange(e) {
-            return handleOnChange(e.target.value);
-          }
+          "aria-checked": isChecked,
+          checked: isChecked,
+          onChange: onSelectChange
         }), v.label);
       }));
 
@@ -51069,9 +51077,7 @@ var ValueEditor = function ValueEditor(_ref) {
         value: value,
         title: title,
         className: className,
-        onChange: function onChange(e) {
-          return handleOnChange(e.target.value);
-        }
+        onChange: onSelectChange
       });
   }
 };
@@ -51100,18 +51106,25 @@ var ValueSelector = function ValueSelector(_ref) {
       options = _ref.options,
       title = _ref.title,
       value = _ref.value;
+
+  var onChange = function onChange(e) {
+    return handleOnChange(e.target.value);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: className,
     value: value,
     title: title,
-    onChange: function onChange(e) {
-      return handleOnChange(e.target.value);
-    }
+    onChange: onChange,
+    onBlur: onChange
   }, options.map(function (option) {
     var key = option.id ? "key-".concat(option.id) : "key-".concat(option.name);
+    var isSelected = value == option.name;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      role: "option",
       key: key,
-      value: option.name
+      value: option.name,
+      "aria-selected": isSelected
     }, option.label);
   }));
 };
