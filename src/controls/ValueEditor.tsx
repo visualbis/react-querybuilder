@@ -36,18 +36,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       );
 
     case 'checkbox':
-      return (
-        <input
-          role="checkbox"
-          type="checkbox"
-          className={className}
-          title={title}
-          onChange={onCheckboxChange}
-          aria-checked={!!value}
-          checked={!!value}
-        />
-      );
-
+      // tslint:disable-next-line: react-a11y-input-elements
+      return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
     case 'radio':
       return (
         <span className={className} title={title}>
