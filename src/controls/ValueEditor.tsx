@@ -14,30 +14,36 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   if (operator === 'null' || operator === 'notNull') {
     return null;
   }
-
+  const onSelectChange = (e:any) =>  handleOnChange(e.target.value);
+  const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   switch (type) {
     case 'select':
       return (
         <select
           className={className}
           title={title}
-          onChange={(e) => handleOnChange(e.target.value)}
+          onChange={onSelectChange}
+          onBlur={onSelectChange}
           value={value}>
-          {values!.map((v) => (
-            <option key={v.name} value={v.name}>
+          {values!.map((v) => {
+            const isSelected = v.name == value;
+            return (
+            <option role="option" key={v.name} value={v.name} aria-selected={isSelected} >
               {v.label}
             </option>
-          ))}
+          )})}
         </select>
       );
 
     case 'checkbox':
       return (
         <input
+          role="checkbox"
           type="checkbox"
           className={className}
           title={title}
-          onChange={(e) => handleOnChange(e.target.checked)}
+          onChange={onCheckboxChange}
+          aria-checked={!!value}
           checked={!!value}
         />
       );
@@ -45,17 +51,20 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     case 'radio':
       return (
         <span className={className} title={title}>
-          {values!.map((v) => (
+          {values!.map((v) => {
+          const isChecked =   value === v.name;
+             return (
             <label key={v.name}>
               <input
                 type="radio"
                 value={v.name}
-                checked={value === v.name}
-                onChange={(e) => handleOnChange(e.target.value)}
+                aria-checked={isChecked}
+                checked={isChecked}
+                onChange={onSelectChange}
               />
               {v.label}
             </label>
-          ))}
+          )})}
         </span>
       );
 
@@ -66,7 +75,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           value={value}
           title={title}
           className={className}
-          onChange={(e) => handleOnChange(e.target.value)}
+          onChange={onSelectChange}
         />
       );
   }

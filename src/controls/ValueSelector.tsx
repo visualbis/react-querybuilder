@@ -7,22 +7,26 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   options,
   title,
   value
-}) => (
+}) => { 
+ const onChange =  (e:any) => handleOnChange(e.target.value)
+  return (
   <select
     className={className}
     value={value}
     title={title}
-    onChange={(e) => handleOnChange(e.target.value)}>
+    onChange={onChange}
+    onBlur={onChange}>
     {options.map((option) => {
       const key = option.id ? `key-${option.id}` : `key-${option.name}`;
+      const isSelected =  value == option.name;
       return (
-        <option key={key} value={option.name}>
+        <option role="option" key={key} value={option.name} aria-selected={isSelected}>
           {option.label}
         </option>
       );
     })}
   </select>
-);
+)};
 
 ValueSelector.displayName = 'ValueSelector';
 
