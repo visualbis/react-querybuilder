@@ -14,6 +14,7 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
     className={className}
     value={value}
     title={title}
+    onChange={onChange}
     onBlur={onChange}>
     {options.map((option) => {
       const key = option.id ? `key-${option.id}` : `key-${option.name}`;

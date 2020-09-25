@@ -14,7 +14,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   if (operator === 'null' || operator === 'notNull') {
     return null;
   }
-  const onSelectChange = (e:any) => handleOnChange(e.target.value);
+  const onSelectChange = (e:any) =>  handleOnChange(e.target.value);
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   switch (type) {
     case 'select':
@@ -22,6 +22,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
         <select
           className={className}
           title={title}
+          onChange={onSelectChange}
           onBlur={onSelectChange}
           value={value}>
           {values!.map((v) => {
