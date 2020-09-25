@@ -45,7 +45,7 @@ const formatQuery = (
   format: ExportFormat,
   valueProcessor?: ValueProcessor
 ) => {
-  const formatLowerCase = format.toLowerCase() as ExportFormat;
+  const formatLowerCase = <ExportFormat>format.toLowerCase();
 
   if (formatLowerCase === 'json') {
     return JSON.stringify(ruleGroup, null, 2);
@@ -93,12 +93,12 @@ const formatQuery = (
 
       if (parameterized && value) {
         if (operator.toLowerCase() === 'in' || operator.toLowerCase() === 'not in') {
-          const splitValue = (rule.value as string).split(',').map((v) => v.trim());
+          const splitValue = (<string>rule.value).split(',').map((v) => v.trim());
           splitValue.forEach((v) => params.push(v));
           return `${rule.field} ${operator} (${splitValue.map((v) => '?').join(', ')})`;
         }
 
-        params.push((value as string).match(/^"?(.*?)"?$/)![1]);
+        params.push((<string>value).match(/^"?(.*?)"?$/)![1]);
       }
       return `${rule.field} ${operator} ${parameterized && value ? '?' : value}`.trim();
     };
