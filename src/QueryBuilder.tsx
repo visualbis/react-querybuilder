@@ -3,7 +3,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import { nanoid } from 'nanoid';
 import objectAssign from 'object-assign';
 import React, { useEffect, useState } from 'react';
-import { ActionElement, NotToggle, ValueEditor, ValueSelector } from './controls';
+import { ActionElement, NotToggle, ValueEditor, ValueSelector, NavTab } from './controls';
 import { Rule } from './Rule';
 import { RuleGroup } from './RuleGroup';
 import {
@@ -36,11 +36,11 @@ const defaultTranslations: Translations = {
     title: 'Remove group'
   },
   addRule: {
-    label: '+Rule',
+    label: '+ Add rule',
     title: 'Add rule'
   },
   addGroup: {
-    label: '+Group',
+    label: '+ Add group',
     title: 'Add group'
   },
   combinators: {
@@ -96,7 +96,7 @@ const defaultControlElements: Controls = {
   removeGroupAction: ActionElement,
   addRuleAction: ActionElement,
   removeRuleAction: ActionElement,
-  combinatorSelector: ValueSelector,
+  combinatorSelector: NavTab,
   fieldSelector: ValueSelector,
   operatorSelector: ValueSelector,
   valueEditor: ValueEditor,

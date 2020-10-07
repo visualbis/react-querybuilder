@@ -19,9 +19,10 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
     {options.map((option) => {
       const key = option.id ? `key-${option.id}` : `key-${option.name}`;
       const isSelected =  value == option.name;
+      const prefix = option.type === "number"? "Σ ":"";
       return (
         <option role="option" key={key} value={option.name} aria-selected={isSelected}>
-          {option.label}
+          {prefix + option.label}
         </option>
       );
     })}
