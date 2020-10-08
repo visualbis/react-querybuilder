@@ -1,16 +1,175 @@
+.rule .rule-fields {
+  margin: 0px 5px;
+  padding: 5px 5px;
+  border: 1px solid #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  height: 32px;
+  width: 100%; }
+  .rule .rule-fields:focus {
+    margin: 0px 5px;
+    padding: 5px 5px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: none;
+    height: 32px;
+    width: 100%; }
+
+.rule .rule-operators {
+  margin: 0px 5px;
+  padding: 5px 5px;
+  border: 1px solid #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  height: 32px;
+  width: 100%; }
+  .rule .rule-operators:focus {
+    margin: 0px 5px;
+    padding: 5px 5px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: none;
+    height: 32px;
+    width: 100%; }
+
+.rule .rule-value {
+  margin: 0px 5px;
+  padding: 0px 10px;
+  border: 1px solid #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  height: 32px;
+  width: 100%;
+  height: 30px; }
+  .rule .rule-value:focus {
+    margin: 0px 5px;
+    padding: 0px 10px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: none;
+    height: 32px;
+    width: 100%;
+    height: 30px; }
+
 .ruleGroup {
-  padding: 0.5rem;
-  border: 1px solid #7f81a2;
-  border-radius: 4px;
-  background: rgba(0, 75, 183, 0.2); }
-  .ruleGroup .rule,
-  .ruleGroup .ruleGroup {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem; }
+  border: 1px solid #cccccc;
+  background: transparent;
+  padding: 2px; }
   .ruleGroup .ruleGroup-combinators.betweenRules {
-    margin-top: 0.5rem; }
-  .ruleGroup .ruleGroup-notToggle {
-    margin-right: 0.5rem; }
+    margin: 10px; }
+  .ruleGroup .rule {
+    padding: 5px;
+    margin: 5px;
+    background: #f5f5f5; }
+  .ruleGroup .ruleGroup {
+    padding: 5px;
+    margin: 5px;
+    background: #f5f5f5; }
+
+.rule-remove {
+  min-width: 30px;
+  background: transparent;
+  border: none;
+  border: none; }
+
+.ruleGroup-remove {
+  min-width: 30px;
+  background: transparent;
+  border: none;
+  border: none; }
+
+.query-generator.hide-group .ruleGroup-addGroup {
+  display: none; }
+
+.query-generator {
+  max-width: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.queryBuilder .ruleGroup .ruleGroup {
+  background: #f5f5f5; }
+  .queryBuilder .ruleGroup .ruleGroup .ruleGroup-header {
+    display: none; }
+
+.queryBuilder > .ruleGroup > .rule {
+  border: 1px solid #cccccc;
+  border-radius: 4px; }
+
+.ruleGroup-header {
+  display: flex;
+  margin: 5px; }
+  .ruleGroup-header .ruleGroup-addGroup {
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+    color: #333333;
+    padding: 5px 15px;
+    margin-left: auto; }
+    .ruleGroup-header .ruleGroup-addGroup:focus {
+      outline: none;
+      border: none;
+      background: #f5f5f5;
+      color: #333333;
+      padding: 5px 15px;
+      margin-left: auto; }
+
+.ruleGroup-addRule {
+  outline: none;
+  border: none;
+  background: #f5f5f5;
+  color: #333333;
+  padding: 5px 15px;
+  margin-left: auto; }
+  .ruleGroup-addRule:focus {
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+    color: #333333;
+    padding: 5px 15px;
+    margin-left: auto; }
+
+.ruleGroup-combinators {
+  border: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: row; }
+  .ruleGroup-combinators .combinators {
+    padding: 5px;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    outline: none;
+    width: 100%;
+    height: 32px; }
+    .ruleGroup-combinators .combinators:focus {
+      padding: 5px;
+      border: 1px solid #cccccc;
+      outline: none;
+      width: 100%; }
+  .ruleGroup-combinators .combinators.active {
+    background: #f5f5f5; }
+
+.rule-top {
+  padding: 2px 0px;
+  display: flex;
+  flex-direction: row; }
+
+.rule-bottom {
+  padding: 2px 0px;
+  display: flex;
+  flex-direction: row; }
 
 
 /*# sourceMappingURL=query-builder.css.map*/
