@@ -32,6 +32,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
   return (
     <div className={`ruleGroup ${classNames.ruleGroup}`} data-rule-group-id={id} data-level={level}>
       <div className={`ruleGroup-header ${classNames.header}`}>
+   
         {showCombinatorsBetweenRules ? null : (<controls.combinatorSelector
             options={combinators}    value={combinator}
             title={translations.combinators.title}
@@ -46,13 +47,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
             handleOnChange={onNotToggleChange}
             level={level}
           /> )}
-        <controls.addRuleAction
-          label={translations.addRule.label}
-          title={translations.addRule.title}
-          className={`ruleGroup-addRule ${classNames.addRule}`}
-          handleOnClick={addRule}
-          rules={rules}    level={level}
-        />
+      
         <controls.addGroupAction
           label={translations.addGroup.label}
           title={translations.addGroup.title}
@@ -60,16 +55,10 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
           handleOnClick={addGroup}
           rules={rules}   level={level}
         />
-        {hasParentGroup() ? (<controls.removeGroupAction
-            label={translations.removeGroup.label}
-            title={translations.removeGroup.title}
-            className={`ruleGroup-remove ${classNames.removeGroup}`}
-            handleOnClick={removeGroup}
-            rules={rules}      level={level}
-          />) : null}
+      
       </div>
-      {rules.map((r, idx) => (<Fragment key={r.id}>
-          {idx && showCombinatorsBetweenRules ? (<controls.combinatorSelector
+      {rules.map((r, idx) => (<Fragment key={r.id}>       
+          {idx && idx<2 && showCombinatorsBetweenRules ? (<controls.combinatorSelector
               options={combinators}
               value={combinator}
               title={translations.combinators.title}
@@ -95,6 +84,20 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
               translations={translations}
             />)}
         </Fragment>))}
+        {hasParentGroup() ? (<controls.removeGroupAction
+            label={translations.removeGroup.label}
+            title={translations.removeGroup.title}
+            className={`ruleGroup-remove ${classNames.removeGroup}`}
+            handleOnClick={removeGroup}
+            rules={rules}      level={level}
+          />) : null}
+        <controls.addRuleAction
+          label={translations.addRule.label}
+          title={translations.addRule.title}
+          className={`ruleGroup-addRule ${classNames.addRule}`}
+          handleOnClick={addRule}
+          rules={rules}    level={level}
+        />
     </div>
   );
 };
