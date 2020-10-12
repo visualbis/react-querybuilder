@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { nanoid } from 'nanoid';
-import QueryBuilder, { formatQuery } from '../src';
+import QueryGenerator, { formatQuery } from '../src';
 import '../src/query-builder.scss';
 
 const preparedFields = {
@@ -144,20 +144,6 @@ const RootView = () => {
   const [resetOnFieldChange, setResetOnFieldChange] = useState(true);
   const [resetOnOperatorChange, setResetOnOperatorChange] = useState(false);
 
-  /**
-   * Reloads a prepared query, a PoC for query updates by props change.
-   * If no target is supplied, clear query (generic query).
-   * @param {"primary"|"secondary"} target The target query
-   */
-  const loadQuery = (target) => {
-    if (target) {
-      setQuery(preparedQueries[target]);
-      setFields(preparedFields[target]);
-    } else {
-      setQuery(preparedQueries.generic);
-      setFields(preparedFields.generic);
-    }
-  };
 
   const handleQueryChange = (query) => {
     setQuery(query);
@@ -171,104 +157,12 @@ const RootView = () => {
       : formatQuery(query, format);
 
   return (
-    <div className="flex-box-outer">
-      <div className="control-panel">
-        <button onClick={() => loadQuery('primary')}>Load primary query</button>
-        <button onClick={() => loadQuery('secondary')}>Load secondary query</button>
-        <button onClick={() => loadQuery()}>Clear query</button>
-      </div>
-      <hr />
-      <div className="flex-box">
-        <div className="scroll">
-          <QueryBuilder
-            query={query}
-            fields={fields}
-            controlClassnames={{ fields: 'form-control' }}
-            onQueryChange={handleQueryChange}
-            getOperators={getOperators}
-            getValueEditorType={getValueEditorType}
-            getInputType={getInputType}
-            getValues={getValues}
-            showCombinatorsBetweenRules={showCombinatorsBetweenRules}
-            showNotToggle={showNotToggle}
-            resetOnFieldChange={resetOnFieldChange}
-            resetOnOperatorChange={resetOnOperatorChange}
-          />
-        </div>
-        <div className="shrink query-log scroll">
-          <h4>Options</h4>
-          <div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showCombinatorsBetweenRules}
-                  onChange={(e) => setShowCombinatorsBetweenRules(e.target.checked)}
-                />
-                Show combinators between rules
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showNotToggle}
-                  onChange={(e) => setShowNotToggle(e.target.checked)}
-                />
-                Show "not" toggle
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={resetOnFieldChange}
-                  onChange={(e) => setResetOnFieldChange(e.target.checked)}
-                />
-                Reset rule on field change
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={resetOnOperatorChange}
-                  onChange={(e) => setResetOnOperatorChange(e.target.checked)}
-                />
-                Reset rule on operator change
-              </label>
-            </div>
-          </div>
-          <h4>Query</h4>
-          <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
-            <label>
-              <input type="radio" checked={format === 'json'} onChange={() => setFormat('json')} />
-              JSON
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={format === 'json_without_ids'}
-                onChange={() => setFormat('json_without_ids')}
-              />
-              JSON Without IDs
-            </label>
-            <label>
-              <input type="radio" checked={format === 'sql'} onChange={() => setFormat('sql')} />
-              SQL
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={format === 'parameterized'}
-                onChange={() => setFormat('parameterized')}
-              />
-              Parameterized
-            </label>
-          </div>
-          <pre>{formatString}</pre>
-        </div>
-      </div>
+    <div className="flex-box-outer">     
+     <QueryGenerator 
+       onQueryChange = {handleQueryChange}
+       query={query}
+       fields={fields}/>      
+       
     </div>
   );
 };
