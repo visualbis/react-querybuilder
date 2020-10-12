@@ -240,7 +240,53 @@ export interface RuleProps {
   translations: Translations;
   schema: Schema;
 }
-
+export interface QueryGeneratorProps{
+  query?: RuleGroupType;
+  /**
+   * The array of fields that should be used. Each field should be an object
+   * with {name: String, label: String}
+   */
+  fields: Field[];
+  /**
+   * The array of operators that should be used.
+   * @default
+   * [
+   *     {name: 'null', label: 'Is Null'},
+   *     {name: 'notNull', label: 'Is Not Null'},
+   *     {name: 'in', label: 'In'},
+   *     {name: 'notIn', label: 'Not In'},
+   *     {name: '=', label: '='},
+   *     {name: '!=', label: '!='},
+   *     {name: '<', label: '<'},
+   *     {name: '>', label: '>'},
+   *     {name: '<=', label: '<='},
+   *     {name: '>=', label: '>='},
+   * ]
+   */
+  operators?: NameLabelPair[];  
+  /**
+   * This is a callback function invoked to get the list of allowed
+   * operators for the given field.
+   */
+  getOperators?(field: string): Field[];
+  /**
+   * This is a callback function invoked to get the type of `ValueEditor`
+   * for the given field and operator.
+   */
+  getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
+  /**
+   * This is a callback function invoked to get the `type` of `<input />`
+   * for the given field and operator (only applicable when
+   * `getValueEditorType` returns `"text"` or a falsy value). If no
+   * function is provided, `"text"` is used as the default.
+   */
+  getInputType?(field: string, operator: string): string;
+  /**
+   * This is a notification that is invoked anytime the query configuration changes.
+   */
+  onQueryChange(query: RuleGroupType): void;
+  
+}
 export interface QueryBuilderProps {
   query?: RuleGroupType;
   /**
@@ -291,7 +337,7 @@ export interface QueryBuilderProps {
    * `getValueEditorType` returns `"text"` or a falsy value). If no
    * function is provided, `"text"` is used as the default.
    */
-  getInputType?(field: string, operator: string): string;
+  getInputType?(field: 'text' | 'number' , operator: string): string;
   /**
    * This is a callback function invoked to get the list of allowed
    * values for the given field and operator (only applicable when
