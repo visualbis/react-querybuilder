@@ -312,22 +312,6 @@ var RootView = function RootView() {
       _useState14 = _slicedToArray(_useState13, 2),
       resetOnOperatorChange = _useState14[0],
       setResetOnOperatorChange = _useState14[1];
-  /**
-   * Reloads a prepared query, a PoC for query updates by props change.
-   * If no target is supplied, clear query (generic query).
-   * @param {"primary"|"secondary"} target The target query
-   */
-
-
-  var loadQuery = function loadQuery(target) {
-    if (target) {
-      setQuery(preparedQueries[target]);
-      setFields(preparedFields[target]);
-    } else {
-      setQuery(preparedQueries.generic);
-      setFields(preparedFields.generic);
-    }
-  };
 
   var handleQueryChange = function handleQueryChange(query) {
     setQuery(query);
@@ -336,96 +320,11 @@ var RootView = function RootView() {
   var formatString = format === 'json_without_ids' ? JSON.stringify(JSON.parse(Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format)), null, 2) : format === 'parameterized' ? JSON.stringify(Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format), null, 2) : Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-box-outer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "control-panel"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return loadQuery('primary');
-    }
-  }, "Load primary query"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return loadQuery('secondary');
-    }
-  }, "Load secondary query"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return loadQuery();
-    }
-  }, "Clear query")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-box"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "scroll"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    query: query,
-    fields: fields,
-    controlClassnames: {
-      fields: 'form-control'
-    },
     onQueryChange: handleQueryChange,
-    getOperators: getOperators,
-    getValueEditorType: getValueEditorType,
-    getInputType: getInputType,
-    getValues: getValues,
-    showCombinatorsBetweenRules: showCombinatorsBetweenRules,
-    showNotToggle: showNotToggle,
-    resetOnFieldChange: resetOnFieldChange,
-    resetOnOperatorChange: resetOnOperatorChange
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "shrink query-log scroll"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Options"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "checkbox",
-    checked: showCombinatorsBetweenRules,
-    onChange: function onChange(e) {
-      return setShowCombinatorsBetweenRules(e.target.checked);
-    }
-  }), "Show combinators between rules")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "checkbox",
-    checked: showNotToggle,
-    onChange: function onChange(e) {
-      return setShowNotToggle(e.target.checked);
-    }
-  }), "Show \"not\" toggle")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "checkbox",
-    checked: resetOnFieldChange,
-    onChange: function onChange(e) {
-      return setResetOnFieldChange(e.target.checked);
-    }
-  }), "Reset rule on field change")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "checkbox",
-    checked: resetOnOperatorChange,
-    onChange: function onChange(e) {
-      return setResetOnOperatorChange(e.target.checked);
-    }
-  }), "Reset rule on operator change"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Query"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      flexDirection: 'column'
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "radio",
-    checked: format === 'json',
-    onChange: function onChange() {
-      return setFormat('json');
-    }
-  }), "JSON"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "radio",
-    checked: format === 'json_without_ids',
-    onChange: function onChange() {
-      return setFormat('json_without_ids');
-    }
-  }), "JSON Without IDs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "radio",
-    checked: format === 'sql',
-    onChange: function onChange() {
-      return setFormat('sql');
-    }
-  }), "SQL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "radio",
-    checked: format === 'parameterized',
-    onChange: function onChange() {
-      return setFormat('parameterized');
-    }
-  }), "Parameterized")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, formatString))));
+    query: query,
+    fields: fields
+  }));
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RootView, null), document.querySelector('.container'));
@@ -50674,84 +50573,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _QueryBuilder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryBuilder */ "./src/QueryBuilder.tsx");
 
 
-var operators = {
-  "number": [{
-    name: "notEqual",
-    label: "Not equal"
-  }, {
-    name: "lessThan",
-    label: "Less than"
-  }, {
-    name: "lessThanOrEquals",
-    label: "Less than or equals"
-  }, {
-    name: "greaterThan",
-    label: "Greater Than"
-  }, {
-    name: "greaterThanOrEquals",
-    label: "Greater Than or equals"
-  }, {
-    name: "equals",
-    label: "Equals"
-  }, {
-    name: "inRange",
-    label: "In range"
-  }],
-  "text": [{
-    name: 'contains',
-    label: 'contains'
-  }, {
-    name: 'beginsWith',
-    label: 'begins with'
-  }, {
-    name: 'endsWith',
-    label: 'ends with'
-  }, {
-    name: 'doesNotContain',
-    label: 'does not contain'
-  }, {
-    name: 'doesNotBeginWith',
-    label: 'does not begin with'
-  }, {
-    name: 'doesNotEndWith',
-    label: 'does not end with'
-  }]
-};
 var QueryGenerator = function QueryGenerator(_ref) {
-  var handleQueryChange = _ref.handleQueryChange,
+  var onQueryChange = _ref.onQueryChange,
       query = _ref.query,
       _ref$fields = _ref.fields,
       fields = _ref$fields === void 0 ? [] : _ref$fields,
-      showCombinatorsBetweenRules = _ref.showCombinatorsBetweenRules,
-      _ref$showAddGroup = _ref.showAddGroup,
-      showAddGroup = _ref$showAddGroup === void 0 ? true : _ref$showAddGroup;
-  var fieldType = {};
-  fields.forEach(function (item) {
-    fieldType[item.name] = item.type;
-  });
-
-  var getOperators = function getOperators(field) {
-    switch (fieldType[field]) {
-      case "number":
-        return operators.number;
-
-      case "text":
-        return operators.text;
-
-      default:
-        return operators.number;
-    }
-  };
-
-  var getInputType = function getInputType(field, operator) {
-    return fieldType[field];
-  };
-
-  var getValueEditorType = function getValueEditorType(field, operator) {
-    return 'text';
-  };
-
-  var generatorCls = "query-generator ".concat(showAddGroup ? "" : "hide-group");
+      getOperators = _ref.getOperators,
+      getInputType = _ref.getInputType,
+      getValueEditorType = _ref.getValueEditorType;
+  var generatorCls = "query-generator hide-group\"}";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: generatorCls
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QueryBuilder__WEBPACK_IMPORTED_MODULE_1__["QueryBuilder"], {
@@ -50760,11 +50590,11 @@ var QueryGenerator = function QueryGenerator(_ref) {
     controlClassnames: {
       fields: 'form-control'
     },
-    onQueryChange: handleQueryChange,
+    onQueryChange: onQueryChange,
     getOperators: getOperators,
     getInputType: getInputType,
     getValueEditorType: getValueEditorType,
-    showCombinatorsBetweenRules: showCombinatorsBetweenRules,
+    showCombinatorsBetweenRules: true,
     resetOnOperatorChange: false
   }));
 };
