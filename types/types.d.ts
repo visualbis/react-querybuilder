@@ -21,7 +21,7 @@ export interface RuleGroupType {
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
 export declare type ValueProcessor = (field: string, operator: string, value: any) => string;
-export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio';
+export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
 export interface CommonProps {
     /**
      * CSS classNames to be applied

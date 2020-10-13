@@ -50,7 +50,7 @@ export const Rule: React.FC<RuleProps> = ({
 
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
-      <div className="rule-top">
+     
        <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
@@ -67,8 +67,7 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnChange={onFieldChanged}
         level={level}
       />
-      </div>
-      <div className="rule-bottom">
+    
       <controls.operatorSelector
         field={field}
         fieldData={fieldData}
@@ -92,7 +91,7 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnChange={onValueChanged}
         level={level}
       />
-      </div>
+     
      
     </div>
   );

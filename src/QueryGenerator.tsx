@@ -10,6 +10,8 @@ export interface IProps{
     getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
     getInputType?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;    
+    getValues?(field: string, operator: string):NameLabelPair[];
+    groupEnabled?:boolean;
   }
  interface IState{
  }
@@ -20,9 +22,12 @@ export interface IProps{
     fields=[],
     getOperators,
     getInputType,
-    getValueEditorType
-   })=>{        
-    const generatorCls = `query-generator hide-group"}`;
+    getValueEditorType,
+    getValues,
+    groupEnabled
+   })=>{ 
+       
+    const generatorCls = groupEnabled?`query-generator hide-group`:"query-generator";
     return   (<div className={generatorCls}><QueryBuilder
         query={query}
         fields={fields}
@@ -32,6 +37,7 @@ export interface IProps{
         getInputType={getInputType}    
         getValueEditorType  ={getValueEditorType}
         showCombinatorsBetweenRules={true}
-        resetOnOperatorChange={false}       
+        resetOnOperatorChange={false}   
+        getValues={getValues}    
       /></div>)
  }
