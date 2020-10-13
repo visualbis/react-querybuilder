@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
+import Autocomplete from 'react-autocomplete';
 import { ValueEditorProps } from '../types';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
@@ -16,6 +17,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   }
   const onSelectChange = (e:any) =>  handleOnChange(e.target.value);
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
+  const [val, setVal] = useState("");   
   switch (type) {
     case 'select':
       return (
@@ -32,9 +34,31 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
               {v.label}
             </option>
           )})}
-        </select>
+        </select>  
+        
       );
-
+    case 'autocomplete':
+      const shouldItemRender = (state: any, val: string) => { return state.label.toLowerCase().indexOf(val.toLowerCase()) !== -1 };
+      const renderItem = (item: any, isHighlighted: boolean) => (
+        <div className={`item ${isHighlighted ? 'selected-item' : ''}`}>
+          {item.label}
+        </div>);
+      const _values = values ? values : [];
+      const getItemValue = (item: any) => { return item.label; };
+      const _handelOnChange = (val: any) => {
+        setVal(val);
+        handleOnChange(val);
+      }
+      const _onChange = (event: any, val: any) => { setVal(val); }
+      return (<div className="autocomplete-wrapper"> <Autocomplete
+        value={val}
+        items={_values}
+        getItemValue={getItemValue}
+        shouldItemRender={shouldItemRender}
+        renderItem={renderItem}
+        onChange={_onChange}
+        onSelect={_handelOnChange}
+      /></div>)
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);

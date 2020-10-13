@@ -58,7 +58,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
       
       </div>
       {rules.map((r, idx) => (<Fragment key={r.id}>       
-          {idx && idx<2 && showCombinatorsBetweenRules ? (<controls.combinatorSelector
+          {!idx ? (<controls.combinatorSelector
               options={combinators}
               value={combinator}
               title={translations.combinators.title}
