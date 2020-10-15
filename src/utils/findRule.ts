@@ -19,5 +19,4 @@ const findRule = (id: string, parent: RuleGroupType): RuleGroupType | RuleType |
 
   return undefined;
 };
-
 export default findRule;

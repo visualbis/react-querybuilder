@@ -11,7 +11,9 @@ export interface IProps{
     getInputType?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;    
     getValues?(field: string, operator: string):NameLabelPair[];
-    groupEnabled?:boolean;
+    showAddGroup?:boolean;
+    showAddRule?:boolean;
+    showCombinatorsBetweenRules?:boolean;
   }
  interface IState{
  }
@@ -24,10 +26,12 @@ export interface IProps{
     getInputType,
     getValueEditorType,
     getValues,
-    groupEnabled
+    showAddGroup,
+    showAddRule,
+    showCombinatorsBetweenRules
    })=>{ 
        
-    const generatorCls = groupEnabled?`query-generator hide-group`:"query-generator";
+    const generatorCls = !showAddGroup?`query-generator hide-group`:"query-generator";
     return   (<div className={generatorCls}><QueryBuilder
         query={query}
         fields={fields}
@@ -36,7 +40,9 @@ export interface IProps{
         getOperators={getOperators}      
         getInputType={getInputType}    
         getValueEditorType  ={getValueEditorType}
-        showCombinatorsBetweenRules={true}
+        showCombinatorsBetweenRules={showCombinatorsBetweenRules}
+        showAddGroup={showAddGroup}
+        showAddRule={showAddRule}
         resetOnOperatorChange={false}   
         getValues={getValues}    
       /></div>)

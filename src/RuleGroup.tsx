@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator = 'and',  rules = [],  translations,  schema,  not}) => {
-  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd, onGroupRemove, onPropChange, onRuleAdd, showCombinatorsBetweenRules,  showNotToggle } = schema;
+  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd, onGroupRemove, onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule} = schema;
   const hasParentGroup = () => !!parentId;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
@@ -33,39 +33,42 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
     <div className={`ruleGroup ${classNames.ruleGroup}`} data-rule-group-id={id} data-level={level}>
       <div className={`ruleGroup-header ${classNames.header}`}>
    
-        {showCombinatorsBetweenRules ? null : (<controls.combinatorSelector
-            options={combinators}    value={combinator}
-            title={translations.combinators.title}
-            className={`ruleGroup-combinators ${classNames.combinators}`}
-            handleOnChange={onCombinatorChange}
-            rules={rules}  level={level}
-          />)}
-        {!showNotToggle ? null : (<controls.notToggle
-            className={`ruleGroup-notToggle ${classNames.notToggle}`}
-            title={translations.notToggle.title}
-            checked={not}
-            handleOnChange={onNotToggleChange}
-            level={level}
-          /> )}
-      
-        <controls.addGroupAction
-          label={translations.addGroup.label}
-          title={translations.addGroup.title}
-          className={`ruleGroup-addGroup ${classNames.addGroup}`}
-          handleOnClick={addGroup}
-          rules={rules}   level={level}
-        />
-      
-      </div>
-      {rules.map((r, idx) => (<Fragment key={r.id}>       
-          {!idx ? (<controls.combinatorSelector
+    {!showCombinatorsBetweenRules&&  <controls.combinatorSelector
               options={combinators}
               value={combinator}
               title={translations.combinators.title}
               className={`ruleGroup-combinators betweenRules ${classNames.combinators}`}
               handleOnChange={onCombinatorChange}
               rules={rules}    level={level}
-            />) : null}
+            />
+    }
+        {showAddGroup&& <controls.addGroupAction
+          label={translations.addGroup.label}
+          title={translations.addGroup.title}
+          className={`ruleGroup-addGroup ${classNames.addGroup}`}
+          handleOnClick={addGroup}
+          rules={rules}   level={level}
+        />}     
+           
+         {showAddRule &&   <controls.addRuleAction
+          label={translations.addRule.label}
+          title={translations.addRule.title}
+          className={`ruleGroup-addRule ${classNames.addRule}`}
+          handleOnClick={addRule}
+          rules={rules}    level={level}
+        />}
+      
+      </div>
+      {rules.map((r, idx) => (<Fragment key={r.id}>       
+        {idx === 1 && showCombinatorsBetweenRules&&  <div className={`ruleGroup-header ${classNames.header}`}> <controls.combinatorSelector
+              options={combinators}
+              value={combinator}
+              title={translations.combinators.title}
+              className={`ruleGroup-combinators betweenRules ${classNames.combinators}`}
+              handleOnChange={onCombinatorChange}
+              rules={rules}    level={level}
+            /></div>
+    }
           {isRuleGroup(r) ? (<RuleGroup
               id={r.id!}
               schema={schema}
@@ -84,20 +87,8 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
               translations={translations}
             />)}
         </Fragment>))}
-        {hasParentGroup() ? (<controls.removeGroupAction
-            label={translations.removeGroup.label}
-            title={translations.removeGroup.title}
-            className={`ruleGroup-remove ${classNames.removeGroup}`}
-            handleOnClick={removeGroup}
-            rules={rules}      level={level}
-          />) : null}
-        <controls.addRuleAction
-          label={translations.addRule.label}
-          title={translations.addRule.title}
-          className={`ruleGroup-addRule ${classNames.addRule}`}
-          handleOnClick={addRule}
-          rules={rules}    level={level}
-        />
+     
+       
     </div>
   );
 };
