@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { nanoid } from 'nanoid';
 import QueryBuilder, { formatQuery } from '../src';
 import '../src/query-builder.scss';
+import QueryGenerator from '../src';
 
 const preparedFields = {
   primary: [
@@ -41,8 +42,7 @@ const preparedQueries = {
         operator: 'range'
       }
     ],
-    combinator: 'and',
-    not: false
+    combinator: 'and'
   },
   secondary: {
     id: `g-${nanoid()}`,
@@ -66,12 +66,10 @@ const preparedQueries = {
         value: 'Guitar'
       }
     ],
-    combinator: 'or',
-    not: false
+    combinator: 'or'
   },
   generic: {
     combinator: 'and',
-    not: false,
     rules: []
   }
 };
@@ -190,7 +188,7 @@ const RootView = () => {
       <hr />
       <div className="flex-box">
         <div className="scroll">
-          <QueryBuilder
+          <QueryGenerator
             query={query}
             fields={fields}
             controlClassnames={{ fields: 'form-control' }}
@@ -199,11 +197,12 @@ const RootView = () => {
             getValueEditorType={getValueEditorType}
             getInputType={getInputType}
             getValues={getValues}
+            showAddGroup={true}
+            showAddRule={true}
             showCombinatorsBetweenRules={false}
-            showNotToggle={showNotToggle}
-            resetOnFieldChange={resetOnFieldChange}
-            resetOnOperatorChange={resetOnOperatorChange}
+          
           />
+          <div>{JSON.stringify(query)}</div>
         </div>
         <div className="shrink query-log scroll">
           <h4>Options</h4>

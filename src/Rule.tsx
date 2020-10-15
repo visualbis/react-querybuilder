@@ -19,7 +19,8 @@ export const Rule: React.FC<RuleProps> = ({
     getValueEditorType,
     getValues,
     onPropChange,
-    onRuleRemove
+    onRuleRemove,
+    showAddGroup
   }
 }) => {
   const onElementChanged = (property: string, value: any) => {
@@ -50,14 +51,14 @@ export const Rule: React.FC<RuleProps> = ({
 
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
-     
-       <controls.removeRuleAction
+     {!showAddGroup && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
         className={`rule-remove ${classNames.removeRule}`}
         handleOnClick={removeRule}
         level={level}
-      />
+      />}
+     
       <controls.fieldSelector
         options={fields}
         title={translations.fields.title}
@@ -91,7 +92,13 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnChange={onValueChanged}
         level={level}
       />
-     
+      {showAddGroup && <controls.removeRuleAction
+        label={translations.removeRule.label}
+        title={translations.removeRule.title}
+        className={`rule-remove ${classNames.removeRule}`}
+        handleOnClick={removeRule}
+        level={level}
+      />}
      
     </div>
   );

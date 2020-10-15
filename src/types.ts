@@ -185,6 +185,8 @@ export interface Schema {
   onRuleRemove(id: string, parentId: string): void;
   showCombinatorsBetweenRules: boolean;
   showNotToggle: boolean;
+  showAddGroup:boolean;
+  showAddRule:boolean;
 }
 
 export interface Translations {
@@ -363,6 +365,14 @@ export interface QueryBuilderProps {
    * Show the combinators between rules and rule groups instead of at the top of rule groups.
    */
   showCombinatorsBetweenRules?: boolean;
+  /**
+   * Show the add rule option.
+   */
+  showAddRule?: boolean;
+   /**
+   * Show the add group button.
+   */
+  showAddGroup?: boolean;
   /**
    * Show the "not" toggle for rule groups.
    */

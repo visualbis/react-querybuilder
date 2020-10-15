@@ -15,7 +15,7 @@ import {
   RuleType,
   Translations
 } from './types';
-import { findRule, generateValidQuery, getLevel, isRuleGroup } from './utils';
+import { findRule, findRuleGroup, generateValidQuery, getLevel, isRuleGroup } from './utils';
 
 const defaultTranslations: Translations = {
   fields: {
@@ -36,11 +36,11 @@ const defaultTranslations: Translations = {
     title: 'Remove group'
   },
   addRule: {
-    label: '+ Add rule',
+    label: ' Add rule',
     title: 'Add rule'
   },
   addGroup: {
-    label: '+ Add group',
+    label: ' Add group',
     title: 'Add group'
   },
   combinators: {
@@ -71,8 +71,8 @@ const defaultOperators: NameLabelPair[] = [
 ];
 
 const defaultCombinators: NameLabelPair[] = [
-  { name: 'and', label: 'AND' },
-  { name: 'or', label: 'OR' }
+  { name: 'and', label: 'And' },
+  { name: 'or', label: 'Or' }
 ];
 
 const defaultControlClassnames: Classnames = {
@@ -106,8 +106,7 @@ const defaultControlElements: Controls = {
 };
 
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,
-   getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, showNotToggle = false, resetOnFieldChange = true, resetOnOperatorChange = false }) => {
-  
+   getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, showNotToggle = false, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false }) => {
   const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain} = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators);
   const getInitialQuery = () => {// Gets the initial query   
     return (query && generateValidQuery(query)) || createRuleGroup();
@@ -132,6 +131,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) {  // istanbul ignore else
+      const newRule = createRule();
+      group.rules.push({...newRule,value:getRuleDefaultValue(newRule)})
       parent.rules.push(group);
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
@@ -156,10 +157,15 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
-      const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
-      parent.rules.splice(index, 1);
-      setRoot(rootCopy);
-      _notifyQueryChange(rootCopy);
+      const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);      
+      if(parent.rules.length ===1){
+        const parentGroup = findRuleGroup(parentId, rootCopy) as RuleGroupType;   
+        onGroupRemove(parentId,parentGroup.id);
+      }else{
+        parent.rules.splice(index, 1);
+        setRoot(rootCopy);
+        _notifyQueryChange(rootCopy);
+      }
     }
   };
   const onGroupRemove = (groupId: string, parentId: string) => {//Removes a rule group from the query
@@ -184,29 +190,21 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
   const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
-    getInputType: getInputTypeMain,  getValues: getValuesMain,  showCombinatorsBetweenRules,  showNotToggle }; 
-    
+    getInputType: getInputTypeMain,  getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle };    
   useEffect(() => { // Set the query state when a new query prop comes in
     setRoot(generateValidQuery(query || getInitialQuery()) as RuleGroupType);
-  }, [query]);  
+  }, [query]);
   useEffect(() => { // Notify a query change on mount
     _notifyQueryChange(root);
   }, []);
   return (
     <div className={`queryBuilder ${schema.classNames.queryBuilder}`}>
       <schema.controls.ruleGroup
-        translations={{ ...defaultTranslations, ...translations }}
-        rules={root.rules}
-        combinator={root.combinator}
-        schema={schema}
-        id={root.id}
-        not={!!root.not}
-      />
+        translations={{ ...defaultTranslations, ...translations }} rules={root.rules}    combinator={root.combinator}  schema={schema} id={root.id}   not={!!root.not}/>
     </div>
   );
 };
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[])=>{
-
   const getValueEditorTypeMain = (field: string, operator: string) => {// Gets the ValueEditor type for a given field and operator  
     if (getValueEditorType) {
       const vet = getValueEditorType(field, operator);

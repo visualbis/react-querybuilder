@@ -10,8 +10,7 @@ const generateValidQuery = (query: RuleGroupType | RuleType): RuleGroupType | Ru
     return {
       id: query.id || `g-${nanoid()}`,
       rules: query.rules.map((rule) => generateValidQuery(rule)),
-      combinator: query.combinator,
-      not: !!query.not
+      combinator: query.combinator
     };
   }
   return {
