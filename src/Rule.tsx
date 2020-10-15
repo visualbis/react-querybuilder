@@ -20,7 +20,7 @@ export const Rule: React.FC<RuleProps> = ({
     getValues,
     onPropChange,
     onRuleRemove,
-    groupEnabled
+    showAddGroup
   }
 }) => {
   const onElementChanged = (property: string, value: any) => {
@@ -51,7 +51,7 @@ export const Rule: React.FC<RuleProps> = ({
 
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
-     {!groupEnabled && <controls.removeRuleAction
+     {!showAddGroup && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
         className={`rule-remove ${classNames.removeRule}`}
@@ -92,7 +92,7 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnChange={onValueChanged}
         level={level}
       />
-      {groupEnabled && <controls.removeRuleAction
+      {showAddGroup && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
         className={`rule-remove ${classNames.removeRule}`}

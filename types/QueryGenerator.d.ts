@@ -8,6 +8,8 @@ export interface IProps {
     getInputType?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;
     getValues?(field: string, operator: string): NameLabelPair[];
-    groupEnabled?: boolean;
+    showAddGroup?: boolean;
+    showAddRule?: boolean;
+    showCombinatorsBetweenRules?: boolean;
 }
 export declare const QueryGenerator: React.FC<IProps>;
