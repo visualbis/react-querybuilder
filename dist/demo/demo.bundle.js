@@ -120,6 +120,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var preparedFields = {
   primary: [{
     name: 'firstName',
@@ -172,8 +173,7 @@ var preparedQueries = {
       value: '100',
       operator: 'range'
     }],
-    combinator: 'and',
-    not: false
+    combinator: 'and'
   },
   secondary: {
     id: "g-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
@@ -193,12 +193,10 @@ var preparedQueries = {
       operator: '=',
       value: 'Guitar'
     }],
-    combinator: 'or',
-    not: false
+    combinator: 'or'
   },
   generic: {
     combinator: 'and',
-    not: false,
     rules: []
   }
 };
@@ -384,11 +382,10 @@ var RootView = function RootView() {
     getValueEditorType: getValueEditorType,
     getInputType: getInputType,
     getValues: getValues,
-    showCombinatorsBetweenRules: false,
-    showNotToggle: showNotToggle,
-    resetOnFieldChange: resetOnFieldChange,
-    resetOnOperatorChange: resetOnOperatorChange
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    showAddGroup: true,
+    showAddRule: true,
+    showCombinatorsBetweenRules: false
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, JSON.stringify(query))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "shrink query-log scroll"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Options"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "checkbox",
@@ -52435,11 +52432,11 @@ var defaultTranslations = {
     title: 'Remove group'
   },
   addRule: {
-    label: '+ Add rule',
+    label: ' Add rule',
     title: 'Add rule'
   },
   addGroup: {
-    label: '+ Add group',
+    label: ' Add group',
     title: 'Add group'
   },
   combinators: {
@@ -52500,10 +52497,10 @@ var defaultOperators = [{
 }];
 var defaultCombinators = [{
   name: 'and',
-  label: 'AND'
+  label: 'And'
 }, {
   name: 'or',
-  label: 'OR'
+  label: 'Or'
 }];
 var defaultControlClassnames = {
   queryBuilder: '',
@@ -52556,6 +52553,10 @@ var QueryBuilder = function QueryBuilder(_ref) {
       showNotToggle = _ref$showNotToggle === void 0 ? false : _ref$showNotToggle,
       _ref$resetOnFieldChan = _ref.resetOnFieldChange,
       resetOnFieldChange = _ref$resetOnFieldChan === void 0 ? true : _ref$resetOnFieldChan,
+      _ref$showAddGroup = _ref.showAddGroup,
+      showAddGroup = _ref$showAddGroup === void 0 ? true : _ref$showAddGroup,
+      _ref$showAddRule = _ref.showAddRule,
+      showAddRule = _ref$showAddRule === void 0 ? true : _ref$showAddRule,
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
       resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
 
@@ -52613,6 +52614,10 @@ var QueryBuilder = function QueryBuilder(_ref) {
 
     if (parent) {
       // istanbul ignore else
+      var newRule = createRule();
+      group.rules.push(_objectSpread(_objectSpread({}, newRule), {}, {
+        value: getRuleDefaultValue(newRule)
+      }));
       parent.rules.push(group);
       setRoot(rootCopy);
 
@@ -52658,10 +52663,16 @@ var QueryBuilder = function QueryBuilder(_ref) {
       var index = array_find_index__WEBPACK_IMPORTED_MODULE_0___default()(parent.rules, function (x) {
         return x.id === ruleId;
       });
-      parent.rules.splice(index, 1);
-      setRoot(rootCopy);
 
-      _notifyQueryChange(rootCopy);
+      if (parent.rules.length === 1) {
+        var parentGroup = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRuleGroup"])(parentId, rootCopy);
+        onGroupRemove(parentId, parentGroup.id);
+      } else {
+        parent.rules.splice(index, 1);
+        setRoot(rootCopy);
+
+        _notifyQueryChange(rootCopy);
+      }
     }
   };
 
@@ -52720,6 +52731,8 @@ var QueryBuilder = function QueryBuilder(_ref) {
     getInputType: getInputTypeMain,
     getValues: getValuesMain,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
+    showAddGroup: showAddGroup,
+    showAddRule: showAddRule,
     showNotToggle: showNotToggle
   };
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
@@ -52837,8 +52850,10 @@ var QueryGenerator = function QueryGenerator(_ref) {
       getInputType = _ref.getInputType,
       getValueEditorType = _ref.getValueEditorType,
       getValues = _ref.getValues,
-      groupEnabled = _ref.groupEnabled;
-  var generatorCls = groupEnabled ? "query-generator hide-group" : "query-generator";
+      showAddGroup = _ref.showAddGroup,
+      showAddRule = _ref.showAddRule,
+      showCombinatorsBetweenRules = _ref.showCombinatorsBetweenRules;
+  var generatorCls = !showAddGroup ? "query-generator hide-group" : "query-generator";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: generatorCls
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QueryBuilder__WEBPACK_IMPORTED_MODULE_1__["QueryBuilder"], {
@@ -52851,7 +52866,9 @@ var QueryGenerator = function QueryGenerator(_ref) {
     getOperators: getOperators,
     getInputType: getInputType,
     getValueEditorType: getValueEditorType,
-    showCombinatorsBetweenRules: true,
+    showCombinatorsBetweenRules: showCombinatorsBetweenRules,
+    showAddGroup: showAddGroup,
+    showAddRule: showAddRule,
     resetOnOperatorChange: false,
     getValues: getValues
   }));
@@ -52892,7 +52909,8 @@ var Rule = function Rule(_ref) {
       getValueEditorType = _ref$schema.getValueEditorType,
       getValues = _ref$schema.getValues,
       onPropChange = _ref$schema.onPropChange,
-      onRuleRemove = _ref$schema.onRuleRemove;
+      onRuleRemove = _ref$schema.onRuleRemove,
+      showAddGroup = _ref$schema.showAddGroup;
 
   var onElementChanged = function onElementChanged(property, value) {
     onPropChange(property, value, id);
@@ -52924,7 +52942,7 @@ var Rule = function Rule(_ref) {
     className: "rule ".concat(classNames.rule),
     "data-rule-id": id,
     "data-level": level
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
+  }, !showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
     label: translations.removeRule.label,
     title: translations.removeRule.title,
     className: "rule-remove ".concat(classNames.removeRule),
@@ -52958,6 +52976,12 @@ var Rule = function Rule(_ref) {
     values: getValues(field, operator),
     className: "rule-value ".concat(classNames.value),
     handleOnChange: onValueChanged,
+    level: level
+  }), showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
+    label: translations.removeRule.label,
+    title: translations.removeRule.title,
+    className: "rule-remove ".concat(classNames.removeRule),
+    handleOnClick: removeRule,
     level: level
   }));
 };
@@ -53000,7 +53024,8 @@ var RuleGroup = function RuleGroup(_ref) {
       onPropChange = schema.onPropChange,
       onRuleAdd = schema.onRuleAdd,
       showCombinatorsBetweenRules = schema.showCombinatorsBetweenRules,
-      showNotToggle = schema.showNotToggle;
+      showAddGroup = schema.showAddGroup,
+      showAddRule = schema.showAddRule;
 
   var hasParentGroup = function hasParentGroup() {
     return !!parentId;
@@ -53043,31 +53068,34 @@ var RuleGroup = function RuleGroup(_ref) {
     "data-level": level
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ruleGroup-header ".concat(classNames.header)
-  }, showCombinatorsBetweenRules ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
+  }, !showCombinatorsBetweenRules && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
     options: combinators,
     value: combinator,
     title: translations.combinators.title,
-    className: "ruleGroup-combinators ".concat(classNames.combinators),
+    className: "ruleGroup-combinators betweenRules ".concat(classNames.combinators),
     handleOnChange: onCombinatorChange,
     rules: rules,
     level: level
-  }), !showNotToggle ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.notToggle, {
-    className: "ruleGroup-notToggle ".concat(classNames.notToggle),
-    title: translations.notToggle.title,
-    checked: not,
-    handleOnChange: onNotToggleChange,
-    level: level
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.addGroupAction, {
+  }), showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.addGroupAction, {
     label: translations.addGroup.label,
     title: translations.addGroup.title,
     className: "ruleGroup-addGroup ".concat(classNames.addGroup),
     handleOnClick: addGroup,
     rules: rules,
     level: level
+  }), showAddRule && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.addRuleAction, {
+    label: translations.addRule.label,
+    title: translations.addRule.title,
+    className: "ruleGroup-addRule ".concat(classNames.addRule),
+    handleOnClick: addRule,
+    rules: rules,
+    level: level
   })), rules.map(function (r, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
       key: r.id
-    }, !idx ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
+    }, idx === 1 && showCombinatorsBetweenRules && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "ruleGroup-header ".concat(classNames.header)
+    }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
       options: combinators,
       value: combinator,
       title: translations.combinators.title,
@@ -53075,7 +53103,7 @@ var RuleGroup = function RuleGroup(_ref) {
       handleOnChange: onCombinatorChange,
       rules: rules,
       level: level
-    }) : null, isRuleGroup(r) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RuleGroup, {
+    })), isRuleGroup(r) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RuleGroup, {
       id: r.id,
       schema: schema,
       parentId: id,
@@ -53092,20 +53120,6 @@ var RuleGroup = function RuleGroup(_ref) {
       parentId: id,
       translations: translations
     }));
-  }), hasParentGroup() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.removeGroupAction, {
-    label: translations.removeGroup.label,
-    title: translations.removeGroup.title,
-    className: "ruleGroup-remove ".concat(classNames.removeGroup),
-    handleOnClick: removeGroup,
-    rules: rules,
-    level: level
-  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.addRuleAction, {
-    label: translations.addRule.label,
-    title: translations.addRule.title,
-    className: "ruleGroup-addRule ".concat(classNames.addRule),
-    handleOnClick: addRule,
-    rules: rules,
-    level: level
   }));
 };
 RuleGroup.displayName = 'RuleGroup';
@@ -53135,19 +53149,51 @@ var ActionElement = function ActionElement(_ref) {
     return handleOnClick(e);
   };
 
+  var renderLabel = function renderLabel(label, className) {
+    if (label == "x") {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        width: "11",
+        height: "12",
+        viewBox: "0 0 11 12",
+        fill: "none"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        d: "M10.3582 2.25H9.60815V10.875C9.60815 11.0312 9.57886 11.1777 9.52026 11.3145C9.46167 11.4512 9.38159 11.5703 9.28003 11.6719C9.17847 11.7734 9.05933 11.8535 8.92261 11.9121C8.78589 11.9707 8.6394 12 8.48315 12H2.48315C2.3269 12 2.18042 11.9707 2.0437 11.9121C1.90698 11.8535 1.78784 11.7734 1.68628 11.6719C1.58472 11.5703 1.50464 11.4512 1.44604 11.3145C1.38745 11.1777 1.35815 11.0312 1.35815 10.875V2.25H0.608154V1.5H3.60815V0.75C3.60815 0.644531 3.62769 0.546875 3.66675 0.457031C3.70581 0.367188 3.75854 0.289062 3.82495 0.222656C3.89526 0.152344 3.97534 0.0976563 4.06519 0.0585938C4.15503 0.0195312 4.25269 0 4.35815 0H6.60815C6.71362 0 6.81128 0.0195312 6.90112 0.0585938C6.99097 0.0976563 7.06909 0.152344 7.1355 0.222656C7.20581 0.289062 7.2605 0.367188 7.29956 0.457031C7.33862 0.546875 7.35815 0.644531 7.35815 0.75V1.5H10.3582V2.25ZM4.35815 1.5H6.60815V0.75H4.35815V1.5ZM8.85815 2.25H2.10815V10.875C2.10815 10.9766 2.14526 11.0645 2.21948 11.1387C2.2937 11.2129 2.38159 11.25 2.48315 11.25H8.48315C8.58472 11.25 8.67261 11.2129 8.74683 11.1387C8.82104 11.0645 8.85815 10.9766 8.85815 10.875V2.25ZM4.35815 9.75H3.60815V3.75H4.35815V9.75ZM5.85815 9.75H5.10815V3.75H5.85815V9.75ZM7.35815 9.75H6.60815V3.75H7.35815V9.75Z",
+        fill: "#0078D4"
+      })));
+    }
+
+    if (className && className.indexOf("ruleGroup-addRule") > -1) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        width: "11",
+        height: "10",
+        viewBox: "0 0 11 10",
+        fill: "none"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        d: "M10.2559 4.6875V5.3125H5.56836V10H4.94336V5.3125H0.255859V4.6875H4.94336V0H5.56836V4.6875H10.2559Z",
+        fill: "#0078D4"
+      })), label);
+    }
+
+    if (className && className.indexOf("ruleGroup-addGroup ") > -1) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        width: "10",
+        height: "10",
+        viewBox: "0 0 10 10",
+        fill: "none"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        d: "M10 0V10H1.875V3.75H0V0H10ZM3.125 3.125V0.625H0.625V3.125H3.125ZM2.5 6.25H5V3.75H2.5V6.25ZM5 6.875H2.5V9.375H5V6.875ZM9.375 6.875H5.625V9.375H9.375V6.875ZM9.375 3.75H5.625V6.25H9.375V3.75ZM9.375 3.125V0.625H3.75V3.125H9.375Z",
+        fill: "#0078D4"
+      })), label);
+    }
+
+    return label;
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: className,
     title: title,
     onClick: onClick
-  }, label == "x" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
-    width: "11",
-    height: "12",
-    viewBox: "0 0 11 12",
-    fill: "none"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M10.3582 2.25H9.60815V10.875C9.60815 11.0312 9.57886 11.1777 9.52026 11.3145C9.46167 11.4512 9.38159 11.5703 9.28003 11.6719C9.17847 11.7734 9.05933 11.8535 8.92261 11.9121C8.78589 11.9707 8.6394 12 8.48315 12H2.48315C2.3269 12 2.18042 11.9707 2.0437 11.9121C1.90698 11.8535 1.78784 11.7734 1.68628 11.6719C1.58472 11.5703 1.50464 11.4512 1.44604 11.3145C1.38745 11.1777 1.35815 11.0312 1.35815 10.875V2.25H0.608154V1.5H3.60815V0.75C3.60815 0.644531 3.62769 0.546875 3.66675 0.457031C3.70581 0.367188 3.75854 0.289062 3.82495 0.222656C3.89526 0.152344 3.97534 0.0976563 4.06519 0.0585938C4.15503 0.0195312 4.25269 0 4.35815 0H6.60815C6.71362 0 6.81128 0.0195312 6.90112 0.0585938C6.99097 0.0976563 7.06909 0.152344 7.1355 0.222656C7.20581 0.289062 7.2605 0.367188 7.29956 0.457031C7.33862 0.546875 7.35815 0.644531 7.35815 0.75V1.5H10.3582V2.25ZM4.35815 1.5H6.60815V0.75H4.35815V1.5ZM8.85815 2.25H2.10815V10.875C2.10815 10.9766 2.14526 11.0645 2.21948 11.1387C2.2937 11.2129 2.38159 11.25 2.48315 11.25H8.48315C8.58472 11.25 8.67261 11.2129 8.74683 11.1387C8.82104 11.0645 8.85815 10.9766 8.85815 10.875V2.25ZM4.35815 9.75H3.60815V3.75H4.35815V9.75ZM5.85815 9.75H5.10815V3.75H5.85815V9.75ZM7.35815 9.75H6.60815V3.75H7.35815V9.75Z",
-    fill: "#0078D4"
-  })) : label);
+  }, renderLabel(label, className));
 };
 
 ActionElement.displayName = 'ActionElement';
@@ -53176,24 +53222,33 @@ var NavTab = function NavTab(_ref) {
       value = _ref.value;
 
   var onChange = function onChange(e) {
-    handleOnChange(e.target.dataset.key);
+    handleOnChange(e.target.value);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: className
-  }, options.map(function (option) {
-    var key = option.id ? "key-".concat(option.id) : "key-".concat(option.name);
-    var cls = value == option.name ? "combinators active" : "combinators";
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      type: "button",
-      className: cls,
-      role: "button",
-      "data-key": option.name,
-      key: option.name,
-      onClick: onChange,
-      value: option.label
-    });
-  }));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: className,
+    title: title
+  }, options.map(function (v) {
+    var isChecked = value === v.name;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      key: v.name
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "radio",
+      value: v.name,
+      "aria-checked": isChecked,
+      checked: isChecked,
+      onChange: onChange
+    }), v.label);
+  })) //   <div className={className}>
+  //       {options.map((option) => {
+  //   const key = option.id ? `key-${option.id}` : `key-${option.name}`;
+  //   const cls =  value == option.name?"combinators active":"combinators";
+  //   return (
+  //     <input type="button" className={cls} role="button" data-key={option.name} key={option.name} onClick={onChange} value={option.label}/>
+  //   );
+  // })}
+  //   </div>
+  ;
 };
 
 NavTab.displayName = 'NavTab';
@@ -53581,6 +53636,58 @@ var findRule = function findRule(id, parent) {
 
 /***/ }),
 
+/***/ "./src/utils/findRuleGroup.ts":
+/*!************************************!*\
+  !*** ./src/utils/findRuleGroup.ts ***!
+  \************************************/
+/*! exports provided: findRuleGroup, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findRuleGroup", function() { return findRuleGroup; });
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ "./src/utils/index.ts");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+var findRuleGroup = function findRuleGroup(id, parent) {
+  if (parent.id === id) {
+    return parent;
+  }
+
+  var _iterator = _createForOfIteratorHelper(parent.rules),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var rule = _step.value;
+
+      if (rule.id === id) {
+        return parent;
+      } else if (Object(___WEBPACK_IMPORTED_MODULE_0__["isRuleGroup"])(rule)) {
+        var subRule = findRuleGroup(id, rule);
+
+        if (subRule) {
+          return parent;
+        }
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return undefined;
+};
+/* harmony default export */ __webpack_exports__["default"] = (findRuleGroup);
+
+/***/ }),
+
 /***/ "./src/utils/formatQuery.ts":
 /*!**********************************!*\
   !*** ./src/utils/formatQuery.ts ***!
@@ -53756,8 +53863,7 @@ var generateValidQuery = function generateValidQuery(query) {
       rules: query.rules.map(function (rule) {
         return generateValidQuery(rule);
       }),
-      combinator: query.combinator,
-      not: !!query.not
+      combinator: query.combinator
     };
   }
 
@@ -53808,7 +53914,7 @@ var getLevel = function getLevel(id, index, query) {
 /*!****************************!*\
   !*** ./src/utils/index.ts ***!
   \****************************/
-/*! exports provided: findRule, formatQuery, generateValidQuery, getLevel, isRuleGroup */
+/*! exports provided: findRule, findRuleGroup, formatQuery, generateValidQuery, getLevel, isRuleGroup */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53816,17 +53922,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _findRule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./findRule */ "./src/utils/findRule.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "findRule", function() { return _findRule__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _formatQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formatQuery */ "./src/utils/formatQuery.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatQuery", function() { return _formatQuery__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+/* harmony import */ var _findRuleGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./findRuleGroup */ "./src/utils/findRuleGroup.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "findRuleGroup", function() { return _findRuleGroup__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _generateValidQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./generateValidQuery */ "./src/utils/generateValidQuery.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "generateValidQuery", function() { return _generateValidQuery__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+/* harmony import */ var _formatQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formatQuery */ "./src/utils/formatQuery.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatQuery", function() { return _formatQuery__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _getLevel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getLevel */ "./src/utils/getLevel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLevel", function() { return _getLevel__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+/* harmony import */ var _generateValidQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./generateValidQuery */ "./src/utils/generateValidQuery.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "generateValidQuery", function() { return _generateValidQuery__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _isRuleGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isRuleGroup */ "./src/utils/isRuleGroup.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isRuleGroup", function() { return _isRuleGroup__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+/* harmony import */ var _getLevel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getLevel */ "./src/utils/getLevel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLevel", function() { return _getLevel__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _isRuleGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isRuleGroup */ "./src/utils/isRuleGroup.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isRuleGroup", function() { return _isRuleGroup__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
 
 
 
