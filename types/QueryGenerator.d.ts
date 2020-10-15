@@ -1,10 +1,11 @@
 import React from "react";
 import { RuleGroupType, Field, NameLabelPair } from "./types";
+import "./query-builder.less";
 export interface IProps {
     query?: RuleGroupType;
     fields: Field[];
     getOperators?(field: string): Field[];
-    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
+    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
     getInputType?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;
     getValues?(field: string, operator: string): NameLabelPair[];
