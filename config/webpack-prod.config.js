@@ -10,6 +10,18 @@ module.exports = merge(webpackCommon, {
   entry: {
     index: './src/index.ts'
   },
+  module: {
+    rules: [      
+        {
+            test: /\.less$/,
+            use: [
+                { loader: 'style-loader' },
+                { loader: 'css-loader' },
+                { loader: 'less-loader' }
+            ]
+        }
+    ]
+},
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
@@ -20,15 +32,7 @@ module.exports = merge(webpackCommon, {
     'react-dom': 'commonjs react-dom'
   },
 
-  devtool: 'none',
+  devtool: 'none'
 
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          from: './src/query-builder.scss'
-        }
-      ]
-    })
-  ]
+ 
 });

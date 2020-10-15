@@ -1,0 +1,214 @@
+// Color variables (appears count calculates by raw css)
+@color0: #cccccc; // Appears 12 times
+@color1: #f5f5f5; // Appears 9 times
+@color2: #333333; // Appears 4 times
+
+// Width variables (appears count calculates by raw css)
+@width1: 100%; // Appears 8 times
+@width2: 30px; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height1: 32px; // Appears 8 times
+@height2: 30px; // Appears 5 times
+
+.rule {
+	.rule-fields {
+		border: 1px solid @color0;
+		height: @height1;
+		margin: 0px 5px;
+		outline: none;
+		overflow: hidden;
+		padding: 5px 5px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: @width1;
+		&:focus {
+			border: 1px solid @color0;
+			height: @height1;
+			margin: 0px 5px;
+			outline: none;
+			overflow: hidden;
+			padding: 5px 5px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: @width1;
+		}
+	}
+	.autocomplete-wrapper {
+		height: @height1;
+		input {
+			border: 1px solid @color0;
+			height: @height2;
+			margin: 0px 5px;
+			outline: none;
+			overflow: hidden;
+			padding: 0px 10px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			&:focus {
+				border: 1px solid @color0;
+				height: @height2;
+				margin: 0px 5px;
+				outline: none;
+				overflow: hidden;
+				padding: 0px 10px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+	}
+	.autocomplete-wrapper>div>div {
+		border: 1px solid @color0;
+		.item {
+			height: @height2;
+			line-height: @height2;
+			padding: 0px 5px;
+		}
+		.item.selected-item {
+			background: @color1;
+		}
+	}
+	.rule-operators {
+		border: 1px solid @color0;
+		height: @height1;
+		margin: 0px 5px;
+		outline: none;
+		overflow: hidden;
+		padding: 5px 5px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: @width1;
+		&:focus {
+			border: 1px solid @color0;
+			height: @height1;
+			margin: 0px 5px;
+			outline: none;
+			overflow: hidden;
+			padding: 5px 5px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: @width1;
+		}
+	}
+	.rule-value {
+		border: 1px solid @color0;
+		height: @height1;
+		height: @height2;
+		margin: 0px 5px;
+		outline: none;
+		overflow: hidden;
+		padding: 0px 10px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: @width1;
+		&:focus {
+			border: 1px solid @color0;
+			height: @height1;
+			height: @height2;
+			margin: 0px 5px;
+			outline: none;
+			overflow: hidden;
+			padding: 0px 10px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: @width1;
+		}
+	}
+}
+.ruleGroup {
+	background: @color1;
+	border: 1px solid @color0;
+	padding: 2px;
+	.ruleGroup-combinators.betweenRules {
+		margin: 10px;
+	}
+	.rule {
+		background: @color1;
+		display: flex;
+		flex-direction: row;
+		margin: 5px;
+		padding: 5px;
+	}
+	.ruleGroup {
+		background: @color1;
+		margin: 5px;
+		padding: 5px;
+	}
+}
+.rule-remove {
+	background: transparent;
+	border: none;
+	border: none;
+	min-width: @width2;
+}
+.ruleGroup-remove {
+	background: transparent;
+	border: none;
+	border: none;
+	min-width: @width2;
+}
+.query-generator {
+	max-height: 500px;
+	max-width: 500px;
+	overflow-x: hidden;
+    overflow-y: auto;
+    margin: 5px;
+}
+.ruleGroup-header {
+	display: flex;
+	margin: 5px;
+	.ruleGroup-addGroup {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: auto;
+		outline: none;
+		padding: 5px 15px;
+		&:focus {
+			background: @color1;
+			border: none;
+			color: @color2;
+			margin-left: auto;
+			outline: none;
+			padding: 5px 15px;
+		}
+	}
+}
+.ruleGroup-addRule {
+	background: @color1;
+	border: none;
+	color: @color2;
+	margin-left: 5px;
+	outline: none;
+	padding: 5px 15px;
+	&:focus {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: 5px;
+		outline: none;
+		padding: 5px 15px;
+	}
+}
+.query-generator.hide-group {
+	.ruleGroup-header {
+		.ruleGroup-addGroup {
+			display: none;
+		}
+		.ruleGroup-addRule {
+			margin-left: auto;
+		}
+	}
+}
+.ruleGroup-combinators {
+	border: none;
+	display: flex;
+	flex-direction: row;
+	padding: 0px;
+	label {
+	padding-right: 10px;
+	}
+	.combinators.active {
+		background: @color1;
+	}
+}

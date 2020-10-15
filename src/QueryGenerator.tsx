@@ -1,7 +1,8 @@
 
 import React,{ Component } from "react";
 import {QueryBuilder} from "./QueryBuilder";
-import {RuleGroupType,Field,NameLabelPair} from "./types"
+import {RuleGroupType,Field,NameLabelPair} from "./types";
+import "./query-builder.less";
 
 export interface IProps{
     query?: RuleGroupType;   
