@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import Autocomplete from 'react-autocomplete';
+import Autosuggest from 'react-autosuggest';
 import { ValueEditorProps } from '../types';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
@@ -17,7 +18,12 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   }
   const onSelectChange = (e:any) =>  handleOnChange(e.target.value);
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
-  const [val, setVal] = useState("");   
+  const  onAutoSuggetionChange = (event:any, value:any) => {
+      setVal(value.newValue);
+      handleOnChange(value.newValue);
+  };
+  const [val, setVal] = useState(value); 
+  const [suggestions, setSuggestions] = useState([] as  any);   
   switch (type) {
     case 'select':
       return (
@@ -37,28 +43,31 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
         </select>  
         
       );
-    case 'autocomplete':
-      const shouldItemRender = (state: any, val: string) => { return state.label.toLowerCase().indexOf(val.toLowerCase()) !== -1 };
-      const renderItem = (item: any, isHighlighted: boolean) => (
-        <div className={`item ${isHighlighted ? 'selected-item' : ''}`}>
-          {item.label}
-        </div>);
-      const _values = values ? values : [];
-      const getItemValue = (item: any) => { return item.label; };
-      const _handelOnChange = (val: any) => {
-        setVal(val);
-        handleOnChange(val);
-      }
-      const _onChange = (event: any, val: any) => { setVal(val); }
-      return (<div className="autocomplete-wrapper"> <Autocomplete
-        value={val}
-        items={_values}
-        getItemValue={getItemValue}
-        shouldItemRender={shouldItemRender}
-        renderItem={renderItem}
-        onChange={_onChange}
-        onSelect={_handelOnChange}
-      /></div>)
+    case 'autocomplete':       
+        const suggessionInputProps = {value: val?val:"", onChange: onAutoSuggetionChange};       
+         const onSuggestionsFetchRequested = (value:any) => {        
+          const _values= values && values.length? values.filter(sug => sug.label.toLowerCase().includes(value.value.toLowerCase().trim()) ):[];
+          setSuggestions(_values);
+         };      
+        const getSuggestionName = (suggestion:any)=> {
+          return suggestion.label;
+        }        
+        const renderSuggestion = (suggestion:any) => {
+          return (
+            <span>{suggestion.label}</span>
+          );
+        }
+        const onClear = ()=> {};
+        ;
+     return    (<Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={onClear}
+        getSuggestionValue={getSuggestionName}
+        renderSuggestion={renderSuggestion}
+        inputProps={suggessionInputProps}
+      />)
+    
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
