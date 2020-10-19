@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import Autocomplete from 'react-autocomplete';
 import Autosuggest from 'react-autosuggest';
 import { ValueEditorProps } from '../types';
 
