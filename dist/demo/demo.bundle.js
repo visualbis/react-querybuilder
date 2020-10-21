@@ -53896,6 +53896,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$translations = _ref.translations,
       translations = _ref$translations === void 0 ? defaultTranslations : _ref$translations,
       controlElements = _ref.controlElements,
+      getPlaceHolder = _ref.getPlaceHolder,
       getOperators = _ref.getOperators,
       getValueEditorType = _ref.getValueEditorType,
       getInputType = _ref.getInputType,
@@ -53915,12 +53916,13 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
       resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
 
-  var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators),
+  var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators, getPlaceHolder),
       getValueEditorTypeMain = _useQueryBuilderProps.getValueEditorTypeMain,
       getInputTypeMain = _useQueryBuilderProps.getInputTypeMain,
       getOperatorsMain = _useQueryBuilderProps.getOperatorsMain,
       getRuleDefaultValue = _useQueryBuilderProps.getRuleDefaultValue,
-      getValuesMain = _useQueryBuilderProps.getValuesMain;
+      getValuesMain = _useQueryBuilderProps.getValuesMain,
+      getPlaceHolderMain = _useQueryBuilderProps.getPlaceHolderMain;
 
   var getInitialQuery = function getInitialQuery() {
     // Gets the initial query   
@@ -54084,6 +54086,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
     getOperators: getOperatorsMain,
     getValueEditorType: getValueEditorTypeMain,
     getInputType: getInputTypeMain,
+    getPlaceHolder: getPlaceHolderMain,
     getValues: getValuesMain,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showAddGroup: showAddGroup,
@@ -54110,7 +54113,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
   }));
 };
 
-var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators) {
+var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators, getPlaceHolder) {
   var getValueEditorTypeMain = function getValueEditorTypeMain(field, operator) {
     // Gets the ValueEditor type for a given field and operator  
     if (getValueEditorType) {
@@ -54119,6 +54122,16 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     }
 
     return 'text';
+  };
+
+  var getPlaceHolderMain = function getPlaceHolderMain(field, operator) {
+    // Gets the `<input />` type for a given field and operator  
+    if (getPlaceHolder) {
+      var placeHolder = getPlaceHolder(field, operator);
+      if (placeHolder) return placeHolder;
+    }
+
+    return '';
   };
 
   var getInputTypeMain = function getInputTypeMain(field, operator) {
@@ -54173,7 +54186,8 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     getInputTypeMain: getInputTypeMain,
     getOperatorsMain: getOperatorsMain,
     getRuleDefaultValue: getRuleDefaultValue,
-    getValuesMain: getValuesMain
+    getValuesMain: getValuesMain,
+    getPlaceHolderMain: getPlaceHolderMain
   };
 };
 
@@ -54206,6 +54220,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
       fields = _ref$fields === void 0 ? [] : _ref$fields,
       getOperators = _ref.getOperators,
       getInputType = _ref.getInputType,
+      getPlaceHolder = _ref.getPlaceHolder,
       getValueEditorType = _ref.getValueEditorType,
       getValues = _ref.getValues,
       showAddGroup = _ref.showAddGroup,
@@ -54223,6 +54238,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
     onQueryChange: onQueryChange,
     getOperators: getOperators,
     getInputType: getInputType,
+    getPlaceHolder: getPlaceHolder,
     getValueEditorType: getValueEditorType,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showAddGroup: showAddGroup,
@@ -54262,6 +54278,7 @@ var Rule = function Rule(_ref) {
       controls = _ref$schema.controls,
       fields = _ref$schema.fields,
       getInputType = _ref$schema.getInputType,
+      getPlaceHolder = _ref$schema.getPlaceHolder,
       getLevel = _ref$schema.getLevel,
       getOperators = _ref$schema.getOperators,
       getValueEditorType = _ref$schema.getValueEditorType,
@@ -54331,6 +54348,7 @@ var Rule = function Rule(_ref) {
     value: value,
     type: getValueEditorType(field, operator),
     inputType: getInputType(field, operator),
+    placeHolder: getPlaceHolder(field, operator),
     values: getValues(field, operator),
     className: "rule-value ".concat(classNames.value),
     handleOnChange: onValueChanged,
@@ -54692,6 +54710,7 @@ var ValueEditor = function ValueEditor(_ref) {
       className = _ref.className,
       type = _ref.type,
       inputType = _ref.inputType,
+      placeHolder = _ref.placeHolder,
       values = _ref.values;
 
   if (operator === 'null' || operator === 'notNull') {
@@ -54742,7 +54761,8 @@ var ValueEditor = function ValueEditor(_ref) {
     case 'autocomplete':
       var suggessionInputProps = {
         value: val ? val : "",
-        onChange: onAutoSuggetionChange
+        onChange: onAutoSuggetionChange,
+        placeholder: placeHolder
       };
 
       var onSuggestionsFetchRequested = function onSuggestionsFetchRequested(value) {
@@ -54808,6 +54828,7 @@ var ValueEditor = function ValueEditor(_ref) {
         value: value,
         title: title,
         className: className,
+        placeholder: placeHolder,
         onChange: onSelectChange
       });
   }
