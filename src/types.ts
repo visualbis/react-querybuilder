@@ -93,6 +93,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
   operator?: string;
   type?: ValueEditorType;
   inputType?: string;
+  placeHolder?:string;
   values?: any[];
 }
 
@@ -175,6 +176,7 @@ export interface Schema {
   getLevel(id: string): number;
   getOperators(field: string): Field[];
   getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
+  getPlaceHolder(field: string, operator: string): string;
   getInputType(field: string, operator: string): string;
   getValues(field: string, operator: string): NameLabelPair[];
   isRuleGroup(ruleOrGroup: RuleType | RuleGroupType): ruleOrGroup is RuleGroupType;
@@ -333,6 +335,13 @@ export interface QueryBuilderProps {
    * for the given field and operator.
    */
   getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+  /**
+   * This is a callback function invoked to get the `type` of `<input />` and auto complete
+   * for the given field and operator (only applicable when
+   * `getValueEditorType` returns `"text"` or `"number"`). If no
+   * function is provided, `"empty string"` is used as the default.
+   */
+  getPlaceHolder?(field: 'text' | 'number' , operator: string): string;
   /**
    * This is a callback function invoked to get the `type` of `<input />`
    * for the given field and operator (only applicable when

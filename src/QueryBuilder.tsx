@@ -105,9 +105,9 @@ const defaultControlElements: Controls = {
   rule: Rule
 };
 
-export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,
+export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,getPlaceHolder,
    getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, showNotToggle = false, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false }) => {
-  const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain} = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators);
+  const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain} = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
   const getInitialQuery = () => {// Gets the initial query   
     return (query && generateValidQuery(query)) || createRuleGroup();
   };
@@ -190,7 +190,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
   const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
-    getInputType: getInputTypeMain,  getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle };    
+    getInputType: getInputTypeMain, getPlaceHolder:getPlaceHolderMain, getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle };    
   useEffect(() => { // Set the query state when a new query prop comes in
     setRoot(generateValidQuery(query || getInitialQuery()) as RuleGroupType);
   }, [query]);
@@ -204,7 +204,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     </div>
   );
 };
-const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[])=>{
+const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
+
   const getValueEditorTypeMain = (field: string, operator: string) => {// Gets the ValueEditor type for a given field and operator  
     if (getValueEditorType) {
       const vet = getValueEditorType(field, operator);
@@ -212,6 +213,13 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     }
     return 'text';
   };  
+  const getPlaceHolderMain  = (field: string, operator: string) => {// Gets the `<input />` type for a given field and operator  
+  if (getPlaceHolder) {
+    const placeHolder = getPlaceHolder(field, operator);
+    if (placeHolder) return placeHolder;
+  }
+  return '';
+};  
   const getInputTypeMain = (field: string, operator: string) => {// Gets the `<input />` type for a given field and operator  
     if (getInputType) {
       const inputType = getInputType(field, operator);
@@ -246,7 +254,7 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     }
     return value;
   };
-  return {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain };
+  return {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain };
 }
 
 QueryBuilder.displayName = 'QueryBuilder';

@@ -10,6 +10,7 @@ export interface IProps{
     getOperators?(field: string): Field[];
     getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
     getInputType?(field: string, operator: string): string;
+    getPlaceHolder?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;    
     getValues?(field: string, operator: string):NameLabelPair[];
     showAddGroup?:boolean;
@@ -25,6 +26,7 @@ export interface IProps{
     fields=[],
     getOperators,
     getInputType,
+    getPlaceHolder,
     getValueEditorType,
     getValues,
     showAddGroup,
@@ -39,7 +41,8 @@ export interface IProps{
         controlClassnames={{ fields: 'form-control' }}
         onQueryChange={onQueryChange}
         getOperators={getOperators}      
-        getInputType={getInputType}    
+        getInputType={getInputType} 
+        getPlaceHolder={getPlaceHolder}   
         getValueEditorType  ={getValueEditorType}
         showCombinatorsBetweenRules={showCombinatorsBetweenRules}
         showAddGroup={showAddGroup}

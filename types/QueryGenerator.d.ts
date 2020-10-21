@@ -7,6 +7,7 @@ export interface IProps {
     getOperators?(field: string): Field[];
     getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
     getInputType?(field: string, operator: string): string;
+    getPlaceHolder?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;
     getValues?(field: string, operator: string): NameLabelPair[];
     showAddGroup?: boolean;

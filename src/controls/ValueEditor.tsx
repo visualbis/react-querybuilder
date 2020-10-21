@@ -10,6 +10,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   className,
   type,
   inputType,
+  placeHolder,
   values
 }) => {
   if (operator === 'null' || operator === 'notNull') {
@@ -43,7 +44,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
         
       );
     case 'autocomplete':       
-        const suggessionInputProps = {value: val?val:"", onChange: onAutoSuggetionChange};       
+        const suggessionInputProps = {value: val?val:"", onChange: onAutoSuggetionChange,placeholder:placeHolder};       
          const onSuggestionsFetchRequested = (value:any) => {        
           const _values= values && values.length? values.filter(sug => sug.label.toLowerCase().includes(value.value.toLowerCase().trim()) ):[];
           setSuggestions(_values);
@@ -62,7 +63,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onClear}
-        getSuggestionValue={getSuggestionName}
+        getSuggestionValue={getSuggestionName}        
         renderSuggestion={renderSuggestion}
         inputProps={suggessionInputProps}
       />)
@@ -91,12 +92,14 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       );
 
     default:
+
       return (
         <input
           type={inputType || 'text'}
           value={value}
           title={title}
           className={className}
+          placeholder={placeHolder}
           onChange={onSelectChange}
         />
       );
