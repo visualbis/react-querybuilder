@@ -528,7 +528,7 @@ module.exports = find;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule .rule-fields {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .autocomplete-wrapper {\n  height: 32px;\n}\n.rule .autocomplete-wrapper input {\n  border: 1px solid #cccccc;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .autocomplete-wrapper input:focus {\n  border: 1px solid #cccccc;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .autocomplete-wrapper > div > div {\n  border: 1px solid #cccccc;\n}\n.rule .autocomplete-wrapper > div > div .item {\n  height: 30px;\n  line-height: 30px;\n  padding: 0px 5px;\n}\n.rule .autocomplete-wrapper > div > div .item.selected-item {\n  background: #f5f5f5;\n}\n.rule .rule-operators {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  margin: 5px;\n  padding: 5px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n", ""]);
+exports.push([module.i, ".rule .rule-fields {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  margin: 5px;\n  padding: 5px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.react-autosuggest__container {\n  width: 100%;\n  padding: 0px 10px;\n  margin: 0px;\n}\n.react-autosuggest__input {\n  height: 30px;\n  font-size: 16px;\n  border: 1px solid #ccc;\n  outline: none;\n}\n.react-autosuggest__input--open {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.react-autosuggest__suggestions-container {\n  display: none;\n}\n.react-autosuggest__suggestions-container--open {\n  display: block;\n  position: absolute;\n  border: 1px solid #ccc;\n  background-color: #fff;\n  font-weight: 300;\n  font-size: 16px;\n  z-index: 2;\n}\n.react-autosuggest__suggestions-list {\n  margin: 0;\n  padding: 0;\n  list-style-type: none;\n}\n.react-autosuggest__suggestion {\n  cursor: pointer;\n  padding: 10px 20px;\n}\n.react-autosuggest__suggestion--highlighted {\n  background-color: #ddd;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -637,593 +637,6 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
-
-/***/ }),
-
-/***/ "./node_modules/dom-scroll-into-view/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/dom-scroll-into-view/index.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! ./lib/dom-scroll-into-view */ "./node_modules/dom-scroll-into-view/lib/dom-scroll-into-view.js");
-
-
-/***/ }),
-
-/***/ "./node_modules/dom-scroll-into-view/lib/dom-scroll-into-view.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/dom-scroll-into-view/lib/dom-scroll-into-view.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var util = __webpack_require__(/*! ./util */ "./node_modules/dom-scroll-into-view/lib/util.js");
-
-function scrollIntoView(elem, container, config) {
-  config = config || {};
-  // document 归一化到 window
-  if (container.nodeType === 9) {
-    container = util.getWindow(container);
-  }
-
-  var allowHorizontalScroll = config.allowHorizontalScroll;
-  var onlyScrollIfNeeded = config.onlyScrollIfNeeded;
-  var alignWithTop = config.alignWithTop;
-  var alignWithLeft = config.alignWithLeft;
-
-  allowHorizontalScroll = allowHorizontalScroll === undefined ? true : allowHorizontalScroll;
-
-  var isWin = util.isWindow(container);
-  var elemOffset = util.offset(elem);
-  var eh = util.outerHeight(elem);
-  var ew = util.outerWidth(elem);
-  var containerOffset, ch, cw, containerScroll,
-    diffTop, diffBottom, win,
-    winScroll, ww, wh;
-
-  if (isWin) {
-    win = container;
-    wh = util.height(win);
-    ww = util.width(win);
-    winScroll = {
-      left: util.scrollLeft(win),
-      top: util.scrollTop(win)
-    };
-    // elem 相对 container 可视视窗的距离
-    diffTop = {
-      left: elemOffset.left - winScroll.left,
-      top: elemOffset.top - winScroll.top
-    };
-    diffBottom = {
-      left: elemOffset.left + ew - (winScroll.left + ww),
-      top: elemOffset.top + eh - (winScroll.top + wh)
-    };
-    containerScroll = winScroll;
-  } else {
-    containerOffset = util.offset(container);
-    ch = container.clientHeight;
-    cw = container.clientWidth;
-    containerScroll = {
-      left: container.scrollLeft,
-      top: container.scrollTop
-    };
-    // elem 相对 container 可视视窗的距离
-    // 注意边框, offset 是边框到根节点
-    diffTop = {
-      left: elemOffset.left - (containerOffset.left +
-      (parseFloat(util.css(container, 'borderLeftWidth')) || 0)),
-      top: elemOffset.top - (containerOffset.top +
-      (parseFloat(util.css(container, 'borderTopWidth')) || 0))
-    };
-    diffBottom = {
-      left: elemOffset.left + ew -
-      (containerOffset.left + cw +
-      (parseFloat(util.css(container, 'borderRightWidth')) || 0)),
-      top: elemOffset.top + eh -
-      (containerOffset.top + ch +
-      (parseFloat(util.css(container, 'borderBottomWidth')) || 0))
-    };
-  }
-
-  if (diffTop.top < 0 || diffBottom.top > 0) {
-    // 强制向上
-    if (alignWithTop === true) {
-      util.scrollTop(container, containerScroll.top + diffTop.top);
-    } else if (alignWithTop === false) {
-      util.scrollTop(container, containerScroll.top + diffBottom.top);
-    } else {
-      // 自动调整
-      if (diffTop.top < 0) {
-        util.scrollTop(container, containerScroll.top + diffTop.top);
-      } else {
-        util.scrollTop(container, containerScroll.top + diffBottom.top);
-      }
-    }
-  } else {
-    if (!onlyScrollIfNeeded) {
-      alignWithTop = alignWithTop === undefined ? true : !!alignWithTop;
-      if (alignWithTop) {
-        util.scrollTop(container, containerScroll.top + diffTop.top);
-      } else {
-        util.scrollTop(container, containerScroll.top + diffBottom.top);
-      }
-    }
-  }
-
-  if (allowHorizontalScroll) {
-    if (diffTop.left < 0 || diffBottom.left > 0) {
-      // 强制向上
-      if (alignWithLeft === true) {
-        util.scrollLeft(container, containerScroll.left + diffTop.left);
-      } else if (alignWithLeft === false) {
-        util.scrollLeft(container, containerScroll.left + diffBottom.left);
-      } else {
-        // 自动调整
-        if (diffTop.left < 0) {
-          util.scrollLeft(container, containerScroll.left + diffTop.left);
-        } else {
-          util.scrollLeft(container, containerScroll.left + diffBottom.left);
-        }
-      }
-    } else {
-      if (!onlyScrollIfNeeded) {
-        alignWithLeft = alignWithLeft === undefined ? true : !!alignWithLeft;
-        if (alignWithLeft) {
-          util.scrollLeft(container, containerScroll.left + diffTop.left);
-        } else {
-          util.scrollLeft(container, containerScroll.left + diffBottom.left);
-        }
-      }
-    }
-  }
-}
-
-module.exports = scrollIntoView;
-
-
-/***/ }),
-
-/***/ "./node_modules/dom-scroll-into-view/lib/util.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/dom-scroll-into-view/lib/util.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var RE_NUM = /[\-+]?(?:\d*\.|)\d+(?:[eE][\-+]?\d+|)/.source;
-
-function getClientPosition(elem) {
-  var box, x, y;
-  var doc = elem.ownerDocument;
-  var body = doc.body;
-  var docElem = doc && doc.documentElement;
-  // 根据 GBS 最新数据，A-Grade Browsers 都已支持 getBoundingClientRect 方法，不用再考虑传统的实现方式
-  box = elem.getBoundingClientRect();
-
-  // 注：jQuery 还考虑减去 docElem.clientLeft/clientTop
-  // 但测试发现，这样反而会导致当 html 和 body 有边距/边框样式时，获取的值不正确
-  // 此外，ie6 会忽略 html 的 margin 值，幸运地是没有谁会去设置 html 的 margin
-
-  x = box.left;
-  y = box.top;
-
-  // In IE, most of the time, 2 extra pixels are added to the top and left
-  // due to the implicit 2-pixel inset border.  In IE6/7 quirks mode and
-  // IE6 standards mode, this border can be overridden by setting the
-  // document element's border to zero -- thus, we cannot rely on the
-  // offset always being 2 pixels.
-
-  // In quirks mode, the offset can be determined by querying the body's
-  // clientLeft/clientTop, but in standards mode, it is found by querying
-  // the document element's clientLeft/clientTop.  Since we already called
-  // getClientBoundingRect we have already forced a reflow, so it is not
-  // too expensive just to query them all.
-
-  // ie 下应该减去窗口的边框吧，毕竟默认 absolute 都是相对窗口定位的
-  // 窗口边框标准是设 documentElement ,quirks 时设置 body
-  // 最好禁止在 body 和 html 上边框 ，但 ie < 9 html 默认有 2px ，减去
-  // 但是非 ie 不可能设置窗口边框，body html 也不是窗口 ,ie 可以通过 html,body 设置
-  // 标准 ie 下 docElem.clientTop 就是 border-top
-  // ie7 html 即窗口边框改变不了。永远为 2
-  // 但标准 firefox/chrome/ie9 下 docElem.clientTop 是窗口边框，即使设了 border-top 也为 0
-
-  x -= docElem.clientLeft || body.clientLeft || 0;
-  y -= docElem.clientTop || body.clientTop || 0;
-
-  return {left: x, top: y};
-}
-
-function getScroll(w, top) {
-  var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
-  var method = 'scroll' + (top ? 'Top' : 'Left');
-  if (typeof ret !== 'number') {
-    var d = w.document;
-    //ie6,7,8 standard mode
-    ret = d.documentElement[method];
-    if (typeof ret !== 'number') {
-      //quirks mode
-      ret = d.body[method];
-    }
-  }
-  return ret;
-}
-
-function getScrollLeft(w) {
-  return getScroll(w);
-}
-
-function getScrollTop(w) {
-  return getScroll(w, true);
-}
-
-function getOffset(el) {
-  var pos = getClientPosition(el);
-  var doc = el.ownerDocument;
-  var w = doc.defaultView || doc.parentWindow;
-  pos.left += getScrollLeft(w);
-  pos.top += getScrollTop(w);
-  return pos;
-}
-function _getComputedStyle(elem, name, computedStyle) {
-  var val = '';
-  var d = elem.ownerDocument;
-
-  // https://github.com/kissyteam/kissy/issues/61
-  if ((computedStyle = (computedStyle || d.defaultView.getComputedStyle(elem, null)))) {
-    val = computedStyle.getPropertyValue(name) || computedStyle[name];
-  }
-
-  return val;
-}
-
-var _RE_NUM_NO_PX = new RegExp('^(' + RE_NUM + ')(?!px)[a-z%]+$', 'i');
-var RE_POS = /^(top|right|bottom|left)$/,
-  CURRENT_STYLE = 'currentStyle',
-  RUNTIME_STYLE = 'runtimeStyle',
-  LEFT = 'left',
-  PX = 'px';
-
-function _getComputedStyleIE(elem, name) {
-  // currentStyle maybe null
-  // http://msdn.microsoft.com/en-us/library/ms535231.aspx
-  var ret = elem[CURRENT_STYLE] && elem[CURRENT_STYLE][name];
-
-  // 当 width/height 设置为百分比时，通过 pixelLeft 方式转换的 width/height 值
-  // 一开始就处理了! CUSTOM_STYLE.height,CUSTOM_STYLE.width ,cssHook 解决@2011-08-19
-  // 在 ie 下不对，需要直接用 offset 方式
-  // borderWidth 等值也有问题，但考虑到 borderWidth 设为百分比的概率很小，这里就不考虑了
-
-  // From the awesome hack by Dean Edwards
-  // http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291
-  // If we're not dealing with a regular pixel number
-  // but a number that has a weird ending, we need to convert it to pixels
-  // exclude left right for relativity
-  if (_RE_NUM_NO_PX.test(ret) && !RE_POS.test(name)) {
-    // Remember the original values
-    var style = elem.style,
-      left = style[LEFT],
-      rsLeft = elem[RUNTIME_STYLE][LEFT];
-
-    // prevent flashing of content
-    elem[RUNTIME_STYLE][LEFT] = elem[CURRENT_STYLE][LEFT];
-
-    // Put in the new values to get a computed value out
-    style[LEFT] = name === 'fontSize' ? '1em' : (ret || 0);
-    ret = style.pixelLeft + PX;
-
-    // Revert the changed values
-    style[LEFT] = left;
-
-    elem[RUNTIME_STYLE][LEFT] = rsLeft;
-  }
-  return ret === '' ? 'auto' : ret;
-}
-
-var getComputedStyleX;
-if (typeof window !== 'undefined') {
-  getComputedStyleX = window.getComputedStyle ? _getComputedStyle : _getComputedStyleIE;
-}
-
-// 设置 elem 相对 elem.ownerDocument 的坐标
-function setOffset(elem, offset) {
-  // set position first, in-case top/left are set even on static elem
-  if (css(elem, 'position') === 'static') {
-    elem.style.position = 'relative';
-  }
-
-  var old = getOffset(elem),
-    ret = {},
-    current, key;
-
-  for (key in offset) {
-    current = parseFloat(css(elem, key)) || 0;
-    ret[key] = current + offset[key] - old[key];
-  }
-  css(elem, ret);
-}
-
-function each(arr, fn) {
-  for (var i = 0; i < arr.length; i++) {
-    fn(arr[i]);
-  }
-}
-
-function isBorderBoxFn(elem) {
-  return getComputedStyleX(elem, 'boxSizing') === 'border-box';
-}
-
-var BOX_MODELS = ['margin', 'border', 'padding'],
-  CONTENT_INDEX = -1,
-  PADDING_INDEX = 2,
-  BORDER_INDEX = 1,
-  MARGIN_INDEX = 0;
-
-function swap(elem, options, callback) {
-  var old = {},
-    style = elem.style,
-    name;
-
-  // Remember the old values, and insert the new ones
-  for (name in options) {
-    old[name] = style[name];
-    style[name] = options[name];
-  }
-
-  callback.call(elem);
-
-  // Revert the old values
-  for (name in options) {
-    style[name] = old[name];
-  }
-}
-
-function getPBMWidth(elem, props, which) {
-  var value = 0, prop, j, i;
-  for (j = 0; j < props.length; j++) {
-    prop = props[j];
-    if (prop) {
-      for (i = 0; i < which.length; i++) {
-        var cssProp;
-        if (prop === 'border') {
-          cssProp = prop + which[i] + 'Width';
-        } else {
-          cssProp = prop + which[i];
-        }
-        value += parseFloat(getComputedStyleX(elem, cssProp)) || 0;
-      }
-    }
-  }
-  return value;
-}
-
-/**
- * A crude way of determining if an object is a window
- * @member util
- */
-function isWindow(obj) {
-  // must use == for ie8
-  /*jshint eqeqeq:false*/
-  return obj != null && obj == obj.window;
-}
-
-var domUtils = {};
-
-each(['Width', 'Height'], function (name) {
-  domUtils['doc' + name] = function (refWin) {
-    var d = refWin.document;
-    return Math.max(
-      //firefox chrome documentElement.scrollHeight< body.scrollHeight
-      //ie standard mode : documentElement.scrollHeight> body.scrollHeight
-      d.documentElement['scroll' + name],
-      //quirks : documentElement.scrollHeight 最大等于可视窗口多一点？
-      d.body['scroll' + name],
-      domUtils['viewport' + name](d));
-  };
-
-  domUtils['viewport' + name] = function (win) {
-    // pc browser includes scrollbar in window.innerWidth
-    var prop = 'client' + name,
-      doc = win.document,
-      body = doc.body,
-      documentElement = doc.documentElement,
-      documentElementProp = documentElement[prop];
-    // 标准模式取 documentElement
-    // backcompat 取 body
-    return doc.compatMode === 'CSS1Compat' && documentElementProp ||
-      body && body[prop] || documentElementProp;
-  };
-});
-
-/*
- 得到元素的大小信息
- @param elem
- @param name
- @param {String} [extra]  'padding' : (css width) + padding
- 'border' : (css width) + padding + border
- 'margin' : (css width) + padding + border + margin
- */
-function getWH(elem, name, extra) {
-  if (isWindow(elem)) {
-    return name === 'width' ? domUtils.viewportWidth(elem) : domUtils.viewportHeight(elem);
-  } else if (elem.nodeType === 9) {
-    return name === 'width' ? domUtils.docWidth(elem) : domUtils.docHeight(elem);
-  }
-  var which = name === 'width' ? ['Left', 'Right'] : ['Top', 'Bottom'],
-    borderBoxValue = name === 'width' ? elem.offsetWidth : elem.offsetHeight;
-  var computedStyle = getComputedStyleX(elem);
-  var isBorderBox = isBorderBoxFn(elem, computedStyle);
-  var cssBoxValue = 0;
-  if (borderBoxValue == null || borderBoxValue <= 0) {
-    borderBoxValue = undefined;
-    // Fall back to computed then un computed css if necessary
-    cssBoxValue = getComputedStyleX(elem, name);
-    if (cssBoxValue == null || (Number(cssBoxValue)) < 0) {
-      cssBoxValue = elem.style[name] || 0;
-    }
-    // Normalize '', auto, and prepare for extra
-    cssBoxValue = parseFloat(cssBoxValue) || 0;
-  }
-  if (extra === undefined) {
-    extra = isBorderBox ? BORDER_INDEX : CONTENT_INDEX;
-  }
-  var borderBoxValueOrIsBorderBox = borderBoxValue !== undefined || isBorderBox;
-  var val = borderBoxValue || cssBoxValue;
-  if (extra === CONTENT_INDEX) {
-    if (borderBoxValueOrIsBorderBox) {
-      return val - getPBMWidth(elem, ['border', 'padding'],
-          which, computedStyle);
-    } else {
-      return cssBoxValue;
-    }
-  } else if (borderBoxValueOrIsBorderBox) {
-    return val + (extra === BORDER_INDEX ? 0 :
-        (extra === PADDING_INDEX ?
-          -getPBMWidth(elem, ['border'], which, computedStyle) :
-          getPBMWidth(elem, ['margin'], which, computedStyle)));
-  } else {
-    return cssBoxValue + getPBMWidth(elem, BOX_MODELS.slice(extra),
-        which, computedStyle);
-  }
-}
-
-var cssShow = {position: 'absolute', visibility: 'hidden', display: 'block'};
-
-// fix #119 : https://github.com/kissyteam/kissy/issues/119
-function getWHIgnoreDisplay(elem) {
-  var val, args = arguments;
-  // in case elem is window
-  // elem.offsetWidth === undefined
-  if (elem.offsetWidth !== 0) {
-    val = getWH.apply(undefined, args);
-  } else {
-    swap(elem, cssShow, function () {
-      val = getWH.apply(undefined, args);
-    });
-  }
-  return val;
-}
-
-each(['width', 'height'], function (name) {
-  var first = name.charAt(0).toUpperCase() + name.slice(1);
-  domUtils['outer' + first] = function (el, includeMargin) {
-    return el && getWHIgnoreDisplay(el, name, includeMargin ? MARGIN_INDEX : BORDER_INDEX);
-  };
-  var which = name === 'width' ? ['Left', 'Right'] : ['Top', 'Bottom'];
-
-  domUtils[name] = function (elem, val) {
-    if (val !== undefined) {
-      if (elem) {
-        var computedStyle = getComputedStyleX(elem);
-        var isBorderBox = isBorderBoxFn(elem);
-        if (isBorderBox) {
-          val += getPBMWidth(elem, ['padding', 'border'], which, computedStyle);
-        }
-        return css(elem, name, val);
-      }
-      return;
-    }
-    return elem && getWHIgnoreDisplay(elem, name, CONTENT_INDEX);
-  };
-});
-
-function css(el, name, value) {
-  if (typeof name === 'object') {
-    for (var i in name) {
-      css(el, i, name[i]);
-    }
-    return;
-  }
-  if (typeof value !== 'undefined') {
-    if (typeof value === 'number') {
-      value = value + 'px';
-    }
-    el.style[name] = value;
-  } else {
-    return getComputedStyleX(el, name);
-  }
-}
-
-function mix(to, from) {
-  for (var i in from) {
-    to[i] = from[i];
-  }
-  return to;
-}
-
-var utils = module.exports = {
-  getWindow: function (node) {
-    var doc = node.ownerDocument || node;
-    return doc.defaultView || doc.parentWindow;
-  },
-  offset: function (el, value) {
-    if (typeof value !== 'undefined') {
-      setOffset(el, value);
-    } else {
-      return getOffset(el);
-    }
-  },
-  isWindow: isWindow,
-  each: each,
-  css: css,
-  clone: function (obj) {
-    var ret = {};
-    for (var i in obj) {
-      ret[i] = obj[i];
-    }
-    var overflow = obj.overflow;
-    if (overflow) {
-      for (i in obj) {
-        ret.overflow[i] = obj.overflow[i];
-      }
-    }
-    return ret;
-  },
-  mix: mix,
-  scrollLeft: function (w, v) {
-    if (isWindow(w)) {
-      if (v === undefined) {
-        return getScrollLeft(w);
-      } else {
-        window.scrollTo(v, getScrollTop(w));
-      }
-    } else {
-      if (v === undefined) {
-        return w.scrollLeft;
-      } else {
-        w.scrollLeft = v;
-      }
-    }
-  },
-  scrollTop: function (w, v) {
-    if (isWindow(w)) {
-      if (v === undefined) {
-        return getScrollTop(w);
-      } else {
-        window.scrollTo(getScrollLeft(w), v);
-      }
-    } else {
-      if (v === undefined) {
-        return w.scrollTop;
-      } else {
-        w.scrollTop = v;
-      }
-    }
-  },
-  merge: function () {
-    var ret = {};
-    for (var i = 0; i < arguments.length; i++) {
-      utils.mix(ret, arguments[i]);
-    }
-    return ret;
-  },
-  viewportWidth: 0,
-  viewportHeight: 0
-};
-
-mix(utils, domUtils);
-
 
 /***/ }),
 
@@ -23225,666 +22638,1943 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
-/***/ "./node_modules/react-autocomplete/build/lib/Autocomplete.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/react-autocomplete/build/lib/Autocomplete.js ***!
-  \*******************************************************************/
+/***/ "./node_modules/react-autosuggest/dist/Autosuggest.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/Autosuggest.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _arrays = _interopRequireDefault(__webpack_require__(/*! shallow-equal/arrays */ "./node_modules/shallow-equal/arrays/index.js"));
+
+var _Autowhatever = _interopRequireDefault(__webpack_require__(/*! ./Autowhatever */ "./node_modules/react-autosuggest/dist/Autowhatever.js"));
+
+var _theme = __webpack_require__(/*! ./theme */ "./node_modules/react-autosuggest/dist/theme.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-var _require = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"),
-    findDOMNode = _require.findDOMNode;
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-var scrollIntoView = __webpack_require__(/*! dom-scroll-into-view */ "./node_modules/dom-scroll-into-view/index.js");
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-var IMPERATIVE_API = ['blur', 'checkValidity', 'click', 'focus', 'select', 'setCustomValidity', 'setSelectionRange', 'setRangeText'];
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-function getScrollOffset() {
-  return {
-    x: window.pageXOffset !== undefined ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft,
-    y: window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop
-  };
-}
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Autocomplete = function (_React$Component) {
-  _inherits(Autocomplete, _React$Component);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-  function Autocomplete(props) {
-    _classCallCheck(this, Autocomplete);
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-    var _this = _possibleConstructorReturn(this, (Autocomplete.__proto__ || Object.getPrototypeOf(Autocomplete)).call(this, props));
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var alwaysTrue = function alwaysTrue() {
+  return true;
+};
+
+var defaultShouldRenderSuggestions = function defaultShouldRenderSuggestions(value) {
+  return value.trim().length > 0;
+};
+
+var defaultRenderSuggestionsContainer = function defaultRenderSuggestionsContainer(_ref) {
+  var containerProps = _ref.containerProps,
+      children = _ref.children;
+  return /*#__PURE__*/_react["default"].createElement("div", containerProps, children);
+};
+
+var REASON_SUGGESTIONS_REVEALED = 'suggestions-revealed';
+var REASON_SUGGESTIONS_UPDATED = 'suggestions-updated';
+var REASON_SUGGESTION_SELECTED = 'suggestion-selected';
+var REASON_INPUT_FOCUSED = 'input-focused';
+var REASON_INPUT_CHANGED = 'input-changed';
+var REASON_INPUT_BLURRED = 'input-blurred';
+var REASON_ESCAPE_PRESSED = 'escape-pressed';
+
+var Autosuggest = /*#__PURE__*/function (_Component) {
+  _inherits(Autosuggest, _Component);
+
+  var _super = _createSuper(Autosuggest);
+
+  function Autosuggest(_ref2) {
+    var _this;
+
+    var _alwaysRenderSuggestions = _ref2.alwaysRenderSuggestions;
+
+    _classCallCheck(this, Autosuggest);
+
+    _this = _super.call(this);
+
+    _defineProperty(_assertThisInitialized(_this), "onDocumentMouseDown", function (event) {
+      _this.justClickedOnSuggestionsContainer = false;
+      var node = event.detail && event.detail.target || // This is for testing only. Please show me a better way to emulate this.
+      event.target;
+
+      while (node !== null && node !== document) {
+        if (node.getAttribute && node.getAttribute('data-suggestion-index') !== null) {
+          // Suggestion was clicked
+          return;
+        }
+
+        if (node === _this.suggestionsContainer) {
+          // Something else inside suggestions container was clicked
+          _this.justClickedOnSuggestionsContainer = true;
+          return;
+        }
+
+        node = node.parentNode;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "storeAutowhateverRef", function (autowhatever) {
+      if (autowhatever !== null) {
+        _this.autowhatever = autowhatever;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseEnter", function (event, _ref3) {
+      var sectionIndex = _ref3.sectionIndex,
+          itemIndex = _ref3.itemIndex;
+
+      _this.updateHighlightedSuggestion(sectionIndex, itemIndex);
+
+      if (event.target === _this.pressedSuggestion) {
+        _this.justSelectedSuggestion = true;
+      }
+
+      _this.justMouseEntered = true;
+      setTimeout(function () {
+        _this.justMouseEntered = false;
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "highlightFirstSuggestion", function () {
+      _this.updateHighlightedSuggestion(_this.props.multiSection ? 0 : null, 0);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onDocumentMouseUp", function () {
+      if (_this.pressedSuggestion && !_this.justSelectedSuggestion) {
+        _this.input.focus();
+      }
+
+      _this.pressedSuggestion = null;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseDown", function (event) {
+      // Checking if this.justSelectedSuggestion is already true to not duplicate touch events in chrome
+      // See: https://github.com/facebook/react/issues/9809#issuecomment-413978405
+      if (!_this.justSelectedSuggestion) {
+        _this.justSelectedSuggestion = true;
+        _this.pressedSuggestion = event.target;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionsClearRequested", function () {
+      var onSuggestionsClearRequested = _this.props.onSuggestionsClearRequested;
+      onSuggestionsClearRequested && onSuggestionsClearRequested();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionSelected", function (event, data) {
+      var _this$props = _this.props,
+          alwaysRenderSuggestions = _this$props.alwaysRenderSuggestions,
+          onSuggestionSelected = _this$props.onSuggestionSelected,
+          onSuggestionsFetchRequested = _this$props.onSuggestionsFetchRequested;
+      onSuggestionSelected && onSuggestionSelected(event, data);
+
+      if (alwaysRenderSuggestions) {
+        onSuggestionsFetchRequested({
+          value: data.suggestionValue,
+          reason: REASON_SUGGESTION_SELECTED
+        });
+      } else {
+        _this.onSuggestionsClearRequested();
+      }
+
+      _this.resetHighlightedSuggestion();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionClick", function (event) {
+      var _this$props2 = _this.props,
+          alwaysRenderSuggestions = _this$props2.alwaysRenderSuggestions,
+          focusInputOnSuggestionClick = _this$props2.focusInputOnSuggestionClick;
+
+      var _this$getSuggestionIn = _this.getSuggestionIndices(_this.findSuggestionElement(event.target)),
+          sectionIndex = _this$getSuggestionIn.sectionIndex,
+          suggestionIndex = _this$getSuggestionIn.suggestionIndex;
+
+      var clickedSuggestion = _this.getSuggestion(sectionIndex, suggestionIndex);
+
+      var clickedSuggestionValue = _this.props.getSuggestionValue(clickedSuggestion);
+
+      _this.maybeCallOnChange(event, clickedSuggestionValue, 'click');
+
+      _this.onSuggestionSelected(event, {
+        suggestion: clickedSuggestion,
+        suggestionValue: clickedSuggestionValue,
+        suggestionIndex: suggestionIndex,
+        sectionIndex: sectionIndex,
+        method: 'click'
+      });
+
+      if (!alwaysRenderSuggestions) {
+        _this.closeSuggestions();
+      }
+
+      if (focusInputOnSuggestionClick === true) {
+        _this.input.focus();
+      } else {
+        _this.onBlur();
+      }
+
+      setTimeout(function () {
+        _this.justSelectedSuggestion = false;
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onBlur", function () {
+      var _this$props3 = _this.props,
+          inputProps = _this$props3.inputProps,
+          shouldRenderSuggestions = _this$props3.shouldRenderSuggestions;
+      var value = inputProps.value,
+          onBlur = inputProps.onBlur;
+
+      var highlightedSuggestion = _this.getHighlightedSuggestion();
+
+      var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_BLURRED);
+
+      _this.setState({
+        isFocused: false,
+        highlightedSectionIndex: null,
+        highlightedSuggestionIndex: null,
+        highlightedSuggestion: null,
+        valueBeforeUpDown: null,
+        isCollapsed: !shouldRender
+      });
+
+      onBlur && onBlur(_this.blurEvent, {
+        highlightedSuggestion: highlightedSuggestion
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseLeave", function (event) {
+      _this.resetHighlightedSuggestion(false); // shouldResetValueBeforeUpDown
+
+
+      if (_this.justSelectedSuggestion && event.target === _this.pressedSuggestion) {
+        _this.justSelectedSuggestion = false;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionTouchStart", function () {
+      _this.justSelectedSuggestion = true; // todo: event.preventDefault when https://github.com/facebook/react/issues/2043
+      // todo: gets released so onSuggestionMouseDown won't fire in chrome
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSuggestionTouchMove", function () {
+      _this.justSelectedSuggestion = false;
+      _this.pressedSuggestion = null;
+
+      _this.input.focus();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "itemProps", function (_ref4) {
+      var sectionIndex = _ref4.sectionIndex,
+          itemIndex = _ref4.itemIndex;
+      return {
+        'data-section-index': sectionIndex,
+        'data-suggestion-index': itemIndex,
+        onMouseEnter: _this.onSuggestionMouseEnter,
+        onMouseLeave: _this.onSuggestionMouseLeave,
+        onMouseDown: _this.onSuggestionMouseDown,
+        onTouchStart: _this.onSuggestionTouchStart,
+        onTouchMove: _this.onSuggestionTouchMove,
+        onClick: _this.onSuggestionClick
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "renderSuggestionsContainer", function (_ref5) {
+      var containerProps = _ref5.containerProps,
+          children = _ref5.children;
+      var renderSuggestionsContainer = _this.props.renderSuggestionsContainer;
+      return renderSuggestionsContainer({
+        containerProps: containerProps,
+        children: children,
+        query: _this.getQuery()
+      });
+    });
 
     _this.state = {
-      isOpen: false,
-      highlightedIndex: null
+      isFocused: false,
+      isCollapsed: !_alwaysRenderSuggestions,
+      highlightedSectionIndex: null,
+      highlightedSuggestionIndex: null,
+      highlightedSuggestion: null,
+      valueBeforeUpDown: null
     };
-    _this._debugStates = [];
-    _this.ensureHighlightedIndex = _this.ensureHighlightedIndex.bind(_this);
-    _this.exposeAPI = _this.exposeAPI.bind(_this);
-    _this.handleInputFocus = _this.handleInputFocus.bind(_this);
-    _this.handleInputBlur = _this.handleInputBlur.bind(_this);
-    _this.handleChange = _this.handleChange.bind(_this);
-    _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-    _this.handleInputClick = _this.handleInputClick.bind(_this);
-    _this.maybeAutoCompleteText = _this.maybeAutoCompleteText.bind(_this);
+    _this.justPressedUpDown = false;
+    _this.justMouseEntered = false;
+    _this.pressedSuggestion = null;
     return _this;
   }
 
-  _createClass(Autocomplete, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      // this.refs is frozen, so we need to assign a new object to it
-      this.refs = {};
-      this._ignoreBlur = false;
-      this._ignoreFocus = false;
-      this._scrollOffset = null;
-      this._scrollTimer = null;
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      clearTimeout(this._scrollTimer);
-      this._scrollTimer = null;
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.state.highlightedIndex !== null) {
-        this.setState(this.ensureHighlightedIndex);
-      }
-      if (nextProps.autoHighlight && (this.props.value !== nextProps.value || this.state.highlightedIndex === null)) {
-        this.setState(this.maybeAutoCompleteText);
-      }
-    }
-  }, {
-    key: 'componentDidMount',
+  _createClass(Autosuggest, [{
+    key: "componentDidMount",
     value: function componentDidMount() {
-      if (this.isOpen()) {
-        this.setMenuPositions();
-      }
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps, prevState) {
-      if (this.state.isOpen && !prevState.isOpen || 'open' in this.props && this.props.open && !prevProps.open) this.setMenuPositions();
+      document.addEventListener('mousedown', this.onDocumentMouseDown);
+      document.addEventListener('mouseup', this.onDocumentMouseUp);
+      this.input = this.autowhatever.input;
+      this.suggestionsContainer = this.autowhatever.itemsContainer;
+    } // eslint-disable-next-line camelcase, react/sort-comp
 
-      this.maybeScrollItemIntoView();
-      if (prevState.isOpen !== this.state.isOpen) {
-        this.props.onMenuVisibilityChange(this.state.isOpen);
+  }, {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
+      if ((0, _arrays["default"])(nextProps.suggestions, this.props.suggestions)) {
+        if (nextProps.highlightFirstSuggestion && nextProps.suggestions.length > 0 && this.justPressedUpDown === false && this.justMouseEntered === false) {
+          this.highlightFirstSuggestion();
+        }
+      } else {
+        if (this.willRenderSuggestions(nextProps, REASON_SUGGESTIONS_UPDATED)) {
+          if (this.state.isCollapsed && !this.justSelectedSuggestion) {
+            this.revealSuggestions();
+          }
+        } else {
+          this.resetHighlightedSuggestion();
+        }
       }
     }
   }, {
-    key: 'exposeAPI',
-    value: function exposeAPI(el) {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      var _this$props4 = this.props,
+          suggestions = _this$props4.suggestions,
+          onSuggestionHighlighted = _this$props4.onSuggestionHighlighted,
+          highlightFirstSuggestion = _this$props4.highlightFirstSuggestion;
+
+      if (!(0, _arrays["default"])(suggestions, prevProps.suggestions) && suggestions.length > 0 && highlightFirstSuggestion) {
+        this.highlightFirstSuggestion();
+        return;
+      }
+
+      if (onSuggestionHighlighted) {
+        var highlightedSuggestion = this.getHighlightedSuggestion();
+        var prevHighlightedSuggestion = prevState.highlightedSuggestion;
+
+        if (highlightedSuggestion != prevHighlightedSuggestion) {
+          onSuggestionHighlighted({
+            suggestion: highlightedSuggestion
+          });
+        }
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('mousedown', this.onDocumentMouseDown);
+      document.removeEventListener('mouseup', this.onDocumentMouseUp);
+    }
+  }, {
+    key: "updateHighlightedSuggestion",
+    value: function updateHighlightedSuggestion(sectionIndex, suggestionIndex, prevValue) {
       var _this2 = this;
 
-      this.refs.input = el;
-      IMPERATIVE_API.forEach(function (ev) {
-        return _this2[ev] = el && el[ev] && el[ev].bind(el);
-      });
-    }
-  }, {
-    key: 'maybeScrollItemIntoView',
-    value: function maybeScrollItemIntoView() {
-      if (this.isOpen() && this.state.highlightedIndex !== null) {
-        var itemNode = this.refs['item-' + this.state.highlightedIndex];
-        var menuNode = this.refs.menu;
-        scrollIntoView(findDOMNode(itemNode), findDOMNode(menuNode), { onlyScrollIfNeeded: true });
-      }
-    }
-  }, {
-    key: 'handleKeyDown',
-    value: function handleKeyDown(event) {
-      if (Autocomplete.keyDownHandlers[event.key]) Autocomplete.keyDownHandlers[event.key].call(this, event);else if (!this.isOpen()) {
-        this.setState({
-          isOpen: true
-        });
-      }
-    }
-  }, {
-    key: 'handleChange',
-    value: function handleChange(event) {
-      this.props.onChange(event, event.target.value);
-    }
-  }, {
-    key: 'getFilteredItems',
-    value: function getFilteredItems(props) {
-      var items = props.items;
+      this.setState(function (state) {
+        var valueBeforeUpDown = state.valueBeforeUpDown;
 
-      if (props.shouldItemRender) {
-        items = items.filter(function (item) {
-          return props.shouldItemRender(item, props.value);
-        });
-      }
-
-      if (props.sortItems) {
-        items.sort(function (a, b) {
-          return props.sortItems(a, b, props.value);
-        });
-      }
-
-      return items;
-    }
-  }, {
-    key: 'maybeAutoCompleteText',
-    value: function maybeAutoCompleteText(state, props) {
-      var highlightedIndex = state.highlightedIndex;
-      var value = props.value,
-          getItemValue = props.getItemValue;
-
-      var index = highlightedIndex === null ? 0 : highlightedIndex;
-      var items = this.getFilteredItems(props);
-      for (var i = 0; i < items.length; i++) {
-        if (props.isItemSelectable(items[index])) break;
-        index = (index + 1) % items.length;
-      }
-      var matchedItem = items[index] && props.isItemSelectable(items[index]) ? items[index] : null;
-      if (value !== '' && matchedItem) {
-        var itemValue = getItemValue(matchedItem);
-        var itemValueDoesMatch = itemValue.toLowerCase().indexOf(value.toLowerCase()) === 0;
-        if (itemValueDoesMatch) {
-          return { highlightedIndex: index };
+        if (suggestionIndex === null) {
+          valueBeforeUpDown = null;
+        } else if (valueBeforeUpDown === null && typeof prevValue !== 'undefined') {
+          valueBeforeUpDown = prevValue;
         }
-      }
-      return { highlightedIndex: null };
-    }
-  }, {
-    key: 'ensureHighlightedIndex',
-    value: function ensureHighlightedIndex(state, props) {
-      if (state.highlightedIndex >= this.getFilteredItems(props).length) {
-        return { highlightedIndex: null };
-      }
-    }
-  }, {
-    key: 'setMenuPositions',
-    value: function setMenuPositions() {
-      var node = this.refs.input;
-      var rect = node.getBoundingClientRect();
-      var computedStyle = global.window.getComputedStyle(node);
-      var marginBottom = parseInt(computedStyle.marginBottom, 10) || 0;
-      var marginLeft = parseInt(computedStyle.marginLeft, 10) || 0;
-      var marginRight = parseInt(computedStyle.marginRight, 10) || 0;
-      this.setState({
-        menuTop: rect.bottom + marginBottom,
-        menuLeft: rect.left + marginLeft,
-        menuWidth: rect.width + marginLeft + marginRight
+
+        return {
+          highlightedSectionIndex: sectionIndex,
+          highlightedSuggestionIndex: suggestionIndex,
+          highlightedSuggestion: suggestionIndex === null ? null : _this2.getSuggestion(sectionIndex, suggestionIndex),
+          valueBeforeUpDown: valueBeforeUpDown
+        };
       });
     }
   }, {
-    key: 'highlightItemFromMouse',
-    value: function highlightItemFromMouse(index) {
-      this.setState({ highlightedIndex: index });
+    key: "resetHighlightedSuggestion",
+    value: function resetHighlightedSuggestion() {
+      var shouldResetValueBeforeUpDown = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.setState(function (state) {
+        var valueBeforeUpDown = state.valueBeforeUpDown;
+        return {
+          highlightedSectionIndex: null,
+          highlightedSuggestionIndex: null,
+          highlightedSuggestion: null,
+          valueBeforeUpDown: shouldResetValueBeforeUpDown ? null : valueBeforeUpDown
+        };
+      });
     }
   }, {
-    key: 'selectItemFromMouse',
-    value: function selectItemFromMouse(item) {
+    key: "revealSuggestions",
+    value: function revealSuggestions() {
+      this.setState({
+        isCollapsed: false
+      });
+    }
+  }, {
+    key: "closeSuggestions",
+    value: function closeSuggestions() {
+      this.setState({
+        highlightedSectionIndex: null,
+        highlightedSuggestionIndex: null,
+        highlightedSuggestion: null,
+        valueBeforeUpDown: null,
+        isCollapsed: true
+      });
+    }
+  }, {
+    key: "getSuggestion",
+    value: function getSuggestion(sectionIndex, suggestionIndex) {
+      var _this$props5 = this.props,
+          suggestions = _this$props5.suggestions,
+          multiSection = _this$props5.multiSection,
+          getSectionSuggestions = _this$props5.getSectionSuggestions;
+
+      if (multiSection) {
+        return getSectionSuggestions(suggestions[sectionIndex])[suggestionIndex];
+      }
+
+      return suggestions[suggestionIndex];
+    }
+  }, {
+    key: "getHighlightedSuggestion",
+    value: function getHighlightedSuggestion() {
+      var _this$state = this.state,
+          highlightedSectionIndex = _this$state.highlightedSectionIndex,
+          highlightedSuggestionIndex = _this$state.highlightedSuggestionIndex;
+
+      if (highlightedSuggestionIndex === null) {
+        return null;
+      }
+
+      return this.getSuggestion(highlightedSectionIndex, highlightedSuggestionIndex);
+    }
+  }, {
+    key: "getSuggestionValueByIndex",
+    value: function getSuggestionValueByIndex(sectionIndex, suggestionIndex) {
+      var getSuggestionValue = this.props.getSuggestionValue;
+      return getSuggestionValue(this.getSuggestion(sectionIndex, suggestionIndex));
+    }
+  }, {
+    key: "getSuggestionIndices",
+    value: function getSuggestionIndices(suggestionElement) {
+      var sectionIndex = suggestionElement.getAttribute('data-section-index');
+      var suggestionIndex = suggestionElement.getAttribute('data-suggestion-index');
+      return {
+        sectionIndex: typeof sectionIndex === 'string' ? parseInt(sectionIndex, 10) : null,
+        suggestionIndex: parseInt(suggestionIndex, 10)
+      };
+    }
+  }, {
+    key: "findSuggestionElement",
+    value: function findSuggestionElement(startNode) {
+      var node = startNode;
+
+      do {
+        if (node.getAttribute && node.getAttribute('data-suggestion-index') !== null) {
+          return node;
+        }
+
+        node = node.parentNode;
+      } while (node !== null);
+
+      console.error('Clicked element:', startNode); // eslint-disable-line no-console
+
+      throw new Error("Couldn't find suggestion element");
+    }
+  }, {
+    key: "maybeCallOnChange",
+    value: function maybeCallOnChange(event, newValue, method) {
+      var _this$props$inputProp = this.props.inputProps,
+          value = _this$props$inputProp.value,
+          onChange = _this$props$inputProp.onChange;
+
+      if (newValue !== value) {
+        onChange(event, {
+          newValue: newValue,
+          method: method
+        });
+      }
+    }
+  }, {
+    key: "willRenderSuggestions",
+    value: function willRenderSuggestions(props, reason) {
+      var suggestions = props.suggestions,
+          inputProps = props.inputProps,
+          shouldRenderSuggestions = props.shouldRenderSuggestions;
+      var value = inputProps.value;
+      return suggestions.length > 0 && shouldRenderSuggestions(value, reason);
+    }
+  }, {
+    key: "getQuery",
+    value: function getQuery() {
+      var inputProps = this.props.inputProps;
+      var value = inputProps.value;
+      var valueBeforeUpDown = this.state.valueBeforeUpDown;
+      return (valueBeforeUpDown === null ? value : valueBeforeUpDown).trim();
+    }
+  }, {
+    key: "render",
+    value: function render() {
       var _this3 = this;
 
-      var value = this.props.getItemValue(item);
-      // The menu will de-render before a mouseLeave event
-      // happens. Clear the flag to release control over focus
-      this.setIgnoreBlur(false);
-      this.setState({
-        isOpen: false,
-        highlightedIndex: null
-      }, function () {
-        _this3.props.onSelect(value, item);
-      });
-    }
-  }, {
-    key: 'setIgnoreBlur',
-    value: function setIgnoreBlur(ignore) {
-      this._ignoreBlur = ignore;
-    }
-  }, {
-    key: 'renderMenu',
-    value: function renderMenu() {
-      var _this4 = this;
+      var _this$props6 = this.props,
+          suggestions = _this$props6.suggestions,
+          renderInputComponent = _this$props6.renderInputComponent,
+          onSuggestionsFetchRequested = _this$props6.onSuggestionsFetchRequested,
+          renderSuggestion = _this$props6.renderSuggestion,
+          inputProps = _this$props6.inputProps,
+          multiSection = _this$props6.multiSection,
+          renderSectionTitle = _this$props6.renderSectionTitle,
+          id = _this$props6.id,
+          getSectionSuggestions = _this$props6.getSectionSuggestions,
+          theme = _this$props6.theme,
+          getSuggestionValue = _this$props6.getSuggestionValue,
+          alwaysRenderSuggestions = _this$props6.alwaysRenderSuggestions,
+          highlightFirstSuggestion = _this$props6.highlightFirstSuggestion;
+      var _this$state2 = this.state,
+          isFocused = _this$state2.isFocused,
+          isCollapsed = _this$state2.isCollapsed,
+          highlightedSectionIndex = _this$state2.highlightedSectionIndex,
+          highlightedSuggestionIndex = _this$state2.highlightedSuggestionIndex,
+          valueBeforeUpDown = _this$state2.valueBeforeUpDown;
+      var shouldRenderSuggestions = alwaysRenderSuggestions ? alwaysTrue : this.props.shouldRenderSuggestions;
+      var value = inputProps.value,
+          _onFocus = inputProps.onFocus,
+          _onKeyDown = inputProps.onKeyDown;
+      var willRenderSuggestions = this.willRenderSuggestions(this.props, 'render');
+      var isOpen = alwaysRenderSuggestions || isFocused && !isCollapsed && willRenderSuggestions;
+      var items = isOpen ? suggestions : [];
 
-      var items = this.getFilteredItems(this.props).map(function (item, index) {
-        var element = _this4.props.renderItem(item, _this4.state.highlightedIndex === index, { cursor: 'default' });
-        return React.cloneElement(element, {
-          onMouseEnter: _this4.props.isItemSelectable(item) ? function () {
-            return _this4.highlightItemFromMouse(index);
-          } : null,
-          onClick: _this4.props.isItemSelectable(item) ? function () {
-            return _this4.selectItemFromMouse(item);
-          } : null,
-          ref: function ref(e) {
-            return _this4.refs['item-' + index] = e;
+      var autowhateverInputProps = _objectSpread({}, inputProps, {
+        onFocus: function onFocus(event) {
+          if (!_this3.justSelectedSuggestion && !_this3.justClickedOnSuggestionsContainer) {
+            var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_FOCUSED);
+
+            _this3.setState({
+              isFocused: true,
+              isCollapsed: !shouldRender
+            });
+
+            _onFocus && _onFocus(event);
+
+            if (shouldRender) {
+              onSuggestionsFetchRequested({
+                value: value,
+                reason: REASON_INPUT_FOCUSED
+              });
+            }
           }
-        });
-      });
-      var style = {
-        left: this.state.menuLeft,
-        top: this.state.menuTop,
-        minWidth: this.state.menuWidth
-      };
-      var menu = this.props.renderMenu(items, this.props.value, style);
-      return React.cloneElement(menu, {
-        ref: function ref(e) {
-          return _this4.refs.menu = e;
         },
-        // Ignore blur to prevent menu from de-rendering before we can process click
-        onTouchStart: function onTouchStart() {
-          return _this4.setIgnoreBlur(true);
+        onBlur: function onBlur(event) {
+          if (_this3.justClickedOnSuggestionsContainer) {
+            _this3.input.focus();
+
+            return;
+          }
+
+          _this3.blurEvent = event;
+
+          if (!_this3.justSelectedSuggestion) {
+            _this3.onBlur();
+
+            _this3.onSuggestionsClearRequested();
+          }
         },
-        onMouseEnter: function onMouseEnter() {
-          return _this4.setIgnoreBlur(true);
+        onChange: function onChange(event) {
+          var value = event.target.value;
+          var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_CHANGED);
+
+          _this3.maybeCallOnChange(event, value, 'type');
+
+          if (_this3.suggestionsContainer) {
+            _this3.suggestionsContainer.scrollTop = 0;
+          }
+
+          _this3.setState(_objectSpread({}, highlightFirstSuggestion ? {} : {
+            highlightedSectionIndex: null,
+            highlightedSuggestionIndex: null,
+            highlightedSuggestion: null
+          }, {
+            valueBeforeUpDown: null,
+            isCollapsed: !shouldRender
+          }));
+
+          if (shouldRender) {
+            onSuggestionsFetchRequested({
+              value: value,
+              reason: REASON_INPUT_CHANGED
+            });
+          } else {
+            _this3.onSuggestionsClearRequested();
+          }
         },
-        onMouseLeave: function onMouseLeave() {
-          return _this4.setIgnoreBlur(false);
+        onKeyDown: function onKeyDown(event, data) {
+          var keyCode = event.keyCode;
+
+          switch (keyCode) {
+            case 40: // ArrowDown
+
+            case 38:
+              // ArrowUp
+              if (isCollapsed) {
+                if (shouldRenderSuggestions(value, REASON_SUGGESTIONS_REVEALED)) {
+                  onSuggestionsFetchRequested({
+                    value: value,
+                    reason: REASON_SUGGESTIONS_REVEALED
+                  });
+
+                  _this3.revealSuggestions();
+
+                  event.preventDefault(); // We act on the key.
+                }
+              } else if (suggestions.length > 0) {
+                var newHighlightedSectionIndex = data.newHighlightedSectionIndex,
+                    newHighlightedItemIndex = data.newHighlightedItemIndex;
+                var newValue;
+
+                if (newHighlightedItemIndex === null) {
+                  // valueBeforeUpDown can be null if, for example, user
+                  // hovers on the first suggestion and then pressed Up.
+                  // If that happens, use the original input value.
+                  newValue = valueBeforeUpDown === null ? value : valueBeforeUpDown;
+                } else {
+                  newValue = _this3.getSuggestionValueByIndex(newHighlightedSectionIndex, newHighlightedItemIndex);
+                }
+
+                _this3.updateHighlightedSuggestion(newHighlightedSectionIndex, newHighlightedItemIndex, value);
+
+                _this3.maybeCallOnChange(event, newValue, keyCode === 40 ? 'down' : 'up');
+
+                event.preventDefault(); // We act on the key.
+              }
+
+              _this3.justPressedUpDown = true;
+              setTimeout(function () {
+                _this3.justPressedUpDown = false;
+              });
+              break;
+            // Enter
+
+            case 13:
+              {
+                // See #388
+                if (event.keyCode === 229) {
+                  break;
+                }
+
+                var highlightedSuggestion = _this3.getHighlightedSuggestion();
+
+                if (isOpen && !alwaysRenderSuggestions) {
+                  _this3.closeSuggestions();
+                }
+
+                if (highlightedSuggestion != null) {
+                  var _newValue = getSuggestionValue(highlightedSuggestion);
+
+                  _this3.maybeCallOnChange(event, _newValue, 'enter');
+
+                  _this3.onSuggestionSelected(event, {
+                    suggestion: highlightedSuggestion,
+                    suggestionValue: _newValue,
+                    suggestionIndex: highlightedSuggestionIndex,
+                    sectionIndex: highlightedSectionIndex,
+                    method: 'enter'
+                  });
+
+                  _this3.justSelectedSuggestion = true;
+                  setTimeout(function () {
+                    _this3.justSelectedSuggestion = false;
+                  });
+                }
+
+                break;
+              }
+            // Escape
+
+            case 27:
+              {
+                if (isOpen) {
+                  // If input.type === 'search', the browser clears the input
+                  // when Escape is pressed. We want to disable this default
+                  // behaviour so that, when suggestions are shown, we just hide
+                  // them, without clearing the input.
+                  event.preventDefault();
+                }
+
+                var willCloseSuggestions = isOpen && !alwaysRenderSuggestions;
+
+                if (valueBeforeUpDown === null) {
+                  // Didn't interact with Up/Down
+                  if (!willCloseSuggestions) {
+                    var _newValue2 = '';
+
+                    _this3.maybeCallOnChange(event, _newValue2, 'escape');
+
+                    if (shouldRenderSuggestions(_newValue2, REASON_ESCAPE_PRESSED)) {
+                      onSuggestionsFetchRequested({
+                        value: _newValue2,
+                        reason: REASON_ESCAPE_PRESSED
+                      });
+                    } else {
+                      _this3.onSuggestionsClearRequested();
+                    }
+                  }
+                } else {
+                  // Interacted with Up/Down
+                  _this3.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
+                }
+
+                if (willCloseSuggestions) {
+                  _this3.onSuggestionsClearRequested();
+
+                  _this3.closeSuggestions();
+                } else {
+                  _this3.resetHighlightedSuggestion();
+                }
+
+                break;
+              }
+          }
+
+          _onKeyDown && _onKeyDown(event);
         }
       });
-    }
-  }, {
-    key: 'handleInputBlur',
-    value: function handleInputBlur(event) {
-      var _this5 = this;
 
-      if (this._ignoreBlur) {
-        this._ignoreFocus = true;
-        this._scrollOffset = getScrollOffset();
-        this.refs.input.focus();
-        return;
-      }
-      var setStateCallback = void 0;
-      var highlightedIndex = this.state.highlightedIndex;
-
-      if (this.props.selectOnBlur && highlightedIndex !== null) {
-        var items = this.getFilteredItems(this.props);
-        var item = items[highlightedIndex];
-        var value = this.props.getItemValue(item);
-        setStateCallback = function setStateCallback() {
-          return _this5.props.onSelect(value, item);
-        };
-      }
-      this.setState({
-        isOpen: false,
-        highlightedIndex: null
-      }, setStateCallback);
-      var onBlur = this.props.inputProps.onBlur;
-
-      if (onBlur) {
-        onBlur(event);
-      }
-    }
-  }, {
-    key: 'handleInputFocus',
-    value: function handleInputFocus(event) {
-      var _this6 = this;
-
-      if (this._ignoreFocus) {
-        this._ignoreFocus = false;
-        var _scrollOffset = this._scrollOffset,
-            x = _scrollOffset.x,
-            y = _scrollOffset.y;
-
-        this._scrollOffset = null;
-        // Focus will cause the browser to scroll the <input> into view.
-        // This can cause the mouse coords to change, which in turn
-        // could cause a new highlight to happen, cancelling the click
-        // event (when selecting with the mouse)
-        window.scrollTo(x, y);
-        // Some browsers wait until all focus event handlers have been
-        // processed before scrolling the <input> into view, so let's
-        // scroll again on the next tick to ensure we're back to where
-        // the user was before focus was lost. We could do the deferred
-        // scroll only, but that causes a jarring split second jump in
-        // some browsers that scroll before the focus event handlers
-        // are triggered.
-        clearTimeout(this._scrollTimer);
-        this._scrollTimer = setTimeout(function () {
-          _this6._scrollTimer = null;
-          window.scrollTo(x, y);
-        }, 0);
-        return;
-      }
-      this.setState({ isOpen: true });
-      var onFocus = this.props.inputProps.onFocus;
-
-      if (onFocus) {
-        onFocus(event);
-      }
-    }
-  }, {
-    key: 'isInputFocused',
-    value: function isInputFocused() {
-      var el = this.refs.input;
-      return el.ownerDocument && el === el.ownerDocument.activeElement;
-    }
-  }, {
-    key: 'handleInputClick',
-    value: function handleInputClick() {
-      // Input will not be focused if it's disabled
-      if (this.isInputFocused() && !this.isOpen()) this.setState({ isOpen: true });
-    }
-  }, {
-    key: 'composeEventHandlers',
-    value: function composeEventHandlers(internal, external) {
-      return external ? function (e) {
-        internal(e);external(e);
-      } : internal;
-    }
-  }, {
-    key: 'isOpen',
-    value: function isOpen() {
-      return 'open' in this.props ? this.props.open : this.state.isOpen;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      if (this.props.debug) {
-        // you don't like it, you love it
-        this._debugStates.push({
-          id: this._debugStates.length,
-          state: this.state
-        });
-      }
-
-      var inputProps = this.props.inputProps;
-
-      var open = this.isOpen();
-      return React.createElement(
-        'div',
-        _extends({ style: _extends({}, this.props.wrapperStyle) }, this.props.wrapperProps),
-        this.props.renderInput(_extends({}, inputProps, {
-          role: 'combobox',
-          'aria-autocomplete': 'list',
-          'aria-expanded': open,
-          autoComplete: 'off',
-          ref: this.exposeAPI,
-          onFocus: this.handleInputFocus,
-          onBlur: this.handleInputBlur,
-          onChange: this.handleChange,
-          onKeyDown: this.composeEventHandlers(this.handleKeyDown, inputProps.onKeyDown),
-          onClick: this.composeEventHandlers(this.handleInputClick, inputProps.onClick),
-          value: this.props.value
-        })),
-        open && this.renderMenu(),
-        this.props.debug && React.createElement(
-          'pre',
-          { style: { marginLeft: 300 } },
-          JSON.stringify(this._debugStates.slice(Math.max(0, this._debugStates.length - 5), this._debugStates.length), null, 2)
-        )
-      );
+      var renderSuggestionData = {
+        query: this.getQuery()
+      };
+      return /*#__PURE__*/_react["default"].createElement(_Autowhatever["default"], {
+        multiSection: multiSection,
+        items: items,
+        renderInputComponent: renderInputComponent,
+        renderItemsContainer: this.renderSuggestionsContainer,
+        renderItem: renderSuggestion,
+        renderItemData: renderSuggestionData,
+        renderSectionTitle: renderSectionTitle,
+        getSectionItems: getSectionSuggestions,
+        highlightedSectionIndex: highlightedSectionIndex,
+        highlightedItemIndex: highlightedSuggestionIndex,
+        inputProps: autowhateverInputProps,
+        itemProps: this.itemProps,
+        theme: (0, _theme.mapToAutowhateverTheme)(theme),
+        id: id,
+        ref: this.storeAutowhateverRef
+      });
     }
   }]);
 
-  return Autocomplete;
-}(React.Component);
+  return Autosuggest;
+}(_react.Component);
 
-Autocomplete.propTypes = {
-  /**
-   * The items to display in the dropdown menu
-   */
-  items: PropTypes.array.isRequired,
-  /**
-   * The value to display in the input field
-   */
-  value: PropTypes.any,
-  /**
-   * Arguments: `event: Event, value: String`
-   *
-   * Invoked every time the user changes the input's value.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Arguments: `value: String, item: Any`
-   *
-   * Invoked when the user selects an item from the dropdown menu.
-   */
-  onSelect: PropTypes.func,
-  /**
-   * Arguments: `item: Any, value: String`
-   *
-   * Invoked for each entry in `items` and its return value is used to
-   * determine whether or not it should be displayed in the dropdown menu.
-   * By default all items are always rendered.
-   */
-  shouldItemRender: PropTypes.func,
-  /**
-   * Arguments: `item: Any`
-   *
-   * Invoked when attempting to select an item. The return value is used to
-   * determine whether the item should be selectable or not.
-   * By default all items are selectable.
-   */
-  isItemSelectable: PropTypes.func,
-  /**
-   * Arguments: `itemA: Any, itemB: Any, value: String`
-   *
-   * The function which is used to sort `items` before display.
-   */
-  sortItems: PropTypes.func,
-  /**
-   * Arguments: `item: Any`
-   *
-   * Used to read the display value from each entry in `items`.
-   */
-  getItemValue: PropTypes.func.isRequired,
-  /**
-   * Arguments: `item: Any, isHighlighted: Boolean, styles: Object`
-   *
-   * Invoked for each entry in `items` that also passes `shouldItemRender` to
-   * generate the render tree for each item in the dropdown menu. `styles` is
-   * an optional set of styles that can be applied to improve the look/feel
-   * of the items in the dropdown menu.
-   */
-  renderItem: PropTypes.func.isRequired,
-  /**
-   * Arguments: `items: Array<Any>, value: String, styles: Object`
-   *
-   * Invoked to generate the render tree for the dropdown menu. Ensure the
-   * returned tree includes every entry in `items` or else the highlight order
-   * and keyboard navigation logic will break. `styles` will contain
-   * { top, left, minWidth } which are the coordinates of the top-left corner
-   * and the width of the dropdown menu.
-   */
-  renderMenu: PropTypes.func,
-  /**
-   * Styles that are applied to the dropdown menu in the default `renderMenu`
-   * implementation. If you override `renderMenu` and you want to use
-   * `menuStyle` you must manually apply them (`this.props.menuStyle`).
-   */
-  menuStyle: PropTypes.object,
-  /**
-   * Arguments: `props: Object`
-   *
-   * Invoked to generate the input element. The `props` argument is the result
-   * of merging `props.inputProps` with a selection of props that are required
-   * both for functionality and accessibility. At the very least you need to
-   * apply `props.ref` and all `props.on<event>` event handlers. Failing to do
-   * this will cause `Autocomplete` to behave unexpectedly.
-   */
-  renderInput: PropTypes.func,
-  /**
-   * Props passed to `props.renderInput`. By default these props will be
-   * applied to the `<input />` element rendered by `Autocomplete`, unless you
-   * have specified a custom value for `props.renderInput`. Any properties
-   * supported by `HTMLInputElement` can be specified, apart from the
-   * following which are set by `Autocomplete`: value, autoComplete, role,
-   * aria-autocomplete. `inputProps` is commonly used for (but not limited to)
-   * placeholder, event handlers (onFocus, onBlur, etc.), autoFocus, etc..
-   */
-  inputProps: PropTypes.object,
-  /**
-   * Props that are applied to the element which wraps the `<input />` and
-   * dropdown menu elements rendered by `Autocomplete`.
-   */
-  wrapperProps: PropTypes.object,
-  /**
-   * This is a shorthand for `wrapperProps={{ style: <your styles> }}`.
-   * Note that `wrapperStyle` is applied before `wrapperProps`, so the latter
-   * will win if it contains a `style` entry.
-   */
-  wrapperStyle: PropTypes.object,
-  /**
-   * Whether or not to automatically highlight the top match in the dropdown
-   * menu.
-   */
-  autoHighlight: PropTypes.bool,
-  /**
-   * Whether or not to automatically select the highlighted item when the
-   * `<input>` loses focus.
-   */
-  selectOnBlur: PropTypes.bool,
-  /**
-   * Arguments: `isOpen: Boolean`
-   *
-   * Invoked every time the dropdown menu's visibility changes (i.e. every
-   * time it is displayed/hidden).
-   */
-  onMenuVisibilityChange: PropTypes.func,
-  /**
-   * Used to override the internal logic which displays/hides the dropdown
-   * menu. This is useful if you want to force a certain state based on your
-   * UX/business logic. Use it together with `onMenuVisibilityChange` for
-   * fine-grained control over the dropdown menu dynamics.
-   */
-  open: PropTypes.bool,
-  debug: PropTypes.bool
+exports["default"] = Autosuggest;
+
+_defineProperty(Autosuggest, "propTypes", {
+  suggestions: _propTypes["default"].array.isRequired,
+  onSuggestionsFetchRequested: function onSuggestionsFetchRequested(props, propName) {
+    var onSuggestionsFetchRequested = props[propName];
+
+    if (typeof onSuggestionsFetchRequested !== 'function') {
+      throw new Error("'onSuggestionsFetchRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsFetchRequestedProp");
+    }
+  },
+  onSuggestionsClearRequested: function onSuggestionsClearRequested(props, propName) {
+    var onSuggestionsClearRequested = props[propName];
+
+    if (props.alwaysRenderSuggestions === false && typeof onSuggestionsClearRequested !== 'function') {
+      throw new Error("'onSuggestionsClearRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsClearRequestedProp");
+    }
+  },
+  onSuggestionSelected: _propTypes["default"].func,
+  onSuggestionHighlighted: _propTypes["default"].func,
+  renderInputComponent: _propTypes["default"].func,
+  renderSuggestionsContainer: _propTypes["default"].func,
+  getSuggestionValue: _propTypes["default"].func.isRequired,
+  renderSuggestion: _propTypes["default"].func.isRequired,
+  inputProps: function inputProps(props, propName) {
+    var inputProps = props[propName];
+
+    if (!inputProps) {
+      throw new Error("'inputProps' must be passed.");
+    }
+
+    if (!Object.prototype.hasOwnProperty.call(inputProps, 'value')) {
+      throw new Error("'inputProps' must have 'value'.");
+    }
+
+    if (!Object.prototype.hasOwnProperty.call(inputProps, 'onChange')) {
+      throw new Error("'inputProps' must have 'onChange'.");
+    }
+  },
+  shouldRenderSuggestions: _propTypes["default"].func,
+  alwaysRenderSuggestions: _propTypes["default"].bool,
+  multiSection: _propTypes["default"].bool,
+  renderSectionTitle: function renderSectionTitle(props, propName) {
+    var renderSectionTitle = props[propName];
+
+    if (props.multiSection === true && typeof renderSectionTitle !== 'function') {
+      throw new Error("'renderSectionTitle' must be implemented. See: https://github.com/moroshko/react-autosuggest#renderSectionTitleProp");
+    }
+  },
+  getSectionSuggestions: function getSectionSuggestions(props, propName) {
+    var getSectionSuggestions = props[propName];
+
+    if (props.multiSection === true && typeof getSectionSuggestions !== 'function') {
+      throw new Error("'getSectionSuggestions' must be implemented. See: https://github.com/moroshko/react-autosuggest#getSectionSuggestionsProp");
+    }
+  },
+  focusInputOnSuggestionClick: _propTypes["default"].bool,
+  highlightFirstSuggestion: _propTypes["default"].bool,
+  theme: _propTypes["default"].object,
+  id: _propTypes["default"].string
+});
+
+_defineProperty(Autosuggest, "defaultProps", {
+  renderSuggestionsContainer: defaultRenderSuggestionsContainer,
+  shouldRenderSuggestions: defaultShouldRenderSuggestions,
+  alwaysRenderSuggestions: false,
+  multiSection: false,
+  focusInputOnSuggestionClick: true,
+  highlightFirstSuggestion: false,
+  theme: _theme.defaultTheme,
+  id: '1'
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/Autowhatever.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/Autowhatever.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _sectionIterator = _interopRequireDefault(__webpack_require__(/*! section-iterator */ "./node_modules/section-iterator/dist/index.js"));
+
+var _reactThemeable = _interopRequireDefault(__webpack_require__(/*! react-themeable */ "./node_modules/react-themeable/dist/index.js"));
+
+var _SectionTitle = _interopRequireDefault(__webpack_require__(/*! ./SectionTitle */ "./node_modules/react-autosuggest/dist/SectionTitle.js"));
+
+var _ItemList = _interopRequireDefault(__webpack_require__(/*! ./ItemList */ "./node_modules/react-autosuggest/dist/ItemList.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var emptyObject = {};
+
+var defaultRenderInputComponent = function defaultRenderInputComponent(props) {
+  return /*#__PURE__*/_react["default"].createElement("input", props);
 };
-Autocomplete.defaultProps = {
-  value: '',
-  wrapperProps: {},
-  wrapperStyle: {
-    display: 'inline-block'
-  },
-  inputProps: {},
-  renderInput: function renderInput(props) {
-    return React.createElement('input', props);
-  },
-  onChange: function onChange() {},
-  onSelect: function onSelect() {},
-  isItemSelectable: function isItemSelectable() {
-    return true;
-  },
-  renderMenu: function renderMenu(items, value, style) {
-    return React.createElement('div', { style: _extends({}, style, this.menuStyle), children: items });
-  },
 
-  menuStyle: {
-    borderRadius: '3px',
-    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
-    background: 'rgba(255, 255, 255, 0.9)',
-    padding: '2px 0',
-    fontSize: '90%',
-    position: 'fixed',
-    overflow: 'auto',
-    maxHeight: '50%' },
-  autoHighlight: true,
-  selectOnBlur: false,
-  onMenuVisibilityChange: function onMenuVisibilityChange() {}
+var defaultRenderItemsContainer = function defaultRenderItemsContainer(_ref) {
+  var containerProps = _ref.containerProps,
+      children = _ref.children;
+  return /*#__PURE__*/_react["default"].createElement("div", containerProps, children);
 };
-Autocomplete.keyDownHandlers = {
-  ArrowDown: function ArrowDown(event) {
-    event.preventDefault();
-    var items = this.getFilteredItems(this.props);
-    if (!items.length) return;
-    var highlightedIndex = this.state.highlightedIndex;
 
-    var index = highlightedIndex === null ? -1 : highlightedIndex;
-    for (var i = 0; i < items.length; i++) {
-      var p = (index + i + 1) % items.length;
-      if (this.props.isItemSelectable(items[p])) {
-        index = p;
-        break;
+var defaultTheme = {
+  container: 'react-autowhatever__container',
+  containerOpen: 'react-autowhatever__container--open',
+  input: 'react-autowhatever__input',
+  inputOpen: 'react-autowhatever__input--open',
+  inputFocused: 'react-autowhatever__input--focused',
+  itemsContainer: 'react-autowhatever__items-container',
+  itemsContainerOpen: 'react-autowhatever__items-container--open',
+  itemsList: 'react-autowhatever__items-list',
+  item: 'react-autowhatever__item',
+  itemFirst: 'react-autowhatever__item--first',
+  itemHighlighted: 'react-autowhatever__item--highlighted',
+  sectionContainer: 'react-autowhatever__section-container',
+  sectionContainerFirst: 'react-autowhatever__section-container--first',
+  sectionTitle: 'react-autowhatever__section-title'
+};
+
+var Autowhatever = /*#__PURE__*/function (_Component) {
+  _inherits(Autowhatever, _Component);
+
+  var _super = _createSuper(Autowhatever);
+
+  function Autowhatever(props) {
+    var _this;
+
+    _classCallCheck(this, Autowhatever);
+
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "storeInputReference", function (input) {
+      if (input !== null) {
+        _this.input = input;
       }
-    }
-    if (index > -1 && index !== highlightedIndex) {
-      this.setState({
-        highlightedIndex: index,
-        isOpen: true
-      });
-    }
-  },
-  ArrowUp: function ArrowUp(event) {
-    event.preventDefault();
-    var items = this.getFilteredItems(this.props);
-    if (!items.length) return;
-    var highlightedIndex = this.state.highlightedIndex;
 
-    var index = highlightedIndex === null ? items.length : highlightedIndex;
-    for (var i = 0; i < items.length; i++) {
-      var p = (index - (1 + i) + items.length) % items.length;
-      if (this.props.isItemSelectable(items[p])) {
-        index = p;
-        break;
+      var userRef = _this.props.inputProps.ref;
+
+      if (userRef) {
+        if (typeof userRef === 'function') {
+          userRef(input);
+        } else if (_typeof(userRef) === 'object' && Object.prototype.hasOwnProperty.call(userRef, 'current')) {
+          userRef.current = input;
+        }
       }
-    }
-    if (index !== items.length) {
-      this.setState({
-        highlightedIndex: index,
-        isOpen: true
-      });
-    }
-  },
-  Enter: function Enter(event) {
-    var _this7 = this;
-
-    // Key code 229 is used for selecting items from character selectors (Pinyin, Kana, etc)
-    if (event.keyCode !== 13) return;
-    // In case the user is currently hovering over the menu
-    this.setIgnoreBlur(false);
-    if (!this.isOpen()) {
-      // menu is closed so there is no selection to accept -> do nothing
-      return;
-    } else if (this.state.highlightedIndex == null) {
-      // input has focus but no menu item is selected + enter is hit -> close the menu, highlight whatever's in input
-      this.setState({
-        isOpen: false
-      }, function () {
-        _this7.refs.input.select();
-      });
-    } else {
-      // text entered + menu item has been highlighted + enter is hit -> update value to that of selected menu item, close the menu
-      event.preventDefault();
-      var item = this.getFilteredItems(this.props)[this.state.highlightedIndex];
-      var value = this.props.getItemValue(item);
-      this.setState({
-        isOpen: false,
-        highlightedIndex: null
-      }, function () {
-        //this.refs.input.focus() // TODO: file issue
-        _this7.refs.input.setSelectionRange(value.length, value.length);
-        _this7.props.onSelect(value, item);
-      });
-    }
-  },
-  Escape: function Escape() {
-    // In case the user is currently hovering over the menu
-    this.setIgnoreBlur(false);
-    this.setState({
-      highlightedIndex: null,
-      isOpen: false
     });
-  },
-  Tab: function Tab() {
-    // In case the user is currently hovering over the menu
-    this.setIgnoreBlur(false);
+
+    _defineProperty(_assertThisInitialized(_this), "storeItemsContainerReference", function (itemsContainer) {
+      if (itemsContainer !== null) {
+        _this.itemsContainer = itemsContainer;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onHighlightedItemChange", function (highlightedItem) {
+      _this.highlightedItem = highlightedItem;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getItemId", function (sectionIndex, itemIndex) {
+      if (itemIndex === null) {
+        return null;
+      }
+
+      var id = _this.props.id;
+      var section = sectionIndex === null ? '' : "section-".concat(sectionIndex);
+      return "react-autowhatever-".concat(id, "-").concat(section, "-item-").concat(itemIndex);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onFocus", function (event) {
+      var inputProps = _this.props.inputProps;
+
+      _this.setState({
+        isInputFocused: true
+      });
+
+      inputProps.onFocus && inputProps.onFocus(event);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onBlur", function (event) {
+      var inputProps = _this.props.inputProps;
+
+      _this.setState({
+        isInputFocused: false
+      });
+
+      inputProps.onBlur && inputProps.onBlur(event);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onKeyDown", function (event) {
+      var _this$props = _this.props,
+          inputProps = _this$props.inputProps,
+          highlightedSectionIndex = _this$props.highlightedSectionIndex,
+          highlightedItemIndex = _this$props.highlightedItemIndex;
+      var keyCode = event.keyCode;
+
+      switch (keyCode) {
+        case 40: // ArrowDown
+
+        case 38:
+          {
+            // ArrowUp
+            var nextPrev = keyCode === 40 ? 'next' : 'prev';
+
+            var _this$sectionIterator = _this.sectionIterator[nextPrev]([highlightedSectionIndex, highlightedItemIndex]),
+                _this$sectionIterator2 = _slicedToArray(_this$sectionIterator, 2),
+                newHighlightedSectionIndex = _this$sectionIterator2[0],
+                newHighlightedItemIndex = _this$sectionIterator2[1];
+
+            inputProps.onKeyDown(event, {
+              newHighlightedSectionIndex: newHighlightedSectionIndex,
+              newHighlightedItemIndex: newHighlightedItemIndex
+            });
+            break;
+          }
+
+        default:
+          inputProps.onKeyDown(event, {
+            highlightedSectionIndex: highlightedSectionIndex,
+            highlightedItemIndex: highlightedItemIndex
+          });
+      }
+    });
+
+    _this.highlightedItem = null;
+    _this.state = {
+      isInputFocused: false
+    };
+
+    _this.setSectionsItems(props);
+
+    _this.setSectionIterator(props);
+
+    _this.setTheme(props);
+
+    return _this;
   }
+
+  _createClass(Autowhatever, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.ensureHighlightedItemIsVisible();
+    } // eslint-disable-next-line camelcase, react/sort-comp
+
+  }, {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
+      if (nextProps.items !== this.props.items) {
+        this.setSectionsItems(nextProps);
+      }
+
+      if (nextProps.items !== this.props.items || nextProps.multiSection !== this.props.multiSection) {
+        this.setSectionIterator(nextProps);
+      }
+
+      if (nextProps.theme !== this.props.theme) {
+        this.setTheme(nextProps);
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.ensureHighlightedItemIsVisible();
+    }
+  }, {
+    key: "setSectionsItems",
+    value: function setSectionsItems(props) {
+      if (props.multiSection) {
+        this.sectionsItems = props.items.map(function (section) {
+          return props.getSectionItems(section);
+        });
+        this.sectionsLengths = this.sectionsItems.map(function (items) {
+          return items.length;
+        });
+        this.allSectionsAreEmpty = this.sectionsLengths.every(function (itemsCount) {
+          return itemsCount === 0;
+        });
+      }
+    }
+  }, {
+    key: "setSectionIterator",
+    value: function setSectionIterator(props) {
+      this.sectionIterator = (0, _sectionIterator["default"])({
+        multiSection: props.multiSection,
+        data: props.multiSection ? this.sectionsLengths : props.items.length
+      });
+    }
+  }, {
+    key: "setTheme",
+    value: function setTheme(props) {
+      this.theme = (0, _reactThemeable["default"])(props.theme);
+    }
+  }, {
+    key: "renderSections",
+    value: function renderSections() {
+      var _this2 = this;
+
+      if (this.allSectionsAreEmpty) {
+        return null;
+      }
+
+      var theme = this.theme;
+      var _this$props2 = this.props,
+          id = _this$props2.id,
+          items = _this$props2.items,
+          renderItem = _this$props2.renderItem,
+          renderItemData = _this$props2.renderItemData,
+          renderSectionTitle = _this$props2.renderSectionTitle,
+          highlightedSectionIndex = _this$props2.highlightedSectionIndex,
+          highlightedItemIndex = _this$props2.highlightedItemIndex,
+          itemProps = _this$props2.itemProps;
+      return items.map(function (section, sectionIndex) {
+        var keyPrefix = "react-autowhatever-".concat(id, "-");
+        var sectionKeyPrefix = "".concat(keyPrefix, "section-").concat(sectionIndex, "-");
+        var isFirstSection = sectionIndex === 0; // `key` is provided by theme()
+
+        /* eslint-disable react/jsx-key */
+
+        return /*#__PURE__*/_react["default"].createElement("div", theme("".concat(sectionKeyPrefix, "container"), 'sectionContainer', isFirstSection && 'sectionContainerFirst'), /*#__PURE__*/_react["default"].createElement(_SectionTitle["default"], {
+          section: section,
+          renderSectionTitle: renderSectionTitle,
+          theme: theme,
+          sectionKeyPrefix: sectionKeyPrefix
+        }), /*#__PURE__*/_react["default"].createElement(_ItemList["default"], {
+          items: _this2.sectionsItems[sectionIndex],
+          itemProps: itemProps,
+          renderItem: renderItem,
+          renderItemData: renderItemData,
+          sectionIndex: sectionIndex,
+          highlightedItemIndex: highlightedSectionIndex === sectionIndex ? highlightedItemIndex : null,
+          onHighlightedItemChange: _this2.onHighlightedItemChange,
+          getItemId: _this2.getItemId,
+          theme: theme,
+          keyPrefix: keyPrefix,
+          ref: _this2.storeItemsListReference
+        }));
+        /* eslint-enable react/jsx-key */
+      });
+    }
+  }, {
+    key: "renderItems",
+    value: function renderItems() {
+      var items = this.props.items;
+
+      if (items.length === 0) {
+        return null;
+      }
+
+      var theme = this.theme;
+      var _this$props3 = this.props,
+          id = _this$props3.id,
+          renderItem = _this$props3.renderItem,
+          renderItemData = _this$props3.renderItemData,
+          highlightedSectionIndex = _this$props3.highlightedSectionIndex,
+          highlightedItemIndex = _this$props3.highlightedItemIndex,
+          itemProps = _this$props3.itemProps;
+      return /*#__PURE__*/_react["default"].createElement(_ItemList["default"], {
+        items: items,
+        itemProps: itemProps,
+        renderItem: renderItem,
+        renderItemData: renderItemData,
+        highlightedItemIndex: highlightedSectionIndex === null ? highlightedItemIndex : null,
+        onHighlightedItemChange: this.onHighlightedItemChange,
+        getItemId: this.getItemId,
+        theme: theme,
+        keyPrefix: "react-autowhatever-".concat(id, "-")
+      });
+    }
+  }, {
+    key: "ensureHighlightedItemIsVisible",
+    value: function ensureHighlightedItemIsVisible() {
+      var highlightedItem = this.highlightedItem;
+
+      if (!highlightedItem) {
+        return;
+      }
+
+      var itemsContainer = this.itemsContainer;
+      var itemOffsetRelativeToContainer = highlightedItem.offsetParent === itemsContainer ? highlightedItem.offsetTop : highlightedItem.offsetTop - itemsContainer.offsetTop;
+      var scrollTop = itemsContainer.scrollTop; // Top of the visible area
+
+      if (itemOffsetRelativeToContainer < scrollTop) {
+        // Item is off the top of the visible area
+        scrollTop = itemOffsetRelativeToContainer;
+      } else if (itemOffsetRelativeToContainer + highlightedItem.offsetHeight > scrollTop + itemsContainer.offsetHeight) {
+        // Item is off the bottom of the visible area
+        scrollTop = itemOffsetRelativeToContainer + highlightedItem.offsetHeight - itemsContainer.offsetHeight;
+      }
+
+      if (scrollTop !== itemsContainer.scrollTop) {
+        itemsContainer.scrollTop = scrollTop;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var theme = this.theme;
+      var _this$props4 = this.props,
+          id = _this$props4.id,
+          multiSection = _this$props4.multiSection,
+          renderInputComponent = _this$props4.renderInputComponent,
+          renderItemsContainer = _this$props4.renderItemsContainer,
+          highlightedSectionIndex = _this$props4.highlightedSectionIndex,
+          highlightedItemIndex = _this$props4.highlightedItemIndex;
+      var isInputFocused = this.state.isInputFocused;
+      var renderedItems = multiSection ? this.renderSections() : this.renderItems();
+      var isOpen = renderedItems !== null;
+      var ariaActivedescendant = this.getItemId(highlightedSectionIndex, highlightedItemIndex);
+      var itemsContainerId = "react-autowhatever-".concat(id);
+
+      var containerProps = _objectSpread({
+        role: 'combobox',
+        'aria-haspopup': 'listbox',
+        'aria-owns': itemsContainerId,
+        'aria-expanded': isOpen
+      }, theme("react-autowhatever-".concat(id, "-container"), 'container', isOpen && 'containerOpen'), {}, this.props.containerProps);
+
+      var inputComponent = renderInputComponent(_objectSpread({
+        type: 'text',
+        value: '',
+        autoComplete: 'off',
+        'aria-autocomplete': 'list',
+        'aria-controls': itemsContainerId,
+        'aria-activedescendant': ariaActivedescendant
+      }, theme("react-autowhatever-".concat(id, "-input"), 'input', isOpen && 'inputOpen', isInputFocused && 'inputFocused'), {}, this.props.inputProps, {
+        onFocus: this.onFocus,
+        onBlur: this.onBlur,
+        onKeyDown: this.props.inputProps.onKeyDown && this.onKeyDown,
+        ref: this.storeInputReference
+      }));
+      var itemsContainer = renderItemsContainer({
+        containerProps: _objectSpread({
+          id: itemsContainerId,
+          role: 'listbox'
+        }, theme("react-autowhatever-".concat(id, "-items-container"), 'itemsContainer', isOpen && 'itemsContainerOpen'), {
+          ref: this.storeItemsContainerReference
+        }),
+        children: renderedItems
+      });
+      return /*#__PURE__*/_react["default"].createElement("div", containerProps, inputComponent, itemsContainer);
+    }
+  }]);
+
+  return Autowhatever;
+}(_react.Component);
+
+exports["default"] = Autowhatever;
+
+_defineProperty(Autowhatever, "propTypes", {
+  id: _propTypes["default"].string,
+  // Used in aria-* attributes. If multiple Autowhatever's are rendered on a page, they must have unique ids.
+  multiSection: _propTypes["default"].bool,
+  // Indicates whether a multi section layout should be rendered.
+  renderInputComponent: _propTypes["default"].func,
+  // When specified, it is used to render the input element.
+  renderItemsContainer: _propTypes["default"].func,
+  // Renders the items container.
+  items: _propTypes["default"].array.isRequired,
+  // Array of items or sections to render.
+  renderItem: _propTypes["default"].func,
+  // This function renders a single item.
+  renderItemData: _propTypes["default"].object,
+  // Arbitrary data that will be passed to renderItem()
+  renderSectionTitle: _propTypes["default"].func,
+  // This function gets a section and renders its title.
+  getSectionItems: _propTypes["default"].func,
+  // This function gets a section and returns its items, which will be passed into `renderItem` for rendering.
+  containerProps: _propTypes["default"].object,
+  // Arbitrary container props
+  inputProps: _propTypes["default"].object,
+  // Arbitrary input props
+  itemProps: _propTypes["default"].oneOfType([// Arbitrary item props
+  _propTypes["default"].object, _propTypes["default"].func]),
+  highlightedSectionIndex: _propTypes["default"].number,
+  // Section index of the highlighted item
+  highlightedItemIndex: _propTypes["default"].number,
+  // Highlighted item index (within a section)
+  theme: _propTypes["default"].oneOfType([// Styles. See: https://github.com/markdalgleish/react-themeable
+  _propTypes["default"].object, _propTypes["default"].array])
+});
+
+_defineProperty(Autowhatever, "defaultProps", {
+  id: '1',
+  multiSection: false,
+  renderInputComponent: defaultRenderInputComponent,
+  renderItemsContainer: defaultRenderItemsContainer,
+  renderItem: function renderItem() {
+    throw new Error('`renderItem` must be provided');
+  },
+  renderItemData: emptyObject,
+  renderSectionTitle: function renderSectionTitle() {
+    throw new Error('`renderSectionTitle` must be provided');
+  },
+  getSectionItems: function getSectionItems() {
+    throw new Error('`getSectionItems` must be provided');
+  },
+  containerProps: emptyObject,
+  inputProps: emptyObject,
+  itemProps: emptyObject,
+  highlightedSectionIndex: null,
+  highlightedItemIndex: null,
+  theme: defaultTheme
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/Item.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/Item.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Item = /*#__PURE__*/function (_Component) {
+  _inherits(Item, _Component);
+
+  var _super = _createSuper(Item);
+
+  function Item() {
+    var _this;
+
+    _classCallCheck(this, Item);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "storeItemReference", function (item) {
+      if (item !== null) {
+        _this.item = item;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onMouseEnter", function (event) {
+      var _this$props = _this.props,
+          sectionIndex = _this$props.sectionIndex,
+          itemIndex = _this$props.itemIndex;
+
+      _this.props.onMouseEnter(event, {
+        sectionIndex: sectionIndex,
+        itemIndex: itemIndex
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onMouseLeave", function (event) {
+      var _this$props2 = _this.props,
+          sectionIndex = _this$props2.sectionIndex,
+          itemIndex = _this$props2.itemIndex;
+
+      _this.props.onMouseLeave(event, {
+        sectionIndex: sectionIndex,
+        itemIndex: itemIndex
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onMouseDown", function (event) {
+      var _this$props3 = _this.props,
+          sectionIndex = _this$props3.sectionIndex,
+          itemIndex = _this$props3.itemIndex;
+
+      _this.props.onMouseDown(event, {
+        sectionIndex: sectionIndex,
+        itemIndex: itemIndex
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onClick", function (event) {
+      var _this$props4 = _this.props,
+          sectionIndex = _this$props4.sectionIndex,
+          itemIndex = _this$props4.itemIndex;
+
+      _this.props.onClick(event, {
+        sectionIndex: sectionIndex,
+        itemIndex: itemIndex
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(Item, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return (0, _compareObjects["default"])(nextProps, this.props, ['renderItemData']);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props5 = this.props,
+          isHighlighted = _this$props5.isHighlighted,
+          item = _this$props5.item,
+          renderItem = _this$props5.renderItem,
+          renderItemData = _this$props5.renderItemData,
+          restProps = _objectWithoutProperties(_this$props5, ["isHighlighted", "item", "renderItem", "renderItemData"]);
+
+      delete restProps.sectionIndex;
+      delete restProps.itemIndex;
+
+      if (typeof restProps.onMouseEnter === 'function') {
+        restProps.onMouseEnter = this.onMouseEnter;
+      }
+
+      if (typeof restProps.onMouseLeave === 'function') {
+        restProps.onMouseLeave = this.onMouseLeave;
+      }
+
+      if (typeof restProps.onMouseDown === 'function') {
+        restProps.onMouseDown = this.onMouseDown;
+      }
+
+      if (typeof restProps.onClick === 'function') {
+        restProps.onClick = this.onClick;
+      }
+
+      return /*#__PURE__*/_react["default"].createElement("li", _extends({
+        role: "option"
+      }, restProps, {
+        ref: this.storeItemReference
+      }), renderItem(item, _objectSpread({
+        isHighlighted: isHighlighted
+      }, renderItemData)));
+    }
+  }]);
+
+  return Item;
+}(_react.Component);
+
+exports["default"] = Item;
+
+_defineProperty(Item, "propTypes", {
+  sectionIndex: _propTypes["default"].number,
+  isHighlighted: _propTypes["default"].bool.isRequired,
+  itemIndex: _propTypes["default"].number.isRequired,
+  item: _propTypes["default"].any.isRequired,
+  renderItem: _propTypes["default"].func.isRequired,
+  renderItemData: _propTypes["default"].object.isRequired,
+  onMouseEnter: _propTypes["default"].func,
+  onMouseLeave: _propTypes["default"].func,
+  onMouseDown: _propTypes["default"].func,
+  onClick: _propTypes["default"].func
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/ItemList.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/ItemList.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _Item = _interopRequireDefault(__webpack_require__(/*! ./Item */ "./node_modules/react-autosuggest/dist/Item.js"));
+
+var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var ItemsList = /*#__PURE__*/function (_Component) {
+  _inherits(ItemsList, _Component);
+
+  var _super = _createSuper(ItemsList);
+
+  function ItemsList() {
+    var _this;
+
+    _classCallCheck(this, ItemsList);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "storeHighlightedItemReference", function (highlightedItem) {
+      _this.props.onHighlightedItemChange(highlightedItem === null ? null : highlightedItem.item);
+    });
+
+    return _this;
+  }
+
+  _createClass(ItemsList, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return (0, _compareObjects["default"])(nextProps, this.props, ['itemProps']);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          items = _this$props.items,
+          itemProps = _this$props.itemProps,
+          renderItem = _this$props.renderItem,
+          renderItemData = _this$props.renderItemData,
+          sectionIndex = _this$props.sectionIndex,
+          highlightedItemIndex = _this$props.highlightedItemIndex,
+          getItemId = _this$props.getItemId,
+          theme = _this$props.theme,
+          keyPrefix = _this$props.keyPrefix;
+      var sectionPrefix = sectionIndex === null ? keyPrefix : "".concat(keyPrefix, "section-").concat(sectionIndex, "-");
+      var isItemPropsFunction = typeof itemProps === 'function';
+      return /*#__PURE__*/_react["default"].createElement("ul", _extends({
+        role: "listbox"
+      }, theme("".concat(sectionPrefix, "items-list"), 'itemsList')), items.map(function (item, itemIndex) {
+        var isFirst = itemIndex === 0;
+        var isHighlighted = itemIndex === highlightedItemIndex;
+        var itemKey = "".concat(sectionPrefix, "item-").concat(itemIndex);
+        var itemPropsObj = isItemPropsFunction ? itemProps({
+          sectionIndex: sectionIndex,
+          itemIndex: itemIndex
+        }) : itemProps;
+
+        var allItemProps = _objectSpread({
+          id: getItemId(sectionIndex, itemIndex),
+          'aria-selected': isHighlighted
+        }, theme(itemKey, 'item', isFirst && 'itemFirst', isHighlighted && 'itemHighlighted'), {}, itemPropsObj);
+
+        if (isHighlighted) {
+          allItemProps.ref = _this2.storeHighlightedItemReference;
+        } // `key` is provided by theme()
+
+        /* eslint-disable react/jsx-key */
+
+
+        return /*#__PURE__*/_react["default"].createElement(_Item["default"], _extends({}, allItemProps, {
+          sectionIndex: sectionIndex,
+          isHighlighted: isHighlighted,
+          itemIndex: itemIndex,
+          item: item,
+          renderItem: renderItem,
+          renderItemData: renderItemData
+        }));
+        /* eslint-enable react/jsx-key */
+      }));
+    }
+  }]);
+
+  return ItemsList;
+}(_react.Component);
+
+exports["default"] = ItemsList;
+
+_defineProperty(ItemsList, "propTypes", {
+  items: _propTypes["default"].array.isRequired,
+  itemProps: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func]),
+  renderItem: _propTypes["default"].func.isRequired,
+  renderItemData: _propTypes["default"].object.isRequired,
+  sectionIndex: _propTypes["default"].number,
+  highlightedItemIndex: _propTypes["default"].number,
+  onHighlightedItemChange: _propTypes["default"].func.isRequired,
+  getItemId: _propTypes["default"].func.isRequired,
+  theme: _propTypes["default"].func.isRequired,
+  keyPrefix: _propTypes["default"].string.isRequired
+});
+
+_defineProperty(ItemsList, "defaultProps", {
+  sectionIndex: null
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/SectionTitle.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/SectionTitle.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var SectionTitle = /*#__PURE__*/function (_Component) {
+  _inherits(SectionTitle, _Component);
+
+  var _super = _createSuper(SectionTitle);
+
+  function SectionTitle() {
+    _classCallCheck(this, SectionTitle);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(SectionTitle, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return (0, _compareObjects["default"])(nextProps, this.props);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          section = _this$props.section,
+          renderSectionTitle = _this$props.renderSectionTitle,
+          theme = _this$props.theme,
+          sectionKeyPrefix = _this$props.sectionKeyPrefix;
+      var sectionTitle = renderSectionTitle(section);
+
+      if (!sectionTitle) {
+        return null;
+      }
+
+      return /*#__PURE__*/_react["default"].createElement("div", theme("".concat(sectionKeyPrefix, "title"), 'sectionTitle'), sectionTitle);
+    }
+  }]);
+
+  return SectionTitle;
+}(_react.Component);
+
+exports["default"] = SectionTitle;
+
+_defineProperty(SectionTitle, "propTypes", {
+  section: _propTypes["default"].any.isRequired,
+  renderSectionTitle: _propTypes["default"].func.isRequired,
+  theme: _propTypes["default"].func.isRequired,
+  sectionKeyPrefix: _propTypes["default"].string.isRequired
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/compareObjects.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/compareObjects.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = compareObjects;
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function compareObjects(objA, objB) {
+  var keys = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+
+  if (objA === objB) {
+    return false;
+  }
+
+  var aKeys = Object.keys(objA);
+  var bKeys = Object.keys(objB);
+
+  if (aKeys.length !== bKeys.length) {
+    return true;
+  }
+
+  var keysMap = {};
+  var i, len;
+
+  for (i = 0, len = keys.length; i < len; i++) {
+    keysMap[keys[i]] = true;
+  }
+
+  for (i = 0, len = aKeys.length; i < len; i++) {
+    var key = aKeys[i];
+    var aValue = objA[key];
+    var bValue = objB[key];
+
+    if (aValue === bValue) {
+      continue;
+    }
+
+    if (!keysMap[key] || aValue === null || bValue === null || _typeof(aValue) !== 'object' || _typeof(bValue) !== 'object') {
+      return true;
+    }
+
+    var aValueKeys = Object.keys(aValue);
+    var bValueKeys = Object.keys(bValue);
+
+    if (aValueKeys.length !== bValueKeys.length) {
+      return true;
+    }
+
+    for (var n = 0, length = aValueKeys.length; n < length; n++) {
+      var aValueKey = aValueKeys[n];
+
+      if (aValue[aValueKey] !== bValue[aValueKey]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(/*! ./Autosuggest */ "./node_modules/react-autosuggest/dist/Autosuggest.js")["default"];
+
+/***/ }),
+
+/***/ "./node_modules/react-autosuggest/dist/theme.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-autosuggest/dist/theme.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mapToAutowhateverTheme = exports.defaultTheme = void 0;
+var defaultTheme = {
+  container: 'react-autosuggest__container',
+  containerOpen: 'react-autosuggest__container--open',
+  input: 'react-autosuggest__input',
+  inputOpen: 'react-autosuggest__input--open',
+  inputFocused: 'react-autosuggest__input--focused',
+  suggestionsContainer: 'react-autosuggest__suggestions-container',
+  suggestionsContainerOpen: 'react-autosuggest__suggestions-container--open',
+  suggestionsList: 'react-autosuggest__suggestions-list',
+  suggestion: 'react-autosuggest__suggestion',
+  suggestionFirst: 'react-autosuggest__suggestion--first',
+  suggestionHighlighted: 'react-autosuggest__suggestion--highlighted',
+  sectionContainer: 'react-autosuggest__section-container',
+  sectionContainerFirst: 'react-autosuggest__section-container--first',
+  sectionTitle: 'react-autosuggest__section-title'
+};
+exports.defaultTheme = defaultTheme;
+
+var mapToAutowhateverTheme = function mapToAutowhateverTheme(theme) {
+  var result = {};
+
+  for (var key in theme) {
+    switch (key) {
+      case 'suggestionsContainer':
+        result['itemsContainer'] = theme[key];
+        break;
+
+      case 'suggestionsContainerOpen':
+        result['itemsContainerOpen'] = theme[key];
+        break;
+
+      case 'suggestion':
+        result['item'] = theme[key];
+        break;
+
+      case 'suggestionFirst':
+        result['itemFirst'] = theme[key];
+        break;
+
+      case 'suggestionHighlighted':
+        result['itemHighlighted'] = theme[key];
+        break;
+
+      case 'suggestionsList':
+        result['itemsList'] = theme[key];
+        break;
+
+      default:
+        result[key] = theme[key];
+    }
+  }
+
+  return result;
 };
 
-
-module.exports = Autocomplete;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+exports.mapToAutowhateverTheme = mapToAutowhateverTheme;
 
 /***/ }),
 
@@ -50478,6 +51168,110 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-themeable/dist/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-themeable/dist/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
+var _objectAssign = __webpack_require__(/*! object-assign */ "./node_modules/react-themeable/node_modules/object-assign/index.js");
+
+var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+var truthy = function truthy(x) {
+  return x;
+};
+
+exports['default'] = function (input) {
+  var _ref = Array.isArray(input) && input.length === 2 ? input : [input, null];
+
+  var _ref2 = _slicedToArray(_ref, 2);
+
+  var theme = _ref2[0];
+  var classNameDecorator = _ref2[1];
+
+  return function (key) {
+    for (var _len = arguments.length, names = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      names[_key - 1] = arguments[_key];
+    }
+
+    var styles = names.map(function (name) {
+      return theme[name];
+    }).filter(truthy);
+
+    return typeof styles[0] === 'string' || typeof classNameDecorator === 'function' ? { key: key, className: classNameDecorator ? classNameDecorator.apply(undefined, _toConsumableArray(styles)) : styles.join(' ') } : { key: key, style: _objectAssign2['default'].apply(undefined, [{}].concat(_toConsumableArray(styles))) };
+  };
+};
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-themeable/node_modules/object-assign/index.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/react-themeable/node_modules/object-assign/index.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function ToObject(val) {
+	if (val == null) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function ownEnumerableKeys(obj) {
+	var keys = Object.getOwnPropertyNames(obj);
+
+	if (Object.getOwnPropertySymbols) {
+		keys = keys.concat(Object.getOwnPropertySymbols(obj));
+	}
+
+	return keys.filter(function (key) {
+		return propIsEnumerable.call(obj, key);
+	});
+}
+
+module.exports = Object.assign || function (target, source) {
+	var from;
+	var keys;
+	var to = ToObject(target);
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = arguments[s];
+		keys = ownEnumerableKeys(Object(from));
+
+		for (var i = 0; i < keys.length; i++) {
+			to[keys[i]] = from[keys[i]];
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -52419,6 +53213,167 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/section-iterator/dist/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/section-iterator/dist/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+module.exports = function (_ref) {
+  var data = _ref.data;
+  var multiSection = _ref.multiSection;
+
+  function nextNonEmptySectionIndex(sectionIndex) {
+    if (sectionIndex === null) {
+      sectionIndex = 0;
+    } else {
+      sectionIndex++;
+    }
+
+    while (sectionIndex < data.length && data[sectionIndex] === 0) {
+      sectionIndex++;
+    }
+
+    return sectionIndex === data.length ? null : sectionIndex;
+  }
+
+  function prevNonEmptySectionIndex(sectionIndex) {
+    if (sectionIndex === null) {
+      sectionIndex = data.length - 1;
+    } else {
+      sectionIndex--;
+    }
+
+    while (sectionIndex >= 0 && data[sectionIndex] === 0) {
+      sectionIndex--;
+    }
+
+    return sectionIndex === -1 ? null : sectionIndex;
+  }
+
+  function next(position) {
+    var _position = _slicedToArray(position, 2);
+
+    var sectionIndex = _position[0];
+    var itemIndex = _position[1];
+
+
+    if (multiSection) {
+      if (itemIndex === null || itemIndex === data[sectionIndex] - 1) {
+        sectionIndex = nextNonEmptySectionIndex(sectionIndex);
+
+        if (sectionIndex === null) {
+          return [null, null];
+        }
+
+        return [sectionIndex, 0];
+      }
+
+      return [sectionIndex, itemIndex + 1];
+    }
+
+    if (data === 0 || itemIndex === data - 1) {
+      return [null, null];
+    }
+
+    if (itemIndex === null) {
+      return [null, 0];
+    }
+
+    return [null, itemIndex + 1];
+  }
+
+  function prev(position) {
+    var _position2 = _slicedToArray(position, 2);
+
+    var sectionIndex = _position2[0];
+    var itemIndex = _position2[1];
+
+
+    if (multiSection) {
+      if (itemIndex === null || itemIndex === 0) {
+        sectionIndex = prevNonEmptySectionIndex(sectionIndex);
+
+        if (sectionIndex === null) {
+          return [null, null];
+        }
+
+        return [sectionIndex, data[sectionIndex] - 1];
+      }
+
+      return [sectionIndex, itemIndex - 1];
+    }
+
+    if (data === 0 || itemIndex === 0) {
+      return [null, null];
+    }
+
+    if (itemIndex === null) {
+      return [null, data - 1];
+    }
+
+    return [null, itemIndex - 1];
+  }
+
+  function isLast(position) {
+    return next(position)[1] === null;
+  }
+
+  return {
+    next: next,
+    prev: prev,
+    isLast: isLast
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/shallow-equal/arrays/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/shallow-equal/arrays/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function shallowEqualArrays(arrA, arrB) {
+  if (arrA === arrB) {
+    return true;
+  }
+
+  if (!arrA || !arrB) {
+    return false;
+  }
+
+  var len = arrA.length;
+
+  if (arrB.length !== len) {
+    return false;
+  }
+
+  for (var i = 0; i < len; i++) {
+    if (arrA[i] !== arrB[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqualArrays;
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -53561,7 +54516,7 @@ var ActionElement = function ActionElement(_ref) {
         fill: "none"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
         d: "M10.3582 2.25H9.60815V10.875C9.60815 11.0312 9.57886 11.1777 9.52026 11.3145C9.46167 11.4512 9.38159 11.5703 9.28003 11.6719C9.17847 11.7734 9.05933 11.8535 8.92261 11.9121C8.78589 11.9707 8.6394 12 8.48315 12H2.48315C2.3269 12 2.18042 11.9707 2.0437 11.9121C1.90698 11.8535 1.78784 11.7734 1.68628 11.6719C1.58472 11.5703 1.50464 11.4512 1.44604 11.3145C1.38745 11.1777 1.35815 11.0312 1.35815 10.875V2.25H0.608154V1.5H3.60815V0.75C3.60815 0.644531 3.62769 0.546875 3.66675 0.457031C3.70581 0.367188 3.75854 0.289062 3.82495 0.222656C3.89526 0.152344 3.97534 0.0976563 4.06519 0.0585938C4.15503 0.0195312 4.25269 0 4.35815 0H6.60815C6.71362 0 6.81128 0.0195312 6.90112 0.0585938C6.99097 0.0976563 7.06909 0.152344 7.1355 0.222656C7.20581 0.289062 7.2605 0.367188 7.29956 0.457031C7.33862 0.546875 7.35815 0.644531 7.35815 0.75V1.5H10.3582V2.25ZM4.35815 1.5H6.60815V0.75H4.35815V1.5ZM8.85815 2.25H2.10815V10.875C2.10815 10.9766 2.14526 11.0645 2.21948 11.1387C2.2937 11.2129 2.38159 11.25 2.48315 11.25H8.48315C8.58472 11.25 8.67261 11.2129 8.74683 11.1387C8.82104 11.0645 8.85815 10.9766 8.85815 10.875V2.25ZM4.35815 9.75H3.60815V3.75H4.35815V9.75ZM5.85815 9.75H5.10815V3.75H5.85815V9.75ZM7.35815 9.75H6.60815V3.75H7.35815V9.75Z",
-        fill: "#0078D4"
+        fill: "#A6A6A6"
       })));
     }
 
@@ -53712,8 +54667,8 @@ NotToggle.displayName = 'NotToggle';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-autocomplete */ "./node_modules/react-autocomplete/build/lib/Autocomplete.js");
-/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_autocomplete__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-autosuggest */ "./node_modules/react-autosuggest/dist/index.js");
+/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_autosuggest__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -53751,10 +54706,20 @@ var ValueEditor = function ValueEditor(_ref) {
     return handleOnChange(e.target.checked);
   };
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var onAutoSuggetionChange = function onAutoSuggetionChange(event, value) {
+    setVal(value.newValue);
+    handleOnChange(value.newValue);
+  };
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(value),
       _useState2 = _slicedToArray(_useState, 2),
       val = _useState2[0],
       setVal = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      suggestions = _useState4[0],
+      setSuggestions = _useState4[1];
 
   switch (type) {
     case 'select':
@@ -53775,42 +54740,38 @@ var ValueEditor = function ValueEditor(_ref) {
       }));
 
     case 'autocomplete':
-      var shouldItemRender = function shouldItemRender(state, val) {
-        return state.label.toLowerCase().indexOf(val.toLowerCase()) !== -1;
+      var suggessionInputProps = {
+        value: val ? val : "",
+        onChange: onAutoSuggetionChange
       };
 
-      var renderItem = function renderItem(item, isHighlighted) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "item ".concat(isHighlighted ? 'selected-item' : '')
-        }, item.label);
+      var onSuggestionsFetchRequested = function onSuggestionsFetchRequested(value) {
+        var _values = values && values.length ? values.filter(function (sug) {
+          return sug.label.toLowerCase().includes(value.value.toLowerCase().trim());
+        }) : [];
+
+        setSuggestions(_values);
       };
 
-      var _values = values ? values : [];
-
-      var getItemValue = function getItemValue(item) {
-        return item.label;
+      var getSuggestionName = function getSuggestionName(suggestion) {
+        return suggestion.label;
       };
 
-      var _handelOnChange = function _handelOnChange(val) {
-        setVal(val);
-        handleOnChange(val);
+      var renderSuggestion = function renderSuggestion(suggestion) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, suggestion.label);
       };
 
-      var _onChange = function _onChange(event, val) {
-        setVal(val);
-      };
+      var onClear = function onClear() {};
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "autocomplete-wrapper"
-      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_autocomplete__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        value: val,
-        items: _values,
-        getItemValue: getItemValue,
-        shouldItemRender: shouldItemRender,
-        renderItem: renderItem,
-        onChange: _onChange,
-        onSelect: _handelOnChange
-      }));
+      ;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_autosuggest__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        suggestions: suggestions,
+        onSuggestionsFetchRequested: onSuggestionsFetchRequested,
+        onSuggestionsClearRequested: onClear,
+        getSuggestionValue: getSuggestionName,
+        renderSuggestion: renderSuggestion,
+        inputProps: suggessionInputProps
+      });
 
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
