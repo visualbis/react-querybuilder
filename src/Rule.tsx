@@ -14,6 +14,7 @@ export const Rule: React.FC<RuleProps> = ({
     controls,
     fields,
     getInputType,
+    getPlaceHolder,
     getLevel,
     getOperators,
     getValueEditorType,
@@ -87,6 +88,7 @@ export const Rule: React.FC<RuleProps> = ({
         value={value}
         type={getValueEditorType(field, operator)}
         inputType={getInputType(field, operator)}
+        placeHolder={getPlaceHolder(field, operator)}
         values={getValues(field, operator)}
         className={`rule-value ${classNames.value}`}
         handleOnChange={onValueChanged}
