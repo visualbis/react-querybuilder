@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import Autosuggest from 'react-autosuggest';
+import SelectSearch from 'react-select-search';
 import { ValueEditorProps } from '../types';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
@@ -13,59 +13,27 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   placeHolder,
   values
 }) => {
-  if (operator === 'null' || operator === 'notNull') {
+  if (operator === 'null' || operator === 'notNull' || type === "none") {
     return null;
   }
-  const onSelectChange = (e:any) =>  handleOnChange(e.target.value);
+
+  const onSelectChange = (e:any) => {debugger; handleOnChange(e)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
-  const  onAutoSuggetionChange = (event:any, value:any) => {
-      setVal(value.newValue);
-      handleOnChange(value.newValue);
+  const  onAutoSuggetionChange = (value:any) => {
+      setVal(value);
+      handleOnChange(value);
   };
   const [val, setVal] = useState(value); 
-  const [suggestions, setSuggestions] = useState([] as  any);   
+  let options:any[] = [];
   switch (type) {
     case 'select':
-      return (
-        <select
-          className={className}
-          title={title}
-          onChange={onSelectChange}
-          onBlur={onSelectChange}
-          value={value}>
-          {values!.map((v) => {
-            const isSelected = v.name == value;
-            return (
-            <option role="option" key={v.name} value={v.name} aria-selected={isSelected} >
-              {v.label}
-            </option>
-          )})}
-        </select>  
-        
+        options = values!.map((item)=> {return  {value:item.name, name:item.label}});
+      return (       
+        <SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onSelectChange}/>        
       );
     case 'autocomplete':       
-        const suggessionInputProps = {value: val?val:"", onChange: onAutoSuggetionChange,placeholder:placeHolder};       
-         const onSuggestionsFetchRequested = (value:any) => {        
-          const _values= values && values.length? values.filter(sug => sug.label.toLowerCase().includes(value.value.toLowerCase().trim()) ):[];
-          setSuggestions(_values);
-         };      
-        const getSuggestionName = (suggestion:any)=> {
-          return suggestion.label;
-        }        
-        const renderSuggestion = (suggestion:any) => {
-          return (
-            <span>{suggestion.label}</span>
-          );
-        }
-        const onClear = ()=> {};
-        ;
-     return    (<Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onClear}
-        getSuggestionValue={getSuggestionName}        
-        renderSuggestion={renderSuggestion}
-        inputProps={suggessionInputProps}
+        options = values!.map((item)=> {return  {value:item.name, name:item.label}});
+     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search autoComplete={"on"}
       />)
     
     case 'checkbox':
@@ -90,7 +58,6 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           )})}
         </span>
       );
-
     default:
 
       return (

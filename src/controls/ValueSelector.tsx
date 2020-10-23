@@ -1,5 +1,7 @@
 import React from 'react';
-import { ValueSelectorProps } from '../types';
+
+import SelectSearch from 'react-select-search';
+import { ValueSelectorProps, Field } from '../types';
 
 const ValueSelector: React.FC<ValueSelectorProps> = ({
   className,
@@ -8,26 +10,15 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   title,
   value
 }) => { 
- const onChange =  (e:any) => handleOnChange(e.target.value)
-  return (
-  <select
-    className={className}
-    value={value}
-    title={title}
-    onChange={onChange}
-    onBlur={onChange}>
-    {options.map((option) => {
-      const key = option.id ? `key-${option.id}` : `key-${option.name}`;
-      const isSelected =  value == option.name;
-      const prefix = option.type === "number"? "Σ ":"";
-      return (
-        <option role="option" key={key} value={option.name} aria-selected={isSelected}>
-          {prefix + option.label}
-        </option>
-      );
-    })}
-  </select>
-)};
+ const onChange =  (value:any) =>{ handleOnChange(value)}
+
+ let _options:any[] = options!.map((item)=> {
+  const prefix:string = item.type === "number"? "Σ ":"";
+   return  {value:item.name, name:prefix+item.label};
+  });
+ return    (<SelectSearch   options={_options} value={value} placeholder={"Select data field"} onChange={onChange}  autoComplete={"on"}
+  />)
+};
 
 ValueSelector.displayName = 'ValueSelector';
 

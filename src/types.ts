@@ -28,7 +28,7 @@ export type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized'
 
 export type ValueProcessor = (field: string, operator: string, value: any) => string;
 
-export type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+export type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
 
 export interface CommonProps {
   /**
