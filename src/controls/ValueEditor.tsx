@@ -17,7 +17,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     return null;
   }
 
-  const onSelectChange = (e:any) => {debugger; handleOnChange(e)};
+  const onSelectChange = (value:any) => { handleOnChange(value)};
+  const onTextInputChange = (e:any) => { handleOnChange(e.target.value)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   const  onAutoSuggetionChange = (value:any) => {
       setVal(value);
@@ -28,14 +29,10 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   switch (type) {
     case 'select':
         options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-      return (       
-        <SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onSelectChange}/>        
-      );
+      return (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onSelectChange}/> );
     case 'autocomplete':       
         options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search autoComplete={"on"}
-      />)
-    
+     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search autoComplete={"on"} />);   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
@@ -51,7 +48,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
                 value={v.name}
                 aria-checked={isChecked}
                 checked={isChecked}
-                onChange={onSelectChange}
+                onChange={onTextInputChange}
               />
               {v.label}
             </label>
@@ -59,7 +56,6 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
         </span>
       );
     default:
-
       return (
         <input
           type={inputType || 'text'}
@@ -67,7 +63,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           title={title}
           className={className}
           placeholder={placeHolder}
-          onChange={onSelectChange}
+          onChange={onTextInputChange}
         />
       );
   }
