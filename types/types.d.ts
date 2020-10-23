@@ -313,7 +313,7 @@ export interface QueryBuilderProps {
      * This is a callback function invoked to get the type of `ValueEditor`
      * for the given field and operator.
      */
-    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+    getValueEditorType?(field: string, operator: string): ValueEditorType;
     /**
      * This is a callback function invoked to get the `type` of `<input />` and auto complete
      * for the given field and operator (only applicable when

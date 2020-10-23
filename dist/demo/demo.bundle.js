@@ -53421,9 +53421,12 @@ var ValueEditor = function ValueEditor(_ref) {
     return null;
   }
 
-  var onSelectChange = function onSelectChange(e) {
-    debugger;
-    handleOnChange(e);
+  var onSelectChange = function onSelectChange(value) {
+    handleOnChange(value);
+  };
+
+  var onTextInputChange = function onTextInputChange(e) {
+    handleOnChange(e.target.value);
   };
 
   var onCheckboxChange = function onCheckboxChange(e) {
@@ -53498,7 +53501,7 @@ var ValueEditor = function ValueEditor(_ref) {
           value: v.name,
           "aria-checked": isChecked,
           checked: isChecked,
-          onChange: onSelectChange
+          onChange: onTextInputChange
         }), v.label);
       }));
 
@@ -53509,7 +53512,7 @@ var ValueEditor = function ValueEditor(_ref) {
         title: title,
         className: className,
         placeholder: placeHolder,
-        onChange: onSelectChange
+        onChange: onTextInputChange
       });
   }
 };
