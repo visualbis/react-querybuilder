@@ -1,14 +1,14 @@
 
 import React,{ Component } from "react";
 import {QueryBuilder} from "./QueryBuilder";
-import {RuleGroupType,Field,NameLabelPair, ValueEditorType} from "./types";
+import {RuleGroupType,Field,NameLabelPair,ValueEditorType} from "./types";
 import "./query-builder.less";
 
 export interface IProps{
     query?: RuleGroupType;   
     fields: Field[];
     getOperators?(field: string): Field[];
-    getValueEditorType?:ValueEditorType
+    getValueEditorType?(field: string, operator: string): ValueEditorType;
     getInputType?(field: string, operator: string): string;
     getPlaceHolder?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;    
