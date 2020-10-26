@@ -107,7 +107,7 @@ const defaultControlElements: Controls = {
 
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,getPlaceHolder,
    getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, showNotToggle = false, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false }) => {
-  const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain} = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
+  const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery} = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
   const getInitialQuery = () => {// Gets the initial query   
     return (query && generateValidQuery(query)) || createRuleGroup();
   };
@@ -157,25 +157,26 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
-      const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);      
-      if(parent.rules.length ===1){
-        const parentGroup = findRuleGroup(parentId, rootCopy) as RuleGroupType;   
-        onGroupRemove(parentId,parentGroup.id);
-      }else{
-        parent.rules.splice(index, 1);
-        setRoot(rootCopy);
-        _notifyQueryChange(rootCopy);
-      }
+      const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
+         parent.rules.splice(index, 1);
+         let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+         getValidQuery(rootCopy,updatedQuery,true);
+         setRoot(updatedQuery);
+         _notifyQueryChange(updatedQuery);
     }
   };
+  
+ 
   const onGroupRemove = (groupId: string, parentId: string) => {//Removes a rule group from the query
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === groupId);
       parent.rules.splice(index, 1);
-      setRoot(rootCopy);
-      _notifyQueryChange(rootCopy);
+      let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+       getValidQuery(rootCopy,updatedQuery,true);
+      setRoot(updatedQuery);
+      _notifyQueryChange(updatedQuery);
     }
   };
   const getLevelFromRoot = (id: string) => {//Gets the level of the rule with the provided ID
@@ -254,7 +255,30 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     }
     return value;
   };
-  return {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain };
+  const getValidQuery = (query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => {
+    let root: RuleGroupType | RuleType;
+    if ((query as RuleGroupType).combinator) {
+       const _query: RuleGroupType = query as RuleGroupType;
+       if (isRoot) {
+          root = parent;
+       } else {
+          root = { id: _query.id, rules: [], combinator: _query.combinator };
+       }
+       let len = _query.rules.length;
+       for (var i = 0; i < len; i++) {
+          const rule = _query.rules[i];
+          getValidQuery(rule, root, false);        
+       }
+       if (!isRoot && root.rules.length > 0) {
+        parent.rules.push(root);
+     }
+    } else {
+       let _rule: RuleType = query as RuleType;
+          root = { field: _rule.field, operator: _rule.operator, value: _rule.value };
+          parent.rules.push(root);       
+    }
+ }
+  return {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain, getValidQuery };
 }
 
 QueryBuilder.displayName = 'QueryBuilder';
