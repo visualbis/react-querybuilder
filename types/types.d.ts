@@ -21,7 +21,7 @@ export interface RuleGroupType {
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
 export declare type ValueProcessor = (field: string, operator: string, value: any) => string;
-export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
 export interface CommonProps {
     /**
      * CSS classNames to be applied
@@ -76,6 +76,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
     operator?: string;
     type?: ValueEditorType;
     inputType?: string;
+    placeHolder?: string;
     values?: any[];
 }
 export interface Controls {
@@ -158,6 +159,7 @@ export interface Schema {
     getLevel(id: string): number;
     getOperators(field: string): Field[];
     getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
+    getPlaceHolder(field: string, operator: string): string;
     getInputType(field: string, operator: string): string;
     getValues(field: string, operator: string): NameLabelPair[];
     isRuleGroup(ruleOrGroup: RuleType | RuleGroupType): ruleOrGroup is RuleGroupType;
@@ -311,7 +313,14 @@ export interface QueryBuilderProps {
      * This is a callback function invoked to get the type of `ValueEditor`
      * for the given field and operator.
      */
-    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+    getValueEditorType?(field: string, operator: string): ValueEditorType;
+    /**
+     * This is a callback function invoked to get the `type` of `<input />` and auto complete
+     * for the given field and operator (only applicable when
+     * `getValueEditorType` returns `"text"` or `"number"`). If no
+     * function is provided, `"empty string"` is used as the default.
+     */
+    getPlaceHolder?(field: 'text' | 'number', operator: string): string;
     /**
      * This is a callback function invoked to get the `type` of `<input />`
      * for the given field and operator (only applicable when

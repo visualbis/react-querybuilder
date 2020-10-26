@@ -528,7 +528,7 @@ module.exports = find;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule .rule-fields {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  margin: 5px;\n  padding: 5px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.react-autosuggest__container {\n  width: 100%;\n  padding: 0px 10px;\n  margin: 0px;\n}\n.react-autosuggest__input {\n  height: 30px;\n  font-size: 16px;\n  border: 1px solid #ccc;\n  outline: none;\n}\n.react-autosuggest__input--open {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.react-autosuggest__suggestions-container {\n  display: none;\n}\n.react-autosuggest__suggestions-container--open {\n  display: block;\n  position: absolute;\n  border: 1px solid #ccc;\n  background-color: #fff;\n  font-weight: 300;\n  font-size: 16px;\n  z-index: 2;\n}\n.react-autosuggest__suggestions-list {\n  margin: 0;\n  padding: 0;\n  list-style-type: none;\n}\n.react-autosuggest__suggestion {\n  cursor: pointer;\n  padding: 10px 20px;\n}\n.react-autosuggest__suggestion--highlighted {\n  background-color: #ddd;\n}\n", ""]);
+exports.push([module.i, ".rule .rule-fields {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  height: 30px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  margin: 5px;\n  padding: 5px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n/**\n * Main wrapper\n */\n.select-search {\n  width: 100%;\n  padding: 0px 5px;\n  position: relative;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.select-search *,\n.select-search *::after,\n.select-search *::before {\n  box-sizing: inherit;\n}\n/**\n * Value wrapper\n */\n.select-search__value {\n  position: relative;\n  z-index: 1;\n}\n.select-search__value::after {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: calc(50% - 6px);\n  right: 10px;\n  width: 8px;\n  height: 8px;\n}\n/**\n * Input\n */\n.select-search__input {\n  display: block;\n  height: 32px;\n  width: 100%;\n  padding: 0 16px;\n  border: 1px solid #ddd;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  font-size: 12px;\n  text-align: left;\n  text-overflow: ellipsis;\n  line-height: 32px;\n  -webkit-appearance: none;\n}\n.select-search__input::-webkit-search-decoration,\n.select-search__input::-webkit-search-cancel-button,\n.select-search__input::-webkit-search-results-button,\n.select-search__input::-webkit-search-results-decoration {\n  -webkit-appearance: none;\n}\n.select-search__input:not([readonly]):focus {\n  cursor: initial;\n}\n/**\n * Options wrapper\n */\n.select-search__select {\n  background: #fff;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n}\n/**\n * Options\n */\n.select-search__options {\n  list-style: none;\n  padding: 0px;\n  margin: 0px;\n}\n/**\n * Option\n */\n.select-search__option,\n.select-search__not-found {\n  display: block;\n  height: 32px;\n  width: 100%;\n  background: #fff;\n  border: none;\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  font-size: 12px;\n  text-align: left;\n  cursor: pointer;\n}\n.select-search--multiple .select-search__option {\n  height: 48px;\n}\n.select-search__option.is-selected {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n.select-search__option.is-highlighted,\n.select-search__option:not(.is-selected):hover {\n  background: #f5f5f5;\n}\n.select-search__option.is-highlighted.is-selected,\n.select-search__option.is-selected:hover {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n/**\n * Group\n */\n.select-search__group-header {\n  font-size: 10px;\n  text-transform: uppercase;\n  background: #f5f5f5;\n}\n/**\n * States\n */\n.select-search.is-disabled {\n  opacity: 0.5;\n}\n.select-search.is-loading .select-search__value::after {\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E\");\n  background-size: 11px;\n}\n.select-search:not(.is-disabled) .select-search__input {\n  cursor: pointer;\n}\n/**\n * Modifiers\n */\n.select-search--multiple {\n  border-radius: 3px;\n  overflow: hidden;\n}\n.select-search:not(.is-loading):not(.select-search--multiple) .select-search__value::after {\n  transform: rotate(45deg);\n  border-right: 1px solid #605E5C;\n  border-bottom: 1px solid #605E5C;\n  pointer-events: none;\n}\n.select-search--multiple .select-search__input {\n  cursor: initial;\n}\n.select-search--multiple .select-search__input {\n  border-radius: 3px 3px 0 0;\n}\n.select-search--multiple:not(.select-search--search) .select-search__input {\n  cursor: default;\n}\n.select-search:not(.select-search--multiple) .select-search__input:hover {\n  border-color: #f5f5f5;\n}\n.select-search:not(.select-search--multiple) .select-search__select {\n  position: absolute;\n  z-index: 2;\n  top: 34px;\n  right: 0;\n  left: 0;\n  overflow: auto;\n  max-height: 140px;\n}\n.select-search--multiple .select-search__select {\n  position: relative;\n  overflow: auto;\n  max-height: 260px;\n}\n.select-search__not-found {\n  height: auto;\n  text-align: center;\n  color: #a6a6a6;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -637,6 +637,25 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+
+/***/ "./node_modules/fuse.js/dist/fuse.js":
+/*!*******************************************!*\
+  !*** ./node_modules/fuse.js/dist/fuse.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * Fuse.js v3.6.1 - Lightweight fuzzy-search (http://fusejs.io)
+ * 
+ * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
+ * All Rights Reserved. Apache Software License 2.0
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+!function(e,t){ true?module.exports=t():undefined}(this,function(){return function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=0)}([function(e,t,r){function n(e){return(n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function o(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}var i=r(1),a=r(7),s=a.get,c=(a.deepValue,a.isArray),h=function(){function e(t,r){var n=r.location,o=void 0===n?0:n,i=r.distance,a=void 0===i?100:i,c=r.threshold,h=void 0===c?.6:c,l=r.maxPatternLength,u=void 0===l?32:l,f=r.caseSensitive,v=void 0!==f&&f,p=r.tokenSeparator,d=void 0===p?/ +/g:p,g=r.findAllMatches,y=void 0!==g&&g,m=r.minMatchCharLength,k=void 0===m?1:m,b=r.id,S=void 0===b?null:b,x=r.keys,M=void 0===x?[]:x,_=r.shouldSort,w=void 0===_||_,L=r.getFn,A=void 0===L?s:L,O=r.sortFn,C=void 0===O?function(e,t){return e.score-t.score}:O,j=r.tokenize,P=void 0!==j&&j,I=r.matchAllTokens,F=void 0!==I&&I,T=r.includeMatches,N=void 0!==T&&T,z=r.includeScore,E=void 0!==z&&z,W=r.verbose,K=void 0!==W&&W;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.options={location:o,distance:a,threshold:h,maxPatternLength:u,isCaseSensitive:v,tokenSeparator:d,findAllMatches:y,minMatchCharLength:k,id:S,keys:M,includeMatches:N,includeScore:E,shouldSort:w,getFn:A,sortFn:C,verbose:K,tokenize:P,matchAllTokens:F},this.setCollection(t),this._processKeys(M)}var t,r,a;return t=e,(r=[{key:"setCollection",value:function(e){return this.list=e,e}},{key:"_processKeys",value:function(e){if(this._keyWeights={},this._keyNames=[],e.length&&"string"==typeof e[0])for(var t=0,r=e.length;t<r;t+=1){var n=e[t];this._keyWeights[n]=1,this._keyNames.push(n)}else{for(var o=null,i=null,a=0,s=0,c=e.length;s<c;s+=1){var h=e[s];if(!h.hasOwnProperty("name"))throw new Error('Missing "name" property in key object');var l=h.name;if(this._keyNames.push(l),!h.hasOwnProperty("weight"))throw new Error('Missing "weight" property in key object');var u=h.weight;if(u<0||u>1)throw new Error('"weight" property in key must bein the range of [0, 1)');i=null==i?u:Math.max(i,u),o=null==o?u:Math.min(o,u),this._keyWeights[l]=u,a+=u}if(a>1)throw new Error("Total of weights cannot exceed 1")}}},{key:"search",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{limit:!1};this._log('---------\nSearch pattern: "'.concat(e,'"'));var r=this._prepareSearchers(e),n=r.tokenSearchers,o=r.fullSearcher,i=this._search(n,o);return this._computeScore(i),this.options.shouldSort&&this._sort(i),t.limit&&"number"==typeof t.limit&&(i=i.slice(0,t.limit)),this._format(i)}},{key:"_prepareSearchers",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=[];if(this.options.tokenize)for(var r=e.split(this.options.tokenSeparator),n=0,o=r.length;n<o;n+=1)t.push(new i(r[n],this.options));return{tokenSearchers:t,fullSearcher:new i(e,this.options)}}},{key:"_search",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],t=arguments.length>1?arguments[1]:void 0,r=this.list,n={},o=[];if("string"==typeof r[0]){for(var i=0,a=r.length;i<a;i+=1)this._analyze({key:"",value:r[i],record:i,index:i},{resultMap:n,results:o,tokenSearchers:e,fullSearcher:t});return o}for(var s=0,c=r.length;s<c;s+=1)for(var h=r[s],l=0,u=this._keyNames.length;l<u;l+=1){var f=this._keyNames[l];this._analyze({key:f,value:this.options.getFn(h,f),record:h,index:s},{resultMap:n,results:o,tokenSearchers:e,fullSearcher:t})}return o}},{key:"_analyze",value:function(e,t){var r=this,n=e.key,o=e.arrayIndex,i=void 0===o?-1:o,a=e.value,s=e.record,h=e.index,l=t.tokenSearchers,u=void 0===l?[]:l,f=t.fullSearcher,v=t.resultMap,p=void 0===v?{}:v,d=t.results,g=void 0===d?[]:d;!function e(t,o,i,a){if(null!=o)if("string"==typeof o){var s=!1,h=-1,l=0;r._log("\nKey: ".concat(""===n?"--":n));var v=f.search(o);if(r._log('Full text: "'.concat(o,'", score: ').concat(v.score)),r.options.tokenize){for(var d=o.split(r.options.tokenSeparator),y=d.length,m=[],k=0,b=u.length;k<b;k+=1){var S=u[k];r._log('\nPattern: "'.concat(S.pattern,'"'));for(var x=!1,M=0;M<y;M+=1){var _=d[M],w=S.search(_),L={};w.isMatch?(L[_]=w.score,s=!0,x=!0,m.push(w.score)):(L[_]=1,r.options.matchAllTokens||m.push(1)),r._log('Token: "'.concat(_,'", score: ').concat(L[_]))}x&&(l+=1)}h=m[0];for(var A=m.length,O=1;O<A;O+=1)h+=m[O];h/=A,r._log("Token score average:",h)}var C=v.score;h>-1&&(C=(C+h)/2),r._log("Score average:",C);var j=!r.options.tokenize||!r.options.matchAllTokens||l>=u.length;if(r._log("\nCheck Matches: ".concat(j)),(s||v.isMatch)&&j){var P={key:n,arrayIndex:t,value:o,score:C};r.options.includeMatches&&(P.matchedIndices=v.matchedIndices);var I=p[a];I?I.output.push(P):(p[a]={item:i,output:[P]},g.push(p[a]))}}else if(c(o))for(var F=0,T=o.length;F<T;F+=1)e(F,o[F],i,a)}(i,a,s,h)}},{key:"_computeScore",value:function(e){this._log("\n\nComputing score:\n");for(var t=this._keyWeights,r=!!Object.keys(t).length,n=0,o=e.length;n<o;n+=1){for(var i=e[n],a=i.output,s=a.length,c=1,h=0;h<s;h+=1){var l=a[h],u=l.key,f=r?t[u]:1,v=0===l.score&&t&&t[u]>0?Number.EPSILON:l.score;c*=Math.pow(v,f)}i.score=c,this._log(i)}}},{key:"_sort",value:function(e){this._log("\n\nSorting...."),e.sort(this.options.sortFn)}},{key:"_format",value:function(e){var t=[];if(this.options.verbose){var r=[];this._log("\n\nOutput:\n\n",JSON.stringify(e,function(e,t){if("object"===n(t)&&null!==t){if(-1!==r.indexOf(t))return;r.push(t)}return t},2)),r=null}var o=[];this.options.includeMatches&&o.push(function(e,t){var r=e.output;t.matches=[];for(var n=0,o=r.length;n<o;n+=1){var i=r[n];if(0!==i.matchedIndices.length){var a={indices:i.matchedIndices,value:i.value};i.key&&(a.key=i.key),i.hasOwnProperty("arrayIndex")&&i.arrayIndex>-1&&(a.arrayIndex=i.arrayIndex),t.matches.push(a)}}}),this.options.includeScore&&o.push(function(e,t){t.score=e.score});for(var i=0,a=e.length;i<a;i+=1){var s=e[i];if(this.options.id&&(s.item=this.options.getFn(s.item,this.options.id)[0]),o.length){for(var c={item:s.item},h=0,l=o.length;h<l;h+=1)o[h](s,c);t.push(c)}else t.push(s.item)}return t}},{key:"_log",value:function(){var e;this.options.verbose&&(e=console).log.apply(e,arguments)}}])&&o(t.prototype,r),a&&o(t,a),e}();e.exports=h},function(e,t,r){function n(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}var o=r(2),i=r(3),a=r(6),s=function(){function e(t,r){var n=r.location,o=void 0===n?0:n,i=r.distance,s=void 0===i?100:i,c=r.threshold,h=void 0===c?.6:c,l=r.maxPatternLength,u=void 0===l?32:l,f=r.isCaseSensitive,v=void 0!==f&&f,p=r.tokenSeparator,d=void 0===p?/ +/g:p,g=r.findAllMatches,y=void 0!==g&&g,m=r.minMatchCharLength,k=void 0===m?1:m,b=r.includeMatches,S=void 0!==b&&b;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.options={location:o,distance:s,threshold:h,maxPatternLength:u,isCaseSensitive:v,tokenSeparator:d,findAllMatches:y,includeMatches:S,minMatchCharLength:k},this.pattern=v?t:t.toLowerCase(),this.pattern.length<=u&&(this.patternAlphabet=a(this.pattern))}var t,r,s;return t=e,(r=[{key:"search",value:function(e){var t=this.options,r=t.isCaseSensitive,n=t.includeMatches;if(r||(e=e.toLowerCase()),this.pattern===e){var a={isMatch:!0,score:0};return n&&(a.matchedIndices=[[0,e.length-1]]),a}var s=this.options,c=s.maxPatternLength,h=s.tokenSeparator;if(this.pattern.length>c)return o(e,this.pattern,h);var l=this.options,u=l.location,f=l.distance,v=l.threshold,p=l.findAllMatches,d=l.minMatchCharLength;return i(e,this.pattern,this.patternAlphabet,{location:u,distance:f,threshold:v,findAllMatches:p,minMatchCharLength:d,includeMatches:n})}}])&&n(t.prototype,r),s&&n(t,s),e}();e.exports=s},function(e,t){var r=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;e.exports=function(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:/ +/g,o=new RegExp(t.replace(r,"\\$&").replace(n,"|")),i=e.match(o),a=!!i,s=[];if(a)for(var c=0,h=i.length;c<h;c+=1){var l=i[c];s.push([e.indexOf(l),l.length-1])}return{score:a?.5:1,isMatch:a,matchedIndices:s}}},function(e,t,r){var n=r(4),o=r(5);e.exports=function(e,t,r,i){for(var a=i.location,s=void 0===a?0:a,c=i.distance,h=void 0===c?100:c,l=i.threshold,u=void 0===l?.6:l,f=i.findAllMatches,v=void 0!==f&&f,p=i.minMatchCharLength,d=void 0===p?1:p,g=i.includeMatches,y=void 0!==g&&g,m=s,k=e.length,b=u,S=e.indexOf(t,m),x=t.length,M=[],_=0;_<k;_+=1)M[_]=0;if(-1!==S){var w=n(t,{errors:0,currentLocation:S,expectedLocation:m,distance:h});if(b=Math.min(w,b),-1!==(S=e.lastIndexOf(t,m+x))){var L=n(t,{errors:0,currentLocation:S,expectedLocation:m,distance:h});b=Math.min(L,b)}}S=-1;for(var A=[],O=1,C=x+k,j=1<<(x<=31?x-1:30),P=0;P<x;P+=1){for(var I=0,F=C;I<F;){n(t,{errors:P,currentLocation:m+F,expectedLocation:m,distance:h})<=b?I=F:C=F,F=Math.floor((C-I)/2+I)}C=F;var T=Math.max(1,m-F+1),N=v?k:Math.min(m+F,k)+x,z=Array(N+2);z[N+1]=(1<<P)-1;for(var E=N;E>=T;E-=1){var W=E-1,K=r[e.charAt(W)];if(K&&(M[W]=1),z[E]=(z[E+1]<<1|1)&K,0!==P&&(z[E]|=(A[E+1]|A[E])<<1|1|A[E+1]),z[E]&j&&(O=n(t,{errors:P,currentLocation:W,expectedLocation:m,distance:h}))<=b){if(b=O,(S=W)<=m)break;T=Math.max(1,2*m-S)}}if(n(t,{errors:P+1,currentLocation:m,expectedLocation:m,distance:h})>b)break;A=z}var $={isMatch:S>=0,score:0===O?.001:O};return y&&($.matchedIndices=o(M,d)),$}},function(e,t){e.exports=function(e,t){var r=t.errors,n=void 0===r?0:r,o=t.currentLocation,i=void 0===o?0:o,a=t.expectedLocation,s=void 0===a?0:a,c=t.distance,h=void 0===c?100:c,l=n/e.length,u=Math.abs(s-i);return h?l+u/h:u?1:l}},function(e,t){e.exports=function(){for(var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:1,r=[],n=-1,o=-1,i=0,a=e.length;i<a;i+=1){var s=e[i];s&&-1===n?n=i:s||-1===n||((o=i-1)-n+1>=t&&r.push([n,o]),n=-1)}return e[i-1]&&i-n>=t&&r.push([n,i-1]),r}},function(e,t){e.exports=function(e){for(var t={},r=e.length,n=0;n<r;n+=1)t[e.charAt(n)]=0;for(var o=0;o<r;o+=1)t[e.charAt(o)]|=1<<r-o-1;return t}},function(e,t){var r=function(e){return Array.isArray?Array.isArray(e):"[object Array]"===Object.prototype.toString.call(e)},n=function(e){return null==e?"":function(e){if("string"==typeof e)return e;var t=e+"";return"0"==t&&1/e==-1/0?"-0":t}(e)},o=function(e){return"string"==typeof e},i=function(e){return"number"==typeof e};e.exports={get:function(e,t){var a=[];return function e(t,s){if(s){var c=s.indexOf("."),h=s,l=null;-1!==c&&(h=s.slice(0,c),l=s.slice(c+1));var u=t[h];if(null!=u)if(l||!o(u)&&!i(u))if(r(u))for(var f=0,v=u.length;f<v;f+=1)e(u[f],l);else l&&e(u,l);else a.push(n(u))}else a.push(t)}(e,t),a},isArray:r,isString:o,isNum:i,toString:n}}])});
 
 /***/ }),
 
@@ -22635,1946 +22654,6 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/Autosuggest.js":
-/*!************************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/Autosuggest.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
-var _arrays = _interopRequireDefault(__webpack_require__(/*! shallow-equal/arrays */ "./node_modules/shallow-equal/arrays/index.js"));
-
-var _Autowhatever = _interopRequireDefault(__webpack_require__(/*! ./Autowhatever */ "./node_modules/react-autosuggest/dist/Autowhatever.js"));
-
-var _theme = __webpack_require__(/*! ./theme */ "./node_modules/react-autosuggest/dist/theme.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var alwaysTrue = function alwaysTrue() {
-  return true;
-};
-
-var defaultShouldRenderSuggestions = function defaultShouldRenderSuggestions(value) {
-  return value.trim().length > 0;
-};
-
-var defaultRenderSuggestionsContainer = function defaultRenderSuggestionsContainer(_ref) {
-  var containerProps = _ref.containerProps,
-      children = _ref.children;
-  return /*#__PURE__*/_react["default"].createElement("div", containerProps, children);
-};
-
-var REASON_SUGGESTIONS_REVEALED = 'suggestions-revealed';
-var REASON_SUGGESTIONS_UPDATED = 'suggestions-updated';
-var REASON_SUGGESTION_SELECTED = 'suggestion-selected';
-var REASON_INPUT_FOCUSED = 'input-focused';
-var REASON_INPUT_CHANGED = 'input-changed';
-var REASON_INPUT_BLURRED = 'input-blurred';
-var REASON_ESCAPE_PRESSED = 'escape-pressed';
-
-var Autosuggest = /*#__PURE__*/function (_Component) {
-  _inherits(Autosuggest, _Component);
-
-  var _super = _createSuper(Autosuggest);
-
-  function Autosuggest(_ref2) {
-    var _this;
-
-    var _alwaysRenderSuggestions = _ref2.alwaysRenderSuggestions;
-
-    _classCallCheck(this, Autosuggest);
-
-    _this = _super.call(this);
-
-    _defineProperty(_assertThisInitialized(_this), "onDocumentMouseDown", function (event) {
-      _this.justClickedOnSuggestionsContainer = false;
-      var node = event.detail && event.detail.target || // This is for testing only. Please show me a better way to emulate this.
-      event.target;
-
-      while (node !== null && node !== document) {
-        if (node.getAttribute && node.getAttribute('data-suggestion-index') !== null) {
-          // Suggestion was clicked
-          return;
-        }
-
-        if (node === _this.suggestionsContainer) {
-          // Something else inside suggestions container was clicked
-          _this.justClickedOnSuggestionsContainer = true;
-          return;
-        }
-
-        node = node.parentNode;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "storeAutowhateverRef", function (autowhatever) {
-      if (autowhatever !== null) {
-        _this.autowhatever = autowhatever;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseEnter", function (event, _ref3) {
-      var sectionIndex = _ref3.sectionIndex,
-          itemIndex = _ref3.itemIndex;
-
-      _this.updateHighlightedSuggestion(sectionIndex, itemIndex);
-
-      if (event.target === _this.pressedSuggestion) {
-        _this.justSelectedSuggestion = true;
-      }
-
-      _this.justMouseEntered = true;
-      setTimeout(function () {
-        _this.justMouseEntered = false;
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "highlightFirstSuggestion", function () {
-      _this.updateHighlightedSuggestion(_this.props.multiSection ? 0 : null, 0);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onDocumentMouseUp", function () {
-      if (_this.pressedSuggestion && !_this.justSelectedSuggestion) {
-        _this.input.focus();
-      }
-
-      _this.pressedSuggestion = null;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseDown", function (event) {
-      // Checking if this.justSelectedSuggestion is already true to not duplicate touch events in chrome
-      // See: https://github.com/facebook/react/issues/9809#issuecomment-413978405
-      if (!_this.justSelectedSuggestion) {
-        _this.justSelectedSuggestion = true;
-        _this.pressedSuggestion = event.target;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionsClearRequested", function () {
-      var onSuggestionsClearRequested = _this.props.onSuggestionsClearRequested;
-      onSuggestionsClearRequested && onSuggestionsClearRequested();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionSelected", function (event, data) {
-      var _this$props = _this.props,
-          alwaysRenderSuggestions = _this$props.alwaysRenderSuggestions,
-          onSuggestionSelected = _this$props.onSuggestionSelected,
-          onSuggestionsFetchRequested = _this$props.onSuggestionsFetchRequested;
-      onSuggestionSelected && onSuggestionSelected(event, data);
-
-      if (alwaysRenderSuggestions) {
-        onSuggestionsFetchRequested({
-          value: data.suggestionValue,
-          reason: REASON_SUGGESTION_SELECTED
-        });
-      } else {
-        _this.onSuggestionsClearRequested();
-      }
-
-      _this.resetHighlightedSuggestion();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionClick", function (event) {
-      var _this$props2 = _this.props,
-          alwaysRenderSuggestions = _this$props2.alwaysRenderSuggestions,
-          focusInputOnSuggestionClick = _this$props2.focusInputOnSuggestionClick;
-
-      var _this$getSuggestionIn = _this.getSuggestionIndices(_this.findSuggestionElement(event.target)),
-          sectionIndex = _this$getSuggestionIn.sectionIndex,
-          suggestionIndex = _this$getSuggestionIn.suggestionIndex;
-
-      var clickedSuggestion = _this.getSuggestion(sectionIndex, suggestionIndex);
-
-      var clickedSuggestionValue = _this.props.getSuggestionValue(clickedSuggestion);
-
-      _this.maybeCallOnChange(event, clickedSuggestionValue, 'click');
-
-      _this.onSuggestionSelected(event, {
-        suggestion: clickedSuggestion,
-        suggestionValue: clickedSuggestionValue,
-        suggestionIndex: suggestionIndex,
-        sectionIndex: sectionIndex,
-        method: 'click'
-      });
-
-      if (!alwaysRenderSuggestions) {
-        _this.closeSuggestions();
-      }
-
-      if (focusInputOnSuggestionClick === true) {
-        _this.input.focus();
-      } else {
-        _this.onBlur();
-      }
-
-      setTimeout(function () {
-        _this.justSelectedSuggestion = false;
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onBlur", function () {
-      var _this$props3 = _this.props,
-          inputProps = _this$props3.inputProps,
-          shouldRenderSuggestions = _this$props3.shouldRenderSuggestions;
-      var value = inputProps.value,
-          onBlur = inputProps.onBlur;
-
-      var highlightedSuggestion = _this.getHighlightedSuggestion();
-
-      var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_BLURRED);
-
-      _this.setState({
-        isFocused: false,
-        highlightedSectionIndex: null,
-        highlightedSuggestionIndex: null,
-        highlightedSuggestion: null,
-        valueBeforeUpDown: null,
-        isCollapsed: !shouldRender
-      });
-
-      onBlur && onBlur(_this.blurEvent, {
-        highlightedSuggestion: highlightedSuggestion
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionMouseLeave", function (event) {
-      _this.resetHighlightedSuggestion(false); // shouldResetValueBeforeUpDown
-
-
-      if (_this.justSelectedSuggestion && event.target === _this.pressedSuggestion) {
-        _this.justSelectedSuggestion = false;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionTouchStart", function () {
-      _this.justSelectedSuggestion = true; // todo: event.preventDefault when https://github.com/facebook/react/issues/2043
-      // todo: gets released so onSuggestionMouseDown won't fire in chrome
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionTouchMove", function () {
-      _this.justSelectedSuggestion = false;
-      _this.pressedSuggestion = null;
-
-      _this.input.focus();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "itemProps", function (_ref4) {
-      var sectionIndex = _ref4.sectionIndex,
-          itemIndex = _ref4.itemIndex;
-      return {
-        'data-section-index': sectionIndex,
-        'data-suggestion-index': itemIndex,
-        onMouseEnter: _this.onSuggestionMouseEnter,
-        onMouseLeave: _this.onSuggestionMouseLeave,
-        onMouseDown: _this.onSuggestionMouseDown,
-        onTouchStart: _this.onSuggestionTouchStart,
-        onTouchMove: _this.onSuggestionTouchMove,
-        onClick: _this.onSuggestionClick
-      };
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "renderSuggestionsContainer", function (_ref5) {
-      var containerProps = _ref5.containerProps,
-          children = _ref5.children;
-      var renderSuggestionsContainer = _this.props.renderSuggestionsContainer;
-      return renderSuggestionsContainer({
-        containerProps: containerProps,
-        children: children,
-        query: _this.getQuery()
-      });
-    });
-
-    _this.state = {
-      isFocused: false,
-      isCollapsed: !_alwaysRenderSuggestions,
-      highlightedSectionIndex: null,
-      highlightedSuggestionIndex: null,
-      highlightedSuggestion: null,
-      valueBeforeUpDown: null
-    };
-    _this.justPressedUpDown = false;
-    _this.justMouseEntered = false;
-    _this.pressedSuggestion = null;
-    return _this;
-  }
-
-  _createClass(Autosuggest, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.addEventListener('mousedown', this.onDocumentMouseDown);
-      document.addEventListener('mouseup', this.onDocumentMouseUp);
-      this.input = this.autowhatever.input;
-      this.suggestionsContainer = this.autowhatever.itemsContainer;
-    } // eslint-disable-next-line camelcase, react/sort-comp
-
-  }, {
-    key: "UNSAFE_componentWillReceiveProps",
-    value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      if ((0, _arrays["default"])(nextProps.suggestions, this.props.suggestions)) {
-        if (nextProps.highlightFirstSuggestion && nextProps.suggestions.length > 0 && this.justPressedUpDown === false && this.justMouseEntered === false) {
-          this.highlightFirstSuggestion();
-        }
-      } else {
-        if (this.willRenderSuggestions(nextProps, REASON_SUGGESTIONS_UPDATED)) {
-          if (this.state.isCollapsed && !this.justSelectedSuggestion) {
-            this.revealSuggestions();
-          }
-        } else {
-          this.resetHighlightedSuggestion();
-        }
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      var _this$props4 = this.props,
-          suggestions = _this$props4.suggestions,
-          onSuggestionHighlighted = _this$props4.onSuggestionHighlighted,
-          highlightFirstSuggestion = _this$props4.highlightFirstSuggestion;
-
-      if (!(0, _arrays["default"])(suggestions, prevProps.suggestions) && suggestions.length > 0 && highlightFirstSuggestion) {
-        this.highlightFirstSuggestion();
-        return;
-      }
-
-      if (onSuggestionHighlighted) {
-        var highlightedSuggestion = this.getHighlightedSuggestion();
-        var prevHighlightedSuggestion = prevState.highlightedSuggestion;
-
-        if (highlightedSuggestion != prevHighlightedSuggestion) {
-          onSuggestionHighlighted({
-            suggestion: highlightedSuggestion
-          });
-        }
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      document.removeEventListener('mousedown', this.onDocumentMouseDown);
-      document.removeEventListener('mouseup', this.onDocumentMouseUp);
-    }
-  }, {
-    key: "updateHighlightedSuggestion",
-    value: function updateHighlightedSuggestion(sectionIndex, suggestionIndex, prevValue) {
-      var _this2 = this;
-
-      this.setState(function (state) {
-        var valueBeforeUpDown = state.valueBeforeUpDown;
-
-        if (suggestionIndex === null) {
-          valueBeforeUpDown = null;
-        } else if (valueBeforeUpDown === null && typeof prevValue !== 'undefined') {
-          valueBeforeUpDown = prevValue;
-        }
-
-        return {
-          highlightedSectionIndex: sectionIndex,
-          highlightedSuggestionIndex: suggestionIndex,
-          highlightedSuggestion: suggestionIndex === null ? null : _this2.getSuggestion(sectionIndex, suggestionIndex),
-          valueBeforeUpDown: valueBeforeUpDown
-        };
-      });
-    }
-  }, {
-    key: "resetHighlightedSuggestion",
-    value: function resetHighlightedSuggestion() {
-      var shouldResetValueBeforeUpDown = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      this.setState(function (state) {
-        var valueBeforeUpDown = state.valueBeforeUpDown;
-        return {
-          highlightedSectionIndex: null,
-          highlightedSuggestionIndex: null,
-          highlightedSuggestion: null,
-          valueBeforeUpDown: shouldResetValueBeforeUpDown ? null : valueBeforeUpDown
-        };
-      });
-    }
-  }, {
-    key: "revealSuggestions",
-    value: function revealSuggestions() {
-      this.setState({
-        isCollapsed: false
-      });
-    }
-  }, {
-    key: "closeSuggestions",
-    value: function closeSuggestions() {
-      this.setState({
-        highlightedSectionIndex: null,
-        highlightedSuggestionIndex: null,
-        highlightedSuggestion: null,
-        valueBeforeUpDown: null,
-        isCollapsed: true
-      });
-    }
-  }, {
-    key: "getSuggestion",
-    value: function getSuggestion(sectionIndex, suggestionIndex) {
-      var _this$props5 = this.props,
-          suggestions = _this$props5.suggestions,
-          multiSection = _this$props5.multiSection,
-          getSectionSuggestions = _this$props5.getSectionSuggestions;
-
-      if (multiSection) {
-        return getSectionSuggestions(suggestions[sectionIndex])[suggestionIndex];
-      }
-
-      return suggestions[suggestionIndex];
-    }
-  }, {
-    key: "getHighlightedSuggestion",
-    value: function getHighlightedSuggestion() {
-      var _this$state = this.state,
-          highlightedSectionIndex = _this$state.highlightedSectionIndex,
-          highlightedSuggestionIndex = _this$state.highlightedSuggestionIndex;
-
-      if (highlightedSuggestionIndex === null) {
-        return null;
-      }
-
-      return this.getSuggestion(highlightedSectionIndex, highlightedSuggestionIndex);
-    }
-  }, {
-    key: "getSuggestionValueByIndex",
-    value: function getSuggestionValueByIndex(sectionIndex, suggestionIndex) {
-      var getSuggestionValue = this.props.getSuggestionValue;
-      return getSuggestionValue(this.getSuggestion(sectionIndex, suggestionIndex));
-    }
-  }, {
-    key: "getSuggestionIndices",
-    value: function getSuggestionIndices(suggestionElement) {
-      var sectionIndex = suggestionElement.getAttribute('data-section-index');
-      var suggestionIndex = suggestionElement.getAttribute('data-suggestion-index');
-      return {
-        sectionIndex: typeof sectionIndex === 'string' ? parseInt(sectionIndex, 10) : null,
-        suggestionIndex: parseInt(suggestionIndex, 10)
-      };
-    }
-  }, {
-    key: "findSuggestionElement",
-    value: function findSuggestionElement(startNode) {
-      var node = startNode;
-
-      do {
-        if (node.getAttribute && node.getAttribute('data-suggestion-index') !== null) {
-          return node;
-        }
-
-        node = node.parentNode;
-      } while (node !== null);
-
-      console.error('Clicked element:', startNode); // eslint-disable-line no-console
-
-      throw new Error("Couldn't find suggestion element");
-    }
-  }, {
-    key: "maybeCallOnChange",
-    value: function maybeCallOnChange(event, newValue, method) {
-      var _this$props$inputProp = this.props.inputProps,
-          value = _this$props$inputProp.value,
-          onChange = _this$props$inputProp.onChange;
-
-      if (newValue !== value) {
-        onChange(event, {
-          newValue: newValue,
-          method: method
-        });
-      }
-    }
-  }, {
-    key: "willRenderSuggestions",
-    value: function willRenderSuggestions(props, reason) {
-      var suggestions = props.suggestions,
-          inputProps = props.inputProps,
-          shouldRenderSuggestions = props.shouldRenderSuggestions;
-      var value = inputProps.value;
-      return suggestions.length > 0 && shouldRenderSuggestions(value, reason);
-    }
-  }, {
-    key: "getQuery",
-    value: function getQuery() {
-      var inputProps = this.props.inputProps;
-      var value = inputProps.value;
-      var valueBeforeUpDown = this.state.valueBeforeUpDown;
-      return (valueBeforeUpDown === null ? value : valueBeforeUpDown).trim();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var _this$props6 = this.props,
-          suggestions = _this$props6.suggestions,
-          renderInputComponent = _this$props6.renderInputComponent,
-          onSuggestionsFetchRequested = _this$props6.onSuggestionsFetchRequested,
-          renderSuggestion = _this$props6.renderSuggestion,
-          inputProps = _this$props6.inputProps,
-          multiSection = _this$props6.multiSection,
-          renderSectionTitle = _this$props6.renderSectionTitle,
-          id = _this$props6.id,
-          getSectionSuggestions = _this$props6.getSectionSuggestions,
-          theme = _this$props6.theme,
-          getSuggestionValue = _this$props6.getSuggestionValue,
-          alwaysRenderSuggestions = _this$props6.alwaysRenderSuggestions,
-          highlightFirstSuggestion = _this$props6.highlightFirstSuggestion;
-      var _this$state2 = this.state,
-          isFocused = _this$state2.isFocused,
-          isCollapsed = _this$state2.isCollapsed,
-          highlightedSectionIndex = _this$state2.highlightedSectionIndex,
-          highlightedSuggestionIndex = _this$state2.highlightedSuggestionIndex,
-          valueBeforeUpDown = _this$state2.valueBeforeUpDown;
-      var shouldRenderSuggestions = alwaysRenderSuggestions ? alwaysTrue : this.props.shouldRenderSuggestions;
-      var value = inputProps.value,
-          _onFocus = inputProps.onFocus,
-          _onKeyDown = inputProps.onKeyDown;
-      var willRenderSuggestions = this.willRenderSuggestions(this.props, 'render');
-      var isOpen = alwaysRenderSuggestions || isFocused && !isCollapsed && willRenderSuggestions;
-      var items = isOpen ? suggestions : [];
-
-      var autowhateverInputProps = _objectSpread({}, inputProps, {
-        onFocus: function onFocus(event) {
-          if (!_this3.justSelectedSuggestion && !_this3.justClickedOnSuggestionsContainer) {
-            var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_FOCUSED);
-
-            _this3.setState({
-              isFocused: true,
-              isCollapsed: !shouldRender
-            });
-
-            _onFocus && _onFocus(event);
-
-            if (shouldRender) {
-              onSuggestionsFetchRequested({
-                value: value,
-                reason: REASON_INPUT_FOCUSED
-              });
-            }
-          }
-        },
-        onBlur: function onBlur(event) {
-          if (_this3.justClickedOnSuggestionsContainer) {
-            _this3.input.focus();
-
-            return;
-          }
-
-          _this3.blurEvent = event;
-
-          if (!_this3.justSelectedSuggestion) {
-            _this3.onBlur();
-
-            _this3.onSuggestionsClearRequested();
-          }
-        },
-        onChange: function onChange(event) {
-          var value = event.target.value;
-          var shouldRender = shouldRenderSuggestions(value, REASON_INPUT_CHANGED);
-
-          _this3.maybeCallOnChange(event, value, 'type');
-
-          if (_this3.suggestionsContainer) {
-            _this3.suggestionsContainer.scrollTop = 0;
-          }
-
-          _this3.setState(_objectSpread({}, highlightFirstSuggestion ? {} : {
-            highlightedSectionIndex: null,
-            highlightedSuggestionIndex: null,
-            highlightedSuggestion: null
-          }, {
-            valueBeforeUpDown: null,
-            isCollapsed: !shouldRender
-          }));
-
-          if (shouldRender) {
-            onSuggestionsFetchRequested({
-              value: value,
-              reason: REASON_INPUT_CHANGED
-            });
-          } else {
-            _this3.onSuggestionsClearRequested();
-          }
-        },
-        onKeyDown: function onKeyDown(event, data) {
-          var keyCode = event.keyCode;
-
-          switch (keyCode) {
-            case 40: // ArrowDown
-
-            case 38:
-              // ArrowUp
-              if (isCollapsed) {
-                if (shouldRenderSuggestions(value, REASON_SUGGESTIONS_REVEALED)) {
-                  onSuggestionsFetchRequested({
-                    value: value,
-                    reason: REASON_SUGGESTIONS_REVEALED
-                  });
-
-                  _this3.revealSuggestions();
-
-                  event.preventDefault(); // We act on the key.
-                }
-              } else if (suggestions.length > 0) {
-                var newHighlightedSectionIndex = data.newHighlightedSectionIndex,
-                    newHighlightedItemIndex = data.newHighlightedItemIndex;
-                var newValue;
-
-                if (newHighlightedItemIndex === null) {
-                  // valueBeforeUpDown can be null if, for example, user
-                  // hovers on the first suggestion and then pressed Up.
-                  // If that happens, use the original input value.
-                  newValue = valueBeforeUpDown === null ? value : valueBeforeUpDown;
-                } else {
-                  newValue = _this3.getSuggestionValueByIndex(newHighlightedSectionIndex, newHighlightedItemIndex);
-                }
-
-                _this3.updateHighlightedSuggestion(newHighlightedSectionIndex, newHighlightedItemIndex, value);
-
-                _this3.maybeCallOnChange(event, newValue, keyCode === 40 ? 'down' : 'up');
-
-                event.preventDefault(); // We act on the key.
-              }
-
-              _this3.justPressedUpDown = true;
-              setTimeout(function () {
-                _this3.justPressedUpDown = false;
-              });
-              break;
-            // Enter
-
-            case 13:
-              {
-                // See #388
-                if (event.keyCode === 229) {
-                  break;
-                }
-
-                var highlightedSuggestion = _this3.getHighlightedSuggestion();
-
-                if (isOpen && !alwaysRenderSuggestions) {
-                  _this3.closeSuggestions();
-                }
-
-                if (highlightedSuggestion != null) {
-                  var _newValue = getSuggestionValue(highlightedSuggestion);
-
-                  _this3.maybeCallOnChange(event, _newValue, 'enter');
-
-                  _this3.onSuggestionSelected(event, {
-                    suggestion: highlightedSuggestion,
-                    suggestionValue: _newValue,
-                    suggestionIndex: highlightedSuggestionIndex,
-                    sectionIndex: highlightedSectionIndex,
-                    method: 'enter'
-                  });
-
-                  _this3.justSelectedSuggestion = true;
-                  setTimeout(function () {
-                    _this3.justSelectedSuggestion = false;
-                  });
-                }
-
-                break;
-              }
-            // Escape
-
-            case 27:
-              {
-                if (isOpen) {
-                  // If input.type === 'search', the browser clears the input
-                  // when Escape is pressed. We want to disable this default
-                  // behaviour so that, when suggestions are shown, we just hide
-                  // them, without clearing the input.
-                  event.preventDefault();
-                }
-
-                var willCloseSuggestions = isOpen && !alwaysRenderSuggestions;
-
-                if (valueBeforeUpDown === null) {
-                  // Didn't interact with Up/Down
-                  if (!willCloseSuggestions) {
-                    var _newValue2 = '';
-
-                    _this3.maybeCallOnChange(event, _newValue2, 'escape');
-
-                    if (shouldRenderSuggestions(_newValue2, REASON_ESCAPE_PRESSED)) {
-                      onSuggestionsFetchRequested({
-                        value: _newValue2,
-                        reason: REASON_ESCAPE_PRESSED
-                      });
-                    } else {
-                      _this3.onSuggestionsClearRequested();
-                    }
-                  }
-                } else {
-                  // Interacted with Up/Down
-                  _this3.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
-                }
-
-                if (willCloseSuggestions) {
-                  _this3.onSuggestionsClearRequested();
-
-                  _this3.closeSuggestions();
-                } else {
-                  _this3.resetHighlightedSuggestion();
-                }
-
-                break;
-              }
-          }
-
-          _onKeyDown && _onKeyDown(event);
-        }
-      });
-
-      var renderSuggestionData = {
-        query: this.getQuery()
-      };
-      return /*#__PURE__*/_react["default"].createElement(_Autowhatever["default"], {
-        multiSection: multiSection,
-        items: items,
-        renderInputComponent: renderInputComponent,
-        renderItemsContainer: this.renderSuggestionsContainer,
-        renderItem: renderSuggestion,
-        renderItemData: renderSuggestionData,
-        renderSectionTitle: renderSectionTitle,
-        getSectionItems: getSectionSuggestions,
-        highlightedSectionIndex: highlightedSectionIndex,
-        highlightedItemIndex: highlightedSuggestionIndex,
-        inputProps: autowhateverInputProps,
-        itemProps: this.itemProps,
-        theme: (0, _theme.mapToAutowhateverTheme)(theme),
-        id: id,
-        ref: this.storeAutowhateverRef
-      });
-    }
-  }]);
-
-  return Autosuggest;
-}(_react.Component);
-
-exports["default"] = Autosuggest;
-
-_defineProperty(Autosuggest, "propTypes", {
-  suggestions: _propTypes["default"].array.isRequired,
-  onSuggestionsFetchRequested: function onSuggestionsFetchRequested(props, propName) {
-    var onSuggestionsFetchRequested = props[propName];
-
-    if (typeof onSuggestionsFetchRequested !== 'function') {
-      throw new Error("'onSuggestionsFetchRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsFetchRequestedProp");
-    }
-  },
-  onSuggestionsClearRequested: function onSuggestionsClearRequested(props, propName) {
-    var onSuggestionsClearRequested = props[propName];
-
-    if (props.alwaysRenderSuggestions === false && typeof onSuggestionsClearRequested !== 'function') {
-      throw new Error("'onSuggestionsClearRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsClearRequestedProp");
-    }
-  },
-  onSuggestionSelected: _propTypes["default"].func,
-  onSuggestionHighlighted: _propTypes["default"].func,
-  renderInputComponent: _propTypes["default"].func,
-  renderSuggestionsContainer: _propTypes["default"].func,
-  getSuggestionValue: _propTypes["default"].func.isRequired,
-  renderSuggestion: _propTypes["default"].func.isRequired,
-  inputProps: function inputProps(props, propName) {
-    var inputProps = props[propName];
-
-    if (!inputProps) {
-      throw new Error("'inputProps' must be passed.");
-    }
-
-    if (!Object.prototype.hasOwnProperty.call(inputProps, 'value')) {
-      throw new Error("'inputProps' must have 'value'.");
-    }
-
-    if (!Object.prototype.hasOwnProperty.call(inputProps, 'onChange')) {
-      throw new Error("'inputProps' must have 'onChange'.");
-    }
-  },
-  shouldRenderSuggestions: _propTypes["default"].func,
-  alwaysRenderSuggestions: _propTypes["default"].bool,
-  multiSection: _propTypes["default"].bool,
-  renderSectionTitle: function renderSectionTitle(props, propName) {
-    var renderSectionTitle = props[propName];
-
-    if (props.multiSection === true && typeof renderSectionTitle !== 'function') {
-      throw new Error("'renderSectionTitle' must be implemented. See: https://github.com/moroshko/react-autosuggest#renderSectionTitleProp");
-    }
-  },
-  getSectionSuggestions: function getSectionSuggestions(props, propName) {
-    var getSectionSuggestions = props[propName];
-
-    if (props.multiSection === true && typeof getSectionSuggestions !== 'function') {
-      throw new Error("'getSectionSuggestions' must be implemented. See: https://github.com/moroshko/react-autosuggest#getSectionSuggestionsProp");
-    }
-  },
-  focusInputOnSuggestionClick: _propTypes["default"].bool,
-  highlightFirstSuggestion: _propTypes["default"].bool,
-  theme: _propTypes["default"].object,
-  id: _propTypes["default"].string
-});
-
-_defineProperty(Autosuggest, "defaultProps", {
-  renderSuggestionsContainer: defaultRenderSuggestionsContainer,
-  shouldRenderSuggestions: defaultShouldRenderSuggestions,
-  alwaysRenderSuggestions: false,
-  multiSection: false,
-  focusInputOnSuggestionClick: true,
-  highlightFirstSuggestion: false,
-  theme: _theme.defaultTheme,
-  id: '1'
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/Autowhatever.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/Autowhatever.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
-var _sectionIterator = _interopRequireDefault(__webpack_require__(/*! section-iterator */ "./node_modules/section-iterator/dist/index.js"));
-
-var _reactThemeable = _interopRequireDefault(__webpack_require__(/*! react-themeable */ "./node_modules/react-themeable/dist/index.js"));
-
-var _SectionTitle = _interopRequireDefault(__webpack_require__(/*! ./SectionTitle */ "./node_modules/react-autosuggest/dist/SectionTitle.js"));
-
-var _ItemList = _interopRequireDefault(__webpack_require__(/*! ./ItemList */ "./node_modules/react-autosuggest/dist/ItemList.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var emptyObject = {};
-
-var defaultRenderInputComponent = function defaultRenderInputComponent(props) {
-  return /*#__PURE__*/_react["default"].createElement("input", props);
-};
-
-var defaultRenderItemsContainer = function defaultRenderItemsContainer(_ref) {
-  var containerProps = _ref.containerProps,
-      children = _ref.children;
-  return /*#__PURE__*/_react["default"].createElement("div", containerProps, children);
-};
-
-var defaultTheme = {
-  container: 'react-autowhatever__container',
-  containerOpen: 'react-autowhatever__container--open',
-  input: 'react-autowhatever__input',
-  inputOpen: 'react-autowhatever__input--open',
-  inputFocused: 'react-autowhatever__input--focused',
-  itemsContainer: 'react-autowhatever__items-container',
-  itemsContainerOpen: 'react-autowhatever__items-container--open',
-  itemsList: 'react-autowhatever__items-list',
-  item: 'react-autowhatever__item',
-  itemFirst: 'react-autowhatever__item--first',
-  itemHighlighted: 'react-autowhatever__item--highlighted',
-  sectionContainer: 'react-autowhatever__section-container',
-  sectionContainerFirst: 'react-autowhatever__section-container--first',
-  sectionTitle: 'react-autowhatever__section-title'
-};
-
-var Autowhatever = /*#__PURE__*/function (_Component) {
-  _inherits(Autowhatever, _Component);
-
-  var _super = _createSuper(Autowhatever);
-
-  function Autowhatever(props) {
-    var _this;
-
-    _classCallCheck(this, Autowhatever);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "storeInputReference", function (input) {
-      if (input !== null) {
-        _this.input = input;
-      }
-
-      var userRef = _this.props.inputProps.ref;
-
-      if (userRef) {
-        if (typeof userRef === 'function') {
-          userRef(input);
-        } else if (_typeof(userRef) === 'object' && Object.prototype.hasOwnProperty.call(userRef, 'current')) {
-          userRef.current = input;
-        }
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "storeItemsContainerReference", function (itemsContainer) {
-      if (itemsContainer !== null) {
-        _this.itemsContainer = itemsContainer;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onHighlightedItemChange", function (highlightedItem) {
-      _this.highlightedItem = highlightedItem;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getItemId", function (sectionIndex, itemIndex) {
-      if (itemIndex === null) {
-        return null;
-      }
-
-      var id = _this.props.id;
-      var section = sectionIndex === null ? '' : "section-".concat(sectionIndex);
-      return "react-autowhatever-".concat(id, "-").concat(section, "-item-").concat(itemIndex);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onFocus", function (event) {
-      var inputProps = _this.props.inputProps;
-
-      _this.setState({
-        isInputFocused: true
-      });
-
-      inputProps.onFocus && inputProps.onFocus(event);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onBlur", function (event) {
-      var inputProps = _this.props.inputProps;
-
-      _this.setState({
-        isInputFocused: false
-      });
-
-      inputProps.onBlur && inputProps.onBlur(event);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onKeyDown", function (event) {
-      var _this$props = _this.props,
-          inputProps = _this$props.inputProps,
-          highlightedSectionIndex = _this$props.highlightedSectionIndex,
-          highlightedItemIndex = _this$props.highlightedItemIndex;
-      var keyCode = event.keyCode;
-
-      switch (keyCode) {
-        case 40: // ArrowDown
-
-        case 38:
-          {
-            // ArrowUp
-            var nextPrev = keyCode === 40 ? 'next' : 'prev';
-
-            var _this$sectionIterator = _this.sectionIterator[nextPrev]([highlightedSectionIndex, highlightedItemIndex]),
-                _this$sectionIterator2 = _slicedToArray(_this$sectionIterator, 2),
-                newHighlightedSectionIndex = _this$sectionIterator2[0],
-                newHighlightedItemIndex = _this$sectionIterator2[1];
-
-            inputProps.onKeyDown(event, {
-              newHighlightedSectionIndex: newHighlightedSectionIndex,
-              newHighlightedItemIndex: newHighlightedItemIndex
-            });
-            break;
-          }
-
-        default:
-          inputProps.onKeyDown(event, {
-            highlightedSectionIndex: highlightedSectionIndex,
-            highlightedItemIndex: highlightedItemIndex
-          });
-      }
-    });
-
-    _this.highlightedItem = null;
-    _this.state = {
-      isInputFocused: false
-    };
-
-    _this.setSectionsItems(props);
-
-    _this.setSectionIterator(props);
-
-    _this.setTheme(props);
-
-    return _this;
-  }
-
-  _createClass(Autowhatever, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.ensureHighlightedItemIsVisible();
-    } // eslint-disable-next-line camelcase, react/sort-comp
-
-  }, {
-    key: "UNSAFE_componentWillReceiveProps",
-    value: function UNSAFE_componentWillReceiveProps(nextProps) {
-      if (nextProps.items !== this.props.items) {
-        this.setSectionsItems(nextProps);
-      }
-
-      if (nextProps.items !== this.props.items || nextProps.multiSection !== this.props.multiSection) {
-        this.setSectionIterator(nextProps);
-      }
-
-      if (nextProps.theme !== this.props.theme) {
-        this.setTheme(nextProps);
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.ensureHighlightedItemIsVisible();
-    }
-  }, {
-    key: "setSectionsItems",
-    value: function setSectionsItems(props) {
-      if (props.multiSection) {
-        this.sectionsItems = props.items.map(function (section) {
-          return props.getSectionItems(section);
-        });
-        this.sectionsLengths = this.sectionsItems.map(function (items) {
-          return items.length;
-        });
-        this.allSectionsAreEmpty = this.sectionsLengths.every(function (itemsCount) {
-          return itemsCount === 0;
-        });
-      }
-    }
-  }, {
-    key: "setSectionIterator",
-    value: function setSectionIterator(props) {
-      this.sectionIterator = (0, _sectionIterator["default"])({
-        multiSection: props.multiSection,
-        data: props.multiSection ? this.sectionsLengths : props.items.length
-      });
-    }
-  }, {
-    key: "setTheme",
-    value: function setTheme(props) {
-      this.theme = (0, _reactThemeable["default"])(props.theme);
-    }
-  }, {
-    key: "renderSections",
-    value: function renderSections() {
-      var _this2 = this;
-
-      if (this.allSectionsAreEmpty) {
-        return null;
-      }
-
-      var theme = this.theme;
-      var _this$props2 = this.props,
-          id = _this$props2.id,
-          items = _this$props2.items,
-          renderItem = _this$props2.renderItem,
-          renderItemData = _this$props2.renderItemData,
-          renderSectionTitle = _this$props2.renderSectionTitle,
-          highlightedSectionIndex = _this$props2.highlightedSectionIndex,
-          highlightedItemIndex = _this$props2.highlightedItemIndex,
-          itemProps = _this$props2.itemProps;
-      return items.map(function (section, sectionIndex) {
-        var keyPrefix = "react-autowhatever-".concat(id, "-");
-        var sectionKeyPrefix = "".concat(keyPrefix, "section-").concat(sectionIndex, "-");
-        var isFirstSection = sectionIndex === 0; // `key` is provided by theme()
-
-        /* eslint-disable react/jsx-key */
-
-        return /*#__PURE__*/_react["default"].createElement("div", theme("".concat(sectionKeyPrefix, "container"), 'sectionContainer', isFirstSection && 'sectionContainerFirst'), /*#__PURE__*/_react["default"].createElement(_SectionTitle["default"], {
-          section: section,
-          renderSectionTitle: renderSectionTitle,
-          theme: theme,
-          sectionKeyPrefix: sectionKeyPrefix
-        }), /*#__PURE__*/_react["default"].createElement(_ItemList["default"], {
-          items: _this2.sectionsItems[sectionIndex],
-          itemProps: itemProps,
-          renderItem: renderItem,
-          renderItemData: renderItemData,
-          sectionIndex: sectionIndex,
-          highlightedItemIndex: highlightedSectionIndex === sectionIndex ? highlightedItemIndex : null,
-          onHighlightedItemChange: _this2.onHighlightedItemChange,
-          getItemId: _this2.getItemId,
-          theme: theme,
-          keyPrefix: keyPrefix,
-          ref: _this2.storeItemsListReference
-        }));
-        /* eslint-enable react/jsx-key */
-      });
-    }
-  }, {
-    key: "renderItems",
-    value: function renderItems() {
-      var items = this.props.items;
-
-      if (items.length === 0) {
-        return null;
-      }
-
-      var theme = this.theme;
-      var _this$props3 = this.props,
-          id = _this$props3.id,
-          renderItem = _this$props3.renderItem,
-          renderItemData = _this$props3.renderItemData,
-          highlightedSectionIndex = _this$props3.highlightedSectionIndex,
-          highlightedItemIndex = _this$props3.highlightedItemIndex,
-          itemProps = _this$props3.itemProps;
-      return /*#__PURE__*/_react["default"].createElement(_ItemList["default"], {
-        items: items,
-        itemProps: itemProps,
-        renderItem: renderItem,
-        renderItemData: renderItemData,
-        highlightedItemIndex: highlightedSectionIndex === null ? highlightedItemIndex : null,
-        onHighlightedItemChange: this.onHighlightedItemChange,
-        getItemId: this.getItemId,
-        theme: theme,
-        keyPrefix: "react-autowhatever-".concat(id, "-")
-      });
-    }
-  }, {
-    key: "ensureHighlightedItemIsVisible",
-    value: function ensureHighlightedItemIsVisible() {
-      var highlightedItem = this.highlightedItem;
-
-      if (!highlightedItem) {
-        return;
-      }
-
-      var itemsContainer = this.itemsContainer;
-      var itemOffsetRelativeToContainer = highlightedItem.offsetParent === itemsContainer ? highlightedItem.offsetTop : highlightedItem.offsetTop - itemsContainer.offsetTop;
-      var scrollTop = itemsContainer.scrollTop; // Top of the visible area
-
-      if (itemOffsetRelativeToContainer < scrollTop) {
-        // Item is off the top of the visible area
-        scrollTop = itemOffsetRelativeToContainer;
-      } else if (itemOffsetRelativeToContainer + highlightedItem.offsetHeight > scrollTop + itemsContainer.offsetHeight) {
-        // Item is off the bottom of the visible area
-        scrollTop = itemOffsetRelativeToContainer + highlightedItem.offsetHeight - itemsContainer.offsetHeight;
-      }
-
-      if (scrollTop !== itemsContainer.scrollTop) {
-        itemsContainer.scrollTop = scrollTop;
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var theme = this.theme;
-      var _this$props4 = this.props,
-          id = _this$props4.id,
-          multiSection = _this$props4.multiSection,
-          renderInputComponent = _this$props4.renderInputComponent,
-          renderItemsContainer = _this$props4.renderItemsContainer,
-          highlightedSectionIndex = _this$props4.highlightedSectionIndex,
-          highlightedItemIndex = _this$props4.highlightedItemIndex;
-      var isInputFocused = this.state.isInputFocused;
-      var renderedItems = multiSection ? this.renderSections() : this.renderItems();
-      var isOpen = renderedItems !== null;
-      var ariaActivedescendant = this.getItemId(highlightedSectionIndex, highlightedItemIndex);
-      var itemsContainerId = "react-autowhatever-".concat(id);
-
-      var containerProps = _objectSpread({
-        role: 'combobox',
-        'aria-haspopup': 'listbox',
-        'aria-owns': itemsContainerId,
-        'aria-expanded': isOpen
-      }, theme("react-autowhatever-".concat(id, "-container"), 'container', isOpen && 'containerOpen'), {}, this.props.containerProps);
-
-      var inputComponent = renderInputComponent(_objectSpread({
-        type: 'text',
-        value: '',
-        autoComplete: 'off',
-        'aria-autocomplete': 'list',
-        'aria-controls': itemsContainerId,
-        'aria-activedescendant': ariaActivedescendant
-      }, theme("react-autowhatever-".concat(id, "-input"), 'input', isOpen && 'inputOpen', isInputFocused && 'inputFocused'), {}, this.props.inputProps, {
-        onFocus: this.onFocus,
-        onBlur: this.onBlur,
-        onKeyDown: this.props.inputProps.onKeyDown && this.onKeyDown,
-        ref: this.storeInputReference
-      }));
-      var itemsContainer = renderItemsContainer({
-        containerProps: _objectSpread({
-          id: itemsContainerId,
-          role: 'listbox'
-        }, theme("react-autowhatever-".concat(id, "-items-container"), 'itemsContainer', isOpen && 'itemsContainerOpen'), {
-          ref: this.storeItemsContainerReference
-        }),
-        children: renderedItems
-      });
-      return /*#__PURE__*/_react["default"].createElement("div", containerProps, inputComponent, itemsContainer);
-    }
-  }]);
-
-  return Autowhatever;
-}(_react.Component);
-
-exports["default"] = Autowhatever;
-
-_defineProperty(Autowhatever, "propTypes", {
-  id: _propTypes["default"].string,
-  // Used in aria-* attributes. If multiple Autowhatever's are rendered on a page, they must have unique ids.
-  multiSection: _propTypes["default"].bool,
-  // Indicates whether a multi section layout should be rendered.
-  renderInputComponent: _propTypes["default"].func,
-  // When specified, it is used to render the input element.
-  renderItemsContainer: _propTypes["default"].func,
-  // Renders the items container.
-  items: _propTypes["default"].array.isRequired,
-  // Array of items or sections to render.
-  renderItem: _propTypes["default"].func,
-  // This function renders a single item.
-  renderItemData: _propTypes["default"].object,
-  // Arbitrary data that will be passed to renderItem()
-  renderSectionTitle: _propTypes["default"].func,
-  // This function gets a section and renders its title.
-  getSectionItems: _propTypes["default"].func,
-  // This function gets a section and returns its items, which will be passed into `renderItem` for rendering.
-  containerProps: _propTypes["default"].object,
-  // Arbitrary container props
-  inputProps: _propTypes["default"].object,
-  // Arbitrary input props
-  itemProps: _propTypes["default"].oneOfType([// Arbitrary item props
-  _propTypes["default"].object, _propTypes["default"].func]),
-  highlightedSectionIndex: _propTypes["default"].number,
-  // Section index of the highlighted item
-  highlightedItemIndex: _propTypes["default"].number,
-  // Highlighted item index (within a section)
-  theme: _propTypes["default"].oneOfType([// Styles. See: https://github.com/markdalgleish/react-themeable
-  _propTypes["default"].object, _propTypes["default"].array])
-});
-
-_defineProperty(Autowhatever, "defaultProps", {
-  id: '1',
-  multiSection: false,
-  renderInputComponent: defaultRenderInputComponent,
-  renderItemsContainer: defaultRenderItemsContainer,
-  renderItem: function renderItem() {
-    throw new Error('`renderItem` must be provided');
-  },
-  renderItemData: emptyObject,
-  renderSectionTitle: function renderSectionTitle() {
-    throw new Error('`renderSectionTitle` must be provided');
-  },
-  getSectionItems: function getSectionItems() {
-    throw new Error('`getSectionItems` must be provided');
-  },
-  containerProps: emptyObject,
-  inputProps: emptyObject,
-  itemProps: emptyObject,
-  highlightedSectionIndex: null,
-  highlightedItemIndex: null,
-  theme: defaultTheme
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/Item.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/Item.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
-var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Item = /*#__PURE__*/function (_Component) {
-  _inherits(Item, _Component);
-
-  var _super = _createSuper(Item);
-
-  function Item() {
-    var _this;
-
-    _classCallCheck(this, Item);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "storeItemReference", function (item) {
-      if (item !== null) {
-        _this.item = item;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onMouseEnter", function (event) {
-      var _this$props = _this.props,
-          sectionIndex = _this$props.sectionIndex,
-          itemIndex = _this$props.itemIndex;
-
-      _this.props.onMouseEnter(event, {
-        sectionIndex: sectionIndex,
-        itemIndex: itemIndex
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onMouseLeave", function (event) {
-      var _this$props2 = _this.props,
-          sectionIndex = _this$props2.sectionIndex,
-          itemIndex = _this$props2.itemIndex;
-
-      _this.props.onMouseLeave(event, {
-        sectionIndex: sectionIndex,
-        itemIndex: itemIndex
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onMouseDown", function (event) {
-      var _this$props3 = _this.props,
-          sectionIndex = _this$props3.sectionIndex,
-          itemIndex = _this$props3.itemIndex;
-
-      _this.props.onMouseDown(event, {
-        sectionIndex: sectionIndex,
-        itemIndex: itemIndex
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (event) {
-      var _this$props4 = _this.props,
-          sectionIndex = _this$props4.sectionIndex,
-          itemIndex = _this$props4.itemIndex;
-
-      _this.props.onClick(event, {
-        sectionIndex: sectionIndex,
-        itemIndex: itemIndex
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(Item, [{
-    key: "shouldComponentUpdate",
-    value: function shouldComponentUpdate(nextProps) {
-      return (0, _compareObjects["default"])(nextProps, this.props, ['renderItemData']);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props5 = this.props,
-          isHighlighted = _this$props5.isHighlighted,
-          item = _this$props5.item,
-          renderItem = _this$props5.renderItem,
-          renderItemData = _this$props5.renderItemData,
-          restProps = _objectWithoutProperties(_this$props5, ["isHighlighted", "item", "renderItem", "renderItemData"]);
-
-      delete restProps.sectionIndex;
-      delete restProps.itemIndex;
-
-      if (typeof restProps.onMouseEnter === 'function') {
-        restProps.onMouseEnter = this.onMouseEnter;
-      }
-
-      if (typeof restProps.onMouseLeave === 'function') {
-        restProps.onMouseLeave = this.onMouseLeave;
-      }
-
-      if (typeof restProps.onMouseDown === 'function') {
-        restProps.onMouseDown = this.onMouseDown;
-      }
-
-      if (typeof restProps.onClick === 'function') {
-        restProps.onClick = this.onClick;
-      }
-
-      return /*#__PURE__*/_react["default"].createElement("li", _extends({
-        role: "option"
-      }, restProps, {
-        ref: this.storeItemReference
-      }), renderItem(item, _objectSpread({
-        isHighlighted: isHighlighted
-      }, renderItemData)));
-    }
-  }]);
-
-  return Item;
-}(_react.Component);
-
-exports["default"] = Item;
-
-_defineProperty(Item, "propTypes", {
-  sectionIndex: _propTypes["default"].number,
-  isHighlighted: _propTypes["default"].bool.isRequired,
-  itemIndex: _propTypes["default"].number.isRequired,
-  item: _propTypes["default"].any.isRequired,
-  renderItem: _propTypes["default"].func.isRequired,
-  renderItemData: _propTypes["default"].object.isRequired,
-  onMouseEnter: _propTypes["default"].func,
-  onMouseLeave: _propTypes["default"].func,
-  onMouseDown: _propTypes["default"].func,
-  onClick: _propTypes["default"].func
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/ItemList.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/ItemList.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
-var _Item = _interopRequireDefault(__webpack_require__(/*! ./Item */ "./node_modules/react-autosuggest/dist/Item.js"));
-
-var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var ItemsList = /*#__PURE__*/function (_Component) {
-  _inherits(ItemsList, _Component);
-
-  var _super = _createSuper(ItemsList);
-
-  function ItemsList() {
-    var _this;
-
-    _classCallCheck(this, ItemsList);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "storeHighlightedItemReference", function (highlightedItem) {
-      _this.props.onHighlightedItemChange(highlightedItem === null ? null : highlightedItem.item);
-    });
-
-    return _this;
-  }
-
-  _createClass(ItemsList, [{
-    key: "shouldComponentUpdate",
-    value: function shouldComponentUpdate(nextProps) {
-      return (0, _compareObjects["default"])(nextProps, this.props, ['itemProps']);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props = this.props,
-          items = _this$props.items,
-          itemProps = _this$props.itemProps,
-          renderItem = _this$props.renderItem,
-          renderItemData = _this$props.renderItemData,
-          sectionIndex = _this$props.sectionIndex,
-          highlightedItemIndex = _this$props.highlightedItemIndex,
-          getItemId = _this$props.getItemId,
-          theme = _this$props.theme,
-          keyPrefix = _this$props.keyPrefix;
-      var sectionPrefix = sectionIndex === null ? keyPrefix : "".concat(keyPrefix, "section-").concat(sectionIndex, "-");
-      var isItemPropsFunction = typeof itemProps === 'function';
-      return /*#__PURE__*/_react["default"].createElement("ul", _extends({
-        role: "listbox"
-      }, theme("".concat(sectionPrefix, "items-list"), 'itemsList')), items.map(function (item, itemIndex) {
-        var isFirst = itemIndex === 0;
-        var isHighlighted = itemIndex === highlightedItemIndex;
-        var itemKey = "".concat(sectionPrefix, "item-").concat(itemIndex);
-        var itemPropsObj = isItemPropsFunction ? itemProps({
-          sectionIndex: sectionIndex,
-          itemIndex: itemIndex
-        }) : itemProps;
-
-        var allItemProps = _objectSpread({
-          id: getItemId(sectionIndex, itemIndex),
-          'aria-selected': isHighlighted
-        }, theme(itemKey, 'item', isFirst && 'itemFirst', isHighlighted && 'itemHighlighted'), {}, itemPropsObj);
-
-        if (isHighlighted) {
-          allItemProps.ref = _this2.storeHighlightedItemReference;
-        } // `key` is provided by theme()
-
-        /* eslint-disable react/jsx-key */
-
-
-        return /*#__PURE__*/_react["default"].createElement(_Item["default"], _extends({}, allItemProps, {
-          sectionIndex: sectionIndex,
-          isHighlighted: isHighlighted,
-          itemIndex: itemIndex,
-          item: item,
-          renderItem: renderItem,
-          renderItemData: renderItemData
-        }));
-        /* eslint-enable react/jsx-key */
-      }));
-    }
-  }]);
-
-  return ItemsList;
-}(_react.Component);
-
-exports["default"] = ItemsList;
-
-_defineProperty(ItemsList, "propTypes", {
-  items: _propTypes["default"].array.isRequired,
-  itemProps: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func]),
-  renderItem: _propTypes["default"].func.isRequired,
-  renderItemData: _propTypes["default"].object.isRequired,
-  sectionIndex: _propTypes["default"].number,
-  highlightedItemIndex: _propTypes["default"].number,
-  onHighlightedItemChange: _propTypes["default"].func.isRequired,
-  getItemId: _propTypes["default"].func.isRequired,
-  theme: _propTypes["default"].func.isRequired,
-  keyPrefix: _propTypes["default"].string.isRequired
-});
-
-_defineProperty(ItemsList, "defaultProps", {
-  sectionIndex: null
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/SectionTitle.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/SectionTitle.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
-var _compareObjects = _interopRequireDefault(__webpack_require__(/*! ./compareObjects */ "./node_modules/react-autosuggest/dist/compareObjects.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var SectionTitle = /*#__PURE__*/function (_Component) {
-  _inherits(SectionTitle, _Component);
-
-  var _super = _createSuper(SectionTitle);
-
-  function SectionTitle() {
-    _classCallCheck(this, SectionTitle);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(SectionTitle, [{
-    key: "shouldComponentUpdate",
-    value: function shouldComponentUpdate(nextProps) {
-      return (0, _compareObjects["default"])(nextProps, this.props);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          section = _this$props.section,
-          renderSectionTitle = _this$props.renderSectionTitle,
-          theme = _this$props.theme,
-          sectionKeyPrefix = _this$props.sectionKeyPrefix;
-      var sectionTitle = renderSectionTitle(section);
-
-      if (!sectionTitle) {
-        return null;
-      }
-
-      return /*#__PURE__*/_react["default"].createElement("div", theme("".concat(sectionKeyPrefix, "title"), 'sectionTitle'), sectionTitle);
-    }
-  }]);
-
-  return SectionTitle;
-}(_react.Component);
-
-exports["default"] = SectionTitle;
-
-_defineProperty(SectionTitle, "propTypes", {
-  section: _propTypes["default"].any.isRequired,
-  renderSectionTitle: _propTypes["default"].func.isRequired,
-  theme: _propTypes["default"].func.isRequired,
-  sectionKeyPrefix: _propTypes["default"].string.isRequired
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/compareObjects.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/compareObjects.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = compareObjects;
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function compareObjects(objA, objB) {
-  var keys = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-
-  if (objA === objB) {
-    return false;
-  }
-
-  var aKeys = Object.keys(objA);
-  var bKeys = Object.keys(objB);
-
-  if (aKeys.length !== bKeys.length) {
-    return true;
-  }
-
-  var keysMap = {};
-  var i, len;
-
-  for (i = 0, len = keys.length; i < len; i++) {
-    keysMap[keys[i]] = true;
-  }
-
-  for (i = 0, len = aKeys.length; i < len; i++) {
-    var key = aKeys[i];
-    var aValue = objA[key];
-    var bValue = objB[key];
-
-    if (aValue === bValue) {
-      continue;
-    }
-
-    if (!keysMap[key] || aValue === null || bValue === null || _typeof(aValue) !== 'object' || _typeof(bValue) !== 'object') {
-      return true;
-    }
-
-    var aValueKeys = Object.keys(aValue);
-    var bValueKeys = Object.keys(bValue);
-
-    if (aValueKeys.length !== bValueKeys.length) {
-      return true;
-    }
-
-    for (var n = 0, length = aValueKeys.length; n < length; n++) {
-      var aValueKey = aValueKeys[n];
-
-      if (aValue[aValueKey] !== bValue[aValueKey]) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(/*! ./Autosuggest */ "./node_modules/react-autosuggest/dist/Autosuggest.js")["default"];
-
-/***/ }),
-
-/***/ "./node_modules/react-autosuggest/dist/theme.js":
-/*!******************************************************!*\
-  !*** ./node_modules/react-autosuggest/dist/theme.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mapToAutowhateverTheme = exports.defaultTheme = void 0;
-var defaultTheme = {
-  container: 'react-autosuggest__container',
-  containerOpen: 'react-autosuggest__container--open',
-  input: 'react-autosuggest__input',
-  inputOpen: 'react-autosuggest__input--open',
-  inputFocused: 'react-autosuggest__input--focused',
-  suggestionsContainer: 'react-autosuggest__suggestions-container',
-  suggestionsContainerOpen: 'react-autosuggest__suggestions-container--open',
-  suggestionsList: 'react-autosuggest__suggestions-list',
-  suggestion: 'react-autosuggest__suggestion',
-  suggestionFirst: 'react-autosuggest__suggestion--first',
-  suggestionHighlighted: 'react-autosuggest__suggestion--highlighted',
-  sectionContainer: 'react-autosuggest__section-container',
-  sectionContainerFirst: 'react-autosuggest__section-container--first',
-  sectionTitle: 'react-autosuggest__section-title'
-};
-exports.defaultTheme = defaultTheme;
-
-var mapToAutowhateverTheme = function mapToAutowhateverTheme(theme) {
-  var result = {};
-
-  for (var key in theme) {
-    switch (key) {
-      case 'suggestionsContainer':
-        result['itemsContainer'] = theme[key];
-        break;
-
-      case 'suggestionsContainerOpen':
-        result['itemsContainerOpen'] = theme[key];
-        break;
-
-      case 'suggestion':
-        result['item'] = theme[key];
-        break;
-
-      case 'suggestionFirst':
-        result['itemFirst'] = theme[key];
-        break;
-
-      case 'suggestionHighlighted':
-        result['itemHighlighted'] = theme[key];
-        break;
-
-      case 'suggestionsList':
-        result['itemsList'] = theme[key];
-        break;
-
-      default:
-        result[key] = theme[key];
-    }
-  }
-
-  return result;
-};
-
-exports.mapToAutowhateverTheme = mapToAutowhateverTheme;
 
 /***/ }),
 
@@ -51168,107 +49247,894 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-themeable/dist/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/react-themeable/dist/index.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/react-select-search/dist/esm/Components/Option.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/Components/Option.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
 
-var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+const Option = (_ref) => {
+  let {
+    optionProps,
+    highlighted,
+    selected,
+    cls,
+    renderOption
+  } = _ref,
+      option = _objectWithoutProperties(_ref, ["optionProps", "highlighted", "selected", "cls", "renderOption"]);
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+  const optionClass = [cls('option'), selected ? cls('is-selected') : false, highlighted ? cls('is-highlighted') : false].filter(single => !!single).join(' ');
 
-var _objectAssign = __webpack_require__(/*! object-assign */ "./node_modules/react-themeable/node_modules/object-assign/index.js");
+  const domProps = _objectSpread(_objectSpread({}, optionProps), {}, {
+    value: option.value,
+    disabled: option.disabled
+  });
 
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-var truthy = function truthy(x) {
-  return x;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: cls('row'),
+    role: "menuitem",
+    "data-index": option.index,
+    "data-value": escape(option.value),
+    key: option.value
+  }, renderOption(domProps, option, {
+    selected,
+    highlighted
+  }, optionClass));
 };
 
-exports['default'] = function (input) {
-  var _ref = Array.isArray(input) && input.length === 2 ? input : [input, null];
-
-  var _ref2 = _slicedToArray(_ref, 2);
-
-  var theme = _ref2[0];
-  var classNameDecorator = _ref2[1];
-
-  return function (key) {
-    for (var _len = arguments.length, names = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      names[_key - 1] = arguments[_key];
-    }
-
-    var styles = names.map(function (name) {
-      return theme[name];
-    }).filter(truthy);
-
-    return typeof styles[0] === 'string' || typeof classNameDecorator === 'function' ? { key: key, className: classNameDecorator ? classNameDecorator.apply(undefined, _toConsumableArray(styles)) : styles.join(' ') } : { key: key, style: _objectAssign2['default'].apply(undefined, [{}].concat(_toConsumableArray(styles))) };
-  };
+Option.defaultProps = {
+  disabled: false,
+  index: null,
+  value: null
 };
-
-module.exports = exports['default'];
+Option.propTypes =  true ? {
+  name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  value: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number]),
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  index: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+  highlighted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  optionProps: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    onMouseDown: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+  }).isRequired,
+  cls: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+  renderOption: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(Option));
 
 /***/ }),
 
-/***/ "./node_modules/react-themeable/node_modules/object-assign/index.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/react-themeable/node_modules/object-assign/index.js ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/react-select-search/dist/esm/SelectSearch.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/SelectSearch.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _useSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useSelect */ "./node_modules/react-select-search/dist/esm/useSelect.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types */ "./node_modules/react-select-search/dist/esm/types.js");
+/* harmony import */ var _Components_Option__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Option */ "./node_modules/react-select-search/dist/esm/Components/Option.js");
+/* harmony import */ var _lib_isSelected__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/isSelected */ "./node_modules/react-select-search/dist/esm/lib/isSelected.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function ToObject(val) {
-	if (val == null) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-	return Object(val);
-}
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function ownEnumerableKeys(obj) {
-	var keys = Object.getOwnPropertyNames(obj);
 
-	if (Object.getOwnPropertySymbols) {
-		keys = keys.concat(Object.getOwnPropertySymbols(obj));
-	}
 
-	return keys.filter(function (key) {
-		return propIsEnumerable.call(obj, key);
-	});
-}
 
-module.exports = Object.assign || function (target, source) {
-	var from;
-	var keys;
-	var to = ToObject(target);
 
-	for (var s = 1; s < arguments.length; s++) {
-		from = arguments[s];
-		keys = ownEnumerableKeys(Object(from));
 
-		for (var i = 0; i < keys.length; i++) {
-			to[keys[i]] = from[keys[i]];
-		}
-	}
 
-	return to;
+const SelectSearch = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(({
+  value: defaultValue,
+  disabled,
+  placeholder,
+  multiple,
+  search,
+  autoFocus,
+  autoComplete,
+  options: defaultOptions,
+  id,
+  onChange,
+  printOptions,
+  closeOnSelect,
+  className,
+  renderValue,
+  renderOption,
+  renderGroupHeader,
+  getOptions,
+  fuse,
+  emptyMessage
+}, ref) => {
+  const selectRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  const [snapshot, valueProps, optionProps] = Object(_useSelect__WEBPACK_IMPORTED_MODULE_2__["default"])({
+    options: defaultOptions,
+    value: defaultValue,
+    multiple,
+    disabled,
+    fuse,
+    search,
+    onChange,
+    getOptions,
+    closeOnSelect,
+    closable: !multiple || printOptions === 'on-focus',
+    allowEmpty: !!placeholder
+  });
+  const {
+    focus,
+    highlighted,
+    value,
+    options,
+    searching,
+    displayValue,
+    search: searchValue
+  } = snapshot;
+  const cls = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(key => {
+    if (typeof className === 'function') {
+      return className(key);
+    }
+
+    if (key.indexOf('container') === 0) {
+      return key.replace('container', className);
+    }
+
+    if (key.indexOf('is-') === 0 || key.indexOf('has-') === 0) {
+      return key;
+    }
+
+    return className.split(' ')[0] + "__" + key;
+  }, [className]);
+  const renderEmptyMessage = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
+    if (typeof emptyMessage === 'function') {
+      return emptyMessage();
+    } else if (typeof emptyMessage === 'string') {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, emptyMessage);
+    }
+
+    return null;
+  }, [emptyMessage]);
+  const wrapperClass = [cls('container'), disabled ? cls('is-disabled') : false, searching ? cls('is-loading') : false, focus ? cls('has-focus') : false].filter(single => !!single).join(' ');
+  const inputValue = focus && search ? searchValue : displayValue;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const {
+      current
+    } = selectRef;
+
+    if (!current || multiple || highlighted < 0 && !value) {
+      return;
+    }
+
+    const query = highlighted > -1 ? "[data-index=\"" + highlighted + "\"]" : "[data-value=\"" + escape(value.value) + "\"]";
+    const selected = current.querySelector(query);
+
+    if (selected) {
+      const rect = current.getBoundingClientRect();
+      const selectedRect = selected.getBoundingClientRect();
+      current.scrollTop = selected.offsetTop - rect.height / 2 + selectedRect.height / 2;
+    }
+  }, [focus, value, highlighted, selectRef, multiple]);
+  let shouldRenderOptions;
+
+  switch (printOptions) {
+    case 'never':
+      shouldRenderOptions = false;
+      break;
+
+    case 'always':
+      shouldRenderOptions = true;
+      break;
+
+    case 'on-focus':
+      shouldRenderOptions = focus;
+      break;
+
+    default:
+      shouldRenderOptions = !disabled && (focus || multiple);
+      break;
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    ref: ref,
+    className: wrapperClass,
+    id: id
+  }, (!multiple || placeholder || search) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: cls('value')
+  }, renderValue(_objectSpread(_objectSpread({}, valueProps), {}, {
+    placeholder,
+    autoFocus,
+    autoComplete,
+    value: inputValue
+  }), snapshot, cls('input'))), shouldRenderOptions && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: cls('select'),
+    ref: selectRef
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: cls('options')
+  }, options.length > 0 ? options.map(option => {
+    const isGroup = option.type === 'group';
+    const items = isGroup ? option.items : [option];
+    const base = {
+      cls,
+      optionProps,
+      renderOption
+    };
+    const rendered = items.map(o => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Option__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({
+      key: o.value,
+      selected: Object(_lib_isSelected__WEBPACK_IMPORTED_MODULE_5__["default"])(o, value),
+      highlighted: highlighted === o.index
+    }, base, o)));
+
+    if (isGroup) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        role: "none",
+        className: cls('row'),
+        key: option.groupId
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: cls('group')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: cls('group-header')
+      }, renderGroupHeader(option.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: cls('options')
+      }, rendered)));
+    }
+
+    return rendered;
+  }) : renderEmptyMessage() || null)));
+});
+SelectSearch.defaultProps = {
+  className: 'select-search',
+  disabled: false,
+  search: false,
+  multiple: false,
+  placeholder: null,
+  id: null,
+  autoFocus: false,
+  autoComplete: 'on',
+  value: '',
+  onChange: () => {},
+  printOptions: 'auto',
+  closeOnSelect: true,
+  renderOption: (domProps, option, snapshot, className) =>
+  /*#__PURE__*/
+  // eslint-disable-next-line react/button-has-type
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", _extends({
+    className: className
+  }, domProps), option.name),
+  renderGroupHeader: name => name,
+  renderValue: (valueProps, snapshot, className) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, valueProps, {
+    className: className
+  })),
+  fuse: {
+    keys: ['name', 'groupName'],
+    threshold: 0.3
+  },
+  getOptions: null,
+  emptyMessage: null
 };
+SelectSearch.propTypes =  true ? {
+  options: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(_types__WEBPACK_IMPORTED_MODULE_3__["optionType"]).isRequired,
+  getOptions: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  value: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number]))]),
+  className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func]),
+  multiple: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  search: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  id: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  autoComplete: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  autoFocus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  printOptions: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOf(['auto', 'always', 'never', 'on-focus']),
+  closeOnSelect: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  renderOption: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  renderGroupHeader: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  renderValue: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  fuse: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    keys: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string),
+    threshold: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
+  })]),
+  emptyMessage: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(SelectSearch));
 
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/highlightReducer.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/highlightReducer.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return highlightReducer; });
+function highlightReducer(highlighted, value) {
+  const {
+    key,
+    options
+  } = value;
+  const max = options.length - 1;
+  let newHighlighted = key === 'ArrowDown' ? highlighted + 1 : highlighted - 1;
+
+  if (newHighlighted < 0) {
+    newHighlighted = max;
+  } else if (newHighlighted > max) {
+    newHighlighted = 0;
+  }
+
+  const option = options[newHighlighted];
+
+  if (option && option.disabled) {
+    return highlightReducer(newHighlighted, {
+      key,
+      options
+    });
+  }
+
+  return newHighlighted;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/index.js ***!
+  \************************************************************/
+/*! exports provided: useSelect, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _useSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useSelect */ "./node_modules/react-select-search/dist/esm/useSelect.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useSelect", function() { return _useSelect__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _SelectSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectSearch */ "./node_modules/react-select-search/dist/esm/SelectSearch.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _SelectSearch__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/flattenOptions.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/flattenOptions.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return flattenOptions; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function flattenOptions(options) {
+  if (!Array.isArray(options)) {
+    return [];
+  }
+
+  const nextOptions = [];
+  options.forEach((option, index) => {
+    if ('type' in option && option.type === 'group') {
+      const id = option.name.replace(/\s+/g, '-').toLowerCase() + "-" + index;
+      option.items.forEach(groupOption => {
+        nextOptions.push(_objectSpread(_objectSpread({}, groupOption), {}, {
+          groupId: id,
+          groupName: option.name,
+          _id: "" + groupOption.value
+        }));
+      });
+      return;
+    }
+
+    nextOptions.push(_objectSpread(_objectSpread({}, option), {}, {
+      _id: "" + option.value,
+      index
+    }));
+  });
+  return nextOptions;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/getDisplayValue.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/getDisplayValue.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getDisplayValue; });
+function getDisplayValue(value) {
+  if (value && typeof value === 'object') {
+    if (Array.isArray(value)) {
+      return value.map(singleOption => singleOption.name).join(', ');
+    }
+
+    return value.name;
+  }
+
+  return '';
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/getNewValue.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/getNewValue.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getNewValue; });
+function getNewValue(value, oldValue, multiple) {
+  if (!multiple) {
+    return value;
+  }
+
+  if (!oldValue) {
+    return [value];
+  }
+
+  const newValue = !Array.isArray(oldValue) ? [oldValue] : [...oldValue];
+  const valueIndex = newValue.findIndex(val => val === value);
+
+  if (valueIndex >= 0) {
+    newValue.splice(valueIndex, 1);
+  } else {
+    newValue.push(value);
+  }
+
+  return newValue;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/getOption.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/getOption.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getOption; });
+function getOption(value, defaultOptions) {
+  if (Array.isArray(value)) {
+    return value.map(singleValue => defaultOptions.find(option => option.value === singleValue));
+  }
+
+  return defaultOptions.find(option => option.value === value) || null;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/groupOptions.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/groupOptions.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return groupOptions; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function groupOptions(options) {
+  const nextOptions = [];
+  options.forEach((option, i) => {
+    if ('groupId' in option) {
+      const nextOption = _objectSpread({}, option);
+
+      const groupIndex = nextOptions.findIndex(el => 'groupId' in el && el.groupId === nextOption.groupId);
+      nextOption.index = i;
+
+      if (groupIndex > -1) {
+        nextOptions[groupIndex].items.push(nextOption);
+      } else {
+        nextOptions.push({
+          items: [nextOption],
+          groupId: option.groupId,
+          type: 'group',
+          name: option.groupName
+        });
+      }
+    } else {
+      nextOptions.push(option);
+    }
+  });
+  return nextOptions;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/lib/isSelected.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/lib/isSelected.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isSelected; });
+function isSelected(itemValue, selectedValue) {
+  if (!selectedValue) {
+    return false;
+  }
+
+  return Array.isArray(selectedValue) ? selectedValue.findIndex(item => item.value === itemValue.value) >= 0 : selectedValue.value === itemValue.value;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/search.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/search.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return search; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+let Fuse = null;
+
+try {
+  // eslint-disable-next-line global-require,import/no-extraneous-dependencies
+  Fuse = __webpack_require__(/*! fuse.js */ "./node_modules/fuse.js/dist/fuse.js");
+} catch (e) {
+  /* istanbul ignore next */
+  if (true) {
+    // eslint-disable-next-line no-console
+    console.warn('React Select Search: Not using fuzzy search. Please install fuse.js to enable this feature.');
+  }
+}
+
+function fuzzySearch(value, options, fuseOptions) {
+  const fuse = new Fuse(options, fuseOptions);
+  return fuse.search(value).map((item, index) => _objectSpread(_objectSpread({}, item), {}, {
+    index
+  }));
+}
+
+function search(value, options, fuseOptions) {
+  if (value.length && Fuse && fuseOptions) {
+    return fuzzySearch(value, options, fuseOptions);
+  }
+
+  return false;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/types.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/types.js ***!
+  \************************************************************/
+/*! exports provided: optionType, valueType, classNameType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "optionType", function() { return optionType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "valueType", function() { return valueType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "classNameType", function() { return classNameType; });
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+
+const option = prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.shape({
+  name: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  value: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.number]).isRequired
+});
+const optionType = prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOfType([option, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.shape({
+  name: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  type: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  items: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.arrayOf(option)
+})]);
+const valueType = prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object)]);
+const classNameType = prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func]);
+
+/***/ }),
+
+/***/ "./node_modules/react-select-search/dist/esm/useSelect.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-select-search/dist/esm/useSelect.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useSelect; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _highlightReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./highlightReducer */ "./node_modules/react-select-search/dist/esm/highlightReducer.js");
+/* harmony import */ var _lib_getDisplayValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/getDisplayValue */ "./node_modules/react-select-search/dist/esm/lib/getDisplayValue.js");
+/* harmony import */ var _lib_flattenOptions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/flattenOptions */ "./node_modules/react-select-search/dist/esm/lib/flattenOptions.js");
+/* harmony import */ var _lib_groupOptions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/groupOptions */ "./node_modules/react-select-search/dist/esm/lib/groupOptions.js");
+/* harmony import */ var _lib_getNewValue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/getNewValue */ "./node_modules/react-select-search/dist/esm/lib/getNewValue.js");
+/* harmony import */ var _lib_getOption__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/getOption */ "./node_modules/react-select-search/dist/esm/lib/getOption.js");
+/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./search */ "./node_modules/react-select-search/dist/esm/search.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+function useSelect({
+  value: defaultValue = null,
+  disabled = false,
+  multiple = false,
+  search: canSearch = false,
+  fuse = false,
+  options: defaultOptions,
+  onChange = () => {},
+  getOptions = null,
+  allowEmpty = true,
+  closeOnSelect = true,
+  closable = true
+}) {
+  const ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  const flatDefaultOptions = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => Object(_lib_flattenOptions__WEBPACK_IMPORTED_MODULE_3__["default"])(defaultOptions), [defaultOptions]);
+  const [state, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    flat: [],
+    addedOptions: [],
+    value: defaultValue,
+    search: '',
+    focus: false,
+    searching: false,
+    highlighted: -1,
+    changed: false
+  });
+  const {
+    flat,
+    addedOptions,
+    value,
+    search,
+    focus,
+    searching,
+    highlighted
+  } = state;
+  const option = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
+    let newOption = Object(_lib_getOption__WEBPACK_IMPORTED_MODULE_6__["default"])(value, [...flatDefaultOptions, ...addedOptions]);
+
+    if (!newOption && !allowEmpty && !multiple) {
+      [newOption] = flatDefaultOptions;
+    }
+
+    return newOption;
+  }, [value, flatDefaultOptions, addedOptions, allowEmpty, multiple]);
+  const options = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => Object(_lib_groupOptions__WEBPACK_IMPORTED_MODULE_4__["default"])(flat), [flat]);
+  const displayValue = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => Object(_lib_getDisplayValue__WEBPACK_IMPORTED_MODULE_2__["default"])(option), [option]);
+  const onBlur = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
+    setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+      focus: false,
+      search: '',
+      flat: flatDefaultOptions,
+      highlighted: -1
+    }));
+
+    if (ref.current) {
+      ref.current.blur();
+    }
+  }, [flatDefaultOptions, ref]);
+
+  const setFocus = newFocus => setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+    focus: newFocus
+  }));
+
+  const onClick = () => setFocus(!focus);
+
+  const onFocus = () => setFocus(true);
+
+  const onSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(id => {
+    setState(prevState => {
+      const {
+        flat: prevFlat,
+        highlighted: prevHighlighted
+      } = prevState; // eslint-disable-next-line no-underscore-dangle,eqeqeq
+
+      const item = id ? prevFlat.find(i => i.value == id) : prevFlat[prevHighlighted];
+
+      if (!item) {
+        return prevState;
+      }
+
+      const values = Object(_lib_getNewValue__WEBPACK_IMPORTED_MODULE_5__["default"])(item.value, prevState.value, multiple);
+      const newOptions = Object(_lib_getOption__WEBPACK_IMPORTED_MODULE_6__["default"])(values, prevFlat);
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        addedOptions: multiple ? newOptions : [newOptions],
+        value: values,
+        changed: [values, newOptions]
+      });
+    });
+  }, [multiple]);
+  const onMouseDown = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(e => {
+    if (!closeOnSelect) {
+      e.preventDefault();
+    }
+
+    onSelect(e.currentTarget.value);
+  }, [onSelect, closeOnSelect]);
+  const onKeyDown = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(e => {
+    const {
+      key
+    } = e;
+
+    if (key === 'ArrowDown' || key === 'ArrowUp') {
+      e.preventDefault();
+      setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+        highlighted: Object(_highlightReducer__WEBPACK_IMPORTED_MODULE_1__["default"])(oldState.highlighted, {
+          key,
+          options: oldState.flat
+        })
+      }));
+    }
+  }, []);
+  const onKeyPress = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(({
+    key
+  }) => {
+    if (key === 'Enter') {
+      onSelect();
+
+      if (closable && closeOnSelect) {
+        onBlur();
+      }
+    }
+  }, [onSelect, closeOnSelect, onBlur, closable]);
+  const onKeyUp = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(({
+    key
+  }) => {
+    if (key === 'Escape') {
+      onBlur();
+    }
+  }, [onBlur]);
+
+  const onSearch = ({
+    target
+  }) => {
+    const {
+      value: inputVal
+    } = target;
+    const newState = {
+      search: inputVal
+    };
+    let searchableOption = flatDefaultOptions;
+
+    if (getOptions && inputVal.length) {
+      newState.searching = true;
+      searchableOption = getOptions(inputVal);
+    }
+
+    setState(oldState => _objectSpread(_objectSpread({}, oldState), newState));
+    Promise.resolve(searchableOption).then(foundOptions => {
+      let newOptions = foundOptions;
+
+      if (inputVal.length) {
+        newOptions = Object(_search__WEBPACK_IMPORTED_MODULE_7__["default"])(inputVal, foundOptions, fuse);
+      }
+
+      setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+        flat: newOptions === false ? foundOptions : newOptions,
+        searching: false
+      }));
+    }).catch(() => setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+      flat: flatDefaultOptions,
+      searching: false
+    })));
+  };
+
+  const valueProps = {
+    tabIndex: '0',
+    readOnly: !canSearch,
+    onChange: canSearch ? onSearch : null,
+    disabled,
+    onMouseDown: onClick,
+    onBlur,
+    onFocus,
+    onKeyPress,
+    onKeyDown,
+    onKeyUp,
+    ref
+  };
+  const optionProps = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => ({
+    tabIndex: '-1',
+    onMouseDown,
+    onKeyDown,
+    onKeyPress,
+    onBlur
+  }), [onMouseDown, onKeyDown, onKeyPress, onBlur]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+      value: defaultValue
+    }));
+  }, [defaultValue]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+      flat: flatDefaultOptions
+    }));
+  }, [flatDefaultOptions]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (state.changed !== false) {
+      setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+        changed: false
+      }));
+      onChange(...state.changed);
+    }
+  }, [state.changed, onChange]);
+  return [{
+    value: option,
+    highlighted,
+    options,
+    disabled,
+    displayValue,
+    focus,
+    search,
+    searching
+  }, valueProps, optionProps, newValue => setState(oldState => _objectSpread(_objectSpread({}, oldState), {}, {
+    value: newValue
+  }))];
+}
 
 /***/ }),
 
@@ -53213,167 +52079,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/section-iterator/dist/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/section-iterator/dist/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-module.exports = function (_ref) {
-  var data = _ref.data;
-  var multiSection = _ref.multiSection;
-
-  function nextNonEmptySectionIndex(sectionIndex) {
-    if (sectionIndex === null) {
-      sectionIndex = 0;
-    } else {
-      sectionIndex++;
-    }
-
-    while (sectionIndex < data.length && data[sectionIndex] === 0) {
-      sectionIndex++;
-    }
-
-    return sectionIndex === data.length ? null : sectionIndex;
-  }
-
-  function prevNonEmptySectionIndex(sectionIndex) {
-    if (sectionIndex === null) {
-      sectionIndex = data.length - 1;
-    } else {
-      sectionIndex--;
-    }
-
-    while (sectionIndex >= 0 && data[sectionIndex] === 0) {
-      sectionIndex--;
-    }
-
-    return sectionIndex === -1 ? null : sectionIndex;
-  }
-
-  function next(position) {
-    var _position = _slicedToArray(position, 2);
-
-    var sectionIndex = _position[0];
-    var itemIndex = _position[1];
-
-
-    if (multiSection) {
-      if (itemIndex === null || itemIndex === data[sectionIndex] - 1) {
-        sectionIndex = nextNonEmptySectionIndex(sectionIndex);
-
-        if (sectionIndex === null) {
-          return [null, null];
-        }
-
-        return [sectionIndex, 0];
-      }
-
-      return [sectionIndex, itemIndex + 1];
-    }
-
-    if (data === 0 || itemIndex === data - 1) {
-      return [null, null];
-    }
-
-    if (itemIndex === null) {
-      return [null, 0];
-    }
-
-    return [null, itemIndex + 1];
-  }
-
-  function prev(position) {
-    var _position2 = _slicedToArray(position, 2);
-
-    var sectionIndex = _position2[0];
-    var itemIndex = _position2[1];
-
-
-    if (multiSection) {
-      if (itemIndex === null || itemIndex === 0) {
-        sectionIndex = prevNonEmptySectionIndex(sectionIndex);
-
-        if (sectionIndex === null) {
-          return [null, null];
-        }
-
-        return [sectionIndex, data[sectionIndex] - 1];
-      }
-
-      return [sectionIndex, itemIndex - 1];
-    }
-
-    if (data === 0 || itemIndex === 0) {
-      return [null, null];
-    }
-
-    if (itemIndex === null) {
-      return [null, data - 1];
-    }
-
-    return [null, itemIndex - 1];
-  }
-
-  function isLast(position) {
-    return next(position)[1] === null;
-  }
-
-  return {
-    next: next,
-    prev: prev,
-    isLast: isLast
-  };
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/shallow-equal/arrays/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/shallow-equal/arrays/index.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function shallowEqualArrays(arrA, arrB) {
-  if (arrA === arrB) {
-    return true;
-  }
-
-  if (!arrA || !arrB) {
-    return false;
-  }
-
-  var len = arrA.length;
-
-  if (arrB.length !== len) {
-    return false;
-  }
-
-  for (var i = 0; i < len; i++) {
-    if (arrA[i] !== arrB[i]) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-module.exports = shallowEqualArrays;
-
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -53896,6 +52601,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$translations = _ref.translations,
       translations = _ref$translations === void 0 ? defaultTranslations : _ref$translations,
       controlElements = _ref.controlElements,
+      getPlaceHolder = _ref.getPlaceHolder,
       getOperators = _ref.getOperators,
       getValueEditorType = _ref.getValueEditorType,
       getInputType = _ref.getInputType,
@@ -53915,12 +52621,13 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
       resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
 
-  var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators),
+  var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators, getPlaceHolder),
       getValueEditorTypeMain = _useQueryBuilderProps.getValueEditorTypeMain,
       getInputTypeMain = _useQueryBuilderProps.getInputTypeMain,
       getOperatorsMain = _useQueryBuilderProps.getOperatorsMain,
       getRuleDefaultValue = _useQueryBuilderProps.getRuleDefaultValue,
-      getValuesMain = _useQueryBuilderProps.getValuesMain;
+      getValuesMain = _useQueryBuilderProps.getValuesMain,
+      getPlaceHolderMain = _useQueryBuilderProps.getPlaceHolderMain;
 
   var getInitialQuery = function getInitialQuery() {
     // Gets the initial query   
@@ -54084,6 +52791,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
     getOperators: getOperatorsMain,
     getValueEditorType: getValueEditorTypeMain,
     getInputType: getInputTypeMain,
+    getPlaceHolder: getPlaceHolderMain,
     getValues: getValuesMain,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showAddGroup: showAddGroup,
@@ -54110,7 +52818,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
   }));
 };
 
-var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators) {
+var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators, getPlaceHolder) {
   var getValueEditorTypeMain = function getValueEditorTypeMain(field, operator) {
     // Gets the ValueEditor type for a given field and operator  
     if (getValueEditorType) {
@@ -54119,6 +52827,16 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     }
 
     return 'text';
+  };
+
+  var getPlaceHolderMain = function getPlaceHolderMain(field, operator) {
+    // Gets the `<input />` type for a given field and operator  
+    if (getPlaceHolder) {
+      var placeHolder = getPlaceHolder(field, operator);
+      if (placeHolder) return placeHolder;
+    }
+
+    return '';
   };
 
   var getInputTypeMain = function getInputTypeMain(field, operator) {
@@ -54173,7 +52891,8 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     getInputTypeMain: getInputTypeMain,
     getOperatorsMain: getOperatorsMain,
     getRuleDefaultValue: getRuleDefaultValue,
-    getValuesMain: getValuesMain
+    getValuesMain: getValuesMain,
+    getPlaceHolderMain: getPlaceHolderMain
   };
 };
 
@@ -54206,6 +52925,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
       fields = _ref$fields === void 0 ? [] : _ref$fields,
       getOperators = _ref.getOperators,
       getInputType = _ref.getInputType,
+      getPlaceHolder = _ref.getPlaceHolder,
       getValueEditorType = _ref.getValueEditorType,
       getValues = _ref.getValues,
       showAddGroup = _ref.showAddGroup,
@@ -54223,6 +52943,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
     onQueryChange: onQueryChange,
     getOperators: getOperators,
     getInputType: getInputType,
+    getPlaceHolder: getPlaceHolder,
     getValueEditorType: getValueEditorType,
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showAddGroup: showAddGroup,
@@ -54262,6 +52983,7 @@ var Rule = function Rule(_ref) {
       controls = _ref$schema.controls,
       fields = _ref$schema.fields,
       getInputType = _ref$schema.getInputType,
+      getPlaceHolder = _ref$schema.getPlaceHolder,
       getLevel = _ref$schema.getLevel,
       getOperators = _ref$schema.getOperators,
       getValueEditorType = _ref$schema.getValueEditorType,
@@ -54331,6 +53053,7 @@ var Rule = function Rule(_ref) {
     value: value,
     type: getValueEditorType(field, operator),
     inputType: getInputType(field, operator),
+    placeHolder: getPlaceHolder(field, operator),
     values: getValues(field, operator),
     className: "rule-value ".concat(classNames.value),
     handleOnChange: onValueChanged,
@@ -54667,8 +53390,7 @@ NotToggle.displayName = 'NotToggle';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-autosuggest */ "./node_modules/react-autosuggest/dist/index.js");
-/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_autosuggest__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_select_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select-search */ "./node_modules/react-select-search/dist/esm/index.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -54692,23 +53414,28 @@ var ValueEditor = function ValueEditor(_ref) {
       className = _ref.className,
       type = _ref.type,
       inputType = _ref.inputType,
+      placeHolder = _ref.placeHolder,
       values = _ref.values;
 
-  if (operator === 'null' || operator === 'notNull') {
+  if (operator === 'null' || operator === 'notNull' || type === "none") {
     return null;
   }
 
-  var onSelectChange = function onSelectChange(e) {
-    return handleOnChange(e.target.value);
+  var onSelectChange = function onSelectChange(value) {
+    handleOnChange(value);
+  };
+
+  var onTextInputChange = function onTextInputChange(e) {
+    handleOnChange(e.target.value);
   };
 
   var onCheckboxChange = function onCheckboxChange(e) {
     return handleOnChange(e.target.checked);
   };
 
-  var onAutoSuggetionChange = function onAutoSuggetionChange(event, value) {
-    setVal(value.newValue);
-    handleOnChange(value.newValue);
+  var onAutoSuggetionChange = function onAutoSuggetionChange(value) {
+    setVal(value);
+    handleOnChange(value);
   };
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(value),
@@ -54716,61 +53443,37 @@ var ValueEditor = function ValueEditor(_ref) {
       val = _useState2[0],
       setVal = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      suggestions = _useState4[0],
-      setSuggestions = _useState4[1];
+  var options = [];
 
   switch (type) {
     case 'select':
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: className,
-        title: title,
-        onChange: onSelectChange,
-        onBlur: onSelectChange,
-        value: value
-      }, values.map(function (v) {
-        var isSelected = v.name == value;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          role: "option",
-          key: v.name,
-          value: v.name,
-          "aria-selected": isSelected
-        }, v.label);
-      }));
+      options = values.map(function (item) {
+        return {
+          value: item.name,
+          name: item.label
+        };
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        options: options,
+        value: val,
+        placeholder: placeHolder,
+        onChange: onSelectChange
+      });
 
     case 'autocomplete':
-      var suggessionInputProps = {
-        value: val ? val : "",
-        onChange: onAutoSuggetionChange
-      };
-
-      var onSuggestionsFetchRequested = function onSuggestionsFetchRequested(value) {
-        var _values = values && values.length ? values.filter(function (sug) {
-          return sug.label.toLowerCase().includes(value.value.toLowerCase().trim());
-        }) : [];
-
-        setSuggestions(_values);
-      };
-
-      var getSuggestionName = function getSuggestionName(suggestion) {
-        return suggestion.label;
-      };
-
-      var renderSuggestion = function renderSuggestion(suggestion) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, suggestion.label);
-      };
-
-      var onClear = function onClear() {};
-
-      ;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_autosuggest__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        suggestions: suggestions,
-        onSuggestionsFetchRequested: onSuggestionsFetchRequested,
-        onSuggestionsClearRequested: onClear,
-        getSuggestionValue: getSuggestionName,
-        renderSuggestion: renderSuggestion,
-        inputProps: suggessionInputProps
+      options = values.map(function (item) {
+        return {
+          value: item.name,
+          name: item.label
+        };
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        options: options,
+        value: val,
+        placeholder: placeHolder,
+        onChange: onAutoSuggetionChange,
+        search: true,
+        autoComplete: "on"
       });
 
     case 'checkbox':
@@ -54798,7 +53501,7 @@ var ValueEditor = function ValueEditor(_ref) {
           value: v.name,
           "aria-checked": isChecked,
           checked: isChecked,
-          onChange: onSelectChange
+          onChange: onTextInputChange
         }), v.label);
       }));
 
@@ -54808,7 +53511,8 @@ var ValueEditor = function ValueEditor(_ref) {
         value: value,
         title: title,
         className: className,
-        onChange: onSelectChange
+        placeholder: placeHolder,
+        onChange: onTextInputChange
       });
   }
 };
@@ -54829,6 +53533,8 @@ ValueEditor.displayName = 'ValueEditor';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_select_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select-search */ "./node_modules/react-select-search/dist/esm/index.js");
+
 
 
 var ValueSelector = function ValueSelector(_ref) {
@@ -54838,27 +53544,25 @@ var ValueSelector = function ValueSelector(_ref) {
       title = _ref.title,
       value = _ref.value;
 
-  var onChange = function onChange(e) {
-    return handleOnChange(e.target.value);
+  var onChange = function onChange(value) {
+    handleOnChange(value);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: className,
+  var _options = options.map(function (item) {
+    var prefix = item.type === "number" ? "Σ " : "";
+    return {
+      value: item.name,
+      name: prefix + item.label
+    };
+  });
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    options: _options,
     value: value,
-    title: title,
+    placeholder: "Select data field",
     onChange: onChange,
-    onBlur: onChange
-  }, options.map(function (option) {
-    var key = option.id ? "key-".concat(option.id) : "key-".concat(option.name);
-    var isSelected = value == option.name;
-    var prefix = option.type === "number" ? "Σ " : "";
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      role: "option",
-      key: key,
-      value: option.name,
-      "aria-selected": isSelected
-    }, prefix + option.label);
-  }));
+    autoComplete: "on"
+  });
 };
 
 ValueSelector.displayName = 'ValueSelector';

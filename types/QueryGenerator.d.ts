@@ -1,11 +1,11 @@
 import React from "react";
-import { RuleGroupType, Field, NameLabelPair } from "./types";
+import { RuleGroupType, Field, NameLabelPair, ValueEditorType } from "./types";
 import "./query-builder.less";
 export interface IProps {
     query?: RuleGroupType;
     fields: Field[];
     getOperators?(field: string): Field[];
-    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
+    getValueEditorType?(field: string, operator: string): ValueEditorType;
     getInputType?(field: string, operator: string): string;
     getPlaceHolder?(field: string, operator: string): string;
     onQueryChange(query: RuleGroupType): void;
