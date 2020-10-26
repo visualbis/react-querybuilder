@@ -52627,7 +52627,8 @@ var QueryBuilder = function QueryBuilder(_ref) {
       getOperatorsMain = _useQueryBuilderProps.getOperatorsMain,
       getRuleDefaultValue = _useQueryBuilderProps.getRuleDefaultValue,
       getValuesMain = _useQueryBuilderProps.getValuesMain,
-      getPlaceHolderMain = _useQueryBuilderProps.getPlaceHolderMain;
+      getPlaceHolderMain = _useQueryBuilderProps.getPlaceHolderMain,
+      getValidQuery = _useQueryBuilderProps.getValidQuery;
 
   var getInitialQuery = function getInitialQuery() {
     // Gets the initial query   
@@ -52725,16 +52726,16 @@ var QueryBuilder = function QueryBuilder(_ref) {
       var index = array_find_index__WEBPACK_IMPORTED_MODULE_0___default()(parent.rules, function (x) {
         return x.id === ruleId;
       });
+      parent.rules.splice(index, 1);
+      var updatedQuery = {
+        id: rootCopy.id,
+        rules: [],
+        combinator: rootCopy.combinator
+      };
+      getValidQuery(rootCopy, updatedQuery, true);
+      setRoot(updatedQuery);
 
-      if (parent.rules.length === 1) {
-        var parentGroup = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRuleGroup"])(parentId, rootCopy);
-        onGroupRemove(parentId, parentGroup.id);
-      } else {
-        parent.rules.splice(index, 1);
-        setRoot(rootCopy);
-
-        _notifyQueryChange(rootCopy);
-      }
+      _notifyQueryChange(updatedQuery);
     }
   };
 
@@ -52749,9 +52750,15 @@ var QueryBuilder = function QueryBuilder(_ref) {
         return x.id === groupId;
       });
       parent.rules.splice(index, 1);
-      setRoot(rootCopy);
+      var updatedQuery = {
+        id: rootCopy.id,
+        rules: [],
+        combinator: rootCopy.combinator
+      };
+      getValidQuery(rootCopy, updatedQuery, true);
+      setRoot(updatedQuery);
 
-      _notifyQueryChange(rootCopy);
+      _notifyQueryChange(updatedQuery);
     }
   };
 
@@ -52886,13 +52893,51 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     return value;
   };
 
+  var getValidQuery = function getValidQuery(query, parent, isRoot) {
+    var root;
+
+    if (query.combinator) {
+      var _query = query;
+
+      if (isRoot) {
+        root = parent;
+      } else {
+        root = {
+          id: _query.id,
+          rules: [],
+          combinator: _query.combinator
+        };
+      }
+
+      var len = _query.rules.length;
+
+      for (var i = 0; i < len; i++) {
+        var rule = _query.rules[i];
+        getValidQuery(rule, root, false);
+      }
+
+      if (!isRoot && root.rules.length > 0) {
+        parent.rules.push(root);
+      }
+    } else {
+      var _rule = query;
+      root = {
+        field: _rule.field,
+        operator: _rule.operator,
+        value: _rule.value
+      };
+      parent.rules.push(root);
+    }
+  };
+
   return {
     getValueEditorTypeMain: getValueEditorTypeMain,
     getInputTypeMain: getInputTypeMain,
     getOperatorsMain: getOperatorsMain,
     getRuleDefaultValue: getRuleDefaultValue,
     getValuesMain: getValuesMain,
-    getPlaceHolderMain: getPlaceHolderMain
+    getPlaceHolderMain: getPlaceHolderMain,
+    getValidQuery: getValidQuery
   };
 };
 
