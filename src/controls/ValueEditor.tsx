@@ -32,7 +32,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       return (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onSelectChange}/> );
     case 'autocomplete':       
         options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search autoComplete={"on"} />);   
+     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search />);   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);

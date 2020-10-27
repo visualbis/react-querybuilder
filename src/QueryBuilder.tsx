@@ -246,7 +246,7 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     let value: any = '';
     const values = getValuesMain(rule.field, rule.operator);
     if (values.length) {
-      value = values[0].name;
+      value = "";
     } else {
       const editorType = getValueEditorTypeMain(rule.field, rule.operator);
       if (editorType === 'checkbox') {
