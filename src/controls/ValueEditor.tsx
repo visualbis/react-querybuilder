@@ -57,6 +57,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       );
     default:
       return (
+        <div className="rule-value-parent">
         <input
           type={inputType || 'text'}
           value={value}
@@ -64,7 +65,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           className={className}
           placeholder={placeHolder}
           onChange={onTextInputChange}
-        />
+        /></div>
       );
   }
 };
