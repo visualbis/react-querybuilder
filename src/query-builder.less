@@ -57,28 +57,33 @@
 			width: @width1;
 		}
 	}
+	.rule-value-parent{
+		width: 100%;
+		padding: 0px 5px;
+		position: relative;
+		font-family: 'Nunito Sans', sans-serif;
+		box-sizing: border-box;
+	}
 	.rule-value {
 		border: 1px solid @color0;
 		height: @height1;
-		height: @height2;
-		margin: 0px 5px;
 		outline: none;
 		overflow: hidden;
 		padding: 0px 10px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: @width1;
+		box-sizing: border-box;
 		&:focus {
 			border: 1px solid @color0;
 			height: @height1;
-			height: @height2;
-			margin: 0px 5px;
 			outline: none;
 			overflow: hidden;
 			padding: 0px 10px;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			width: @width1;
+			box-sizing: border-box;
 		}
 	}
 }
@@ -362,8 +367,8 @@
     position: absolute;
     z-index: 2;
     top: 34px;
-    right: 0;
-    left: 0;
+    right: 5px;
+    left: 5px;
     overflow: auto;
     max-height: 140px;
 }
