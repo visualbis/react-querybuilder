@@ -16,6 +16,8 @@ export interface IProps{
     showAddGroup?:boolean;
     showAddRule?:boolean;
     showCombinatorsBetweenRules?:boolean;
+    enableNormalView?:boolean;
+    onAdvancedClick?():void;
   }
  interface IState{
  }
@@ -31,7 +33,9 @@ export interface IProps{
     getValues,
     showAddGroup,
     showAddRule,
-    showCombinatorsBetweenRules
+    showCombinatorsBetweenRules,
+    enableNormalView,
+    onAdvancedClick,
    })=>{ 
        
     const generatorCls = !showAddGroup?`query-generator hide-group`:"query-generator";
@@ -45,9 +49,11 @@ export interface IProps{
         getPlaceHolder={getPlaceHolder}   
         getValueEditorType  ={getValueEditorType}
         showCombinatorsBetweenRules={showCombinatorsBetweenRules}
+        enableNormalView={enableNormalView}
+        onAdvancedClick={onAdvancedClick}
         showAddGroup={showAddGroup}
         showAddRule={showAddRule}
-        resetOnOperatorChange={false}   
+        resetOnOperatorChange={true} 
         getValues={getValues}    
       /></div>)
  }
