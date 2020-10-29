@@ -37,8 +37,9 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
     case 'radio':
+      const radioCls = className? className+" radio":"radio";
       return (
-        <span className={className} title={title}>
+        <span className={radioCls} title={title}>
           {values!.map((v) => {
           const isChecked =   value === v.name;
              return (
@@ -50,7 +51,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
                 checked={isChecked}
                 onChange={onTextInputChange}
               />
-              {v.label}
+              <span className="radio-title">{v.label}</span>
+              <span className="circle"></span> 
             </label>
           )})}
         </span>

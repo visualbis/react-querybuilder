@@ -324,6 +324,11 @@ export interface QueryBuilderProps {
    * ]
    */
   combinators?: NameLabelPair[];
+
+  enableNormalView?: boolean;
+
+  onAdvancedClick?(): void;
+
   controlElements?: Partial<Controls>;
   /**
    * This is a callback function invoked to get the list of allowed
