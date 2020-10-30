@@ -25,8 +25,9 @@ const NavTab: React.FC<ValueSelectorProps> = ({
           checked={isChecked}
           onChange={onChange}
         />
-      <span className="radio-title">{v.label}</span>
       <span className="circle"></span> 
+      <span className="radio-title">{v.label}</span>
+      
       </label>
     )})}
   </span>

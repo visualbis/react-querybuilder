@@ -13,22 +13,17 @@
 
 .rule {
 	.rule-fields {
-		border: 1px solid @color0;
 		height: @height1;
 		margin: 0px 5px;
 		outline: none;
 		overflow: hidden;
-		padding: 5px 5px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: @width1;
 		&:focus {
-			border: 1px solid @color0;
 			height: @height1;
-			margin: 0px 5px;
 			outline: none;
 			overflow: hidden;
-			padding: 5px 5px;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			width: @width1;
@@ -36,22 +31,17 @@
 	}
 
 	.rule-operators {
-		border: 1px solid @color0;
 		height: @height1;
-		margin: 0px 5px;
 		outline: none;
 		overflow: hidden;
-		padding: 5px 5px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: @width1;
 		&:focus {
 			border: 1px solid @color0;
-			height: @height1;
-			margin: 0px 5px;
+			height: @height1;			
 			outline: none;
 			overflow: hidden;
-			padding: 5px 5px;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			width: @width1;
@@ -69,7 +59,7 @@
 		height: @height1;
 		outline: none;
 		overflow: hidden;
-		padding: 0px 10px;
+		padding: 0px 0px 0px 5px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: @width1;
@@ -98,8 +88,7 @@
 		background: @color1;
 		display: flex;
 		flex-direction: row;
-		margin: 5px;
-		padding: 5px;
+		padding: 5px 0px;
 	}
 	.ruleGroup {
 		background: @color1;
@@ -110,7 +99,7 @@
 .rule-remove {
 	background: transparent;
 	border: none;
-	border: none;
+	outline: none;
 	min-width: @width2;
 }
 .ruleGroup-remove {
@@ -235,7 +224,7 @@
     display: block;
     height: 32px;
     width: 100%;
-    padding: 0 16px;
+    padding: 0px 16px 0px 5px;
     border: 1px solid #ddd;
     box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.15);  
     outline: none;
@@ -287,7 +276,10 @@
     background: #fff;
     border: none;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
+	font-family: 'Noto Sans', sans-serif;	
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 12px;
     text-align: left;
     cursor: pointer;
@@ -405,7 +397,7 @@
 } 
 
 .radio .circle { 
-	position: absolute; 
+	position: relative; 
 	height: 12px; 
 	width: 12px; 
 	border: 1px solid #cccccc; 
@@ -424,7 +416,7 @@
 	border-radius: 50%; 
 } 
 .radio .radio-title{
-	padding-left: 20px;
+	padding-left: 5px;
 }
 .radio input:checked~.circle:after { 
 	background:#0078D4; 

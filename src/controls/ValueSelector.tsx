@@ -16,8 +16,8 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   const prefix:string = item.type === "number"? "Σ ":"";
    return  {value:item.name, name:prefix+item.label};
   });
- return    (<SelectSearch   options={_options} value={value} placeholder={"Select data field"} onChange={onChange}  autoComplete={"on"}
-  />)
+ return    (<div className={className}><SelectSearch   options={_options} value={value} placeholder={"Select data field"} onChange={onChange}  autoComplete={"on"}
+  /></div>)
 };
 
 ValueSelector.displayName = 'ValueSelector';
