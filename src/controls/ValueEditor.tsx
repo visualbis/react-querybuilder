@@ -21,18 +21,16 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   const onTextInputChange = (e:any) => { handleOnChange(e.target.value)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   const  onAutoSuggetionChange = (value:any) => {
-      setVal(value);
       handleOnChange(value);
   };
-  const [val, setVal] = useState(value); 
   let options:any[] = [];
   switch (type) {
     case 'select':
         options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-      return (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onSelectChange}/> );
+      return (<SelectSearch options={options} value={value} placeholder={placeHolder} onChange={onSelectChange}/> );
     case 'autocomplete':       
         options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-     return    (<SelectSearch options={options} value={val} placeholder={placeHolder} onChange={onAutoSuggetionChange} search />);   
+     return    (<SelectSearch options={options} value={value} placeholder={placeHolder} onChange={onAutoSuggetionChange} search />);   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
@@ -51,8 +49,9 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
                 checked={isChecked}
                 onChange={onTextInputChange}
               />
-              <span className="radio-title">{v.label}</span>
               <span className="circle"></span> 
+              <span className="radio-title">{v.label}</span>
+             
             </label>
           )})}
         </span>

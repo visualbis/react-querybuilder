@@ -31,7 +31,7 @@ const preparedQueries = {
       {
         id: `r-${nanoid()}`,
         field: 'firstName',
-        value: 'Steve',
+        value: '',
         operator: '='
       },
       {
@@ -99,6 +99,8 @@ const getValueEditorType = (field, operator) => {
       return 'checkbox';
       case 'firstName':
           return 'autocomplete';
+          case 'lastName':
+            return 'autocomplete';
     default:
       return 'text';
   }
@@ -131,6 +133,12 @@ const getValues = (field, operator) => {
         { name: 'O', label: 'Other' }
       ];
 case 'firstName':
+  return [
+    { name: 'M', label: 'Male' },
+    { name: 'F', label: 'Female' },
+    { name: 'O', label: 'Other' }
+  ];
+  case 'lastName':
   return [
     { name: 'M', label: 'Male' },
     { name: 'F', label: 'Female' },
@@ -169,6 +177,9 @@ const RootView = () => {
   const handleQueryChange = (query) => {
     setQuery(query);
   };
+  const getPlaceHolder = (query) => {
+    return "select an options"
+  };
 
   const formatString =
     format === 'json_without_ids'
@@ -198,6 +209,7 @@ const RootView = () => {
             getValues={getValues}
             showAddGroup={true}
             showAddRule={true}
+            getPlaceHolder={getPlaceHolder}
             showCombinatorsBetweenRules={false}
           
           />
