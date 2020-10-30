@@ -13,5 +13,7 @@ export interface IProps {
     showAddGroup?: boolean;
     showAddRule?: boolean;
     showCombinatorsBetweenRules?: boolean;
+    enableNormalView?: boolean;
+    onAdvancedClick?(): void;
 }
 export declare const QueryGenerator: React.FC<IProps>;
