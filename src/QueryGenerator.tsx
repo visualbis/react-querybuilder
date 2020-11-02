@@ -18,6 +18,7 @@ export interface IProps{
     showCombinatorsBetweenRules?:boolean;
     enableNormalView?:boolean;
     onAdvancedClick?():void;
+    getSelectedColumn?():string;
   }
  interface IState{
  }
@@ -36,6 +37,7 @@ export interface IProps{
     showCombinatorsBetweenRules,
     enableNormalView,
     onAdvancedClick,
+    getSelectedColumn
    })=>{ 
        
     const generatorCls = !showAddGroup?`query-generator hide-group`:"query-generator";
@@ -54,6 +56,7 @@ export interface IProps{
         showAddGroup={showAddGroup}
         showAddRule={showAddRule}
         resetOnOperatorChange={true} 
-        getValues={getValues}    
+        getValues={getValues}   
+        getSelectedColumn={getSelectedColumn} 
       /></div>)
  }
