@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 export interface NameLabelPair {
   name: string;
@@ -325,6 +326,8 @@ export interface QueryBuilderProps {
    */
   combinators?: NameLabelPair[];
 
+  getSelectedColumn?():string;
+  
   enableNormalView?: boolean;
 
   onAdvancedClick?(): void;
