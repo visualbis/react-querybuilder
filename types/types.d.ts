@@ -303,6 +303,7 @@ export interface QueryBuilderProps {
      * ]
      */
     combinators?: NameLabelPair[];
+    getSelectedColumn?(): string;
     enableNormalView?: boolean;
     onAdvancedClick?(): void;
     controlElements?: Partial<Controls>;

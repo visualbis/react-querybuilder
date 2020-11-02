@@ -15,5 +15,6 @@ export interface IProps {
     showCombinatorsBetweenRules?: boolean;
     enableNormalView?: boolean;
     onAdvancedClick?(): void;
+    getSelectedColumn?(): string;
 }
 export declare const QueryGenerator: React.FC<IProps>;
