@@ -49,9 +49,13 @@ export const Rule: React.FC<RuleProps> = ({
 
   const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
-
+  const valueEditorType = getInputType(field, operator);
+  let ruleCls = "col-3";
+  if(operator === 'null' || operator === 'notNull' || valueEditorType === "none") {
+    ruleCls = "col-2";
+  }
   return (
-    <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
+    <div className={`rule ${ruleCls} ${classNames.rule}`} data-rule-id={id} data-level={level}>
      {!showAddGroup && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
