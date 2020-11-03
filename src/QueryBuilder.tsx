@@ -110,10 +110,25 @@ const defaultControlElements: Controls = {
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,getPlaceHolder,
    getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, enableNormalView=false,onAdvancedClick=()=>{}, showNotToggle = false,
    getSelectedColumn, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false }) => {
-  const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery, getNormalQuery} 
+    const getInitialQuery = () => {// Gets the initial query   
+      return (query && generateValidQuery(query)) || createRuleGroup();
+    };
+    const createRuleGroup = (): RuleGroupType => {
+      return {  id: `g-${nanoid()}`, rules: [], combinator: combinators[0].name, not: false };
+    }; 
+    const createRule = (): RuleType => {
+      let field = fields[0].name;
+      if(getSelectedColumn){
+        const selection = getSelectedColumn();
+        if(selection)field = getSelectedColumn();      
+      }   
+      return { id: `r-${nanoid()}`, field, value: '', operator: getOperatorsMain(field)[0].name };
+    }; 
+    const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery, getNormalQuery} 
   = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
- const{root, setRoot,getInitialQuery,createRule,createRuleGroup,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
- = useQueryBuilderActions(query, fields,combinators,onQueryChange, getOperatorsMain,getValidQuery,  getRuleDefaultValue,resetOnFieldChange, resetOnOperatorChange,getValueEditorType, getSelectedColumn);
+  
+  const{root, setRoot,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
+ = useQueryBuilderActions(query, fields,combinators,createRule,getInitialQuery,onQueryChange, getOperatorsMain,getValidQuery,  getRuleDefaultValue,resetOnFieldChange, resetOnOperatorChange,getValueEditorType, getSelectedColumn);
   
   const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
@@ -151,35 +166,30 @@ if(enableNormalView){
     </div>
   );
 };
-const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[],onQueryChange:Function, getOperatorsMain:Function,getValidQuery:Function, 
-  getRuleDefaultValue:Function,resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined)=>{
-  const getInitialQuery = () => {// Gets the initial query   
-    return (query && generateValidQuery(query)) || createRuleGroup();
-  };
-  const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
-  const createRule = (): RuleType => {
-    let field = fields[0].name;
-    if(getSelectedColumn){
-      const selection = getSelectedColumn();
-      if(selection)field = getSelectedColumn();      
-    }   
-    return { id: `r-${nanoid()}`, field, value: '', operator: getOperatorsMain(field)[0].name };
-  };
-  const createRuleGroup = (): RuleGroupType => {
-    return {  id: `g-${nanoid()}`, rules: [], combinator: combinators[0].name, not: false };
-  };  
+const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:Function, getInitialQuery:Function, onQueryChange:Function, getOperatorsMain:Function,getValidQuery:Function, getRuleDefaultValue:Function,resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined)=>{
+  const [root, setRoot] = useState(getInitialQuery() as RuleGroupType); 
   const onRuleAdd = (rule: RuleType, parentId: string) => {// Adds a rule to the query
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
-      parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
+      const groupIndex:number =parent.rules.findIndex((rule)=>{ return (rule as RuleGroupType).combinator});
+      if(groupIndex>-1){
+        parent.rules.splice(groupIndex,0,{ ...rule, value: getRuleDefaultValue(rule) });
+      }else{
+        parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
+      }
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
     }
   };
   const onAddRullonRootLevel =()=>{
     const rootCopy = cloneDeep(root);   
-    rootCopy.rules.push(createRule());
+    const groupIndex:number =rootCopy.rules.findIndex((rule)=>{ return (rule as RuleGroupType).combinator});
+    if(groupIndex>-1){
+      rootCopy.rules.splice(groupIndex,0,createRule());
+    }else{
+      rootCopy.rules.push(createRule());
+    }  
     setRoot(rootCopy);
     _notifyQueryChange(rootCopy);  
   }
@@ -248,7 +258,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       onQueryChange(newQuery);
     }
   };
-  return {root, setRoot,getInitialQuery,createRule,createRuleGroup,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
+  return {root, setRoot,getInitialQuery,createRule,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
 }
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
   const getNormalQuery = (query: RuleGroupType)=>{
