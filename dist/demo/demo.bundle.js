@@ -52646,6 +52646,36 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
       resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
 
+  var getInitialQuery = function getInitialQuery() {
+    // Gets the initial query   
+    return query && Object(_utils__WEBPACK_IMPORTED_MODULE_8__["generateValidQuery"])(query) || createRuleGroup();
+  };
+
+  var createRuleGroup = function createRuleGroup() {
+    return {
+      id: "g-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
+      rules: [],
+      combinator: combinators[0].name,
+      not: false
+    };
+  };
+
+  var createRule = function createRule() {
+    var field = fields[0].name;
+
+    if (getSelectedColumn) {
+      var selection = getSelectedColumn();
+      if (selection) field = getSelectedColumn();
+    }
+
+    return {
+      id: "r-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
+      field: field,
+      value: '',
+      operator: getOperatorsMain(field)[0].name
+    };
+  };
+
   var _useQueryBuilderProps = useQueryBuilderProps(getValueEditorType, getInputType, getValues, getOperators, operators, getPlaceHolder),
       getValueEditorTypeMain = _useQueryBuilderProps.getValueEditorTypeMain,
       getInputTypeMain = _useQueryBuilderProps.getInputTypeMain,
@@ -52656,12 +52686,9 @@ var QueryBuilder = function QueryBuilder(_ref) {
       getValidQuery = _useQueryBuilderProps.getValidQuery,
       getNormalQuery = _useQueryBuilderProps.getNormalQuery;
 
-  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn),
+  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn),
       root = _useQueryBuilderActio.root,
       setRoot = _useQueryBuilderActio.setRoot,
-      getInitialQuery = _useQueryBuilderActio.getInitialQuery,
-      createRule = _useQueryBuilderActio.createRule,
-      createRuleGroup = _useQueryBuilderActio.createRuleGroup,
       _notifyQueryChange = _useQueryBuilderActio._notifyQueryChange,
       getLevelFromRoot = _useQueryBuilderActio.getLevelFromRoot,
       onGroupRemove = _useQueryBuilderActio.onGroupRemove,
@@ -52751,41 +52778,11 @@ var QueryBuilder = function QueryBuilder(_ref) {
   }, "Add Filter"))));
 };
 
-var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn) {
-  var getInitialQuery = function getInitialQuery() {
-    // Gets the initial query   
-    return query && Object(_utils__WEBPACK_IMPORTED_MODULE_8__["generateValidQuery"])(query) || createRuleGroup();
-  };
-
+var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(getInitialQuery()),
       _useState2 = _slicedToArray(_useState, 2),
       root = _useState2[0],
       setRoot = _useState2[1];
-
-  var createRule = function createRule() {
-    var field = fields[0].name;
-
-    if (getSelectedColumn) {
-      var selection = getSelectedColumn();
-      if (selection) field = getSelectedColumn();
-    }
-
-    return {
-      id: "r-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
-      field: field,
-      value: '',
-      operator: getOperatorsMain(field)[0].name
-    };
-  };
-
-  var createRuleGroup = function createRuleGroup() {
-    return {
-      id: "g-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
-      rules: [],
-      combinator: combinators[0].name,
-      not: false
-    };
-  };
 
   var onRuleAdd = function onRuleAdd(rule, parentId) {
     // Adds a rule to the query
@@ -52794,9 +52791,20 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
     if (parent) {
       // istanbul ignore else 
-      parent.rules.push(_objectSpread(_objectSpread({}, rule), {}, {
-        value: getRuleDefaultValue(rule)
-      }));
+      var groupIndex = parent.rules.findIndex(function (rule) {
+        return rule.combinator;
+      });
+
+      if (groupIndex > -1) {
+        parent.rules.splice(groupIndex, 0, _objectSpread(_objectSpread({}, rule), {}, {
+          value: getRuleDefaultValue(rule)
+        }));
+      } else {
+        parent.rules.push(_objectSpread(_objectSpread({}, rule), {}, {
+          value: getRuleDefaultValue(rule)
+        }));
+      }
+
       setRoot(rootCopy);
 
       _notifyQueryChange(rootCopy);
@@ -52805,7 +52813,16 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
   var onAddRullonRootLevel = function onAddRullonRootLevel() {
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
-    rootCopy.rules.push(createRule());
+    var groupIndex = rootCopy.rules.findIndex(function (rule) {
+      return rule.combinator;
+    });
+
+    if (groupIndex > -1) {
+      rootCopy.rules.splice(groupIndex, 0, createRule());
+    } else {
+      rootCopy.rules.push(createRule());
+    }
+
     setRoot(rootCopy);
 
     _notifyQueryChange(rootCopy);
@@ -52931,7 +52948,6 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
     setRoot: setRoot,
     getInitialQuery: getInitialQuery,
     createRule: createRule,
-    createRuleGroup: createRuleGroup,
     _notifyQueryChange: _notifyQueryChange,
     getLevelFromRoot: getLevelFromRoot,
     onGroupRemove: onGroupRemove,
