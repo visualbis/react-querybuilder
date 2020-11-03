@@ -162,7 +162,7 @@ var preparedQueries = {
     rules: [{
       id: "r-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
       field: 'firstName',
-      value: 'Steve',
+      value: '',
       operator: '='
     }, {
       id: "r-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
@@ -230,6 +230,9 @@ var getValueEditorType = function getValueEditorType(field, operator) {
     case 'firstName':
       return 'autocomplete';
 
+    case 'lastName':
+      return 'autocomplete';
+
     default:
       return 'text';
   }
@@ -275,6 +278,18 @@ var getValues = function getValues(field, operator) {
       }];
 
     case 'firstName':
+      return [{
+        name: 'M',
+        label: 'Male'
+      }, {
+        name: 'F',
+        label: 'Female'
+      }, {
+        name: 'O',
+        label: 'Other'
+      }];
+
+    case 'lastName':
       return [{
         name: 'M',
         label: 'Male'
@@ -347,6 +362,10 @@ var RootView = function RootView() {
     setQuery(query);
   };
 
+  var getPlaceHolder = function getPlaceHolder(query) {
+    return "select an options";
+  };
+
   var formatString = format === 'json_without_ids' ? JSON.stringify(JSON.parse(Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format)), null, 2) : format === 'parameterized' ? JSON.stringify(Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format), null, 2) : Object(_src__WEBPACK_IMPORTED_MODULE_3__["formatQuery"])(query, format);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-box-outer"
@@ -381,6 +400,7 @@ var RootView = function RootView() {
     getValues: getValues,
     showAddGroup: true,
     showAddRule: true,
+    getPlaceHolder: getPlaceHolder,
     showCombinatorsBetweenRules: false
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, JSON.stringify(query))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "shrink query-log scroll"
@@ -528,7 +548,7 @@ module.exports = find;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule .rule-fields {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  padding: 5px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value-parent {\n  width: 100%;\n  padding: 0px 5px;\n  position: relative;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  box-sizing: border-box;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  box-sizing: border-box;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  margin: 5px;\n  padding: 5px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n/**\n * Main wrapper\n */\n.select-search {\n  width: 100%;\n  padding: 0px 5px;\n  position: relative;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.select-search *,\n.select-search *::after,\n.select-search *::before {\n  box-sizing: inherit;\n}\n/**\n * Value wrapper\n */\n.select-search__value {\n  position: relative;\n  z-index: 1;\n}\n.select-search__value::after {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: calc(50% - 6px);\n  right: 10px;\n  width: 8px;\n  height: 8px;\n}\n/**\n * Input\n */\n.select-search__input {\n  display: block;\n  height: 32px;\n  width: 100%;\n  padding: 0 16px;\n  border: 1px solid #ddd;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  font-size: 12px;\n  text-align: left;\n  text-overflow: ellipsis;\n  line-height: 32px;\n  -webkit-appearance: none;\n}\n.select-search__input::-webkit-search-decoration,\n.select-search__input::-webkit-search-cancel-button,\n.select-search__input::-webkit-search-results-button,\n.select-search__input::-webkit-search-results-decoration {\n  -webkit-appearance: none;\n}\n.select-search__input:not([readonly]):focus {\n  cursor: initial;\n}\n/**\n * Options wrapper\n */\n.select-search__select {\n  background: #fff;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n}\n/**\n * Options\n */\n.select-search__options {\n  list-style: none;\n  padding: 0px;\n  margin: 0px;\n}\n/**\n * Option\n */\n.select-search__option,\n.select-search__not-found {\n  display: block;\n  height: 32px;\n  width: 100%;\n  background: #fff;\n  border: none;\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  font-size: 12px;\n  text-align: left;\n  cursor: pointer;\n}\n.select-search--multiple .select-search__option {\n  height: 48px;\n}\n.select-search__option.is-selected {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n.select-search__option.is-highlighted,\n.select-search__option:not(.is-selected):hover {\n  background: #f5f5f5;\n}\n.select-search__option.is-highlighted.is-selected,\n.select-search__option.is-selected:hover {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n/**\n * Group\n */\n.select-search__group-header {\n  font-size: 10px;\n  text-transform: uppercase;\n  background: #f5f5f5;\n}\n/**\n * States\n */\n.select-search.is-disabled {\n  opacity: 0.5;\n}\n.select-search.is-loading .select-search__value::after {\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E\");\n  background-size: 11px;\n}\n.select-search:not(.is-disabled) .select-search__input {\n  cursor: pointer;\n}\n/**\n * Modifiers\n */\n.select-search--multiple {\n  border-radius: 3px;\n  overflow: hidden;\n}\n.select-search:not(.is-loading):not(.select-search--multiple) .select-search__value::after {\n  transform: rotate(45deg);\n  border-right: 1px solid #605E5C;\n  border-bottom: 1px solid #605E5C;\n  pointer-events: none;\n}\n.select-search--multiple .select-search__input {\n  cursor: initial;\n}\n.select-search--multiple .select-search__input {\n  border-radius: 3px 3px 0 0;\n}\n.select-search--multiple:not(.select-search--search) .select-search__input {\n  cursor: default;\n}\n.select-search:not(.select-search--multiple) .select-search__input:hover {\n  border-color: #f5f5f5;\n}\n.select-search:not(.select-search--multiple) .select-search__select {\n  position: fixed;\n  z-index: 2;\n  width: auto;\n  max-width: 220px;\n  overflow: auto;\n  max-height: 140px;\n  min-width: 180px;\n}\n.select-search--multiple .select-search__select {\n  position: relative;\n  overflow: auto;\n  max-height: 260px;\n}\n.select-search__not-found {\n  height: auto;\n  text-align: center;\n  color: #a6a6a6;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: absolute;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 20px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n", ""]);
+exports.push([module.i, ".rule .rule-fields {\n  height: 32px;\n  margin: 0px 5px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-fields:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-operators:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n}\n.rule .rule-value-parent {\n  width: 100%;\n  padding: 0px 5px;\n  position: relative;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value {\n  border: 1px solid #cccccc;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  box-sizing: border-box;\n}\n.rule .rule-value:focus {\n  border: 1px solid #cccccc;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  box-sizing: border-box;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #cccccc;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  display: flex;\n  flex-direction: row;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  min-width: 30px;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n/**\n * Main wrapper\n */\n.select-search {\n  width: 100%;\n  padding: 0px 5px;\n  position: relative;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.select-search *,\n.select-search *::after,\n.select-search *::before {\n  box-sizing: inherit;\n}\n/**\n * Value wrapper\n */\n.select-search__value {\n  position: relative;\n  z-index: 1;\n}\n.select-search__value::after {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: calc(50% - 6px);\n  right: 10px;\n  width: 8px;\n  height: 8px;\n}\n/**\n * Input\n */\n.select-search__input {\n  display: block;\n  height: 32px;\n  width: 100%;\n  padding: 0px 16px 0px 5px;\n  border: 1px solid #ddd;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  font-size: 12px;\n  text-align: left;\n  text-overflow: ellipsis;\n  line-height: 32px;\n  -webkit-appearance: none;\n}\n.select-search__input::-webkit-search-decoration,\n.select-search__input::-webkit-search-cancel-button,\n.select-search__input::-webkit-search-results-button,\n.select-search__input::-webkit-search-results-decoration {\n  -webkit-appearance: none;\n}\n.select-search__input:not([readonly]):focus {\n  cursor: initial;\n}\n/**\n * Options wrapper\n */\n.select-search__select {\n  background: #fff;\n  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);\n}\n/**\n * Options\n */\n.select-search__options {\n  list-style: none;\n  padding: 0px;\n  margin: 0px;\n}\n/**\n * Option\n */\n.select-search__option,\n.select-search__not-found {\n  display: block;\n  height: 32px;\n  width: 100%;\n  background: #fff;\n  border: none;\n  outline: none;\n  font-family: 'Noto Sans', sans-serif;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  font-size: 12px;\n  text-align: left;\n  cursor: pointer;\n}\n.select-search--multiple .select-search__option {\n  height: 48px;\n}\n.select-search__option.is-selected {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n.select-search__option.is-highlighted,\n.select-search__option:not(.is-selected):hover {\n  background: #f5f5f5;\n}\n.select-search__option.is-highlighted.is-selected,\n.select-search__option.is-selected:hover {\n  background: #f5f5f5;\n  color: #201F1E;\n}\n/**\n * Group\n */\n.select-search__group-header {\n  font-size: 10px;\n  text-transform: uppercase;\n  background: #f5f5f5;\n}\n/**\n * States\n */\n.select-search.is-disabled {\n  opacity: 0.5;\n}\n.select-search.is-loading .select-search__value::after {\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E\");\n  background-size: 11px;\n}\n.select-search:not(.is-disabled) .select-search__input {\n  cursor: pointer;\n}\n/**\n * Modifiers\n */\n.select-search--multiple {\n  border-radius: 3px;\n  overflow: hidden;\n}\n.select-search:not(.is-loading):not(.select-search--multiple) .select-search__value::after {\n  transform: rotate(45deg);\n  border-right: 1px solid #605E5C;\n  border-bottom: 1px solid #605E5C;\n  pointer-events: none;\n}\n.select-search--multiple .select-search__input {\n  cursor: initial;\n}\n.select-search--multiple .select-search__input {\n  border-radius: 3px 3px 0 0;\n}\n.select-search--multiple:not(.select-search--search) .select-search__input {\n  cursor: default;\n}\n.select-search:not(.select-search--multiple) .select-search__input:hover {\n  border-color: #f5f5f5;\n}\n.select-search:not(.select-search--multiple) .select-search__select {\n  position: fixed;\n  z-index: 2;\n  width: auto;\n  max-width: 220px;\n  overflow: auto;\n  max-height: 140px;\n  min-width: 180px;\n}\n.select-search--multiple .select-search__select {\n  position: relative;\n  overflow: auto;\n  max-height: 260px;\n}\n.select-search__not-found {\n  height: auto;\n  text-align: center;\n  color: #a6a6a6;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -52507,14 +52527,14 @@ var defaultTranslations = {
   }
 };
 var defaultOperators = [{
+  name: 'in',
+  label: 'in'
+}, {
   name: 'null',
   label: 'is null'
 }, {
   name: 'notNull',
   label: 'is not null'
-}, {
-  name: 'in',
-  label: 'in'
 }, {
   name: 'notIn',
   label: 'not in'
@@ -52616,6 +52636,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
       onAdvancedClick = _ref$onAdvancedClick === void 0 ? function () {} : _ref$onAdvancedClick,
       _ref$showNotToggle = _ref.showNotToggle,
       showNotToggle = _ref$showNotToggle === void 0 ? false : _ref$showNotToggle,
+      getSelectedColumn = _ref.getSelectedColumn,
       _ref$resetOnFieldChan = _ref.resetOnFieldChange,
       resetOnFieldChange = _ref$resetOnFieldChan === void 0 ? true : _ref$resetOnFieldChan,
       _ref$showAddGroup = _ref.showAddGroup,
@@ -52635,7 +52656,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
       getValidQuery = _useQueryBuilderProps.getValidQuery,
       getNormalQuery = _useQueryBuilderProps.getNormalQuery;
 
-  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange),
+  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn),
       root = _useQueryBuilderActio.root,
       setRoot = _useQueryBuilderActio.setRoot,
       getInitialQuery = _useQueryBuilderActio.getInitialQuery,
@@ -52730,7 +52751,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
   }, "Add Filter"))));
 };
 
-var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange) {
+var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn) {
   var getInitialQuery = function getInitialQuery() {
     // Gets the initial query   
     return query && Object(_utils__WEBPACK_IMPORTED_MODULE_8__["generateValidQuery"])(query) || createRuleGroup();
@@ -52743,6 +52764,12 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
   var createRule = function createRule() {
     var field = fields[0].name;
+
+    if (getSelectedColumn) {
+      var selection = getSelectedColumn();
+      if (selection) field = getSelectedColumn();
+    }
+
     return {
       id: "r-".concat(Object(nanoid__WEBPACK_IMPORTED_MODULE_2__["nanoid"])()),
       field: field,
@@ -52833,6 +52860,15 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
   var onRuleRemove = function onRuleRemove(ruleId, parentId) {
     //Removes a rule from the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
+
+    if (rootCopy && rootCopy.rules.length === 1) {
+      var firstRule = rootCopy.rules[0];
+
+      if (firstRule.field && !firstRule.value && (!getValueEditorType || getValueEditorType(firstRule.field, firstRule.operator) !== "none")) {
+        return;
+      }
+    }
+
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
 
     if (parent) {
@@ -53072,7 +53108,8 @@ var QueryGenerator = function QueryGenerator(_ref) {
       showAddRule = _ref.showAddRule,
       showCombinatorsBetweenRules = _ref.showCombinatorsBetweenRules,
       enableNormalView = _ref.enableNormalView,
-      onAdvancedClick = _ref.onAdvancedClick;
+      onAdvancedClick = _ref.onAdvancedClick,
+      getSelectedColumn = _ref.getSelectedColumn;
   var generatorCls = !showAddGroup ? "query-generator hide-group" : "query-generator";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: generatorCls
@@ -53093,7 +53130,8 @@ var QueryGenerator = function QueryGenerator(_ref) {
     showAddGroup: showAddGroup,
     showAddRule: showAddRule,
     resetOnOperatorChange: true,
-    getValues: getValues
+    getValues: getValues,
+    getSelectedColumn: getSelectedColumn
   }));
 };
 
@@ -53465,10 +53503,10 @@ var NavTab = function NavTab(_ref) {
       checked: isChecked,
       onChange: onChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "radio-title"
-    }, v.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "circle"
-    }));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "radio-title"
+    }, v.label));
   })) //   <div className={className}>
   //       {options.map((option) => {
   //   const key = option.id ? `key-${option.id}` : `key-${option.name}`;
@@ -53540,18 +53578,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_select_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select-search */ "./node_modules/react-select-search/dist/esm/index.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -53583,14 +53609,8 @@ var ValueEditor = function ValueEditor(_ref) {
   };
 
   var onAutoSuggetionChange = function onAutoSuggetionChange(value) {
-    setVal(value);
     handleOnChange(value);
   };
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(value),
-      _useState2 = _slicedToArray(_useState, 2),
-      val = _useState2[0],
-      setVal = _useState2[1];
 
   var options = [];
 
@@ -53604,7 +53624,7 @@ var ValueEditor = function ValueEditor(_ref) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
         options: options,
-        value: val,
+        value: value,
         placeholder: placeHolder,
         onChange: onSelectChange
       });
@@ -53618,7 +53638,7 @@ var ValueEditor = function ValueEditor(_ref) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
         options: options,
-        value: val,
+        value: value,
         placeholder: placeHolder,
         onChange: onAutoSuggetionChange,
         search: true
@@ -53652,10 +53672,10 @@ var ValueEditor = function ValueEditor(_ref) {
           checked: isChecked,
           onChange: onTextInputChange
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "radio-title"
-        }, v.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "circle"
-        }));
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "radio-title"
+        }, v.label));
       }));
 
     default:
@@ -53711,13 +53731,15 @@ var ValueSelector = function ValueSelector(_ref) {
     };
   });
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: className
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
     options: _options,
     value: value,
     placeholder: "Select data field",
     onChange: onChange,
     autoComplete: "on"
-  });
+  }));
 };
 
 ValueSelector.displayName = 'ValueSelector';
