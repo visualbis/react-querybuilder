@@ -212,9 +212,9 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       if (resetOnFieldChange && prop === 'field') {  // Reset operator and set default value for field change
         objectAssign(rule, {operator: getOperatorsMain(rule.field)[0].name, value: getRuleDefaultValue(rule) });
       }
-      if (resetOnOperatorChange && prop === 'operator') {
-        Object.assign(rule, {value: getRuleDefaultValue(rule) });
-      }
+      // if (resetOnOperatorChange && prop === 'operator') {
+      //   Object.assign(rule, {value: getRuleDefaultValue(rule) });
+      // }
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
     }
