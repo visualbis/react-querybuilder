@@ -1,7 +1,6 @@
 import React from 'react';
-
-import SelectSearch from 'react-select-search';
-import { ValueSelectorProps, Field } from '../types';
+import Select from 'react-select';
+import { ValueSelectorProps } from '../types';
 
 const ValueSelector: React.FC<ValueSelectorProps> = ({
   className,
@@ -9,15 +8,17 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   options,
   title,
   value
-}) => { 
- const onChange =  (value:any) =>{ handleOnChange(value)}
-
- let _options:any[] = options!.map((item)=> {
-  const prefix:string = item.type === "number"? "Σ ":"";
-   return  {value:item.name, name:prefix+item.label};
+}) => {
+  const onChange = (value: any) => { handleOnChange(value.value) }
+  let selectedValue;
+  let _options: any[] = options!.map((item) => {
+    const prefix: string = item.type === "number" ? "Σ " : "";
+    if (item.name === value) {
+      selectedValue = { value: item.name, label: prefix + item.label };
+    }
+    return { value: item.name, label: prefix + item.label };
   });
- return    (<div className={className}><SelectSearch   options={_options} value={value} placeholder={"Select data field"} onChange={onChange}  autoComplete={"on"}
-  /></div>)
+  return (<Select classNamePrefix={"react-select"} className={className + " auto-complete"} placeholder={"Select data field"} isSearchable={false} value={selectedValue} options={_options} onChange={onChange} />)
 };
 
 ValueSelector.displayName = 'ValueSelector';
