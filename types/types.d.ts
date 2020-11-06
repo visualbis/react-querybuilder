@@ -158,7 +158,7 @@ export interface Schema {
     createRuleGroup(): RuleGroupType;
     getLevel(id: string): number;
     getOperators(field: string): Field[];
-    getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio';
+    getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
     getPlaceHolder(field: string, operator: string): string;
     getInputType(field: string, operator: string): string;
     getValues(field: string, operator: string): NameLabelPair[];
