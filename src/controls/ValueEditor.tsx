@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import SelectSearch from 'react-select-search';
+import Select from 'react-select';
 import { ValueEditorProps } from '../types';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
@@ -17,20 +17,25 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     return null;
   }
 
-  const onSelectChange = (value:any) => { handleOnChange(value)};
+  const onSelectChange = (value:any) => { handleOnChange(value.value)};
   const onTextInputChange = (e:any) => { handleOnChange(e.target.value)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   const  onAutoSuggetionChange = (value:any) => {
-      handleOnChange(value);
+      handleOnChange(value.value);
   };
-  let options:any[] = [];
+  let options: any[] = [];
+  let selectedOption;
+  options = values!.map((item) => {
+    if (item.name == value) {
+      selectedOption = { value: item.name, label: item.label };
+    }
+    return { value: item.name, label: item.label };
+  });
   switch (type) {
-    case 'select':
-        options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-      return (<SelectSearch options={options} value={value} placeholder={placeHolder} onChange={onSelectChange}/> );
-    case 'autocomplete':       
-        options = values!.map((item)=> {return  {value:item.name, name:item.label}});
-     return    (<SelectSearch options={options} value={value} placeholder={placeHolder} onChange={onAutoSuggetionChange} search />);   
+    case 'select':     
+      return (( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"} value={selectedOption} options={options} onChange={onSelectChange} />)   );
+    case 'autocomplete':          
+     return   ( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"}  value={selectedOption} options={options} onChange={onAutoSuggetionChange} />)   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
