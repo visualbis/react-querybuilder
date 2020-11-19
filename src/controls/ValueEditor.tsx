@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import Select from 'react-select';
+import {Autocomplete} from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
+import {Dropdown} from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueEditorProps } from '../types';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
@@ -21,7 +22,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   const onTextInputChange = (e:any) => { handleOnChange(e.target.value)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   const  onAutoSuggetionChange = (value:any) => {
-      handleOnChange(value.value);
+      handleOnChange(value);
   };
   let options: any[] = [];
   let selectedOption;
@@ -33,9 +34,10 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   });
   switch (type) {
     case 'select':     
-      return (( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"} value={selectedOption} options={options} onChange={onSelectChange} />)   );
-    case 'autocomplete':          
-     return   ( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"}  value={selectedOption} options={options} onChange={onAutoSuggetionChange} />)   
+      return (( <Dropdown placeholder={placeHolder} className={className} value={selectedOption} options={options} onChange={onSelectChange} />)   );
+    case 'autocomplete': 
+    return (<Autocomplete scrollPositionSupport={true} placeholder={placeHolder}  options={options} value={value} onChange={onAutoSuggetionChange} className={className}></Autocomplete>)         
+   //  return   ( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"}  value={selectedOption} options={options} onChange={onAutoSuggetionChange} />)   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
