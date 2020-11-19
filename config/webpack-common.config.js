@@ -21,24 +21,27 @@ module.exports = {
         }
       },
       {
-        test: /\.scss/,
+        test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              sourceMap: true
-            }
+            loader: "style-loader"
           },
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: "css-loader"
           }
         ]
-      }
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
     ]
   },
   resolve: {

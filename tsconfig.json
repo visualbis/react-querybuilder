@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "./types/",
     "declaration": true,
+    "noImplicitAny": false,
     "sourceMap": true,
     "strictNullChecks": true,
     "strict": true,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
+import {Dropdown} from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueSelectorProps } from '../types';
 
 const ValueSelector: React.FC<ValueSelectorProps> = ({
@@ -18,7 +18,7 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
     }
     return { value: item.name, label: prefix + item.label };
   });
-  return (<Select classNamePrefix={"react-select"} className={className + " auto-complete"} placeholder={"Select data field"} isSearchable={false} value={selectedValue} options={_options} onChange={onChange} />)
+  return (<Dropdown classNamePrefix={"react-select"} className={className + " auto-complete"} placeholder={"Select data field"} isSearchable={false} value={selectedValue} options={_options} onChange={onChange} />)
 };
 
 ValueSelector.displayName = 'ValueSelector';
