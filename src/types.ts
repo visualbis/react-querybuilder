@@ -367,7 +367,7 @@ export interface QueryBuilderProps {
   /**
    * This is a notification that is invoked anytime the query configuration changes.
    */
-  onQueryChange(query: RuleGroupType): void;
+  onQueryChange(query: RuleGroupType, prop?: string, ruleId?: string): void;
   /**
    * This can be used to assign specific CSS classes to various controls
    * that are created by the `<QueryBuilder />`.

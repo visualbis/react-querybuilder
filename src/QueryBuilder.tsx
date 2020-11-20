@@ -216,7 +216,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       //   Object.assign(rule, {value: getRuleDefaultValue(rule) });
       // }
       setRoot(rootCopy);
-      _notifyQueryChange(rootCopy);
+      _notifyQueryChange(rootCopy, prop, ruleId);
     }
   };
   const onRuleRemove = (ruleId: string, parentId: string) => {//Removes a rule from the query
@@ -252,10 +252,10 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
   const getLevelFromRoot = (id: string) => {//Gets the level of the rule with the provided ID
     return getLevel(id, 0, root);
   };
-  const _notifyQueryChange = (newRoot: RuleGroupType) => {// Executes the `onQueryChange` function, if provided   
+  const _notifyQueryChange = (newRoot: RuleGroupType, prop?: string, ruleId?: string) => {// Executes the `onQueryChange` function, if provided   
     if (onQueryChange) { // istanbul ignore else
       const newQuery = cloneDeep(newRoot);
-      onQueryChange(newQuery);
+      onQueryChange(newQuery, prop, ruleId);
     }
   };
   return {root, setRoot,getInitialQuery,createRule,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
