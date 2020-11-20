@@ -54477,7 +54477,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
       setRoot(rootCopy);
 
-      _notifyQueryChange(rootCopy);
+      _notifyQueryChange(rootCopy, prop, ruleId);
     }
   };
 
@@ -54541,12 +54541,12 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
     return Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getLevel"])(id, 0, root);
   };
 
-  var _notifyQueryChange = function _notifyQueryChange(newRoot) {
+  var _notifyQueryChange = function _notifyQueryChange(newRoot, prop, ruleId) {
     // Executes the `onQueryChange` function, if provided   
     if (onQueryChange) {
       // istanbul ignore else
       var newQuery = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(newRoot);
-      onQueryChange(newQuery);
+      onQueryChange(newQuery, prop, ruleId);
     }
   };
 
