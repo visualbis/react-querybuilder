@@ -1166,15 +1166,15 @@ function (_Component) {
   _createClass(Dropdown, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.addEventListener('click', this.handleDocumentClick, false);
-      document.addEventListener('touchend', this.handleDocumentClick, false);
+      document.addEventListener('mousedown', this.handleDocumentClick, false);
+      document.addEventListener('touchstart', this.handleDocumentClick, false);
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       this.mounted = false;
-      document.removeEventListener('click', this.handleDocumentClick, false);
-      document.removeEventListener('touchend', this.handleDocumentClick, false);
+      document.removeEventListener('mousedown', this.handleDocumentClick, false);
+      document.removeEventListener('touchstart', this.handleDocumentClick, false);
     }
   }, {
     key: "handleMouseDown",
