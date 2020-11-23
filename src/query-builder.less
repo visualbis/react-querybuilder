@@ -66,6 +66,10 @@
 		.menu{
 			min-width: auto;
 			transform: none;
+			max-height: 140px;
+			div{
+				overflow: hidden;
+			}
 			.menu-item {
 				 button{
 					 &:hover{
@@ -75,6 +79,7 @@
 			}
 		}
 	}
+	
 	.rule-value-parent{
 		padding: 0px 4px;
 		font-family: 'Nunito Sans', sans-serif;
@@ -88,6 +93,9 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			box-sizing: border-box;
+			&:disabled{
+				cursor: not-allowed;
+			}
 			&:focus {
 				border: 1px solid @color0;
 				height: @height1;

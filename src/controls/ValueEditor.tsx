@@ -14,8 +14,11 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   placeHolder,
   values
 }) => {
-  if (operator === 'null' || operator === 'notNull' || type === "none") {
-    return null;
+  let inputDisabled = false;
+  if (operator === 'null' || operator === 'notNull' || type === "none") {   
+    type = "text";
+    inputDisabled = true;
+    placeHolder = "";
   }
 
   const onSelectChange = (value:any) => { handleOnChange(value.value)};
@@ -70,6 +73,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           type={inputType || 'text'}
           value={value}
           title={title}
+          disabled={inputDisabled}
           className={className}
           placeholder={placeHolder}
           onChange={onTextInputChange}
