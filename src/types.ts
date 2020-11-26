@@ -29,7 +29,7 @@ export type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized'
 
 export type ValueProcessor = (field: string, operator: string, value: any) => string;
 
-export type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
+export type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
 
 export interface CommonProps {
   /**
@@ -187,6 +187,7 @@ export interface Schema {
   onRuleAdd(rule: RuleType, parentId: string): void;
   onRuleRemove(id: string, parentId: string): void;
   showCombinatorsBetweenRules: boolean;
+  removeIconatStart: boolean;
   showNotToggle: boolean;
   showAddGroup:boolean;
   showAddRule:boolean;
@@ -391,8 +392,12 @@ export interface QueryBuilderProps {
    */
   showAddGroup?: boolean;
   /**
+   * Show remove icon at start or end
+   */ 
+  removeIconatStart?: boolean;
+  /**
    * Show the "not" toggle for rule groups.
-   */
+   */ 
   showNotToggle?: boolean;
   /**
    * Reset the operator and value components when the `field` changes.

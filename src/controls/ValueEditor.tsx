@@ -66,18 +66,31 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           )})}
         </span>
       );
+      case 'textarea':
+          return (
+            <div className="rule-value-parent textarea">
+            <textarea 
+              spellCheck="false"
+              value={value}
+              title={title}
+              disabled={inputDisabled}
+              className={className}
+              placeholder="Enter values separated by comma"
+              onChange={onTextInputChange}              
+            /></div>
+          );
     default:
       return (
         <div className="rule-value-parent">
-        <input
-          type={inputType || 'text'}
-          value={value}
-          title={title}
-          disabled={inputDisabled}
-          className={className}
-          placeholder={placeHolder}
-          onChange={onTextInputChange}
-        /></div>
+          <input
+            type={inputType || 'text'}
+            value={value}
+            title={title}
+            disabled={inputDisabled}
+            className={className}
+            placeholder={placeHolder}
+            onChange={onTextInputChange}
+          /> </div>
       );
   }
 };
