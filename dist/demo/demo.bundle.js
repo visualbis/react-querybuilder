@@ -1799,7 +1799,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n", ""]);
+exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .textarea .rule-value {\n  resize: none;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n.queryBuilder .rule .rule-value-parent.textarea,\n.queryBuilder .rule .textarea .rule-value {\n  height: 55px;\n  max-height: 55px;\n  white-space: pre-line;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -54254,7 +54254,9 @@ var QueryBuilder = function QueryBuilder(_ref) {
       _ref$showAddRule = _ref.showAddRule,
       showAddRule = _ref$showAddRule === void 0 ? true : _ref$showAddRule,
       _ref$resetOnOperatorC = _ref.resetOnOperatorChange,
-      resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC;
+      resetOnOperatorChange = _ref$resetOnOperatorC === void 0 ? false : _ref$resetOnOperatorC,
+      _ref$removeIconatStar = _ref.removeIconatStart,
+      removeIconatStart = _ref$removeIconatStar === void 0 ? false : _ref$removeIconatStar;
 
   var getInitialQuery = function getInitialQuery() {
     // Gets the initial query   
@@ -54330,7 +54332,8 @@ var QueryBuilder = function QueryBuilder(_ref) {
     showCombinatorsBetweenRules: showCombinatorsBetweenRules,
     showAddGroup: showAddGroup,
     showAddRule: showAddRule,
-    showNotToggle: showNotToggle
+    showNotToggle: showNotToggle,
+    removeIconatStart: removeIconatStart
   };
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
     // Set the query state when a new query prop comes in
@@ -54728,6 +54731,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
       getValueEditorType = _ref.getValueEditorType,
       getValues = _ref.getValues,
       showAddGroup = _ref.showAddGroup,
+      removeIconatStart = _ref.removeIconatStart,
       showAddRule = _ref.showAddRule,
       showCombinatorsBetweenRules = _ref.showCombinatorsBetweenRules,
       enableNormalView = _ref.enableNormalView,
@@ -54751,6 +54755,7 @@ var QueryGenerator = function QueryGenerator(_ref) {
     enableNormalView: enableNormalView,
     onAdvancedClick: onAdvancedClick,
     showAddGroup: showAddGroup,
+    removeIconatStart: removeIconatStart,
     showAddRule: showAddRule,
     resetOnOperatorChange: true,
     getValues: getValues,
@@ -54795,7 +54800,8 @@ var Rule = function Rule(_ref) {
       getValues = _ref$schema.getValues,
       onPropChange = _ref$schema.onPropChange,
       onRuleRemove = _ref$schema.onRuleRemove,
-      showAddGroup = _ref$schema.showAddGroup;
+      showAddGroup = _ref$schema.showAddGroup,
+      removeIconatStart = _ref$schema.removeIconatStart;
 
   var onElementChanged = function onElementChanged(property, value) {
     onPropChange(property, value, id);
@@ -54828,7 +54834,7 @@ var Rule = function Rule(_ref) {
     className: "rule ".concat(classNames.rule),
     "data-rule-id": id,
     "data-level": level
-  }, !showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
+  }, removeIconatStart && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
     label: translations.removeRule.label,
     title: translations.removeRule.title,
     className: "rule-remove ".concat(classNames.removeRule),
@@ -54864,7 +54870,7 @@ var Rule = function Rule(_ref) {
     className: "rule-value ".concat(classNames.value),
     handleOnChange: onValueChanged,
     level: level
-  }), showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
+  }), !removeIconatStart && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(controls.removeRuleAction, {
     label: translations.removeRule.label,
     title: translations.removeRule.title,
     className: "rule-remove ".concat(classNames.removeRule),
@@ -55314,6 +55320,19 @@ var ValueEditor = function ValueEditor(_ref) {
         }, v.label));
       }));
 
+    case 'textarea':
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "rule-value-parent textarea"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        spellCheck: "false",
+        value: value,
+        title: title,
+        disabled: inputDisabled,
+        className: className,
+        placeholder: "Enter values separated by comma",
+        onChange: onTextInputChange
+      }));
+
     default:
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rule-value-parent"
@@ -55325,7 +55344,7 @@ var ValueEditor = function ValueEditor(_ref) {
         className: className,
         placeholder: placeHolder,
         onChange: onTextInputChange
-      }));
+      }), " ");
   }
 };
 

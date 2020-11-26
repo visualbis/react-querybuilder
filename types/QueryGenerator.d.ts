@@ -11,6 +11,7 @@ export interface IProps {
     onQueryChange(query: RuleGroupType, prop?: string, ruleId?: string): void;
     getValues?(field: string, operator: string): NameLabelPair[];
     showAddGroup?: boolean;
+    removeIconatStart?: boolean;
     showAddRule?: boolean;
     showCombinatorsBetweenRules?: boolean;
     enableNormalView?: boolean;
