@@ -14,6 +14,7 @@ export interface IProps{
     onQueryChange(query: RuleGroupType, prop?: string, ruleId?: string): void;    
     getValues?(field: string, operator: string):NameLabelPair[];
     showAddGroup?:boolean;
+    removeIconatStart?:boolean;
     showAddRule?:boolean;
     showCombinatorsBetweenRules?:boolean;
     enableNormalView?:boolean;
@@ -33,6 +34,7 @@ export interface IProps{
     getValueEditorType,
     getValues,
     showAddGroup,
+    removeIconatStart,
     showAddRule,
     showCombinatorsBetweenRules,
     enableNormalView,
@@ -54,6 +56,7 @@ export interface IProps{
         enableNormalView={enableNormalView}
         onAdvancedClick={onAdvancedClick}
         showAddGroup={showAddGroup}
+        removeIconatStart={removeIconatStart}
         showAddRule={showAddRule}
         resetOnOperatorChange={true} 
         getValues={getValues}   
