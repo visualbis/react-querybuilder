@@ -21,7 +21,7 @@ export interface RuleGroupType {
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
 export declare type ValueProcessor = (field: string, operator: string, value: any) => string;
-export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
+export declare type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
 export interface CommonProps {
     /**
      * CSS classNames to be applied
@@ -169,6 +169,7 @@ export interface Schema {
     onRuleAdd(rule: RuleType, parentId: string): void;
     onRuleRemove(id: string, parentId: string): void;
     showCombinatorsBetweenRules: boolean;
+    removeIconatStart: boolean;
     showNotToggle: boolean;
     showAddGroup: boolean;
     showAddRule: boolean;
@@ -364,6 +365,10 @@ export interface QueryBuilderProps {
     * Show the add group button.
     */
     showAddGroup?: boolean;
+    /**
+     * Show remove icon at start or end
+     */
+    removeIconatStart?: boolean;
     /**
      * Show the "not" toggle for rule groups.
      */
