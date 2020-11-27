@@ -6,8 +6,12 @@ import QueryGenerator from '../src';
 
 const preparedFields = {
   primary: [
-    { name: 'firstName', label: 'First Name' },
-    { name: 'lastName', label: 'Last Name' }
+    { name: 'firstName', label: 'First name' },
+    { name: 'lastName', label: 'Last name' },
+    { name: 'age', label: 'Age' },
+    { name: 'gender', label: 'Gender' },
+    { name: 'height', label: 'Height' },
+    { name: 'job', label: 'Job' }
   ],
   secondary: [
     { name: 'age', label: 'Age' },
@@ -91,10 +95,8 @@ const getValueEditorType = (field, operator) => {
   switch (field) {
     case 'gender':
       return 'radio';
-
     case 'instrument':
       return 'select';
-
     case 'isMusician':
       return 'checkbox';
       case 'firstName':
