@@ -20,9 +20,12 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     inputDisabled = true;
     placeHolder = "";
   }
+  const [_value, setValue] = useState(value);
 
   const onSelectChange = (value:any) => { handleOnChange(value.value)};
   const onTextInputChange = (e:any) => { handleOnChange(e.target.value)};
+  const onTextAreaChange = (e:any) => { setValue(e.target.value)};
+  const applyTextAreaChange = () => { handleOnChange(_value)};
   const onCheckboxChange = (e:any) => handleOnChange(e.target.checked);
   const  onAutoSuggetionChange = (value:any) => {
       handleOnChange(value);
@@ -71,12 +74,13 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
             <div className="rule-value-parent textarea">
             <textarea 
               spellCheck="false"
-              value={value}
+              value={_value}
               title={title}
               disabled={inputDisabled}
               className={className}
               placeholder="Enter values separated by comma"
-              onChange={onTextInputChange}              
+              onChange={onTextAreaChange} 
+              onBlur={applyTextAreaChange}             
             /></div>
           );
     default:
