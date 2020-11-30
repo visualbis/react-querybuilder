@@ -121,10 +121,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var preparedFields = {
   primary: [{
     name: 'firstName',
-    label: 'First Name'
+    label: 'First name'
   }, {
     name: 'lastName',
-    label: 'Last Name'
+    label: 'Last name'
+  }, {
+    name: 'age',
+    label: 'Age'
+  }, {
+    name: 'gender',
+    label: 'Gender'
+  }, {
+    name: 'height',
+    label: 'Height'
+  }, {
+    name: 'job',
+    label: 'Job'
   }],
   secondary: [{
     name: 'age',
@@ -1799,7 +1811,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .textarea .rule-value {\n  resize: none;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n.queryBuilder .rule .rule-value-parent.textarea,\n.queryBuilder .rule .textarea .rule-value {\n  height: 55px;\n  max-height: 55px;\n  white-space: pre-line;\n}\n", ""]);
+exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .textarea .rule-value {\n  resize: none;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 0px 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n.queryBuilder .rule .rule-value-parent.textarea,\n.queryBuilder .rule .textarea .rule-value {\n  height: 55px;\n  max-height: 55px;\n  white-space: pre-line;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -54296,9 +54308,10 @@ var QueryBuilder = function QueryBuilder(_ref) {
       getValuesMain = _useQueryBuilderProps.getValuesMain,
       getPlaceHolderMain = _useQueryBuilderProps.getPlaceHolderMain,
       getValidQuery = _useQueryBuilderProps.getValidQuery,
-      getNormalQuery = _useQueryBuilderProps.getNormalQuery;
+      getNormalQuery = _useQueryBuilderProps.getNormalQuery,
+      getRuleUpdatedValue = _useQueryBuilderProps.getRuleUpdatedValue;
 
-  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn),
+  var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn, getRuleUpdatedValue),
       root = _useQueryBuilderActio.root,
       setRoot = _useQueryBuilderActio.setRoot,
       _notifyQueryChange = _useQueryBuilderActio._notifyQueryChange,
@@ -54391,7 +54404,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
   }, "Add Filter"))));
 };
 
-var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn) {
+var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn, getRuleUpdatedValue) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(getInitialQuery()),
       _useState2 = _slicedToArray(_useState, 2),
       root = _useState2[0],
@@ -54465,6 +54478,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
     if (rule) {
       // istanbul ignore else 
+      var preOperator = rule.operator;
       object_assign__WEBPACK_IMPORTED_MODULE_3___default()(rule, _defineProperty({}, prop, value));
 
       if (resetOnFieldChange && prop === 'field') {
@@ -54473,10 +54487,15 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
           operator: getOperatorsMain(rule.field)[0].name,
           value: getRuleDefaultValue(rule)
         });
-      } // if (resetOnOperatorChange && prop === 'operator') {
-      //   Object.assign(rule, {value: getRuleDefaultValue(rule) });
-      // }
+      }
 
+      if (resetOnOperatorChange && prop === 'operator') {
+        var _value = getRuleUpdatedValue(rule, preOperator);
+
+        Object.assign(rule, {
+          value: _value
+        });
+      }
 
       setRoot(rootCopy);
 
@@ -54632,6 +54651,27 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
     return operators;
   };
 
+  var getRuleUpdatedValue = function getRuleUpdatedValue(rule, preOperator) {
+    var preType = getValueEditorType && getValueEditorType(rule.field, preOperator);
+    var curType = getValueEditorType && getValueEditorType(rule.field, rule.operator);
+    var _value = rule.value;
+
+    if (preType != curType) {
+      switch (curType) {
+        case "checkbox":
+          _value = true;
+
+        case "radio":
+          _value = true;
+
+        default:
+          _value = "";
+      }
+    }
+
+    return _value;
+  };
+
   var getRuleDefaultValue = function getRuleDefaultValue(rule) {
     var value = '';
     var values = getValuesMain(rule.field, rule.operator);
@@ -54687,6 +54727,7 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
   };
 
   return {
+    getRuleUpdatedValue: getRuleUpdatedValue,
     getValueEditorTypeMain: getValueEditorTypeMain,
     getInputTypeMain: getInputTypeMain,
     getOperatorsMain: getOperatorsMain,
