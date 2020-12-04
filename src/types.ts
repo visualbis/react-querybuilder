@@ -100,6 +100,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
 
 export interface Controls {
   addGroupAction: React.ComponentType<ActionWithRulesProps>;
+  clearRuleAction: React.ComponentType<ActionWithRulesProps>;
   addRuleAction: React.ComponentType<ActionWithRulesProps>;
   combinatorSelector: React.ComponentType<CombinatorSelectorProps>;
   fieldSelector: React.ComponentType<FieldSelectorProps>;
@@ -137,6 +138,10 @@ export interface Classnames {
    * `<button>` to add a RuleGroup
    */
   addGroup: string;
+   /**
+   * `<button>` to clear rule
+   */
+  clearRule: string;
   /**
    * `<button>` to remove a RuleGroup
    */
@@ -186,6 +191,7 @@ export interface Schema {
   onPropChange(prop: string, value: any, ruleId: string): void;
   onRuleAdd(rule: RuleType, parentId: string): void;
   onRuleRemove(id: string, parentId: string): void;
+  clearRule():void;
   showCombinatorsBetweenRules: boolean;
   removeIconatStart: boolean;
   showNotToggle: boolean;
@@ -215,6 +221,10 @@ export interface Translations {
     label: string;
     title: string;
   };
+  clearRule: {
+    label: string;
+    title: string;
+  };
   addGroup: {
     label: string;
     title: string;
@@ -235,6 +245,8 @@ export interface RuleGroupProps {
   translations: Translations;
   schema: Schema;
   not?: boolean;
+  isRoot?: boolean;
+  enableClear?: boolean;
 }
 
 export interface RuleProps {

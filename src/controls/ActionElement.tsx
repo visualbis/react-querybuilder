@@ -10,11 +10,17 @@ const ActionElement: React.FC<ActionProps> = ({ className, handleOnClick, label,
       </svg></span>)
     }
     if (className &&
+      className.indexOf("ruleGroup-clearRule") > -1) {
+      return (<span><svg width="11" height="10" viewBox="0 0 11 10" fill="none" >      
+          <path d="M5.44434 8.75H7.5V9.375H2.21191L0.244141 7.40234C0.166016 7.32422 0.105794 7.23307 0.0634766 7.12891C0.0211589 7.02148 0 6.91081 0 6.79688C0 6.68294 0.0211589 6.57389 0.0634766 6.46973C0.105794 6.3623 0.167643 6.2679 0.249023 6.18652L6.09375 0.336914L9.9707 4.21875L5.44434 8.75ZM6.09375 1.2207L2.62695 4.6875L5.625 7.68066L9.08691 4.21875L6.09375 1.2207ZM4.55566 8.75L5.18066 8.125L2.1875 5.12695L0.693359 6.62598C0.647786 6.67155 0.625 6.72852 0.625 6.79688C0.625 6.86523 0.647786 6.9222 0.693359 6.96777L2.4707 8.75H4.55566Z" fill="#0078D4"/>
+      </svg>{label}</span>)
+    }
+    if (className &&
       className.indexOf("ruleGroup-addRule") > -1) {
       return (<span><svg width="11" height="10" viewBox="0 0 11 10" fill="none" >
         <path d="M10.2559 4.6875V5.3125H5.56836V10H4.94336V5.3125H0.255859V4.6875H4.94336V0H5.56836V4.6875H10.2559Z" fill="#0078D4" />
       </svg>{label}</span>)
-    }
+    }    
     if (className &&
       className.indexOf("ruleGroup-addGroup ") > -1) {
       return (<span><svg width="10" height="10" viewBox="0 0 10 10" fill="none">

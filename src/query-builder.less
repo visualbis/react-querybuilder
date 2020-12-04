@@ -199,6 +199,23 @@
 		padding: 5px 15px;
 	}
 }
+.ruleGroup-clearRule {
+	background: @color1;
+	border: none;
+	color: @color2;
+	margin-left: auto;
+	outline: none;
+	padding: 5px 15px;
+	&:focus {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: auto;
+		outline: none;
+		padding: 5px 15px;
+	}
+}
+
 .query-generator.hide-group {
 	.ruleGroup-header {
 		.ruleGroup-addGroup {
@@ -270,4 +287,17 @@
 	height: 55px;
 	max-height: 55px;
 	white-space: pre-line;
+}
+.queryBuilder .no-rule{
+	width: 100%;
+	padding-left: 10px;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    min-height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+.queryBuilder .clear-rule{
+	font-size: 12px;
 }
