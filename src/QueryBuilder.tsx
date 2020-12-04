@@ -41,6 +41,10 @@ const defaultTranslations: Translations = {
     label: ' Add rule',
     title: 'Add rule'
   },
+  clearRule: {
+    label: ' Clear',
+    title: 'Clear rule'
+  },
   addGroup: {
     label: ' Add group',
     title: 'Add group'
@@ -83,6 +87,7 @@ const defaultControlClassnames: Classnames = {
   header: '',
   combinators: '',
   addRule: '',
+  clearRule: "",
   addGroup: '',
   removeGroup: '',
   notToggle: '',
@@ -95,6 +100,7 @@ const defaultControlClassnames: Classnames = {
 
 const defaultControlElements: Controls = {
   addGroupAction: ActionElement,
+  clearRuleAction: ActionElement,
   removeGroupAction: ActionElement,
   addRuleAction: ActionElement,
   removeRuleAction: ActionElement,
@@ -127,10 +133,10 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery, getNormalQuery, getRuleUpdatedValue} 
   = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
   
-  const{root, setRoot,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
+  const{root, clearRule, setRoot,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
  = useQueryBuilderActions(query, fields,combinators,createRule,getInitialQuery,onQueryChange, getOperatorsMain,getValidQuery,  getRuleDefaultValue,resetOnFieldChange, resetOnOperatorChange,getValueEditorType, getSelectedColumn, getRuleUpdatedValue);
   
-  const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
+  const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, clearRule, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
     getInputType: getInputTypeMain, getPlaceHolder:getPlaceHolderMain, getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle, removeIconatStart };    
   useEffect(() => { // Set the query state when a new query prop comes in
@@ -143,12 +149,15 @@ let updatedroot: RuleGroupType = root;
 if(enableNormalView){
   updatedroot = getNormalQuery(root);
 }
+const isNoRulesApplied = enableNormalView && updatedroot.rules.length === 0;
   return (
     <div>
       <div className={`queryBuilder ${schema.classNames.queryBuilder}`}>
-        <schema.controls.ruleGroup
-          translations={{ ...defaultTranslations, ...translations }} rules={updatedroot.rules} combinator={root.combinator} schema={schema} id={root.id} not={!!root.not} />
-      </div>
+        {isNoRulesApplied && <span className="no-rule"> No filters applied</span>}     
+       {!isNoRulesApplied&&  <schema.controls.ruleGroup
+          translations={{ ...defaultTranslations, ...translations }} enableClear={enableNormalView} isRoot={true} rules={updatedroot.rules} combinator={root.combinator} schema={schema} id={root.id} not={!!root.not} />
+       }
+          </div>
       { enableNormalView && <div className="queryBuilder-footer">
         <div title="Open advanced filter" role="button" className="queryBuilder-footer-advanced" onClick={onAdvancedClick} >
           <svg width="12" height="12" viewBox="0 0 12 12">
@@ -223,12 +232,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
   };
   const onRuleRemove = (ruleId: string, parentId: string) => {//Removes a rule from the query
     const rootCopy = cloneDeep(root);
-    if(rootCopy&&rootCopy.rules.length === 1){
-      const firstRule:RuleType = (rootCopy.rules[0] as RuleType);
-      if(firstRule.field && !firstRule.value&&(!getValueEditorType || getValueEditorType(firstRule.field, firstRule.operator) !== "none" )){
-        return;
-      }
-    }
+   
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
@@ -251,6 +255,12 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       _notifyQueryChange(updatedQuery);
     }
   };
+  const clearRule = () => {   
+      const rootCopy = cloneDeep(root);
+      let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+      setRoot(updatedQuery);
+      _notifyQueryChange(updatedQuery);
+  }
   const getLevelFromRoot = (id: string) => {//Gets the level of the rule with the provided ID
     return getLevel(id, 0, root);
   };
@@ -260,7 +270,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       onQueryChange(newQuery, prop, ruleId);
     }
   };
-  return {root, setRoot,getInitialQuery,createRule,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
+  return {root, clearRule, setRoot,getInitialQuery,createRule,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
 }
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
   const getNormalQuery = (query: RuleGroupType)=>{
