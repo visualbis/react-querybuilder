@@ -1811,7 +1811,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .textarea .rule-value {\n  resize: none;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 0px 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n.queryBuilder .rule .rule-value-parent.textarea,\n.queryBuilder .rule .textarea .rule-value {\n  height: 55px;\n  max-height: 55px;\n  white-space: pre-line;\n}\n", ""]);
+exports.push([module.i, ".rule {\n  display: flex;\n  flex-direction: row;\n}\n.rule .dropdown-root {\n  height: 32px;\n  outline: none;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  margin: 0px 4px;\n  border: none;\n}\n.rule .dropdown-root:focus {\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.rule .dropdown-root .dropdown-control {\n  border: 1px solid #ddd;\n  font-size: 12px;\n  font-weight: normal;\n}\n.rule .dropdown-root .dropdown-control .dropdown-placeholder {\n  color: #a6a6a6;\n}\n.rule .dropdown-root .dropdown-menu {\n  border: 1px solid #ddd;\n  max-height: 140px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option {\n  color: #201F1E;\n  padding: 0px 5px;\n  line-height: 36px;\n}\n.rule .dropdown-root .dropdown-menu .dropdown-option.is-selected {\n  background-color: #f5f5f5;\n}\n.rule .form-auto-complete:not([multiple]):not([size]) {\n  background-color: white;\n}\n.rule .form-auto-complete {\n  margin: 0px 4px;\n  font-size: 12px;\n  min-height: auto;\n}\n.rule .form-auto-complete .form-input {\n  height: 32px;\n  margin-top: 0px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n}\n.rule .form-auto-complete .menu {\n  min-width: auto;\n  transform: none;\n  max-height: 140px;\n}\n.rule .form-auto-complete .menu div {\n  overflow: hidden;\n}\n.rule .form-auto-complete .menu .menu-item button:hover {\n  background: #F5F5F5;\n}\n.rule .rule-value-parent {\n  padding: 0px 4px;\n  font-family: 'Nunito Sans', sans-serif;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .rule-value-parent .rule-value:disabled {\n  cursor: not-allowed;\n}\n.rule .rule-value-parent .rule-value:focus {\n  border: 1px solid #dddddd;\n  height: 32px;\n  outline: none;\n  overflow: hidden;\n  padding: 0px 0px 0px 5px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.rule .textarea .rule-value {\n  resize: none;\n}\n.ruleGroup {\n  background: #f5f5f5;\n  border: 1px solid #dddddd;\n  padding: 2px;\n}\n.ruleGroup .ruleGroup-combinators.betweenRules {\n  margin: 10px;\n}\n.ruleGroup .rule {\n  background: #f5f5f5;\n  width: 100%;\n  min-height: 32px;\n  padding: 5px 0px;\n}\n.ruleGroup .ruleGroup {\n  background: #f5f5f5;\n  margin: 5px;\n  padding: 5px;\n}\n.rule-remove {\n  background: transparent;\n  border: none;\n  outline: none;\n  line-height: 32px;\n  padding-left: 10px;\n  text-align: start;\n}\n.ruleGroup-remove {\n  background: transparent;\n  border: none;\n  min-width: 30px;\n}\n.query-generator .queryBuilder {\n  max-height: 500px;\n  max-width: 500px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 5px;\n  border: 1px solid #cccccc;\n}\n.query-generator .queryBuilder-footer {\n  display: flex;\n  flex-direction: row;\n}\n.ruleGroup-header {\n  display: flex;\n  margin: 0px 5px;\n}\n.ruleGroup-header .ruleGroup-addGroup {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-header .ruleGroup-addGroup:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-addRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: 5px;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-clearRule {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.ruleGroup-clearRule:focus {\n  background: #f5f5f5;\n  border: none;\n  color: #333333;\n  margin-left: auto;\n  outline: none;\n  padding: 5px 15px;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addGroup {\n  display: none;\n}\n.query-generator.hide-group .ruleGroup-header .ruleGroup-addRule {\n  margin-left: auto;\n}\n.ruleGroup-combinators {\n  border: none;\n  display: flex;\n  flex-direction: row;\n  padding: 0px;\n}\n.ruleGroup-combinators label {\n  padding-right: 10px;\n}\n.ruleGroup-combinators .combinators.active {\n  background: #f5f5f5;\n}\n.radio {\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-flex;\n  align-items: center;\n  color: black;\n}\n.radio input {\n  display: none;\n}\n.radio .circle {\n  position: relative;\n  height: 12px;\n  width: 12px;\n  border: 1px solid #cccccc;\n  display: inline-block;\n  border-radius: 50%;\n}\n.radio .circle:after {\n  content: '';\n  display: block;\n  position: absolute;\n  background: #cccccc;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n}\n.radio .radio-title {\n  padding-left: 5px;\n}\n.radio input:checked ~ .circle:after {\n  background: #0078D4;\n  width: 6px;\n  height: 6px;\n}\n.radio input:checked ~ .circle {\n  border: 1px solid #0078D4;\n}\n.queryBuilder .rule .rule-fields,\n.queryBuilder .rule .rule-operators,\n.queryBuilder .rule .rule-value,\n.queryBuilder .rule .rule-value-parent {\n  width: 100%;\n  height: 32px;\n}\n.queryBuilder .rule .rule-value-parent.textarea,\n.queryBuilder .rule .textarea .rule-value {\n  height: 55px;\n  max-height: 55px;\n  white-space: pre-line;\n}\n.queryBuilder .no-rule {\n  width: 100%;\n  padding-left: 10px;\n  vertical-align: middle;\n  display: flex;\n  flex-direction: column;\n  min-height: 30px;\n  line-height: 30px;\n  font-size: 12px;\n}\n.queryBuilder .clear-rule {\n  font-size: 12px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -54137,6 +54137,10 @@ var defaultTranslations = {
     label: ' Add rule',
     title: 'Add rule'
   },
+  clearRule: {
+    label: ' Clear',
+    title: 'Clear rule'
+  },
   addGroup: {
     label: ' Add group',
     title: 'Add group'
@@ -54210,6 +54214,7 @@ var defaultControlClassnames = {
   header: '',
   combinators: '',
   addRule: '',
+  clearRule: "",
   addGroup: '',
   removeGroup: '',
   notToggle: '',
@@ -54221,6 +54226,7 @@ var defaultControlClassnames = {
 };
 var defaultControlElements = {
   addGroupAction: _controls__WEBPACK_IMPORTED_MODULE_5__["ActionElement"],
+  clearRuleAction: _controls__WEBPACK_IMPORTED_MODULE_5__["ActionElement"],
   removeGroupAction: _controls__WEBPACK_IMPORTED_MODULE_5__["ActionElement"],
   addRuleAction: _controls__WEBPACK_IMPORTED_MODULE_5__["ActionElement"],
   removeRuleAction: _controls__WEBPACK_IMPORTED_MODULE_5__["ActionElement"],
@@ -54313,6 +54319,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
 
   var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn, getRuleUpdatedValue),
       root = _useQueryBuilderActio.root,
+      clearRule = _useQueryBuilderActio.clearRule,
       setRoot = _useQueryBuilderActio.setRoot,
       _notifyQueryChange = _useQueryBuilderActio._notifyQueryChange,
       getLevelFromRoot = _useQueryBuilderActio.getLevelFromRoot,
@@ -54327,6 +54334,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
     fields: fields,
     combinators: combinators,
     classNames: _objectSpread(_objectSpread({}, defaultControlClassnames), controlClassnames),
+    clearRule: clearRule,
     createRule: createRule,
     createRuleGroup: createRuleGroup,
     onRuleAdd: onRuleAdd,
@@ -54362,10 +54370,15 @@ var QueryBuilder = function QueryBuilder(_ref) {
     updatedroot = getNormalQuery(root);
   }
 
+  var isNoRulesApplied = enableNormalView && updatedroot.rules.length === 0;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "queryBuilder ".concat(schema.classNames.queryBuilder)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(schema.controls.ruleGroup, {
+  }, isNoRulesApplied && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("span", {
+    className: "no-rule"
+  }, " No filters applied"), !isNoRulesApplied && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(schema.controls.ruleGroup, {
     translations: _objectSpread(_objectSpread({}, defaultTranslations), translations),
+    enableClear: enableNormalView,
+    isRoot: true,
     rules: updatedroot.rules,
     combinator: root.combinator,
     schema: schema,
@@ -54506,15 +54519,6 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
   var onRuleRemove = function onRuleRemove(ruleId, parentId) {
     //Removes a rule from the query
     var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
-
-    if (rootCopy && rootCopy.rules.length === 1) {
-      var firstRule = rootCopy.rules[0];
-
-      if (firstRule.field && !firstRule.value && (!getValueEditorType || getValueEditorType(firstRule.field, firstRule.operator) !== "none")) {
-        return;
-      }
-    }
-
     var parent = Object(_utils__WEBPACK_IMPORTED_MODULE_8__["findRule"])(parentId, rootCopy);
 
     if (parent) {
@@ -54558,6 +54562,18 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
     }
   };
 
+  var clearRule = function clearRule() {
+    var rootCopy = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_1___default()(root);
+    var updatedQuery = {
+      id: rootCopy.id,
+      rules: [],
+      combinator: rootCopy.combinator
+    };
+    setRoot(updatedQuery);
+
+    _notifyQueryChange(updatedQuery);
+  };
+
   var getLevelFromRoot = function getLevelFromRoot(id) {
     //Gets the level of the rule with the provided ID
     return Object(_utils__WEBPACK_IMPORTED_MODULE_8__["getLevel"])(id, 0, root);
@@ -54574,6 +54590,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
   return {
     root: root,
+    clearRule: clearRule,
     setRoot: setRoot,
     getInitialQuery: getInitialQuery,
     createRule: createRule,
@@ -54945,7 +54962,9 @@ var RuleGroup = function RuleGroup(_ref) {
       rules = _ref$rules === void 0 ? [] : _ref$rules,
       translations = _ref.translations,
       schema = _ref.schema,
-      not = _ref.not;
+      not = _ref.not,
+      isRoot = _ref.isRoot,
+      enableClear = _ref.enableClear;
   var classNames = schema.classNames,
       combinators = schema.combinators,
       controls = schema.controls,
@@ -54955,6 +54974,7 @@ var RuleGroup = function RuleGroup(_ref) {
       isRuleGroup = schema.isRuleGroup,
       onGroupAdd = schema.onGroupAdd,
       onGroupRemove = schema.onGroupRemove,
+      clearRule = schema.clearRule,
       onPropChange = schema.onPropChange,
       onRuleAdd = schema.onRuleAdd,
       showCombinatorsBetweenRules = schema.showCombinatorsBetweenRules,
@@ -54996,18 +55016,26 @@ var RuleGroup = function RuleGroup(_ref) {
   };
 
   var level = getLevel(id);
+  var isClearEnabled = isRoot && enableClear && rules && rules.length;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ruleGroup ".concat(classNames.ruleGroup),
     "data-rule-group-id": id,
     "data-level": level
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ruleGroup-header ".concat(classNames.header)
-  }, !showCombinatorsBetweenRules && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
+  }, !showCombinatorsBetweenRules && rules && rules.length > 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.combinatorSelector, {
     options: combinators,
     value: combinator,
     title: translations.combinators.title,
     className: "ruleGroup-combinators betweenRules ".concat(classNames.combinators),
     handleOnChange: onCombinatorChange,
+    rules: rules,
+    level: level
+  }), isClearEnabled && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.clearRuleAction, {
+    label: translations.clearRule.label,
+    title: translations.clearRule.title,
+    className: "ruleGroup-clearRule ".concat(classNames.clearRule),
+    handleOnClick: clearRule,
     rules: rules,
     level: level
   }), showAddGroup && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.addGroupAction, {
@@ -55024,7 +55052,7 @@ var RuleGroup = function RuleGroup(_ref) {
     handleOnClick: addRule,
     rules: rules,
     level: level
-  })), rules.map(function (r, idx) {
+  })), rules.length > 0 && rules.map(function (r, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
       key: r.id
     }, idx === 1 && showCombinatorsBetweenRules && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -55094,6 +55122,18 @@ var ActionElement = function ActionElement(_ref) {
         d: "M10.3582 2.25H9.60815V10.875C9.60815 11.0312 9.57886 11.1777 9.52026 11.3145C9.46167 11.4512 9.38159 11.5703 9.28003 11.6719C9.17847 11.7734 9.05933 11.8535 8.92261 11.9121C8.78589 11.9707 8.6394 12 8.48315 12H2.48315C2.3269 12 2.18042 11.9707 2.0437 11.9121C1.90698 11.8535 1.78784 11.7734 1.68628 11.6719C1.58472 11.5703 1.50464 11.4512 1.44604 11.3145C1.38745 11.1777 1.35815 11.0312 1.35815 10.875V2.25H0.608154V1.5H3.60815V0.75C3.60815 0.644531 3.62769 0.546875 3.66675 0.457031C3.70581 0.367188 3.75854 0.289062 3.82495 0.222656C3.89526 0.152344 3.97534 0.0976563 4.06519 0.0585938C4.15503 0.0195312 4.25269 0 4.35815 0H6.60815C6.71362 0 6.81128 0.0195312 6.90112 0.0585938C6.99097 0.0976563 7.06909 0.152344 7.1355 0.222656C7.20581 0.289062 7.2605 0.367188 7.29956 0.457031C7.33862 0.546875 7.35815 0.644531 7.35815 0.75V1.5H10.3582V2.25ZM4.35815 1.5H6.60815V0.75H4.35815V1.5ZM8.85815 2.25H2.10815V10.875C2.10815 10.9766 2.14526 11.0645 2.21948 11.1387C2.2937 11.2129 2.38159 11.25 2.48315 11.25H8.48315C8.58472 11.25 8.67261 11.2129 8.74683 11.1387C8.82104 11.0645 8.85815 10.9766 8.85815 10.875V2.25ZM4.35815 9.75H3.60815V3.75H4.35815V9.75ZM5.85815 9.75H5.10815V3.75H5.85815V9.75ZM7.35815 9.75H6.60815V3.75H7.35815V9.75Z",
         fill: "#A6A6A6"
       })));
+    }
+
+    if (className && className.indexOf("ruleGroup-clearRule") > -1) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        width: "11",
+        height: "10",
+        viewBox: "0 0 11 10",
+        fill: "none"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        d: "M5.44434 8.75H7.5V9.375H2.21191L0.244141 7.40234C0.166016 7.32422 0.105794 7.23307 0.0634766 7.12891C0.0211589 7.02148 0 6.91081 0 6.79688C0 6.68294 0.0211589 6.57389 0.0634766 6.46973C0.105794 6.3623 0.167643 6.2679 0.249023 6.18652L6.09375 0.336914L9.9707 4.21875L5.44434 8.75ZM6.09375 1.2207L2.62695 4.6875L5.625 7.68066L9.08691 4.21875L6.09375 1.2207ZM4.55566 8.75L5.18066 8.125L2.1875 5.12695L0.693359 6.62598C0.647786 6.67155 0.625 6.72852 0.625 6.79688C0.625 6.86523 0.647786 6.9222 0.693359 6.96777L2.4707 8.75H4.55566Z",
+        fill: "#0078D4"
+      })), label);
     }
 
     if (className && className.indexOf("ruleGroup-addRule") > -1) {
