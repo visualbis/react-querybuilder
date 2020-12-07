@@ -1,6 +1,6 @@
 {
   "name": "@visualbi/react-querybuilder",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "The React <QueryBuilder /> component for constructing queries",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -84,7 +84,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@visualbi/bifrost-ui": "1.2.13",
+    "@visualbi/bifrost-ui": "1.2.16",
     "array-find": "^1.0.0",
     "array-find-index": "^1.0.2",
     "lodash": "^4.17.20",
