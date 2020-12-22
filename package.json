@@ -1,6 +1,6 @@
 {
   "name": "@visualbi/react-querybuilder",
-  "version": "0.0.30",
+  "version": "0.0.32",
   "description": "The React <QueryBuilder /> component for constructing queries",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -86,7 +86,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
-    "@visualbi/bifrost-ui": "1.2.13",
+    "@visualbi/bifrost-ui": "1.2.16",
     "array-find": "^1.0.0",
     "array-find-index": "^1.0.2",
     "eslint": "^7.16.0",
