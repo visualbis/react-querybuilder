@@ -14,7 +14,7 @@ const NavTab: React.FC<ValueSelectorProps> = ({
   return (
 
     <span className={className} title={title}>
-    {options!.map((v) => {
+    {options && options.map((v) => {
     const isChecked =   value === v.name;
        return (
       <label className="radio" key={v.name}>         

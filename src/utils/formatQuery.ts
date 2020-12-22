@@ -95,10 +95,12 @@ const formatQuery = (
         if (operator.toLowerCase() === 'in' || operator.toLowerCase() === 'not in') {
           const splitValue = (<string>rule.value).split(',').map((v) => v.trim());
           splitValue.forEach((v) => params.push(v));
-          return `${rule.field} ${operator} (${splitValue.map((v) => '?').join(', ')})`;
+          return `${rule.field} ${operator} (${splitValue.map(() => '?').join(', ')})`;
         }
-
-        params.push((<string>value).match(/^"?(.*?)"?$/)![1]);
+        const found = (<string>value).match(/^"?(.*?)"?$/);
+        if(found && found.length>1){
+          params.push(found[1]);
+        }        
       }
       return `${rule.field} ${operator} ${parameterized && value ? '?' : value}`.trim();
     };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { string } from 'prop-types';
 
 export interface NameLabelPair {
   name: string;
