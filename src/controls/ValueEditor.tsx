@@ -32,26 +32,26 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   };
   let options: any[] = [];
   let selectedOption;
-  options = values!.map((item) => {
+  options = values ? values.map((item) => {
     if (item.name == value) {
       selectedOption = { value: item.name, label: item.label };
     }
     return { value: item.name, label: item.label };
-  });
+  }) : [];
   switch (type) {
     case 'select':     
-      return (( <Dropdown placeholder={placeHolder} className={className} value={selectedOption} options={options} onChange={onSelectChange} />)   );
+      return (( <Dropdown  placeholder={placeHolder} className={className} value={selectedOption} options={options} onChange={onSelectChange} />)   );
     case 'autocomplete': 
     return (<Autocomplete scrollPositionSupport={true} placeholder={placeHolder}  options={options} value={value} onChange={onAutoSuggetionChange} className={className}></Autocomplete>)         
    //  return   ( <Select classNamePrefix={"react-select"} placeholder={placeHolder} className={className+" auto-complete"}  value={selectedOption} options={options} onChange={onAutoSuggetionChange} />)   
     case 'checkbox':
       // tslint:disable-next-line: react-a11y-input-elements
       return (<input role="checkbox" type="checkbox" className={className} title={title} onChange={onCheckboxChange} aria-checked={!!value} checked={!!value}/>);
-    case 'radio':
-      const radioCls = className? className+" radio":"radio";
+    case 'radio':{
+      const radioCls = className? `${className} radio`:"radio";
       return (
         <span className={radioCls} title={title}>
-          {values!.map((v) => {
+          {values && values.map((v) => {
           const isChecked =   value === v.name;
              return (
             <label key={v.name}>
@@ -68,7 +68,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
             </label>
           )})}
         </span>
-      );
+      );}
+      break;
       case 'textarea':
           return (
             <div className="rule-value-parent textarea">

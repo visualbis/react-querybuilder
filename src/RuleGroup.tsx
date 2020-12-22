@@ -1,15 +1,11 @@
 import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
-export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator = 'and',  rules = [],  translations,  schema,  not, isRoot, enableClear}) => {
-  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd, onGroupRemove, clearRule, onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule} = schema;
-  const hasParentGroup = () => !!parentId;
+export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,   isRoot, enableClear}) => {
+  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd, clearRule, onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
-  };
-  const onNotToggleChange = (checked: boolean) => {
-    onPropChange('not', checked, id);
-  };
+  }; 
   const addRule = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -22,11 +18,11 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id,  parentId,  combinator
     const newGroup = createRuleGroup();
     onGroupAdd(newGroup, id);
   };
-  const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
-    event.preventDefault();
-    event.stopPropagation();
-    onGroupRemove(id, parentId || /* istanbul ignore next */ '');
-  };
+  // const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
+  //   event.preventDefault();
+  //   event.stopPropagation();
+  //   onGroupRemove(id, parentId || /* istanbul ignore next */ '');
+  // };
   const level = getLevel(id);
 const isClearEnabled = isRoot && enableClear && rules && rules.length;
   return (
@@ -75,22 +71,22 @@ const isClearEnabled = isRoot && enableClear && rules && rules.length;
             /></div>
     }
           {isRuleGroup(r) ? (<RuleGroup
-              id={r.id!}
+              id={r.id}
               schema={schema}
               parentId={id}
               combinator={r.combinator}
               translations={translations}
               rules={r.rules}
               not={!!r.not}
-            />) : (<controls.rule
-              id={r.id!}
+            />) : r.id ?(<controls.rule
+              id={r.id}
               field={r.field}
               value={r.value}
               operator={r.operator}
               schema={schema}
               parentId={id}
               translations={translations}
-            />)}
+            />):null}
         </Fragment>))}
      
        

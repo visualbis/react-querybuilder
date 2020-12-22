@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+test
+.eslintrc.js
+karma.conf.js
+demo
+config
+src/utils/__tests__
+src/controls/__tests__
+src/__tests__/
+types
+webpack.config.js
+tests.webpack.js
+gh-pages.publish.js

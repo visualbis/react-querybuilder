@@ -21,7 +21,6 @@ export const Rule: React.FC<RuleProps> = ({
     getValues,
     onPropChange,
     onRuleRemove,
-    showAddGroup,
     removeIconatStart
   }
 }) => {
@@ -50,7 +49,6 @@ export const Rule: React.FC<RuleProps> = ({
 
   const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
-  const valueEditorType = getInputType(field, operator);
  
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>

@@ -17,7 +17,8 @@ import {
   Field,
   ValueEditorType
 } from './types';
-import { findRule, findRuleGroup, generateValidQuery, getLevel, isRuleGroup } from './utils';
+import { findRule,  generateValidQuery, getLevel, isRuleGroup } from './utils';
+
 
 const defaultTranslations: Translations = {
   fields: {
@@ -114,7 +115,7 @@ const defaultControlElements: Controls = {
 };
 
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,getPlaceHolder,
-   getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, enableNormalView=false,onAdvancedClick=()=>{}, showNotToggle = false,
+   getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, enableNormalView=false,onAdvancedClick, showNotToggle = false,
    getSelectedColumn, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false, removeIconatStart = false }) => {
     const getInitialQuery = () => {// Gets the initial query   
       return (query && generateValidQuery(query)) || createRuleGroup();
@@ -175,7 +176,7 @@ const isNoRulesApplied = enableNormalView && updatedroot.rules.length === 0;
     </div>
   );
 };
-const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:Function, getInitialQuery:Function, onQueryChange:Function, getOperatorsMain:Function,getValidQuery:Function, getRuleDefaultValue:Function,resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: Function)=>{
+const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType); 
   const onRuleAdd = (rule: RuleType, parentId: string) => {// Adds a rule to the query
     const rootCopy = cloneDeep(root);
@@ -223,7 +224,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
         objectAssign(rule, {operator: getOperatorsMain(rule.field)[0].name, value: getRuleDefaultValue(rule) });
       }
       if (resetOnOperatorChange && prop === 'operator') {
-        let _value = getRuleUpdatedValue(rule, preOperator);       
+        const _value = getRuleUpdatedValue(rule, preOperator);       
         Object.assign(rule, {value: _value });
        }
       setRoot(rootCopy);
@@ -237,7 +238,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
          parent.rules.splice(index, 1);
-         let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+         const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
          getValidQuery(rootCopy,updatedQuery,true);
          setRoot(updatedQuery);
          _notifyQueryChange(updatedQuery);
@@ -249,7 +250,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === groupId);
       parent.rules.splice(index, 1);
-      let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+      const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
        getValidQuery(rootCopy,updatedQuery,true);
       setRoot(updatedQuery);
       _notifyQueryChange(updatedQuery);
@@ -257,7 +258,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
   };
   const clearRule = () => {   
       const rootCopy = cloneDeep(root);
-      let updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+      const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
       setRoot(updatedQuery);
       _notifyQueryChange(updatedQuery);
   }
@@ -274,7 +275,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
 }
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
   const getNormalQuery = (query: RuleGroupType)=>{
-    let updatedQuery:RuleGroupType =  { id: query.id, rules: [], combinator: query.combinator };
+    const updatedQuery:RuleGroupType =  { id: query.id, rules: [], combinator: query.combinator };
     query.rules.forEach((rule)=>{
       if(!(rule as RuleGroupType).combinator)
            updatedQuery.rules.push(rule);
@@ -324,8 +325,10 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
       switch(curType){
         case "checkbox":
             _value = true;
+            break;
         case "radio":
             _value = true;
+            break;
         default:
             _value = "";
       }
@@ -354,8 +357,8 @@ const getRuleDefaultValue = (rule: RuleType) => {
        } else {
           root = { id: _query.id, rules: [], combinator: _query.combinator };
        }
-       let len = _query.rules.length;
-       for (var i = 0; i < len; i++) {
+       const len = _query.rules.length;
+       for (let i = 0; i < len; i++) {
           const rule = _query.rules[i];
           getValidQuery(rule, root, false);        
        }
@@ -363,7 +366,7 @@ const getRuleDefaultValue = (rule: RuleType) => {
         parent.rules.push(root);
      }
     } else {
-       let _rule: RuleType = query as RuleType;
+       const _rule: RuleType = query as RuleType;
           root = { field: _rule.field, operator: _rule.operator, value: _rule.value };
           parent.rules.push(root);       
     }
