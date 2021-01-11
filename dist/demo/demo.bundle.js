@@ -54260,8 +54260,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
       showCombinatorsBetweenRules = _ref$showCombinatorsB === void 0 ? false : _ref$showCombinatorsB,
       _ref$enableNormalView = _ref.enableNormalView,
       enableNormalView = _ref$enableNormalView === void 0 ? false : _ref$enableNormalView,
-      _ref$onAdvancedClick = _ref.onAdvancedClick,
-      onAdvancedClick = _ref$onAdvancedClick === void 0 ? function () {} : _ref$onAdvancedClick,
+      onAdvancedClick = _ref.onAdvancedClick,
       _ref$showNotToggle = _ref.showNotToggle,
       showNotToggle = _ref$showNotToggle === void 0 ? false : _ref$showNotToggle,
       getSelectedColumn = _ref.getSelectedColumn,
@@ -54491,7 +54490,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
     if (rule) {
       // istanbul ignore else 
-      var preOperator = rule.operator;
+      var _preOperator = rule.operator;
       object_assign__WEBPACK_IMPORTED_MODULE_3___default()(rule, _defineProperty({}, prop, value));
 
       if (resetOnFieldChange && prop === 'field') {
@@ -54503,7 +54502,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
       }
 
       if (resetOnOperatorChange && prop === 'operator') {
-        var _value = getRuleUpdatedValue(rule, preOperator);
+        var _value = getRuleUpdatedValue(rule, _preOperator);
 
         Object.assign(rule, {
           value: _value
@@ -54677,9 +54676,11 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
       switch (curType) {
         case "checkbox":
           _value = true;
+          break;
 
         case "radio":
           _value = true;
+          break;
 
         default:
           _value = "";
@@ -54725,8 +54726,8 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
       var len = _query.rules.length;
 
       for (var i = 0; i < len; i++) {
-        var rule = _query.rules[i];
-        getValidQuery(rule, root, false);
+        var _rule2 = _query.rules[i];
+        getValidQuery(_rule2, root, false);
       }
 
       if (!isRoot && root.rules.length > 0) {
@@ -54858,7 +54859,6 @@ var Rule = function Rule(_ref) {
       getValues = _ref$schema.getValues,
       onPropChange = _ref$schema.onPropChange,
       onRuleRemove = _ref$schema.onRuleRemove,
-      showAddGroup = _ref$schema.showAddGroup,
       removeIconatStart = _ref$schema.removeIconatStart;
 
   var onElementChanged = function onElementChanged(property, value) {
@@ -54887,7 +54887,6 @@ var Rule = function Rule(_ref) {
     return f.name === field;
   });
   var level = getLevel(id);
-  var valueEditorType = getInputType(field, operator);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "rule ".concat(classNames.rule),
     "data-rule-id": id,
@@ -54955,14 +54954,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var RuleGroup = function RuleGroup(_ref) {
   var id = _ref.id,
-      parentId = _ref.parentId,
       _ref$combinator = _ref.combinator,
       combinator = _ref$combinator === void 0 ? 'and' : _ref$combinator,
       _ref$rules = _ref.rules,
       rules = _ref$rules === void 0 ? [] : _ref$rules,
       translations = _ref.translations,
       schema = _ref.schema,
-      not = _ref.not,
       isRoot = _ref.isRoot,
       enableClear = _ref.enableClear;
   var classNames = schema.classNames,
@@ -54973,7 +54970,6 @@ var RuleGroup = function RuleGroup(_ref) {
       getLevel = schema.getLevel,
       isRuleGroup = schema.isRuleGroup,
       onGroupAdd = schema.onGroupAdd,
-      onGroupRemove = schema.onGroupRemove,
       clearRule = schema.clearRule,
       onPropChange = schema.onPropChange,
       onRuleAdd = schema.onRuleAdd,
@@ -54981,16 +54977,8 @@ var RuleGroup = function RuleGroup(_ref) {
       showAddGroup = schema.showAddGroup,
       showAddRule = schema.showAddRule;
 
-  var hasParentGroup = function hasParentGroup() {
-    return !!parentId;
-  };
-
   var onCombinatorChange = function onCombinatorChange(value) {
     onPropChange('combinator', value, id);
-  };
-
-  var onNotToggleChange = function onNotToggleChange(checked) {
-    onPropChange('not', checked, id);
   };
 
   var addRule = function addRule(event) {
@@ -55005,15 +54993,12 @@ var RuleGroup = function RuleGroup(_ref) {
     event.stopPropagation();
     var newGroup = createRuleGroup();
     onGroupAdd(newGroup, id);
-  };
+  }; // const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
+  //   event.preventDefault();
+  //   event.stopPropagation();
+  //   onGroupRemove(id, parentId || /* istanbul ignore next */ '');
+  // };
 
-  var removeGroup = function removeGroup(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    onGroupRemove(id, parentId ||
-    /* istanbul ignore next */
-    '');
-  };
 
   var level = getLevel(id);
   var isClearEnabled = isRoot && enableClear && rules && rules.length;
@@ -55073,7 +55058,7 @@ var RuleGroup = function RuleGroup(_ref) {
       translations: translations,
       rules: r.rules,
       not: !!r.not
-    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.rule, {
+    }) : r.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(controls.rule, {
       id: r.id,
       field: r.field,
       value: r.value,
@@ -55081,7 +55066,7 @@ var RuleGroup = function RuleGroup(_ref) {
       schema: schema,
       parentId: id,
       translations: translations
-    }));
+    }) : null);
   }));
 };
 RuleGroup.displayName = 'RuleGroup';
@@ -55202,7 +55187,7 @@ var NavTab = function NavTab(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: className,
     title: title
-  }, options.map(function (v) {
+  }, options && options.map(function (v) {
     var isChecked = value === v.name;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "radio",
@@ -55357,7 +55342,7 @@ var ValueEditor = function ValueEditor(_ref) {
 
   var options = [];
   var selectedOption;
-  options = values.map(function (item) {
+  options = values ? values.map(function (item) {
     if (item.name == value) {
       selectedOption = {
         value: item.name,
@@ -55369,7 +55354,7 @@ var ValueEditor = function ValueEditor(_ref) {
       value: item.name,
       label: item.label
     };
-  });
+  }) : [];
 
   switch (type) {
     case 'select':
@@ -55405,26 +55390,29 @@ var ValueEditor = function ValueEditor(_ref) {
       });
 
     case 'radio':
-      var radioCls = className ? className + " radio" : "radio";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: radioCls,
-        title: title
-      }, values.map(function (v) {
-        var isChecked = value === v.name;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          key: v.name
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "radio",
-          value: v.name,
-          "aria-checked": isChecked,
-          checked: isChecked,
-          onChange: onTextInputChange
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "circle"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "radio-title"
-        }, v.label));
-      }));
+      {
+        var radioCls = className ? "".concat(className, " radio") : "radio";
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: radioCls,
+          title: title
+        }, values && values.map(function (v) {
+          var isChecked = value === v.name;
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            key: v.name
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "radio",
+            value: v.name,
+            "aria-checked": isChecked,
+            checked: isChecked,
+            onChange: onTextInputChange
+          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "circle"
+          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "radio-title"
+          }, v.label));
+        }));
+      }
+      break;
 
     case 'textarea':
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -55480,7 +55468,6 @@ var ValueSelector = function ValueSelector(_ref) {
   var className = _ref.className,
       handleOnChange = _ref.handleOnChange,
       options = _ref.options,
-      title = _ref.title,
       value = _ref.value;
 
   var onChange = function onChange(value) {
@@ -55489,7 +55476,7 @@ var ValueSelector = function ValueSelector(_ref) {
 
   var selectedValue;
 
-  var _options = options.map(function (item) {
+  var _options = options ? options.map(function (item) {
     var prefix = item.type === "number" ? "Σ " : "";
 
     if (item.name === value) {
@@ -55503,7 +55490,7 @@ var ValueSelector = function ValueSelector(_ref) {
       value: item.name,
       label: prefix + item.label
     };
-  });
+  }) : [];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
     classNamePrefix: "react-select",
@@ -55831,12 +55818,16 @@ var formatQuery = function formatQuery(ruleGroup, format, valueProcessor) {
           splitValue.forEach(function (v) {
             return params.push(v);
           });
-          return "".concat(rule.field, " ").concat(operator, " (").concat(splitValue.map(function (v) {
+          return "".concat(rule.field, " ").concat(operator, " (").concat(splitValue.map(function () {
             return '?';
           }).join(', '), ")");
         }
 
-        params.push(value.match(/^"?(.*?)"?$/)[1]);
+        var found = value.match(/^"?(.*?)"?$/);
+
+        if (found && found.length > 1) {
+          params.push(found[1]);
+        }
       }
 
       return "".concat(rule.field, " ").concat(operator, " ").concat(parameterized && value ? '?' : value).trim();
