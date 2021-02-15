@@ -238,7 +238,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
          parent.rules.splice(index, 1);
-         const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+         const updatedQuery:RuleGroupType =  { id: rootCopy.id, name: rootCopy.name ? rootCopy.name: "", email: rootCopy.email ? rootCopy.email: "", rules: [], combinator: rootCopy.combinator };
          getValidQuery(rootCopy,updatedQuery,true);
          setRoot(updatedQuery);
          _notifyQueryChange(updatedQuery);
@@ -250,7 +250,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     if (parent) { // istanbul ignore else 
       const index = arrayFindIndex(parent.rules, (x) => x.id === groupId);
       parent.rules.splice(index, 1);
-      const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+      const updatedQuery:RuleGroupType =  { id: rootCopy.id, name: rootCopy.name ? rootCopy.name: "", email: rootCopy.email ? rootCopy.email: "", isActive : rootCopy.isActive, rules: [], combinator: rootCopy.combinator };
        getValidQuery(rootCopy,updatedQuery,true);
       setRoot(updatedQuery);
       _notifyQueryChange(updatedQuery);
@@ -258,7 +258,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
   };
   const clearRule = () => {   
       const rootCopy = cloneDeep(root);
-      const updatedQuery:RuleGroupType =  { id: rootCopy.id, rules: [], combinator: rootCopy.combinator };
+      const updatedQuery:RuleGroupType =  { id: rootCopy.id, name: rootCopy.name ? rootCopy.name: "", email: rootCopy.email ? rootCopy.email: "", isActive : rootCopy.isActive, rules: [], combinator: rootCopy.combinator };
       setRoot(updatedQuery);
       _notifyQueryChange(updatedQuery);
   }
@@ -275,7 +275,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
 }
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
   const getNormalQuery = (query: RuleGroupType)=>{
-    const updatedQuery:RuleGroupType =  { id: query.id, rules: [], combinator: query.combinator };
+    const updatedQuery:RuleGroupType =  { id: query.id, name: query.name ? query.name :  "", email: query.email ? query.email: "", isActive : query.isActive,  rules: [], combinator: query.combinator };
     query.rules.forEach((rule)=>{
       if(!(rule as RuleGroupType).combinator)
            updatedQuery.rules.push(rule);
