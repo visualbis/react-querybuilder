@@ -19,8 +19,11 @@ export interface RuleType {
 
 export interface RuleGroupType {
   id: string;
+  name?: string;
+  email?: string;
   combinator: string;
   rules: (RuleType | RuleGroupType)[];
+  isActive?: boolean;
   not?: boolean;
 }
 
