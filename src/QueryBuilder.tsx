@@ -39,8 +39,8 @@ const defaultTranslations: Translations = {
     title: 'Remove group'
   },
   addRule: {
-    label: ' Add rule',
-    title: 'Add rule'
+    label: ' Add filter',
+    title: 'Add filter'
   },
   clearRule: {
     label: ' Clear',
