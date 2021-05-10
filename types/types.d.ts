@@ -15,8 +15,11 @@ export interface RuleType {
 }
 export interface RuleGroupType {
     id: string;
+    name?: string;
+    email?: string;
     combinator: string;
     rules: (RuleType | RuleGroupType)[];
+    isActive?: boolean;
     not?: boolean;
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
