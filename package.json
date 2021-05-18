@@ -86,7 +86,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
-    "@visualbi/bifrost-ui": "1.2.16",
+    "@visualbi/bifrost-ui": "1.2.25-alpha2105180819",
     "array-find": "^1.0.0",
     "array-find-index": "^1.0.2",
     "eslint": "^7.16.0",

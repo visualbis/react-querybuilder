@@ -67,6 +67,7 @@ export interface SelectorEditorProps extends CommonProps {
 
 export interface ValueSelectorProps extends SelectorEditorProps {
   options: Field[];
+  placeHolderTooltip?: boolean;
 }
 
 export interface NotToggleProps extends CommonProps {

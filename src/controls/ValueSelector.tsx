@@ -6,7 +6,8 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   className,
   handleOnChange,
   options,
-  value
+  value,
+  placeHolderTooltip
 }) => {
   const onChange = (value: any) => { handleOnChange(value.value) }
   let selectedValue;
@@ -17,7 +18,7 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
     }
     return { value: item.name, label: prefix + item.label };
   }) : [];
-  return (<Dropdown classNamePrefix={"react-select"} className={className + " auto-complete"} placeholder={"Select data field"} isSearchable={false} value={selectedValue} options={_options} onChange={onChange} />)
+  return (<Dropdown classNamePrefix={"react-select"}  placeHolderTooltip={placeHolderTooltip} className={className + " auto-complete"} placeholder={"Select data field"} isSearchable={false} value={selectedValue} options={_options} onChange={onChange} />)
 };
 
 ValueSelector.displayName = 'ValueSelector';
