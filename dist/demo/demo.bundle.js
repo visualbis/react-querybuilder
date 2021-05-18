@@ -692,266 +692,145 @@ module.exports = content.locals || {};
 /*!****************************************************************************!*\
   !*** ./node_modules/@visualbi/bifrost-ui/dist/react/forms/Autocomplete.js ***!
   \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Autocomplete */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Autocomplete", function() { return Autocomplete; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_window__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-window */ "./node_modules/react-window/dist/index.esm.js");
+/* harmony import */ var _forms_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../forms/Input */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/Input.js");
+/* harmony import */ var _css_Autocomplete_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../css/Autocomplete.css */ "./node_modules/@visualbi/bifrost-ui/css/Autocomplete.css");
+/* harmony import */ var _css_Autocomplete_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_Autocomplete_css__WEBPACK_IMPORTED_MODULE_4__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Autocomplete = void 0;
 
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
 
-var _reactWindow = __webpack_require__(/*! react-window */ "./node_modules/react-window/dist/index.esm.js");
 
-var _Input = __webpack_require__(/*! ../forms/Input */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/Input.js");
-
-__webpack_require__(/*! ../../../css/Autocomplete.css */ "./node_modules/@visualbi/bifrost-ui/css/Autocomplete.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Autocomplete =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Autocomplete, _Component);
-
-  function Autocomplete(props) {
-    var _this;
-
-    _classCallCheck(this, Autocomplete);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "wrapperRef", void 0);
-
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (e) {
-      var onChange = _this.props.onChange;
-      onChange(e.target.value);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSearchSelect", function (selected) {
-      return function () {
-        var onChange = _this.props.onChange;
-
-        _this.setState({
-          isDropdownOpen: false
-        });
-
-        onChange(selected);
-      };
-    });
-
-    _this.state = {
-      isDropdownOpen: false,
-      inputValue: _this.props.value,
-      searchTriggered: false
-    };
-    _this.wrapperRef = React.createRef();
-    _this.onSearchSelect = _this.onSearchSelect.bind(_assertThisInitialized(_this));
-    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
-    _this.onInputClick = _this.onInputClick.bind(_assertThisInitialized(_this));
-    _this.handleClickOutside = _this.handleClickOutside.bind(_assertThisInitialized(_this));
-    _this.optionRenderer = _this.optionRenderer.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Autocomplete, [{
-    key: "onInputClick",
-    value: function onInputClick(e) {
-      e.preventDefault();
-      var isDropdownOpen = this.state.isDropdownOpen;
-      var disabled = this.props.disabled;
-
-      if (!disabled) {
-        this.setState({
-          isDropdownOpen: !isDropdownOpen
-        });
-      }
-    }
-  }, {
-    key: "onInputChange",
-    value: function onInputChange(value) {
-      this.setState({
-        isDropdownOpen: true,
-        inputValue: value,
-        searchTriggered: true
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.addEventListener('mousedown', this.handleClickOutside);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      document.removeEventListener('mousedown', this.handleClickOutside);
-    }
-  }, {
-    key: "handleClickOutside",
-    value: function handleClickOutside(event) {
-      if (this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
-        this.setState({
-          isDropdownOpen: false
-        });
-      }
-    }
-  }, {
-    key: "optionRenderer",
-    value: function optionRenderer(_ref) {
-      var data = _ref.data,
-          index = _ref.index,
-          style = _ref.style;
-      var searchContainer = this.wrapperRef.current;
-      var searchContainerWidth = searchContainer ? searchContainer.getBoundingClientRect().width : 200;
-      return React.createElement("li", {
-        className: "menu-item",
-        key: data[index].value,
-        style: style
-      }, React.createElement("button", {
-        onClick: this.onSearchSelect(data[index].value)
-      }, React.createElement("span", {
-        title: data[index].label,
-        style: {
-          maxWidth: searchContainerWidth - 30
-        },
-        className: "label-text"
-      }, data[index].label), data[index].description && React.createElement("span", {
-        className: "label-desc"
-      }, " ", data[index].description, " ") || null));
-    }
-  }, {
-    key: "renderDropdown",
-    value: function renderDropdown() {
-      var _this$props = this.props,
-          position = _this$props.position,
-          options = _this$props.options;
-      var _this$state = this.state,
-          inputValue = _this$state.inputValue,
-          searchTriggered = _this$state.searchTriggered;
-      var isDropdownOpen = this.state.isDropdownOpen;
-      var selectOptions = options;
-      var menuClassName = (0, _classnames.default)('menu', {
-        'hidden': !isDropdownOpen
-      }, {
-        'visible': isDropdownOpen
-      });
-      var searchedResult = searchTriggered ? selectOptions.filter(function (item) {
-        return item.label.toLowerCase().includes(inputValue.toLowerCase());
-      }) : selectOptions;
-      var optionHeight = searchedResult.length > 0 ? searchedResult[0].description ? 51 : 35 : 45;
-      var height = searchedResult.length > 4 ? 175 : searchedResult.length === 0 ? 10 : searchedResult.length * optionHeight;
-      var style = {};
-
-      if (this.props.scrollPositionSupport && this.wrapperRef.current) {
-        var boundingBox = this.wrapperRef.current.getBoundingClientRect();
-        style = {
-          position: "fixed",
-          top: boundingBox.top + boundingBox.height,
-          left: boundingBox.left,
-          width: boundingBox.width
+class Autocomplete extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.onChange = (e) => {
+            const { onChange } = this.props;
+            onChange(e.target.value);
         };
-      }
-
-      if (searchedResult.length > 0) {
-        return React.createElement("ul", {
-          style: style,
-          className: (0, _classnames.default)(menuClassName, position)
-        }, React.createElement(_reactWindow.FixedSizeList, {
-          height: height,
-          width: "100%",
-          itemCount: searchedResult.length,
-          itemSize: optionHeight,
-          itemData: searchedResult
-        }, this.optionRenderer));
-      }
-
-      return React.createElement("ul", {
-        style: style,
-        className: (0, _classnames.default)(menuClassName, position)
-      }, React.createElement("li", {
-        className: "menu-item"
-      }, React.createElement("button", null, "No match found")));
+        this.onSearchSelect = (selected) => () => {
+            const { onChange } = this.props;
+            this.setState({
+                isDropdownOpen: false,
+            });
+            onChange(selected);
+        };
+        this.state = {
+            isDropdownOpen: false,
+            inputValue: this.props.value,
+            searchTriggered: false,
+        };
+        this.wrapperRef = react__WEBPACK_IMPORTED_MODULE_0__["createRef"]();
+        this.onSearchSelect = this.onSearchSelect.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+        this.onInputClick = this.onInputClick.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+        this.optionRenderer = this.optionRenderer.bind(this);
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          icon = _this$props2.icon,
-          value = _this$props2.value,
-          disabled = _this$props2.disabled,
-          placeholder = _this$props2.placeholder,
-          error = _this$props2.error,
-          className = _this$props2.className,
-          onChange = _this$props2.onChange;
-      var inputValue = this.state.inputValue;
-      var resolvedClassName = (0, _classnames.default)('bf-ui-form-auto-complete', 'form-auto-complete', {
-        'has-icon-left': icon
-      }, {
-        'is-error': error
-      }, {
-        'disabled': disabled
-      }, className);
-      return React.createElement("div", {
-        role: "link",
-        ref: this.wrapperRef,
-        className: resolvedClassName,
-        onClick: this.onInputClick,
-        onChange: this.onChange
-      }, React.createElement(_Input.Input, {
-        disabled: disabled,
-        placeholder: placeholder,
-        value: inputValue,
-        onChange: this.onInputChange
-      }), this.renderDropdown());
+    onInputClick(e) {
+        e.preventDefault();
+        const { isDropdownOpen } = this.state;
+        const { disabled } = this.props;
+        if (!disabled) {
+            this.setState({
+                isDropdownOpen: !isDropdownOpen,
+            });
+        }
     }
-  }]);
+    onInputChange(value) {
+        this.setState({ isDropdownOpen: true, inputValue: value, searchTriggered: true });
+    }
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+    handleClickOutside(event) {
+        if (this.wrapperRef.current &&
+            !this.wrapperRef.current.contains(event.target)) {
+            this.setState({ isDropdownOpen: false });
+        }
+    }
+    optionRenderer({ data, index, style }) {
+        const searchContainer = this.wrapperRef.current;
+        const searchContainerWidth = searchContainer
+            ? searchContainer.getBoundingClientRect().width
+            : 200;
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("li", { className: "menu-item", key: data[index].value, style: style },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("button", { onClick: this.onSearchSelect(data[index].value) },
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", { title: data[index].label, style: { maxWidth: searchContainerWidth - 30 }, className: "label-text" }, data[index].label),
+                (data[index].description && (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", { className: "label-desc" },
+                    " ",
+                    data[index].description,
+                    " "))) ||
+                    null)));
+    }
+    ;
+    renderDropdown() {
+        const { position, options, } = this.props;
+        const { inputValue, searchTriggered } = this.state;
+        const { isDropdownOpen } = this.state;
+        const selectOptions = options;
+        const menuClassName = classnames__WEBPACK_IMPORTED_MODULE_1___default()('menu', { 'hidden': !isDropdownOpen }, { 'visible': isDropdownOpen });
+        const searchedResult = searchTriggered ? selectOptions.filter(item => item.label.toLowerCase().includes(inputValue.toLowerCase())) : selectOptions;
+        const optionHeight = searchedResult.length > 0 ? (searchedResult[0].description ? 51 : 35) : 45;
+        const height = searchedResult.length > 4
+            ? 175
+            : searchedResult.length === 0
+                ? 10
+                : searchedResult.length * optionHeight;
+        let style = {};
+        if (this.props.scrollPositionSupport && this.wrapperRef.current) {
+            const boundingBox = this.wrapperRef.current.getBoundingClientRect();
+            style = {
+                position: "fixed",
+                top: boundingBox.top + boundingBox.height,
+                left: boundingBox.left,
+                width: boundingBox.width
+            };
+        }
+        if (searchedResult.length > 0) {
+            return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("ul", { style: style, className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(menuClassName, position) },
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react_window__WEBPACK_IMPORTED_MODULE_2__["FixedSizeList"], { height: height, width: "100%", itemCount: searchedResult.length, itemSize: optionHeight, itemData: searchedResult }, this.optionRenderer)));
+        }
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("ul", { style: style, className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(menuClassName, position) },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("li", { className: "menu-item" },
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("button", null, "No match found"))));
+    }
+    render() {
+        const { icon, value, disabled, placeholder, error, className, onChange } = this.props;
+        const { inputValue } = this.state;
+        const resolvedClassName = classnames__WEBPACK_IMPORTED_MODULE_1___default()('bf-ui-form-auto-complete', 'form-auto-complete', { 'has-icon-left': icon }, { 'is-error': error }, { 'disabled': disabled }, className);
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { role: "link", ref: this.wrapperRef, className: resolvedClassName, onClick: this.onInputClick, onChange: this.onChange },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_forms_Input__WEBPACK_IMPORTED_MODULE_3__["Input"], { disabled: disabled, placeholder: placeholder, value: inputValue, onChange: this.onInputChange }),
+            this.renderDropdown()));
+    }
+}
+Autocomplete.defaultProps = {
+    onChange: () => { },
+    position: 'bottom',
+    value: "",
+    options: []
+};
+Autocomplete.getDerivedStateFromProps = (props, state) => {
+    return {
+        inputValue: props.value,
+        isDropdownOpen: state.isDropdownOpen
+    };
+};
 
-  return Autocomplete;
-}(React.Component);
-
-exports.Autocomplete = Autocomplete;
-
-_defineProperty(Autocomplete, "defaultProps", {
-  onChange: function onChange() {},
-  position: 'bottom',
-  value: "",
-  options: []
-});
-
-_defineProperty(Autocomplete, "getDerivedStateFromProps", function (props, state) {
-  return {
-    inputValue: props.value,
-    isDropdownOpen: state.isDropdownOpen
-  };
-});
 
 /***/ }),
 
@@ -959,112 +838,43 @@ _defineProperty(Autocomplete, "getDerivedStateFromProps", function (props, state
 /*!************************************************************************!*\
   !*** ./node_modules/@visualbi/bifrost-ui/dist/react/forms/Checkbox.js ***!
   \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Checkbox */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return Checkbox; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_Checkbox_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/Checkbox.css */ "./node_modules/@visualbi/bifrost-ui/css/Checkbox.css");
+/* harmony import */ var _css_Checkbox_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_Checkbox_css__WEBPACK_IMPORTED_MODULE_2__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Checkbox = void 0;
 
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-__webpack_require__(/*! ../../../css/Checkbox.css */ "./node_modules/@visualbi/bifrost-ui/css/Checkbox.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Checkbox =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Checkbox, _Component);
-
-  function Checkbox() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Checkbox);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+class Checkbox extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor() {
+        super(...arguments);
+        this.onChange = (e) => {
+            const { onChange } = this.props;
+            onChange(e.target.checked);
+        };
     }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Checkbox)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (e) {
-      var onChange = _this.props.onChange;
-      onChange(e.target.checked);
-    });
-
-    return _this;
-  }
-
-  _createClass(Checkbox, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          value = _this$props.value,
-          onChange = _this$props.onChange,
-          label = _this$props.label,
-          disabled = _this$props.disabled,
-          className = _this$props.className,
-          error = _this$props.error;
-      var resolvedClassName = (0, _classnames.default)('bf-ui-form-checkbox', 'form-checkbox', {
-        'is-error': error
-      }, {
-        'disabled': disabled
-      }, className);
-      return React.createElement("label", {
-        className: resolvedClassName
-      }, React.createElement("input", {
-        placeholder: "",
-        type: "checkbox",
-        role: "checkbox",
-        checked: value,
-        "aria-checked": value,
-        disabled: disabled,
-        onChange: this.onChange
-      }), React.createElement("i", {
-        className: "form-icon"
-      }), label && React.createElement("span", null, label));
+    render() {
+        const { value, label, disabled, className, error, title } = this.props;
+        const resolvedClassName = classnames__WEBPACK_IMPORTED_MODULE_1___default()("bf-ui-form-checkbox", "form-checkbox", { "is-error": error }, { disabled: disabled }, className);
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("label", { className: resolvedClassName, title: title },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("input", { placeholder: "", type: "checkbox", role: "checkbox", checked: value, "aria-checked": value, disabled: disabled, onChange: this.onChange }),
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("i", { className: "form-icon" }),
+            label && react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, label)));
     }
-  }]);
+}
+Checkbox.defaultProps = {
+    onChange: () => ({}),
+};
 
-  return Checkbox;
-}(React.Component);
-
-exports.Checkbox = Checkbox;
-
-_defineProperty(Checkbox, "defaultProps", {
-  onChange: function onChange() {}
-});
 
 /***/ }),
 
@@ -1072,383 +882,231 @@ _defineProperty(Checkbox, "defaultProps", {
 /*!************************************************************************!*\
   !*** ./node_modules/@visualbi/bifrost-ui/dist/react/forms/DropDown.js ***!
   \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Dropdown */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dropdown", function() { return Dropdown; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _forms_Checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../forms/Checkbox */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/Checkbox.js");
+/* harmony import */ var _css_DropDown_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../css/DropDown.css */ "./node_modules/@visualbi/bifrost-ui/css/DropDown.css");
+/* harmony import */ var _css_DropDown_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_DropDown_css__WEBPACK_IMPORTED_MODULE_4__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Dropdown = void 0;
 
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
 
-var _Checkbox = __webpack_require__(/*! ../forms/Checkbox */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/Checkbox.js");
-
-__webpack_require__(/*! ../../../css/DropDown.css */ "./node_modules/@visualbi/bifrost-ui/css/DropDown.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var DEFAULT_PLACEHOLDER_STRING = 'Select...';
-
-var Dropdown =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Dropdown, _Component);
-
-  function Dropdown(props) {
-    var _this;
-
-    _classCallCheck(this, Dropdown);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "mounted", void 0);
-
-    _defineProperty(_assertThisInitialized(_this), "dropdownRef", void 0);
-
-    _defineProperty(_assertThisInitialized(_this), "setValue", function (value, label, disabled, index) {
-      return function (event) {
-        if (disabled) {
-          return;
-        }
-
-        var isMultiSelect = _this.props.isMultiSelect;
-        var newState = {
-          selected: {
-            value: value,
-            label: label,
-            index: typeof index === "number" ? index : null
-          },
-          isOpen: isMultiSelect ? _this.state.isOpen : false
+const DEFAULT_PLACEHOLDER_STRING = 'Select...';
+class Dropdown extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.setValue = (value, label, disabled, index) => (event) => {
+            if (disabled) {
+                return;
+            }
+            const { isMultiSelect } = this.props;
+            let newState = {
+                selected: {
+                    value,
+                    label,
+                    index: typeof index === "number" ? index : null
+                },
+                isOpen: isMultiSelect ? this.state.isOpen : false
+            };
+            this.fireChangeEvent(newState);
+            this.setState(newState);
         };
-
-        _this.fireChangeEvent(newState);
-
-        _this.setState(newState);
-      };
-    });
-
-    _this.state = {
-      selected: Dropdown.parseValue(props.value, props.options) || {
-        label: _typeof(props.placeholder) === undefined ? DEFAULT_PLACEHOLDER_STRING : props.placeholder,
-        value: ''
-      },
-      isOpen: false
-    };
-    _this.dropdownRef = React.createRef();
-    _this.mounted = true;
-    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_this));
-    _this.fireChangeEvent = _this.fireChangeEvent.bind(_assertThisInitialized(_this));
-    _this.setValue = _this.setValue.bind(_assertThisInitialized(_this));
-    _this.handleMouseDown = _this.handleMouseDown.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Dropdown, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.addEventListener('mousedown', this.handleDocumentClick, false);
-      document.addEventListener('touchstart', this.handleDocumentClick, false);
+        this.state = {
+            selected: Dropdown.parseValue(props.value, props.options) || {
+                label: typeof props.placeholder === undefined ? DEFAULT_PLACEHOLDER_STRING : props.placeholder,
+                value: ''
+            },
+            isOpen: false
+        };
+        this.dropdownRef = react__WEBPACK_IMPORTED_MODULE_0__["createRef"]();
+        this.mounted = true;
+        this.handleDocumentClick = this.handleDocumentClick.bind(this);
+        this.fireChangeEvent = this.fireChangeEvent.bind(this);
+        this.setValue = this.setValue.bind(this);
+        this.handleMouseDown = this.handleMouseDown.bind(this);
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.mounted = false;
-      document.removeEventListener('mousedown', this.handleDocumentClick, false);
-      document.removeEventListener('touchstart', this.handleDocumentClick, false);
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleDocumentClick, false);
+        document.addEventListener('touchstart', this.handleDocumentClick, false);
     }
-  }, {
-    key: "handleMouseDown",
-    value: function handleMouseDown(event) {
-      var _this$props = this.props,
-          onFocus = _this$props.onFocus,
-          disabled = _this$props.disabled;
-
-      if (onFocus && typeof onFocus === 'function') {
-        onFocus(this.state.isOpen);
-      }
-
-      if (event.type === 'mousedown' && event.button !== 0) return;
-      event.stopPropagation();
-      event.preventDefault();
-
-      if (!disabled) {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-      }
+    componentWillUnmount() {
+        this.mounted = false;
+        document.removeEventListener('mousedown', this.handleDocumentClick, false);
+        document.removeEventListener('touchstart', this.handleDocumentClick, false);
     }
-  }, {
-    key: "fireChangeEvent",
-    value: function fireChangeEvent(newState) {
-      if (newState.selected !== this.state.selected && this.props.onChange) {
-        this.props.onChange(newState.selected);
-      }
-    }
-  }, {
-    key: "renderOption",
-    value: function renderOption(option, index) {
-      var _classes;
-
-      var _this$props2 = this.props,
-          isCheckbox = _this$props2.isCheckbox,
-          disabled = _this$props2.disabled;
-      var value = option.value;
-
-      if (_typeof(value) === undefined) {
-        value = option.label || option;
-      }
-
-      var label = option.label || option.value || option;
-      var hint = option.hint;
-      var isSelected = value === this.state.selected.value || value === this.state.selected;
-      var classes = (_classes = {}, _defineProperty(_classes, "".concat(this.props.baseClassName, "-option"), true), _defineProperty(_classes, option.className, !!option.className), _defineProperty(_classes, 'is-selected', isSelected), _defineProperty(_classes, "disabled", !isCheckbox && (option.disabled || option.checked)), _classes);
-
-      var isAreaSelected = function isAreaSelected() {
-        return isSelected ? 'true' : 'false';
-      };
-
-      var optionClass = (0, _classnames.default)(classes);
-
-      if (isCheckbox) {
-        var optionIndex = option.checked ? index : null;
-        return React.createElement("div", {
-          style: {
-            paddingLeft: "10px"
-          },
-          key: index,
-          role: "link",
-          title: label,
-          className: "dropDown-options-checkbox",
-          onMouseDown: this.setValue(value, label, option.disabled, optionIndex),
-          onClick: this.setValue(value, label, option.disabled, optionIndex)
-        }, React.createElement(_Checkbox.Checkbox, {
-          disabled: option.disabled,
-          value: option.checked,
-          label: label
-        }));
-      }
-
-      return React.createElement("div", {
-        key: value,
-        title: label,
-        className: optionClass,
-        onMouseDown: this.setValue(value, label, option.checked),
-        onClick: this.setValue(value, label, option.checked),
-        role: "option",
-        "aria-selected": isAreaSelected()
-      }, React.createElement("span", null, label), " ", React.createElement("span", {
-        className: "right-placeholder"
-      }, hint));
-    }
-  }, {
-    key: "menuItems",
-    value: function menuItems() {
-      var _this2 = this;
-
-      var _this$props3 = this.props,
-          options = _this$props3.options,
-          baseClassName = _this$props3.baseClassName;
-      var ops = options.map(function (option, i) {
-        if (option.type === 'group') {
-          var groupTitle = React.createElement("div", {
-            className: "".concat(baseClassName, "-title")
-          }, option.name);
-
-          var _options = option.items.map(function (item, index) {
-            return _this2.renderOption(item, index);
-          });
-
-          var menuItemClass = (0, _classnames.default)(_defineProperty({}, "".concat(baseClassName, "-group"), true));
-          return React.createElement("div", {
-            className: menuItemClass,
-            key: option.name,
-            role: "listbox",
-            tabIndex: -1
-          }, groupTitle, _options);
-        } else {
-          return _this2.renderOption(option, i);
+    handleMouseDown(event) {
+        const { onFocus, disabled } = this.props;
+        if (onFocus && typeof onFocus === 'function') {
+            onFocus(this.state.isOpen);
         }
-      });
-      return ops.length ? ops : React.createElement("div", {
-        className: "".concat(baseClassName, "-noresults")
-      }, "No options found");
-    }
-  }, {
-    key: "handleDocumentClick",
-    value: function handleDocumentClick(event) {
-      if (this.mounted) {
-        if (!_reactDom.default.findDOMNode(this).contains(event.target)) {
-          if (this.state.isOpen) {
+        if (event.type === 'mousedown' && event.button !== 0)
+            return;
+        event.stopPropagation();
+        event.preventDefault();
+        if (!disabled) {
             this.setState({
-              isOpen: false
+                isOpen: !this.state.isOpen
             });
-          }
         }
-      }
     }
-  }, {
-    key: "isValueSelected",
-    value: function isValueSelected() {
-      return typeof this.state.selected === 'string' || this.state.selected.value !== '';
+    fireChangeEvent(newState) {
+        if (newState.selected !== this.state.selected && this.props.onChange) {
+            this.props.onChange(newState.selected);
+        }
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames2,
-          _classNames3,
-          _classNames4,
-          _classNames5,
-          _classNames6,
-          _this3 = this;
-
-      var _this$props4 = this.props,
-          baseClassName = _this$props4.baseClassName,
-          controlClassName = _this$props4.controlClassName,
-          placeholderClassName = _this$props4.placeholderClassName,
-          menuClassName = _this$props4.menuClassName,
-          arrowClassName = _this$props4.arrowClassName,
-          arrowClosed = _this$props4.arrowClosed,
-          arrowOpen = _this$props4.arrowOpen,
-          className = _this$props4.className,
-          isCheckbox = _this$props4.isCheckbox,
-          disabled = _this$props4.disabled;
-      var disabledClass = this.props.disabled ? 'dropdown-disabled' : '';
-      var placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label;
-      var dropdownClass = (0, _classnames.default)((_classNames2 = {}, _defineProperty(_classNames2, "".concat(baseClassName, "-root"), true), _defineProperty(_classNames2, className, !!className), _defineProperty(_classNames2, 'is-open', this.state.isOpen), _classNames2));
-      var controlClass = (0, _classnames.default)((_classNames3 = {}, _defineProperty(_classNames3, "".concat(baseClassName, "-control"), true), _defineProperty(_classNames3, controlClassName, !!controlClassName), _defineProperty(_classNames3, disabledClass, !!disabledClass), _classNames3));
-      var placeholderClass = (0, _classnames.default)((_classNames4 = {}, _defineProperty(_classNames4, "".concat(baseClassName, "-placeholder"), true), _defineProperty(_classNames4, placeholderClassName, !!placeholderClassName), _defineProperty(_classNames4, 'is-selected', this.isValueSelected()), _defineProperty(_classNames4, 'is-placeholder', !this.isValueSelected()), _classNames4));
-      var menuClass = (0, _classnames.default)((_classNames5 = {}, _defineProperty(_classNames5, "".concat(baseClassName, "-menu"), true), _defineProperty(_classNames5, menuClassName, !!menuClassName), _classNames5));
-      var arrowClass = (0, _classnames.default)((_classNames6 = {}, _defineProperty(_classNames6, "navToggle arrow-icon", true), _defineProperty(_classNames6, arrowClassName, !!arrowClassName), _classNames6));
-      var value = React.createElement("div", {
-        className: placeholderClass
-      }, placeHolderValue);
-
-      var renderMenu = function renderMenu() {
-        var style = {
-          display: "".concat(_this3.state.isOpen ? "block" : "none")
+    renderOption(option, index) {
+        const { isCheckbox, disabled } = this.props;
+        let value = option.value;
+        if (typeof value === undefined) {
+            value = option.label || option;
+        }
+        let label = option.label || option.value || option;
+        let hint = option.hint;
+        let isSelected = value === this.state.selected.value || value === this.state.selected;
+        const classes = {
+            [`${this.props.baseClassName}-option`]: true,
+            [option.className]: !!option.className,
+            'is-selected': isSelected,
+            "disabled": !isCheckbox && (option.disabled || option.checked)
         };
-
-        if (_this3.dropdownRef.current) {
-          var boundingBox = _this3.dropdownRef.current.getBoundingClientRect();
-
-          style = _objectSpread({}, style, {
-            position: "fixed",
-            top: boundingBox.top + boundingBox.height + 2,
-            left: boundingBox.left,
-            width: boundingBox.width
-          });
+        const isAreaSelected = () => { return isSelected ? 'true' : 'false'; };
+        const optionClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()(classes);
+        if (isCheckbox) {
+            const optionIndex = option.checked ? index : null;
+            return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { style: { paddingLeft: "10px" }, key: index, role: "link", title: label, className: "dropDown-options-checkbox", onMouseDown: this.setValue(value, label, option.disabled, optionIndex), onClick: this.setValue(value, label, option.disabled, optionIndex) },
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_forms_Checkbox__WEBPACK_IMPORTED_MODULE_3__["Checkbox"], { disabled: option.disabled, value: option.checked, label: label })));
         }
-
-        return React.createElement("div", {
-          role: "menu",
-          className: menuClass,
-          style: style,
-          "aria-expanded": "true"
-        }, _this3.menuItems());
-      };
-
-      return React.createElement("div", {
-        className: dropdownClass
-      }, React.createElement("div", {
-        role: "list",
-        ref: this.dropdownRef,
-        className: controlClass,
-        onMouseDown: this.handleMouseDown,
-        onTouchEnd: this.handleMouseDown,
-        "aria-haspopup": "listbox"
-      }, value, React.createElement("div", {
-        className: "".concat(baseClassName, "-arrow-wrapper")
-      }, arrowOpen && arrowClosed ? this.state.isOpen ? arrowOpen : arrowClosed : React.createElement("div", {
-        className: arrowClass
-      }))), renderMenu());
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { key: value, title: label, className: optionClass, onMouseDown: this.setValue(value, label, option.checked), onClick: this.setValue(value, label, option.checked), role: 'option', "aria-selected": isAreaSelected() },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, label),
+            " ",
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", { className: "right-placeholder" }, hint)));
     }
-  }]);
-
-  return Dropdown;
-}(React.Component);
-
-exports.Dropdown = Dropdown;
-
-_defineProperty(Dropdown, "defaultProps", {
-  baseClassName: 'dropdown',
-  isCheckbox: false,
-  disabled: false
-});
-
-_defineProperty(Dropdown, "parseValue", function (value, options) {
-  var option;
-
-  if (typeof value === 'string') {
-    for (var i = 0, num = options.length; i < num; i++) {
-      if (options[i].type === 'group') {
-        var match = options[i].items.filter(function (item) {
-          return item.value === value;
+    menuItems() {
+        let { options, baseClassName } = this.props;
+        let ops = options.map((option, i) => {
+            if (option.type === 'group') {
+                let groupTitle = (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: `${baseClassName}-title` }, option.name));
+                let _options = option.items.map((item, index) => this.renderOption(item, index));
+                const menuItemClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+                    [`${baseClassName}-group`]: true,
+                });
+                return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: menuItemClass, key: option.name, role: 'listbox', tabIndex: -1 },
+                    groupTitle,
+                    _options));
+            }
+            else {
+                return this.renderOption(option, i);
+            }
         });
-
-        if (match.length) {
-          option = match[0];
+        return ops.length ? ops : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: `${baseClassName}-noresults` }, "No options found");
+    }
+    handleDocumentClick(event) {
+        if (this.mounted) {
+            if (!react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this).contains(event.target)) {
+                if (this.state.isOpen) {
+                    this.setState({ isOpen: false });
+                }
+            }
         }
-      } else if (options[i].value !== undefined && options[i].value === value) {
-        option = options[i];
-      }
     }
-  }
-
-  return option || value;
-});
-
-_defineProperty(Dropdown, "getDerivedStateFromProps", function (newProps, prevState) {
-  if (newProps.value) {
-    var selected = Dropdown.parseValue(newProps.value, newProps.options);
-
-    if (selected !== prevState.selected) {
-      return {
-        selected: selected
-      };
+    isValueSelected() {
+        return typeof this.state.selected === 'string' || this.state.selected.value !== '';
     }
-  } else {
-    return {
-      selected: {
-        label: _typeof(newProps.placeholder) === undefined ? DEFAULT_PLACEHOLDER_STRING : newProps.placeholder,
-        value: ''
-      }
-    };
-  }
+    render() {
+        const { baseClassName, controlClassName, placeholderClassName, menuClassName, arrowClassName, arrowClosed, arrowOpen, className, isCheckbox, disabled, placeHolderTooltip } = this.props;
+        const disabledClass = this.props.disabled ? 'dropdown-disabled' : '';
+        const placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label;
+        const dropdownClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+            [`${baseClassName}-root`]: true,
+            [className]: !!className,
+            'is-open': this.state.isOpen
+        });
+        const controlClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+            [`${baseClassName}-control`]: true,
+            [controlClassName]: !!controlClassName,
+            [disabledClass]: !!disabledClass
+        });
+        const placeholderClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+            [`${baseClassName}-placeholder`]: true,
+            [placeholderClassName]: !!placeholderClassName,
+            'is-selected': this.isValueSelected(),
+            'is-placeholder': !this.isValueSelected()
+        });
+        const menuClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+            [`${baseClassName}-menu`]: true,
+            [menuClassName]: !!menuClassName
+        });
+        const arrowClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+            [`navToggle arrow-icon`]: true,
+            [arrowClassName]: !!arrowClassName
+        });
+        const placeHolder = placeHolderTooltip ? placeHolderValue : null;
+        const value = (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { title: placeHolder, className: placeholderClass }, placeHolderValue));
+        const renderMenu = () => {
+            let style = {
+                display: `${this.state.isOpen ? "block" : "none"}`
+            };
+            if (this.dropdownRef.current) {
+                const boundingBox = this.dropdownRef.current.getBoundingClientRect();
+                style = Object.assign({}, style, { position: "fixed", top: boundingBox.top + boundingBox.height + 2, left: boundingBox.left, width: boundingBox.width });
+            }
+            return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { role: 'menu', className: menuClass, style: style, "aria-expanded": 'true' }, this.menuItems()));
+        };
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: dropdownClass },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { role: "list", ref: this.dropdownRef, className: controlClass, onMouseDown: this.handleMouseDown, onTouchEnd: this.handleMouseDown, "aria-haspopup": 'listbox' },
+                value,
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: `${baseClassName}-arrow-wrapper` }, arrowOpen && arrowClosed
+                    ? this.state.isOpen ? arrowOpen : arrowClosed
+                    : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: arrowClass }))),
+            renderMenu()));
+    }
+}
+Dropdown.defaultProps = { baseClassName: 'dropdown', isCheckbox: false, disabled: false };
+Dropdown.parseValue = (value, options) => {
+    let option;
+    if (typeof value === 'string') {
+        for (let i = 0, num = options.length; i < num; i++) {
+            if (options[i].type === 'group') {
+                const match = options[i].items.filter(item => item.value === value);
+                if (match.length) {
+                    option = match[0];
+                }
+            }
+            else if (options[i].value !== undefined && options[i].value === value) {
+                option = options[i];
+            }
+        }
+    }
+    return option || value;
+};
+Dropdown.getDerivedStateFromProps = (newProps, prevState) => {
+    if (newProps.value) {
+        let selected = Dropdown.parseValue(newProps.value, newProps.options);
+        if (selected !== prevState.selected) {
+            return { selected };
+        }
+    }
+    else {
+        return { selected: {
+                label: typeof newProps.placeholder === undefined ? DEFAULT_PLACEHOLDER_STRING : newProps.placeholder,
+                value: ''
+            } };
+    }
+    return null;
+};
 
-  return null;
-});
 
 /***/ }),
 
@@ -1456,140 +1114,58 @@ _defineProperty(Dropdown, "getDerivedStateFromProps", function (newProps, prevSt
 /*!*********************************************************************!*\
   !*** ./node_modules/@visualbi/bifrost-ui/dist/react/forms/Input.js ***!
   \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Input */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return Input; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_Input_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/Input.css */ "./node_modules/@visualbi/bifrost-ui/css/Input.css");
+/* harmony import */ var _css_Input_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_Input_css__WEBPACK_IMPORTED_MODULE_2__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Input = void 0;
 
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-__webpack_require__(/*! ../../../css/Input.css */ "./node_modules/@visualbi/bifrost-ui/css/Input.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Input =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Input, _Component);
-
-  function Input(_props) {
-    var _this;
-
-    _classCallCheck(this, Input);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Input).call(this, _props));
-
-    _defineProperty(_assertThisInitialized(_this), "onEventChange", function (e) {
-      var _assertThisInitialize = _assertThisInitialized(_this),
-          props = _assertThisInitialize.props;
-
-      var type = props.type;
-
-      if (type == "number") {
-        props["onChange"](e.target.value ? parseFloat(e.target.value) : "");
-        return;
-      }
-
-      props["onChange"](e.target.value);
-      return;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onEventBlur", function (e) {
-      var _assertThisInitialize2 = _assertThisInitialized(_this),
-          props = _assertThisInitialize2.props;
-
-      var type = props.type;
-
-      if (type == "number") {
-        props["onBlur"](e.target.value ? parseFloat(e.target.value) : "");
-        return;
-      }
-
-      props["onBlur"](e.target.value);
-      return;
-    });
-
-    return _this;
-  }
-
-  _createClass(Input, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          icon = _this$props.icon,
-          value = _this$props.value,
-          disabled = _this$props.disabled,
-          type = _this$props.type,
-          placeholder = _this$props.placeholder,
-          autoFocus = _this$props.autoFocus,
-          error = _this$props.error,
-          className = _this$props.className,
-          min = _this$props.min,
-          max = _this$props.max,
-          maxLength = _this$props.maxLength;
-      var resolvedClassName = (0, _classnames.default)("bf-ui-form-input", "form-input", {
-        "has-icon-left": icon
-      }, {
-        "is-error": error
-      }, {
-        disabled: disabled
-      }, className);
-      return React.createElement("input", {
-        className: resolvedClassName,
-        type: type || "text",
-        placeholder: placeholder,
-        disabled: disabled,
-        autoFocus: autoFocus,
-        value: value,
-        min: min,
-        max: max,
-        maxLength: maxLength,
-        onChange: this.onEventChange,
-        onBlur: this.onEventBlur
-      });
+class Input extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.onEventChange = (e) => {
+            const { props } = this;
+            const { type } = props;
+            if (type == "number") {
+                props["onChange"](e.target.value ? parseFloat(e.target.value) : "");
+                return;
+            }
+            props["onChange"](e.target.value);
+            return;
+        };
+        this.onEventBlur = (e) => {
+            const { props } = this;
+            const { type } = props;
+            if (type == "number") {
+                props["onBlur"](e.target.value ? parseFloat(e.target.value) : "");
+                return;
+            }
+            props["onBlur"](e.target.value);
+            return;
+        };
     }
-  }]);
+    render() {
+        const { icon, value, disabled, type, placeholder, autoFocus, error, className, min, max, maxLength, } = this.props;
+        const resolvedClassName = classnames__WEBPACK_IMPORTED_MODULE_1___default()("bf-ui-form-input", "form-input", { "has-icon-left": icon }, { "is-error": error }, { disabled: disabled }, className);
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("input", { className: resolvedClassName, type: type || "text", placeholder: placeholder, disabled: disabled, autoFocus: autoFocus, value: value, min: min, max: max, maxLength: maxLength, onChange: this.onEventChange, onBlur: this.onEventBlur }));
+    }
+}
+Input.defaultProps = {
+    autoFocus: false,
+    onChange: () => { },
+    onBlur: () => { },
+};
 
-  return Input;
-}(React.Component);
-
-exports.Input = Input;
-
-_defineProperty(Input, "defaultProps", {
-  autoFocus: false,
-  onChange: function onChange() {},
-  onBlur: function onBlur() {}
-});
 
 /***/ }),
 
@@ -55010,6 +54586,7 @@ var Rule = function Rule(_ref) {
     title: translations.fields.title,
     value: field,
     operator: operator,
+    placeHolderTooltip: true,
     className: "rule-fields ".concat(classNames.fields),
     handleOnChange: onFieldChanged,
     level: level
@@ -55017,6 +54594,7 @@ var Rule = function Rule(_ref) {
     field: field,
     fieldData: fieldData,
     title: translations.operators.title,
+    placeHolderTooltip: true,
     options: getOperators(field),
     value: operator,
     className: "rule-operators ".concat(classNames.operators),
@@ -55382,9 +54960,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_Autocomplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @visualbi/bifrost-ui/dist/react/forms/Autocomplete */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/Autocomplete.js");
-/* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_Autocomplete__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_visualbi_bifrost_ui_dist_react_forms_Autocomplete__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @visualbi/bifrost-ui/dist/react/forms/DropDown */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/DropDown.js");
-/* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -55568,7 +55144,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @visualbi/bifrost-ui/dist/react/forms/DropDown */ "./node_modules/@visualbi/bifrost-ui/dist/react/forms/DropDown.js");
-/* harmony import */ var _visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -55576,7 +55151,8 @@ var ValueSelector = function ValueSelector(_ref) {
   var className = _ref.className,
       handleOnChange = _ref.handleOnChange,
       options = _ref.options,
-      value = _ref.value;
+      value = _ref.value,
+      placeHolderTooltip = _ref.placeHolderTooltip;
 
   var onChange = function onChange(value) {
     handleOnChange(value.value);
@@ -55602,6 +55178,7 @@ var ValueSelector = function ValueSelector(_ref) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visualbi_bifrost_ui_dist_react_forms_DropDown__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
     classNamePrefix: "react-select",
+    placeHolderTooltip: placeHolderTooltip,
     className: className + " auto-complete",
     placeholder: "Select data field",
     isSearchable: false,
