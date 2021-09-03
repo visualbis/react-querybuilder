@@ -8,10 +8,10 @@
     "strict": true,
     "module": "es6",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "target": "es5",
     "esModuleInterop": true
   },
   "include": ["./src/"],
-  "exclude": ["**/*.test.*", "./src/__test__/", "./dist/", "./demo/", "./config/",  "./types/"]
+  "exclude": ["**/*.test.*", "./src/__test__/", "./dist/", "./demo/", "./config/",  "./types/","./src/__mocks__/*.*", "./src/setupTests.ts"]
 }
