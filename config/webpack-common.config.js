@@ -6,51 +6,62 @@ module.exports = {
   module: {
     rules: [
       {
-        parser: {
-          amd: false
-        }
-      },
-      {
         test: /\.(t|j)sx?$/,
         loader: 'babel-loader',
         // Regenerate the regex below by running:
         // > npx are-you-es5 check . -rv
-        exclude: /[\\/]node_modules[\\/](?!(nanoid)[\\/])/,
+        exclude: /node_modules/,
         options: {
           presets: ['@babel/preset-env', '@babel/preset-typescript']
         }
       },
       {
-        test: /\.css$/,
+        test: /\.less$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: "style-loader"
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: true
+            }
           },
           {
-            loader: "css-loader"
+            loader: 'less-loader',
+            options: {
+              sourceMap: true,
+              lessOptions: { javascriptEnabled: true }
+            }
           }
         ]
       },
       {
-        test: /\.scss$/i,
+        test: /\.scss$/,
         use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.less'],
+    fallback: {
+      util: false
+    }
   },
 
-  plugins: [new MiniCssExtractPlugin({ filename: 'query-builder.css' })],
-
-  stats: {
-    maxModules: 0
-  }
+  plugins: [new MiniCssExtractPlugin({ filename: 'query-builder.css' })]
 };

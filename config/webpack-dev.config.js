@@ -1,37 +1,23 @@
 'use strict';
 
 const HtmlPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack-common.config');
 const path = require('path');
 
 module.exports = merge(webpackCommon, {
   mode: 'development',
   entry: {
-    demo: './demo/main.js'
+    demo: './demo/main.tsx'
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../dist/demo')
   },
-  module: {
-    rules: [      
-        {
-            test: /\.less$/,
-            use: [
-                { loader: 'style-loader' },
-                { loader: 'css-loader' },
-                { loader: 'less-loader' }
-            ]
-        }
-    ]
-},
+
   devtool: 'cheap-module-source-map',
   devServer: {
-    historyApiFallback: true,
-    stats: {
-      maxModules: 0
-    }
+    historyApiFallback: true
   },
 
   plugins: [
