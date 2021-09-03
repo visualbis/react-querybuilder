@@ -1,3 +1,10 @@
-import React from 'react';
-import { QueryBuilderProps } from './types';
-export declare const QueryBuilder: React.FC<QueryBuilderProps>;
+/// <reference types="react" />
+import { NameLabelPair, QueryBuilderProps, Translations } from './types';
+import './query-builder.scss';
+export declare const defaultTranslations: Translations;
+export declare const defaultOperators: NameLabelPair[];
+export declare const defaultCombinators: NameLabelPair[];
+export declare const QueryBuilder: {
+    ({ query, fields, operators, combinators, translations, enableMountQueryChange, controlElements, getDefaultField, getDefaultValue, getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules, showNotToggle, resetOnFieldChange, resetOnOperatorChange, autoSelectField, context }: QueryBuilderProps): JSX.Element;
+    displayName: string;
+};

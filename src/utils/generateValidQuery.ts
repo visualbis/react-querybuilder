@@ -1,6 +1,5 @@
-import { nanoid } from 'nanoid';
-import { isRuleGroup } from '.';
-import { RuleType, RuleGroupType } from '../types';
+import { generateID, isRuleGroup } from '.';
+import { RuleGroupType, RuleType } from '../types';
 
 /**
  * Generates a valid query object
@@ -8,14 +7,16 @@ import { RuleType, RuleGroupType } from '../types';
 const generateValidQuery = (query: RuleGroupType | RuleType): RuleGroupType | RuleType => {
   if (isRuleGroup(query)) {
     return {
-      id: query.id || `g-${nanoid()}`,
+      ...query,
+      id: query.id ?? `g-${generateID()}`,
       rules: query.rules.map((rule) => generateValidQuery(rule)),
-      combinator: query.combinator
+      combinator: query.combinator,
+      not: !!query.not
     };
   }
   return {
-    id: query.id || `r-${nanoid()}`,
-    ...query
+    ...query,
+    id: query.id ?? `r-${generateID()}`
   };
 };
 

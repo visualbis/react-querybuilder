@@ -1,11 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 export interface NameLabelPair {
     name: string;
     label: string;
 }
 export interface Field extends NameLabelPair {
     id?: string;
+    operators?: NameLabelPair[];
+    valueEditorType?: ValueEditorType;
+    inputType?: string | null;
+    values?: NameLabelPair[];
+    defaultValue?: any;
     [x: string]: any;
+    placeholder?: string;
 }
 export interface RuleType {
     id?: string;
@@ -15,16 +21,15 @@ export interface RuleType {
 }
 export interface RuleGroupType {
     id: string;
-    name?: string;
-    email?: string;
+    parentId?: string;
     combinator: string;
     rules: (RuleType | RuleGroupType)[];
     isActive?: boolean;
     not?: boolean;
 }
-export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
+export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized' | 'mongodb';
 export declare type ValueProcessor = (field: string, operator: string, value: any) => string;
-export declare type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none';
+export declare type ValueEditorType = 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | null;
 export interface CommonProps {
     /**
      * CSS classNames to be applied
@@ -38,6 +43,10 @@ export interface CommonProps {
      * The title for this control
      */
     title?: string;
+    /**
+     * Container for custom props that are passed to all components
+     */
+    context?: any;
 }
 export interface ActionProps extends CommonProps {
     label?: string;
@@ -60,6 +69,7 @@ export interface ValueSelectorProps extends SelectorEditorProps {
 export interface NotToggleProps extends CommonProps {
     checked?: boolean;
     handleOnChange(checked: boolean): void;
+    label?: string;
 }
 export interface CombinatorSelectorProps extends ValueSelectorProps {
     options: NameLabelPair[];
@@ -79,9 +89,10 @@ export interface ValueEditorProps extends SelectorEditorProps {
     fieldData?: Field;
     operator?: string;
     type?: ValueEditorType;
-    inputType?: string;
+    inputType?: string | null;
     placeHolder?: string;
     values?: any[];
+    value?: any;
 }
 export interface Controls {
     addGroupAction: React.ComponentType<ActionWithRulesProps>;
@@ -168,8 +179,7 @@ export interface Schema {
     getLevel(id: string): number;
     getOperators(field: string): Field[];
     getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete';
-    getPlaceHolder(field: string, operator: string): string;
-    getInputType(field: string, operator: string): string;
+    getInputType(field: string, operator: string): string | null;
     getValues(field: string, operator: string): NameLabelPair[];
     isRuleGroup(ruleOrGroup: RuleType | RuleGroupType): ruleOrGroup is RuleGroupType;
     onGroupAdd(group: RuleGroupType, parentId: string): void;
@@ -177,12 +187,9 @@ export interface Schema {
     onPropChange(prop: string, value: any, ruleId: string): void;
     onRuleAdd(rule: RuleType, parentId: string): void;
     onRuleRemove(id: string, parentId: string): void;
-    clearRule(): void;
     showCombinatorsBetweenRules: boolean;
-    removeIconatStart: boolean;
     showNotToggle: boolean;
-    showAddGroup: boolean;
-    showAddRule: boolean;
+    autoSelectField: boolean;
 }
 export interface Translations {
     fields: {
@@ -218,6 +225,7 @@ export interface Translations {
         title: string;
     };
     notToggle: {
+        label?: string;
         title: string;
     };
 }
@@ -229,8 +237,7 @@ export interface RuleGroupProps {
     translations: Translations;
     schema: Schema;
     not?: boolean;
-    isRoot?: boolean;
-    enableClear?: boolean;
+    context?: any;
 }
 export interface RuleProps {
     id: string;
@@ -240,6 +247,7 @@ export interface RuleProps {
     value: any;
     translations: Translations;
     schema: Schema;
+    context?: any;
 }
 export interface QueryGeneratorProps {
     query?: RuleGroupType;
@@ -324,11 +332,22 @@ export interface QueryBuilderProps {
     enableNormalView?: boolean;
     onAdvancedClick?(): void;
     controlElements?: Partial<Controls>;
+    enableMountQueryChange?: boolean;
+    /**
+     * The default field for new rules.  This can be a string identifying the
+     * default field, or a function that returns a field name.
+     */
+    getDefaultField?: string | ((fieldsData: Field[]) => string);
+    /**
+     * Returns the default value for new rules.
+     */
+    getDefaultValue?(rule: RuleType): any;
     /**
      * This is a callback function invoked to get the list of allowed
-     * operators for the given field.
+     * operators for the given field.  If `null` is returned, the default
+     * operators are used.
      */
-    getOperators?(field: string): Field[];
+    getOperators?(field: string): Field[] | null;
     /**
      * This is a callback function invoked to get the type of `ValueEditor`
      * for the given field and operator.
@@ -397,4 +416,12 @@ export interface QueryBuilderProps {
      * Reset the value component when the `operator` changes.
      */
     resetOnOperatorChange?: boolean;
+    /**
+     * Select the first field in the array automatically
+     */
+    autoSelectField?: boolean;
+    /**
+     * Container for custom props that are passed to all components
+     */
+    context?: any;
 }
