@@ -47,7 +47,7 @@ module.exports = merge(webpackCommon, {
     new CopyPlugin({
       patterns: [
         {
-          from: './src/query-builder.scss'
+          from: './src/query-builder.less'
         }
       ]
     })

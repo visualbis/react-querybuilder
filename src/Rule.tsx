@@ -1,6 +1,6 @@
 import arrayFind from 'array-find';
-import * as React from 'react';
-import { Field, RuleProps } from './types';
+import React from 'react';
+import { RuleProps } from './types';
 
 export const Rule = ({
   id,
@@ -14,13 +14,14 @@ export const Rule = ({
     controls,
     fields,
     getInputType,
+    getPlaceHolder,
     getLevel,
     getOperators,
     getValueEditorType,
     getValues,
     onPropChange,
     onRuleRemove,
-    autoSelectField
+    removeIconatStart
   },
   context
 }: RuleProps) => {
@@ -47,64 +48,63 @@ export const Rule = ({
     onRuleRemove(id, parentId);
   };
 
-  const fieldData = arrayFind(fields, (f) => f.name === field) ?? ({} as Field);
-  const inputType = fieldData.inputType ?? getInputType(field, operator);
-  const operators = fieldData.operators ?? getOperators(field);
-  const valueEditorType = fieldData.valueEditorType ?? getValueEditorType(field, operator);
-  const values = fieldData.values ?? getValues(field, operator);
+  const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
 
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
-      <controls.fieldSelector
-        options={fields}
-        title={translations.fields.title}
-        value={field}
-        operator={operator}
-        className={`rule-fields ${classNames.fields}`}
-        handleOnChange={onFieldChanged}
-        level={level}
-        context={context}
-      />
-      {(autoSelectField || fieldData.name !== '~') && (
-        <>
-          <controls.operatorSelector
-            field={field}
-            fieldData={fieldData}
-            title={translations.operators.title}
-            options={operators}
-            value={operator}
-            className={`rule-operators ${classNames.operators}`}
-            handleOnChange={onOperatorChanged}
-            level={level}
-            context={context}
-          />
-          <controls.valueEditor
-            field={field}
-            fieldData={fieldData}
-            title={translations.value.title}
-            operator={operator}
-            value={value}
-            type={valueEditorType}
-            inputType={inputType}
-            values={values}
-            className={`rule-value ${classNames.value}`}
-            handleOnChange={onValueChanged}
-            level={level}
-            context={context}
-          />
-        </>
-      )}
-      <controls.removeRuleAction
+      {removeIconatStart && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
         className={`rule-remove ${classNames.removeRule}`}
         handleOnClick={removeRule}
         level={level}
-        context={context}
+      />}
+
+      <controls.fieldSelector
+        options={fields}
+        title={translations.fields.title}
+        value={field}
+        operator={operator}
+        placeHolderTooltip={true}
+        className={`rule-fields ${classNames.fields}`}
+        handleOnChange={onFieldChanged}
+        level={level}
       />
+
+      <controls.operatorSelector
+        field={field}
+        fieldData={fieldData}
+        title={translations.operators.title}
+        placeHolderTooltip={true}
+        options={getOperators(field)}
+        value={operator}
+        className={`rule-operators ${classNames.operators}`}
+        handleOnChange={onOperatorChanged}
+        level={level}
+      />
+      <controls.valueEditor
+        field={field}
+        fieldData={fieldData}
+        title={translations.value.title}
+        operator={operator}
+        value={value}
+        type={getValueEditorType(field, operator)}
+        inputType={getInputType(field, operator)}
+        placeHolder={getPlaceHolder(field, operator)}
+        values={getValues(field, operator)}
+        className={`rule-value ${classNames.value}`}
+        handleOnChange={onValueChanged}
+        level={level}
+      />
+      {!removeIconatStart && <controls.removeRuleAction
+        label={translations.removeRule.label}
+        title={translations.removeRule.title}
+        className={`rule-remove ${classNames.removeRule}`}
+        handleOnClick={removeRule}
+        level={level}
+      />}
+
     </div>
   );
 };
-
-Rule.displayName = 'Rule';

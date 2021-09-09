@@ -1,0 +1,303 @@
+// Color variables (appears count calculates by raw css)
+@color0: #dddddd; // Appears 12 times
+@color1: #f5f5f5; // Appears 9 times
+@color2: #333333; // Appears 4 times
+
+// Width variables (appears count calculates by raw css)
+@width1: 100%; // Appears 8 times
+@width2: 30px; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height1: 32px; // Appears 8 times
+@height2: 30px; // Appears 5 times
+
+.rule {	
+	display: flex;
+	flex-direction: row;
+	.dropdown-root {
+		height: @height1;
+		outline: none;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin: 0px 4px;
+		border: none;	
+		&:focus {
+			height: @height1;			
+			outline: none;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.dropdown-control{
+			border: 1px solid #ddd;	
+			font-size: 12px;
+			font-weight: normal;			
+			.dropdown-placeholder{
+				color: #a6a6a6;
+			}
+		}
+		.dropdown-menu{
+			border: 1px solid #ddd;
+			max-height: 140px;
+			.dropdown-option{
+				color: #201F1E;
+				padding: 0px 5px;
+                line-height: 36px;
+			}
+			.dropdown-option.is-selected{
+				background-color: #f5f5f5;
+			}
+		}
+		
+	}
+	.form-auto-complete:not([multiple]):not([size]){
+		background-color: white;
+	}
+	.form-auto-complete{
+		margin: 0px 4px;
+		font-size: 12px;
+		min-height: auto;
+		.form-input{
+			height: 32px;
+			margin-top: 0px;
+			border: 1px solid #ddd;
+			border-radius: 2px;	
+		}
+		.menu{
+			min-width: auto;
+			transform: none;
+			max-height: 140px;
+			div{
+				overflow: hidden;
+			}
+			.menu-item {
+				 button{
+					 &:hover{
+					 background: #F5F5F5;
+				 }
+				}
+			}
+		}
+	}
+	
+	.rule-value-parent{
+		padding: 0px 4px;
+		font-family: 'Nunito Sans', sans-serif;
+		box-sizing: border-box;
+		.rule-value {
+			border: 1px solid @color0;
+			height: @height1;
+			outline: none;
+			overflow: hidden;
+			padding: 0px 0px 0px 5px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			box-sizing: border-box;
+			&:disabled{
+				cursor: not-allowed;
+			}
+			&:focus {
+				border: 1px solid @color0;
+				height: @height1;
+				outline: none;
+				overflow: hidden;
+				padding: 0px 0px 0px 5px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				box-sizing: border-box;
+			}
+		}
+		
+	}
+	.textarea{
+		.rule-value{			
+			resize: none;
+		}
+	}
+	
+}
+.ruleGroup {
+	background: @color1;
+	border: 1px solid @color0;
+	padding: 2px;
+	.ruleGroup-combinators.betweenRules {
+		margin: 10px;
+	}
+	.rule {
+		background: @color1;
+		width: 100%;
+		min-height: 32px;
+		padding: 5px 0px;
+	}
+	.ruleGroup {
+		background: @color1;
+		margin: 5px;
+		padding: 5px;
+	}
+}
+.rule-remove {
+	background: transparent;
+	border: none;
+	outline: none;
+	line-height: 32px;
+    padding-left: 10px;
+    text-align: start;
+}
+.ruleGroup-remove {
+	background: transparent;
+	border: none;
+	border: none;
+	min-width: @width2;
+}
+.query-generator {
+	.queryBuilder{
+		max-height: 500px;
+		max-width: 500px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		margin: 5px;
+		border: 1px solid #cccccc;
+	}
+	.queryBuilder-footer{
+		display: flex;
+		flex-direction: row;	
+	}	
+}
+.ruleGroup-header {
+	display: flex;
+	margin: 0px 5px;
+	.ruleGroup-addGroup {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: auto;
+		outline: none;
+		padding: 5px 15px;
+		&:focus {
+			background: @color1;
+			border: none;
+			color: @color2;
+			margin-left: auto;
+			outline: none;
+			padding: 5px 15px;
+		}
+	}
+}
+.ruleGroup-addRule {
+	background: @color1;
+	border: none;
+	color: @color2;
+	margin-left: 5px;
+	outline: none;
+	padding: 5px 15px;
+	&:focus {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: 5px;
+		outline: none;
+		padding: 5px 15px;
+	}
+}
+.ruleGroup-clearRule {
+	background: @color1;
+	border: none;
+	color: @color2;
+	margin-left: auto;
+	outline: none;
+	padding: 5px 15px;
+	&:focus {
+		background: @color1;
+		border: none;
+		color: @color2;
+		margin-left: auto;
+		outline: none;
+		padding: 5px 15px;
+	}
+}
+
+.query-generator.hide-group {
+	.ruleGroup-header {
+		.ruleGroup-addGroup {
+			display: none;
+		}
+		.ruleGroup-addRule {
+			margin-left: auto;
+		}
+	}
+}
+.ruleGroup-combinators {
+	border: none;
+	display: flex;
+	flex-direction: row;
+	padding: 0px;
+	label {
+	padding-right: 10px;
+	}
+	.combinators.active {
+		background: @color1;
+	}
+}
+
+.radio { 
+	font-size: 12px; 
+	font-weight: 500; 
+	display: inline-flex; 
+	align-items: center; 
+	color: black; 
+} 
+
+.radio input { 
+	display: none; 
+}
+.radio .circle { 
+	position: relative; 
+	height: 12px; 
+	width: 12px; 
+	border: 1px solid #cccccc; 
+	display: inline-block;           
+	border-radius: 50%; 
+}
+.radio .circle:after { 
+	content: ''; 	
+	display: block; 
+	position: absolute; 
+	background: #cccccc; 
+	left: 50%; 
+	top: 50%; 
+	transform: translate(-50%, -50%); 
+	border-radius: 50%; 
+} 
+.radio .radio-title{
+	padding-left: 5px;
+}
+.radio input:checked~.circle:after { 
+	background:#0078D4; 
+	width: 6px;
+	height: 6px;
+} 
+.radio input:checked~.circle {  
+	border: 1px solid#0078D4; 
+}
+.queryBuilder .rule .rule-fields,.queryBuilder .rule .rule-operators,.queryBuilder .rule .rule-value,.queryBuilder .rule .rule-value-parent{
+	width: 100%;
+	height: 32px;
+}
+.queryBuilder .rule .rule-value-parent.textarea,.queryBuilder .rule .textarea .rule-value{
+	height: 55px;
+	max-height: 55px;
+	white-space: pre-line;
+}
+.queryBuilder .no-rule{
+	width: 100%;
+	padding-left: 10px;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    min-height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+.queryBuilder .clear-rule{
+	font-size: 12px;
+}
