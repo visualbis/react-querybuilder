@@ -150,23 +150,29 @@ let updatedroot: RuleGroupType = root;
 if(enableNormalView){
   updatedroot = getNormalQuery(root);
 }
-const isNoRulesApplied = enableNormalView && updatedroot.rules.length === 0;
+const ruleCount = updatedroot.rules.length
+const isNoRulesApplied = enableNormalView && ruleCount === 0;
+const hederRuleClass = isNoRulesApplied ? "":  ruleCount === 1? "singleRule":"multiRule"
   return (
     <div>
       <div className={`queryBuilder ${schema.classNames.queryBuilder}`}>
-        {isNoRulesApplied && <span className="no-rule"> No filters applied</span>}     
-       {!isNoRulesApplied&&  <schema.controls.ruleGroup
+        {(isNoRulesApplied || enableNormalView )&&
+          <div className={`queryBuilder-header ${ hederRuleClass}`}>
+            {isNoRulesApplied && <span className="no-rule"> No filters applied</span>}
+            {enableNormalView &&
+              <div title="Add new filter" role="button" className="queryBuilder-header-addfilter" onClick={onAddRullonRootLevel}>
+                <span className="ms-Icon ms-Icon--Add"></span>
+                <span className="queryBuilder-footer-title">Add Filter</span>
+              </div>}
+          </div>}
+
+        {!isNoRulesApplied && <schema.controls.ruleGroup
           translations={{ ...defaultTranslations, ...translations }} enableClear={enableNormalView} isRoot={true} rules={updatedroot.rules} combinator={root.combinator} schema={schema} id={root.id} not={!!root.not} />
-       }
-          </div>
-      { enableNormalView && <div className="queryBuilder-footer">
+        }
+      </div>
+      {enableNormalView && <div className="queryBuilder-footer">
         <div title="Open advanced filter" role="button" className="queryBuilder-footer-advanced" onClick={onAdvancedClick} >
-          <span className="ms-Icon ms-Icon--FilterSettings"></span>
           <span className="queryBuilder-footer-title">Advanced</span>
-        </div>
-        <div title="Add new filter" role="button" className="queryBuilder-footer-addfilter"  onClick={onAddRullonRootLevel}>
-        <span className="ms-Icon ms-Icon--Add"></span>
-          <span className="queryBuilder-footer-title">Add Filter</span>
         </div>
       </div>}
     </div>

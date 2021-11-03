@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
-export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,   isRoot, enableClear}) => {
-  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd, clearRule, onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule} = schema;
+export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,   }) => {
+  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule,} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -24,10 +24,11 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
   //   onGroupRemove(id, parentId || /* istanbul ignore next */ '');
   // };
   const level = getLevel(id);
-const isClearEnabled = isRoot && enableClear && rules && rules.length;
+// const isClearEnabled = isRoot && enableClear && rules && rules.length;
   return (
     <div className={`ruleGroup ${classNames.ruleGroup}`} data-rule-group-id={id} data-level={level}>
-      <div className={`ruleGroup-header ${classNames.header}`}>   
+      {((!showCombinatorsBetweenRules && rules && rules.length > 1) || showAddGroup || showAddRule) &&
+      <div className={`ruleGroup-header ${classNames.header}`}>  
         {!showCombinatorsBetweenRules && rules && rules.length > 1 && <controls.combinatorSelector
           options={combinators}
           value={combinator}
@@ -36,13 +37,13 @@ const isClearEnabled = isRoot && enableClear && rules && rules.length;
           handleOnChange={onCombinatorChange}
           rules={rules} level={level}
         />}
-       {isClearEnabled && <controls.clearRuleAction
+       {/* {isClearEnabled && <controls.clearRuleAction
           label={translations.clearRule.label}
           title={translations.clearRule.title}
           className={`ruleGroup-clearRule ${classNames.clearRule}`}
           handleOnClick={clearRule}
           rules={rules}   level={level}
-        />}
+        />} */}
         {showAddGroup&& <controls.addGroupAction
           label={translations.addGroup.label}
           title={translations.addGroup.title}
@@ -59,7 +60,7 @@ const isClearEnabled = isRoot && enableClear && rules && rules.length;
           rules={rules}    level={level}
         />}
       
-      </div>     
+      </div> }    
       {rules.length>0 && rules.map((r, idx) => (<Fragment key={r.id}>       
         {idx === 1 && showCombinatorsBetweenRules&&  <div className={`ruleGroup-header ${classNames.header}`}> <controls.combinatorSelector
               options={combinators}
