@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14-browsers
+    steps:
+      - checkout
+
+      - run:
+          name: "Update NPM auth token"
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" | tee .npmrc
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          
+      - run:
+          name: install-npm-packages
+          command: npm install
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: "Setup Environment Variables based on branch"
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+                echo 'export buildNumber=$(date +"%y%m%d%H%M")' >> $BASH_ENV
+                echo 'export branch=${CIRCLE_BRANCH}' >> $BASH_ENV
+            fi
+      - run:
+          name: "Update version"
+          command: node updateversion.js
+      - run:
+          name: "Running Lint"
+          command: npm run lint
+      - run:
+          name: "Running Audit"
+          command: echo 'npm audit --audit-level=moderate'
+      - run:
+          name: "Publish npm package"
+          command: |
+            if [ "${CIRCLE_PROJECT_USERNAME}" == "visualbis" ]; then
+                 yarn install
+                 npm run dist
+                 npm publish
+            else
+                 yarn lint
+            fi
