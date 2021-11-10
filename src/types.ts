@@ -24,6 +24,7 @@ export interface RuleGroupType {
   combinator: string;
   rules: (RuleType | RuleGroupType)[];
   isActive?: boolean;
+  disabled?: boolean;
   not?: boolean;
 }
 
