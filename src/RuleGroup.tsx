@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,   }) => {
-  const { classNames, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule,} = schema;
+  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule,} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -25,6 +25,8 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
   // };
   const level = getLevel(id);
 // const isClearEnabled = isRoot && enableClear && rules && rules.length;
+const removeOr = level < 1 && hasColumnChildRule();
+const combinatorCls = removeOr ? "disable-or" : "";
   return (
     <div className={`ruleGroup ${classNames.ruleGroup}`} data-rule-group-id={id} data-level={level}>
       {((!showCombinatorsBetweenRules && rules && rules.length > 1) || showAddGroup || showAddRule) &&
@@ -33,7 +35,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
           options={combinators}
           value={combinator}
           title={translations.combinators.title}
-          className={`ruleGroup-combinators betweenRules ${classNames.combinators}`}
+          className={`ruleGroup-combinators betweenRules ${combinatorCls} ${classNames.combinators}`}
           handleOnChange={onCombinatorChange}
           rules={rules} level={level}
         />}
@@ -66,7 +68,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
               options={combinators}
               value={combinator}
               title={translations.combinators.title}
-              className={`ruleGroup-combinators betweenRules ${classNames.combinators}`}
+              className={`ruleGroup-combinators betweenRules ${combinatorCls}  ${classNames.combinators}`}
               handleOnChange={onCombinatorChange}
               rules={rules}    level={level}
             /></div>

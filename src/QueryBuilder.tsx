@@ -134,14 +134,16 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
     const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery, getNormalQuery, getRuleUpdatedValue} 
   = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
   
-  const{root, clearRule, setRoot,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
+  const{root, hasColumnChildRule, updateCombinator, clearRule, setRoot,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd } 
  = useQueryBuilderActions(query, fields,combinators,createRule,getInitialQuery,onQueryChange, getOperatorsMain,getValidQuery,  getRuleDefaultValue,resetOnFieldChange, resetOnOperatorChange,getValueEditorType, getSelectedColumn, getRuleUpdatedValue);
-  
-  const schema = { fields, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, clearRule, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
+ 
+  const schema = { fields, hasColumnChildRule, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, clearRule, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
     getInputType: getInputTypeMain, getPlaceHolder:getPlaceHolderMain, getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle, removeIconatStart };    
   useEffect(() => { // Set the query state when a new query prop comes in
-    setRoot(generateValidQuery(query || getInitialQuery()) as RuleGroupType);
+    let rootCopy = generateValidQuery(query || getInitialQuery()) as RuleGroupType;
+    rootCopy = updateCombinator(rootCopy);
+    setRoot(rootCopy);
   }, [query]);
   useEffect(() => { // Notify a query change on mount
     _notifyQueryChange(root);
@@ -180,6 +182,45 @@ const hederRuleClass = isNoRulesApplied ? "":  ruleCount === 1? "singleRule":"mu
 };
 const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType); 
+
+  const hasColumnRule = (query: RuleGroupType | RuleType, isRoot: boolean) => {
+    if ((query as RuleGroupType).combinator) {
+       const _query: RuleGroupType = query as RuleGroupType;
+       const len = _query.rules.length;
+       for (let i = 0; i < len; i++) {
+          const rule = _query.rules[i];
+          const hasColumn = hasColumnRule(rule, false);
+          if(hasColumn)return true;      
+       }
+    } else {
+       const _rule: RuleType = query as RuleType;
+        if(fields.filter(field => field.fieldType === "column" && field.name === _rule.field ).length && !isRoot){
+          return true;
+        }
+    }
+    return false;
+  }
+ const hasColumnChildRule = (query?: RuleGroupType | RuleType) => {
+  if(!query){
+    query = root;
+  };
+  if ((query as RuleGroupType).combinator) {
+    const _query: RuleGroupType = query as RuleGroupType;
+    const len = _query.rules.length;
+    for (let i = 0; i < len; i++) {
+       const rule = _query.rules[i];
+       const hasColumn = hasColumnRule(rule, true);
+       if(hasColumn)return true;      
+    }
+ }
+ return false;
+}
+  const updateCombinator = (query: RuleGroupType)=>{
+    if(hasColumnChildRule(query)){
+      query.combinator = "and";
+    }
+    return query;
+  }
   const onRuleAdd = (rule: RuleType, parentId: string) => {// Adds a rule to the query
     const rootCopy = cloneDeep(root);
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
@@ -190,6 +231,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       }else{
         parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
       }
+      updateCombinator(rootCopy);
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
     }
@@ -201,7 +243,8 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       rootCopy.rules.splice(groupIndex,0,createRule());
     }else{
       rootCopy.rules.push(createRule());
-    }  
+    }
+    updateCombinator(rootCopy);
     setRoot(rootCopy);
     _notifyQueryChange(rootCopy);  
   }
@@ -229,7 +272,8 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
         const _value = getRuleUpdatedValue(rule, preOperator);       
         Object.assign(rule, {value: _value });
        }
-      setRoot(rootCopy);
+       updateCombinator(rootCopy);
+       setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);
     }
   };
@@ -254,14 +298,14 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       parent.rules.splice(index, 1);
       const updatedQuery:RuleGroupType =  { id: rootCopy.id, name: rootCopy.name ? rootCopy.name: "", email: rootCopy.email ? rootCopy.email: "", isActive : rootCopy.isActive,disabled : rootCopy.disabled, rules: [], combinator: rootCopy.combinator };
        getValidQuery(rootCopy,updatedQuery,true);
-      setRoot(updatedQuery);
+       updateCombinator(updatedQuery);
       _notifyQueryChange(updatedQuery);
     }
   };
   const clearRule = () => {   
       const rootCopy = cloneDeep(root);
       const updatedQuery:RuleGroupType =  { id: rootCopy.id, name: rootCopy.name ? rootCopy.name: "", email: rootCopy.email ? rootCopy.email: "", isActive : rootCopy.isActive, disabled: rootCopy.disabled, rules: [], combinator: rootCopy.combinator };
-      setRoot(updatedQuery);
+      updateCombinator(updatedQuery);
       _notifyQueryChange(updatedQuery);
   }
   const getLevelFromRoot = (id: string) => {//Gets the level of the rule with the provided ID
@@ -273,7 +317,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       onQueryChange(newQuery, prop, ruleId);
     }
   };
-  return {root, clearRule, setRoot,getInitialQuery,createRule,_notifyQueryChange,getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
+  return {root, clearRule, setRoot,getInitialQuery,createRule,_notifyQueryChange, hasColumnChildRule ,updateCombinator, getLevelFromRoot,onGroupRemove,onRuleRemove, onPropChange, onGroupAdd, onAddRullonRootLevel, onRuleAdd }
 }
 const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValues:any, getOperators:any, operators:NameLabelPair[], getPlaceHolder:any)=>{
   const getNormalQuery = (query: RuleGroupType)=>{
@@ -373,6 +417,7 @@ const getRuleDefaultValue = (rule: RuleType) => {
           parent.rules.push(root);       
     }
  }
+ 
   return {getRuleUpdatedValue, getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain, getValidQuery, getNormalQuery };
 }
 

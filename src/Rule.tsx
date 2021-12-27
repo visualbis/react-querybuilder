@@ -49,7 +49,6 @@ export const Rule: React.FC<RuleProps> = ({
 
   const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
-  const fieldSelectorOpt = level > 0 ? fields.filter((opt)=>  opt.fieldType !== 'column')  : fields;
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
      {removeIconatStart && <controls.removeRuleAction
@@ -61,7 +60,7 @@ export const Rule: React.FC<RuleProps> = ({
       />}
      
       <controls.fieldSelector
-        options={fieldSelectorOpt}
+        options={fields}
         title={translations.fields.title}
         value={field}
         operator={operator}
