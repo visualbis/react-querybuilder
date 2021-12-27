@@ -179,6 +179,7 @@ export interface Classnames {
 export interface Schema {
   fields: Field[];
   classNames: Classnames;
+  hasColumnChildRule(query?: RuleGroupType | RuleType) : boolean | undefined;
   combinators: { name: string; label: string }[];
   controls: Controls;
   createRule(): RuleType;

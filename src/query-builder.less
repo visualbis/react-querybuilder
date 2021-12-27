@@ -230,6 +230,11 @@
 		}
 	}
 }
+.disable-or label:nth-child(2), .disable-or label:nth-child(2) .circle, .disable-or label:nth-child(2) > input[type=radio]{
+	cursor: not-allowed;
+	pointer-events: all !important;
+	opacity: .5;
+}
 .ruleGroup-combinators {
 	border: none;
 	display: flex;
@@ -238,6 +243,7 @@
 	label {
 	padding-right: 10px;
 	}
+	
 	.combinators.active {
 		background: @color1;
 	}
