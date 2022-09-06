@@ -20,6 +20,7 @@ export interface RuleGroupType {
     combinator: string;
     rules: (RuleType | RuleGroupType)[];
     isActive?: boolean;
+    disabled?: boolean;
     not?: boolean;
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
@@ -158,6 +159,7 @@ export interface Classnames {
 export interface Schema {
     fields: Field[];
     classNames: Classnames;
+    hasColumnChildRule(query?: RuleGroupType | RuleType): boolean | undefined;
     combinators: {
         name: string;
         label: string;
