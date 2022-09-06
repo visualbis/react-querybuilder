@@ -20,10 +20,9 @@ var RuleGroup = function RuleGroup(_ref) {
       _ref$rules = _ref.rules,
       rules = _ref$rules === void 0 ? [] : _ref$rules,
       translations = _ref.translations,
-      schema = _ref.schema,
-      isRoot = _ref.isRoot,
-      enableClear = _ref.enableClear;
+      schema = _ref.schema;
   var classNames = schema.classNames,
+      hasColumnChildRule = schema.hasColumnChildRule,
       combinators = schema.combinators,
       controls = schema.controls,
       createRule = schema.createRule,
@@ -31,7 +30,6 @@ var RuleGroup = function RuleGroup(_ref) {
       getLevel = schema.getLevel,
       isRuleGroup = schema.isRuleGroup,
       onGroupAdd = schema.onGroupAdd,
-      clearRule = schema.clearRule,
       onPropChange = schema.onPropChange,
       onRuleAdd = schema.onRuleAdd,
       showCombinatorsBetweenRules = schema.showCombinatorsBetweenRules,
@@ -61,27 +59,22 @@ var RuleGroup = function RuleGroup(_ref) {
   // };
 
 
-  var level = getLevel(id);
-  var isClearEnabled = isRoot && enableClear && rules && rules.length;
+  var level = getLevel(id); // const isClearEnabled = isRoot && enableClear && rules && rules.length;
+
+  var removeOr = level < 1 && hasColumnChildRule();
+  var combinatorCls = removeOr ? "disable-or" : "";
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "ruleGroup ".concat(classNames.ruleGroup),
     "data-rule-group-id": id,
     "data-level": level
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, (!showCombinatorsBetweenRules && rules && rules.length > 1 || showAddGroup || showAddRule) && /*#__PURE__*/_react.default.createElement("div", {
     className: "ruleGroup-header ".concat(classNames.header)
   }, !showCombinatorsBetweenRules && rules && rules.length > 1 && /*#__PURE__*/_react.default.createElement(controls.combinatorSelector, {
     options: combinators,
     value: combinator,
     title: translations.combinators.title,
-    className: "ruleGroup-combinators betweenRules ".concat(classNames.combinators),
+    className: "ruleGroup-combinators betweenRules ".concat(combinatorCls, " ").concat(classNames.combinators),
     handleOnChange: onCombinatorChange,
-    rules: rules,
-    level: level
-  }), isClearEnabled && /*#__PURE__*/_react.default.createElement(controls.clearRuleAction, {
-    label: translations.clearRule.label,
-    title: translations.clearRule.title,
-    className: "ruleGroup-clearRule ".concat(classNames.clearRule),
-    handleOnClick: clearRule,
     rules: rules,
     level: level
   }), showAddGroup && /*#__PURE__*/_react.default.createElement(controls.addGroupAction, {
@@ -107,7 +100,7 @@ var RuleGroup = function RuleGroup(_ref) {
       options: combinators,
       value: combinator,
       title: translations.combinators.title,
-      className: "ruleGroup-combinators betweenRules ".concat(classNames.combinators),
+      className: "ruleGroup-combinators betweenRules ".concat(combinatorCls, "  ").concat(classNames.combinators),
       handleOnChange: onCombinatorChange,
       rules: rules,
       level: level
