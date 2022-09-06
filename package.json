@@ -10,7 +10,7 @@
     "dist": "npm run build:types && del dist && npm run build",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "preinstall": "npx npm-force-resolutions",
+    "preinstall": "npx force-resolutions",
     "build:types": "tsc --emitDeclarationOnly",
     "publish:demo": "npm run dist && node gh-pages.publish.js",
     "publish:npm": "np",
