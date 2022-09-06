@@ -253,6 +253,8 @@ var QueryBuilder = function QueryBuilder(_ref) {
 
   var _useQueryBuilderActio = useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn, getRuleUpdatedValue),
       root = _useQueryBuilderActio.root,
+      hasColumnChildRule = _useQueryBuilderActio.hasColumnChildRule,
+      updateCombinator = _useQueryBuilderActio.updateCombinator,
       clearRule = _useQueryBuilderActio.clearRule,
       setRoot = _useQueryBuilderActio.setRoot,
       _notifyQueryChange = _useQueryBuilderActio._notifyQueryChange,
@@ -266,6 +268,7 @@ var QueryBuilder = function QueryBuilder(_ref) {
 
   var schema = {
     fields: fields,
+    hasColumnChildRule: hasColumnChildRule,
     combinators: combinators,
     classNames: _objectSpread(_objectSpread({}, defaultControlClassnames), controlClassnames),
     clearRule: clearRule,
@@ -292,7 +295,9 @@ var QueryBuilder = function QueryBuilder(_ref) {
   };
   (0, _preactCompat.useEffect)(function () {
     // Set the query state when a new query prop comes in
-    setRoot((0, _utils.generateValidQuery)(query || getInitialQuery()));
+    var rootCopy = (0, _utils.generateValidQuery)(query || getInitialQuery());
+    rootCopy = updateCombinator(rootCopy);
+    setRoot(rootCopy);
   }, [query]);
   (0, _preactCompat.useEffect)(function () {
     // Notify a query change on mount
@@ -304,12 +309,25 @@ var QueryBuilder = function QueryBuilder(_ref) {
     updatedroot = getNormalQuery(root);
   }
 
-  var isNoRulesApplied = enableNormalView && updatedroot.rules.length === 0;
+  var ruleCount = updatedroot.rules.length;
+  var isNoRulesApplied = enableNormalView && ruleCount === 0;
+  var hederRuleClass = isNoRulesApplied ? "" : ruleCount === 1 ? "singleRule" : "multiRule";
   return /*#__PURE__*/_preactCompat.default.createElement("div", null, /*#__PURE__*/_preactCompat.default.createElement("div", {
     className: "queryBuilder ".concat(schema.classNames.queryBuilder)
+  }, (isNoRulesApplied || enableNormalView) && /*#__PURE__*/_preactCompat.default.createElement("div", {
+    className: "queryBuilder-header ".concat(hederRuleClass)
   }, isNoRulesApplied && /*#__PURE__*/_preactCompat.default.createElement("span", {
     className: "no-rule"
-  }, " No filters applied"), !isNoRulesApplied && /*#__PURE__*/_preactCompat.default.createElement(schema.controls.ruleGroup, {
+  }, " No filters applied"), enableNormalView && /*#__PURE__*/_preactCompat.default.createElement("div", {
+    title: "Add new filter",
+    role: "button",
+    className: "queryBuilder-header-addfilter",
+    onClick: onAddRullonRootLevel
+  }, /*#__PURE__*/_preactCompat.default.createElement("span", {
+    className: "ms-Icon ms-Icon--Add"
+  }), /*#__PURE__*/_preactCompat.default.createElement("span", {
+    className: "queryBuilder-footer-title"
+  }, "Add Filter"))), !isNoRulesApplied && /*#__PURE__*/_preactCompat.default.createElement(schema.controls.ruleGroup, {
     translations: _objectSpread(_objectSpread({}, defaultTranslations), translations),
     enableClear: enableNormalView,
     isRoot: true,
@@ -326,28 +344,89 @@ var QueryBuilder = function QueryBuilder(_ref) {
     className: "queryBuilder-footer-advanced",
     onClick: onAdvancedClick
   }, /*#__PURE__*/_preactCompat.default.createElement("span", {
-    className: "ms-Icon ms-Icon--FilterSettings"
-  }), /*#__PURE__*/_preactCompat.default.createElement("span", {
     className: "queryBuilder-footer-title"
-  }, "Advanced")), /*#__PURE__*/_preactCompat.default.createElement("div", {
-    title: "Add new filter",
-    role: "button",
-    className: "queryBuilder-footer-addfilter",
-    onClick: onAddRullonRootLevel
-  }, /*#__PURE__*/_preactCompat.default.createElement("span", {
-    className: "ms-Icon ms-Icon--Add"
-  }), /*#__PURE__*/_preactCompat.default.createElement("span", {
-    className: "queryBuilder-footer-title"
-  }, "Add Filter"))));
+  }, "Advanced"))));
 };
 
 exports.QueryBuilder = QueryBuilder;
+
+var useColumnRuleProps = function useColumnRuleProps(getRoot, getFields) {
+  var hasColumnRule = function hasColumnRule(query, isRoot) {
+    if (query.combinator) {
+      var _query = query;
+      var len = _query.rules.length;
+
+      for (var i = 0; i < len; i++) {
+        var _rule2 = _query.rules[i];
+        var hasColumn = hasColumnRule(_rule2, false);
+        if (hasColumn) return true;
+      }
+    } else {
+      var _rule = query;
+      var fields = getFields();
+
+      if (fields.filter(function (field) {
+        return field.fieldType === "column" && field.name === _rule.field;
+      }).length && !isRoot) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var hasColumnChildRule = function hasColumnChildRule(query) {
+    if (!query) {
+      query = getRoot();
+    }
+
+    ;
+
+    if (query.combinator) {
+      var _query = query;
+      var len = _query.rules.length;
+
+      for (var i = 0; i < len; i++) {
+        var _rule3 = _query.rules[i];
+        var hasColumn = hasColumnRule(_rule3, true);
+        if (hasColumn) return true;
+      }
+    }
+
+    return false;
+  };
+
+  var updateCombinator = function updateCombinator(query) {
+    if (hasColumnChildRule(query)) {
+      query.combinator = "and";
+    }
+
+    return query;
+  };
+
+  return {
+    hasColumnChildRule: hasColumnChildRule,
+    updateCombinator: updateCombinator
+  };
+};
 
 var useQueryBuilderActions = function useQueryBuilderActions(query, fields, combinators, createRule, getInitialQuery, onQueryChange, getOperatorsMain, getValidQuery, getRuleDefaultValue, resetOnFieldChange, resetOnOperatorChange, getValueEditorType, getSelectedColumn, getRuleUpdatedValue) {
   var _useState = (0, _preactCompat.useState)(getInitialQuery()),
       _useState2 = _slicedToArray(_useState, 2),
       root = _useState2[0],
       setRoot = _useState2[1];
+
+  var getRoot = function getRoot() {
+    return root;
+  };
+
+  var getFields = function getFields() {
+    return fields;
+  };
+
+  var _useColumnRuleProps = useColumnRuleProps(getRoot, getFields),
+      hasColumnChildRule = _useColumnRuleProps.hasColumnChildRule,
+      updateCombinator = _useColumnRuleProps.updateCombinator;
 
   var onRuleAdd = function onRuleAdd(rule, parentId) {
     // Adds a rule to the query
@@ -370,6 +449,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
         }));
       }
 
+      updateCombinator(rootCopy);
       setRoot(rootCopy);
 
       _notifyQueryChange(rootCopy);
@@ -388,6 +468,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
       rootCopy.rules.push(createRule());
     }
 
+    updateCombinator(rootCopy);
     setRoot(rootCopy);
 
     _notifyQueryChange(rootCopy);
@@ -428,14 +509,10 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
         });
       }
 
-      if (resetOnOperatorChange && prop === 'operator') {
-        var _value = getRuleUpdatedValue(rule, _preOperator);
-
-        Object.assign(rule, {
-          value: _value
-        });
-      }
-
+      if (resetOnOperatorChange && prop === 'operator') Object.assign(rule, {
+        value: getRuleUpdatedValue(rule, _preOperator)
+      });
+      updateCombinator(rootCopy);
       setRoot(rootCopy);
 
       _notifyQueryChange(rootCopy, prop, ruleId);
@@ -483,11 +560,12 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
         name: rootCopy.name ? rootCopy.name : "",
         email: rootCopy.email ? rootCopy.email : "",
         isActive: rootCopy.isActive,
+        disabled: rootCopy.disabled,
         rules: [],
         combinator: rootCopy.combinator
       };
       getValidQuery(rootCopy, updatedQuery, true);
-      setRoot(updatedQuery);
+      updateCombinator(updatedQuery);
 
       _notifyQueryChange(updatedQuery);
     }
@@ -500,10 +578,11 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
       name: rootCopy.name ? rootCopy.name : "",
       email: rootCopy.email ? rootCopy.email : "",
       isActive: rootCopy.isActive,
+      disabled: rootCopy.disabled,
       rules: [],
       combinator: rootCopy.combinator
     };
-    setRoot(updatedQuery);
+    updateCombinator(updatedQuery);
 
     _notifyQueryChange(updatedQuery);
   };
@@ -515,11 +594,7 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
 
   var _notifyQueryChange = function _notifyQueryChange(newRoot, prop, ruleId) {
     // Executes the `onQueryChange` function, if provided   
-    if (onQueryChange) {
-      // istanbul ignore else
-      var newQuery = (0, _cloneDeep.default)(newRoot);
-      onQueryChange(newQuery, prop, ruleId);
-    }
+    if (onQueryChange) onQueryChange((0, _cloneDeep.default)(newRoot), prop, ruleId);
   };
 
   return {
@@ -529,6 +604,8 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
     getInitialQuery: getInitialQuery,
     createRule: createRule,
     _notifyQueryChange: _notifyQueryChange,
+    hasColumnChildRule: hasColumnChildRule,
+    updateCombinator: updateCombinator,
     getLevelFromRoot: getLevelFromRoot,
     onGroupRemove: onGroupRemove,
     onRuleRemove: onRuleRemove,
@@ -546,6 +623,7 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
       name: query.name ? query.name : "",
       email: query.email ? query.email : "",
       isActive: query.isActive,
+      disabled: query.disabled,
       rules: [],
       combinator: query.combinator
     };
@@ -664,8 +742,8 @@ var useQueryBuilderProps = function useQueryBuilderProps(getValueEditorType, get
       var len = _query.rules.length;
 
       for (var i = 0; i < len; i++) {
-        var _rule2 = _query.rules[i];
-        getValidQuery(_rule2, root, false);
+        var _rule4 = _query.rules[i];
+        getValidQuery(_rule4, root, false);
       }
 
       if (!isRoot && root.rules.length > 0) {
