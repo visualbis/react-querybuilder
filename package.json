@@ -1,15 +1,16 @@
 {
   "name": "@visualbi/react-querybuilder",
-  "version": "0.0.48",
+  "version": "0.0.50",
   "description": "The React <QueryBuilder /> component for constructing queries",
   "main": "dist/",
-  "types": "types/index.d.ts", 
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "gulp build",
     "start": "webpack-dev-server --env dev",
     "dist": "npm run build:types && del dist && npm run build",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
+    "preinstall": "npx force-resolutions",
     "build:types": "tsc --emitDeclarationOnly",
     "publish:demo": "npm run dist && node gh-pages.publish.js",
     "publish:npm": "np",
@@ -87,25 +88,20 @@
     "gulp-sass": "^5.0.0",
     "gulp-typescript": "^5.0.1",
     "html-webpack-plugin": "^4.3.0",
-    "karma": "^6.3.2",
+    "karma": "^6.4.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.2",
     "karma-es6-shim": "^1.0.0",
     "karma-mocha": "^2.0.1",
-    "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
     "less-loader": "^6.2.0",
     "lodash": "^4.17.20",
     "mini-css-extract-plugin": "^0.9.0",
-    "mocha": "^8.1.3",
-    "node-sass": "^6.0.1",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-loader": "^5.2.0",
-    "puppeteer": "^4.0.0",
+    "mocha": "^10.0.0",
+    "node-sass": "7.0.1",
     "react": "^16.13.0",
-    "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.8.6",
     "sass-loader": "^8.0.2",
     "sinon": "^9.0.2",
@@ -115,7 +111,7 @@
     "typescript": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^4.2.0",
+    "webpack-dev-server": "^4.10.1",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
@@ -126,7 +122,7 @@
     "eslint": "^7.16.0",
     "eslint-plugin-powerbi-visuals": "^0.8.1",
     "gulp": "^4.0.2",
-    "nanoid": "^3.1.10",
+    "nanoid": "^3.3.4",
     "object-assign": "^4.1.1",
     "prop-types": "^15.6.0",
     "react-select": "^3.1.0",
@@ -135,6 +131,11 @@
   "peerDependencies": {
     "react": "^16.14.0",
     "react-dom": "^16.12.0"
+  },
+  "resolutions": {
+    "glob-parent": "^6.0.1",
+    "scss-tokenizer": " >=0.4.3",
+    "ansi-regex": "5.0.1"
   },
   "browserslist": "> 0.25%, not dead"
 }
