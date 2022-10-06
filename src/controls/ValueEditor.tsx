@@ -26,8 +26,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     handleOnChange(value.value);
   };
 
-  const onDateChange = (value: any) => {
-    handleOnChange(value.target.value);
+  const onDateChange = (e: any) => {
+    handleOnChange(e.target.value);
   };
   const onTextInputChange = (e: any) => {
     handleOnChange(e.target.value);
@@ -86,17 +86,21 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           checked={!!value}
         />
       );
-    case 'date':
+    case 'date': {
+      const isCurrentDateSet = ['lessThanCurrentDate', 'greaterThanCurrentDate'].includes(
+        operator as string
+      );
       return (
         <input
           role="date"
-          type="date"
+          type={isCurrentDateSet ? 'text' : 'date'}
           placeholder={placeHolder}
           className={className}
-          onChange={onDateChange}
-          value={value}
+          onChange={(e) => (!isCurrentDateSet ? onDateChange(e) : null)}
+          value={isCurrentDateSet ? new Date().toLocaleDateString() : value}
         />
       );
+    }
     case 'radio':
       {
         const radioCls = className ? `${className} radio` : 'radio';
