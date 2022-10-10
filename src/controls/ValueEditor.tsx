@@ -1,7 +1,10 @@
+/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueEditorProps } from '../types';
+import Calendar from 'react-modern-calendar-datepicker';
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
   operator,
@@ -21,11 +24,11 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     placeHolder = '';
   }
   const [_value, setValue] = useState(value);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const onSelectChange = (value: any) => {
     handleOnChange(value.value);
   };
-
   const onDateChange = (e: any) => {
     handleOnChange(e.target.value);
   };
@@ -42,6 +45,19 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   const onAutoSuggetionChange = (value: any) => {
     handleOnChange(value);
   };
+
+  const renderCustomInput = ({ ref }) => (
+    <input
+      role="date"
+      type="date"
+      readOnly
+      ref={ref}
+      placeholder={placeHolder}
+      value={value ? value : ''}
+      className={className}
+    />
+  );
+
   let options: any[] = [];
   let selectedOption;
   options = values
@@ -86,21 +102,30 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           checked={!!value}
         />
       );
-    case 'date': {
-      const isCurrentDateSet = ['lessThanCurrentDate', 'greaterThanCurrentDate'].includes(
-        operator as string
-      );
+    // case 'date':
+    //   return (
+    //     <input
+    //       role="date"
+    //       type={'date'}
+    //       placeholder={placeHolder}
+    //       className={className}
+    //       onChange={onDateChange}
+    //       value={value}
+    //     />
+    //   );
+    case 'date':
       return (
-        <input
-          role="date"
-          type={isCurrentDateSet ? 'text' : 'date'}
-          placeholder={placeHolder}
-          className={className}
-          onChange={(e) => (!isCurrentDateSet ? onDateChange(e) : null)}
-          value={isCurrentDateSet ? new Date().toLocaleDateString() : value}
+        <Calendar
+          value={value as any}
+          onChange={onDateChange}
+          shouldHighlightWeekends
+          renderInput={renderCustomInput}
+          colorPrimary="#0078d4"
+          colorPrimaryLight="#0078d41c"
+          calendarPopperPosition={'bottom'}
+          inputPlaceholder={className}
         />
       );
-    }
     case 'radio':
       {
         const radioCls = className ? `${className} radio` : 'radio';
