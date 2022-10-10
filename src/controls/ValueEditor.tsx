@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueEditorProps } from '../types';
-import Calendar from 'react-modern-calendar-datepicker';
-import "react-modern-calendar-datepicker/lib/DatePicker.css";
+import DatePicker from 'react-modern-calendar-datepicker';
 
 const ValueEditor: React.FC<ValueEditorProps> = ({
   operator,
@@ -24,13 +23,18 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     placeHolder = '';
   }
   const [_value, setValue] = useState(value);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDay, setSelectedDay] = useState<{day: null | number, month: null | number, year: null | number}>({day: null, month: null, year: null});
+  const [isTodaySelected, setTodayDate] = useState(false);
 
   const onSelectChange = (value: any) => {
     handleOnChange(value.value);
   };
-  const onDateChange = (e: any) => {
-    handleOnChange(e.target.value);
+  const onDateChange = (dateObj) => {
+    const tDay = dateObj.day;
+    const tMonth = dateObj.month;
+    const tYear = dateObj.year;
+    setSelectedDay(dateObj)
+    handleOnChange(tMonth + '/' + tDay + '/' + tYear);
   };
   const onTextInputChange = (e: any) => {
     handleOnChange(e.target.value);
@@ -48,15 +52,31 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
 
   const renderCustomInput = ({ ref }) => (
     <input
-      role="date"
-      type="date"
       readOnly
       ref={ref}
       placeholder={placeHolder}
-      value={value ? value : ''}
+      value={selectedDay ? `${((selectedDay as any).month + "/" + (selectedDay as any).day + "/" + (selectedDay as any).year).toString()}` : ''}
       className={className}
     />
   );
+
+  const onTodaysDateChange = (e) => {
+    const tDay = new Date().getDate();
+    const tMonth = new Date().getMonth() + 1;
+    const tYear = new Date().getFullYear();
+    setSelectedDay({day: tDay, month: tMonth, year: tYear})
+    handleOnChange(tMonth + '/' + tDay + '/' + tYear);
+    setTodayDate(e.target.value)
+  }
+
+  const renderToday = () => {
+    return (
+      <label className='calendar-footer-container'>
+        <input type='radio' checked={isTodaySelected} onChange={onTodaysDateChange} />
+        <span  className='footer-text'>{'Current Date'}</span>
+      </label>
+    )
+  }
 
   let options: any[] = [];
   let selectedOption;
@@ -102,29 +122,19 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
           checked={!!value}
         />
       );
-    // case 'date':
-    //   return (
-    //     <input
-    //       role="date"
-    //       type={'date'}
-    //       placeholder={placeHolder}
-    //       className={className}
-    //       onChange={onDateChange}
-    //       value={value}
-    //     />
-    //   );
     case 'date':
       return (
-        <Calendar
-          value={value as any}
+        <div className='chronology-audit'>
+        <DatePicker
+          value={selectedDay as any}
           onChange={onDateChange}
+          renderInput={renderCustomInput} // render a custom input
           shouldHighlightWeekends
-          renderInput={renderCustomInput}
           colorPrimary="#0078d4"
           colorPrimaryLight="#0078d41c"
-          calendarPopperPosition={'bottom'}
-          inputPlaceholder={className}
+          renderFooter={renderToday}
         />
+        </div>
       );
     case 'radio':
       {
