@@ -23,7 +23,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     placeHolder = '';
   }
   const [_value, setValue] = useState(value);
-  const [selectedDay, setSelectedDay] = useState<{day: null | number, month: null | number, year: null | number}>({day: null, month: null, year: null});
+  const [selectedDay, setSelectedDay] = useState(null);
   const [isTodaySelected, setTodayDate] = useState(false);
 
   const onSelectChange = (value: any) => {
