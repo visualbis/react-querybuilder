@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
@@ -71,7 +70,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
 
   const renderToday = () => {
     return (
-      <label className='calendar-footer-container'>
+      <label>
         <input type='radio' checked={isTodaySelected} onChange={onTodaysDateChange} />
         <span  className='footer-text'>{'Current Date'}</span>
       </label>
@@ -124,7 +123,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
       );
     case 'date':
       return (
-        <div className='chronology-audit'>
+        <div className='date-filter-wrapper'>
         <DatePicker
           value={selectedDay as any}
           onChange={onDateChange}
