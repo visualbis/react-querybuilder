@@ -30,7 +30,7 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   };
   const onDateChange = (dateObj) => {
     setSelectedDay(dateObj)
-    handleOnChange(handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`));
+    handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`);
   };
   const onTextInputChange = (e: any) => {
     handleOnChange(e.target.value);
