@@ -3,7 +3,6 @@
 import React from "react";
 import {QueryBuilder} from "./QueryBuilder";
 import {RuleGroupType,Field,NameLabelPair,ValueEditorType} from "./types";
-//import "./query-builder.less";
 import "../../css/query-builder.css";
 
 export interface IProps{
