@@ -29,11 +29,8 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
     handleOnChange(value.value);
   };
   const onDateChange = (dateObj) => {
-    const tDay = dateObj.day;
-    const tMonth = dateObj.month;
-    const tYear = dateObj.year;
     setSelectedDay(dateObj)
-    handleOnChange(tMonth + '/' + tDay + '/' + tYear);
+    handleOnChange(handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`));
   };
   const onTextInputChange = (e: any) => {
     handleOnChange(e.target.value);
@@ -60,17 +57,17 @@ const ValueEditor: React.FC<ValueEditorProps> = ({
   );
 
   const onTodaysDateChange = (e) => {
-    const tDay = new Date().getDate();
-    const tMonth = new Date().getMonth() + 1;
-    const tYear = new Date().getFullYear();
-    setSelectedDay({day: tDay, month: tMonth, year: tYear})
-    handleOnChange(tMonth + '/' + tDay + '/' + tYear);
+    const day = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+    setSelectedDay({day, month, year})
+    handleOnChange(`${month}/${day}/${year}`);
     setTodayDate(e.target.value)
   }
 
   const renderToday = () => {
     return (
-      <label>
+      <label className='label-container'>
         <input type='radio' checked={isTodaySelected} onChange={onTodaysDateChange} />
         <span  className='footer-text'>{'Current Date'}</span>
       </label>
