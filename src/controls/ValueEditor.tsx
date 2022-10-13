@@ -4,189 +4,224 @@ import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueEditorProps } from '../types';
 import DatePicker from 'react-modern-calendar-datepicker';
 
-const ValueEditor: React.FC<ValueEditorProps> = ({
-  operator,
-  value,
-  handleOnChange,
-  title,
-  className,
-  type,
-  inputType,
-  placeHolder,
-  values
-}) => {
+const renderCustomInput = ({ ref, placeHolder, selectedDay, className }) => {
+  const formattedValue =
+    selectedDay &&
+    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`;
+  return (
+    <input
+      readOnly
+      ref={ref}
+      placeholder={placeHolder}
+      value={formattedValue}
+      className={className}
+    />
+  );
+};
+
+const renderToday = (isTodaySelected, onTodaysDateChange) => (
+  <label className="label-container">
+    <input
+      role="radio"
+      type="radio"
+      value={''}
+      aria-checked={isTodaySelected}
+      onChange={onTodaysDateChange}
+    />
+    <span className="footer-text">{'Current date'}</span>
+  </label>
+);
+
+const renderDefault = (props) => {
+  const { inputType, value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
+  const onChange = (e) => handleOnChange(e.target.value);
+  return (
+    <div className="rule-value-parent">
+      <input
+        type={inputType || 'text'}
+        value={value}
+        title={title}
+        disabled={inputDisabled}
+        className={className}
+        placeholder={placeHolder}
+        onChange={onChange}
+      />
+    </div>
+  );
+};
+
+const renderTextArea = (props) => {
+  const { title, inputDisabled, onTextAreaChange, handleOnChange, _value, className } = props;
+  const onBlur = () => handleOnChange(_value);
+  return (
+    <div className="rule-value-parent textarea">
+      <textarea
+        spellCheck="false"
+        value={_value}
+        title={title}
+        disabled={inputDisabled}
+        className={className}
+        placeholder="Enter values separated by comma"
+        onChange={onTextAreaChange}
+        onBlur={onBlur}
+      />
+    </div>
+  );
+};
+
+const renderCheckBox = (props) => {
+  const { className, title, value, handleOnChange } = props;
+  const onChange = (e) => handleOnChange(e.target.checked);
+  return (
+    <input
+      role="checkbox"
+      type="checkbox"
+      className={className}
+      title={title}
+      onChange={onChange}
+      aria-checked={!!value}
+      checked={!!value}
+      value={''}
+    />
+  );
+};
+
+const renderSelect = (props) => {
+  const { placeHolder, className, selectedOption, options, handleOnChange } = props;
+  const onChange = (val) => handleOnChange(val.value);
+  return (
+    <Dropdown
+      placeholder={placeHolder}
+      className={className}
+      value={selectedOption}
+      options={options}
+      onChange={onChange}
+    />
+  );
+};
+
+const renderAutoComplete = (props) => {
+  const { placeHolder, value, options, handleOnChange, className } = props;
+  const onChange = (val) => handleOnChange(val);
+  return (
+    <Autocomplete
+      scrollPositionSupport={true}
+      placeholder={placeHolder}
+      options={options}
+      value={value}
+      onChange={onChange}
+      className={className}></Autocomplete>
+  );
+};
+
+const renderRadio = (props) => {
+  const { value, handleOnChange, className, title, values } = props;
+  const onChange = (e) => handleOnChange(e.target.value);
+  
+  return (
+    <span className={`${className && className} radio`} title={title}>
+      {values &&
+        values.map((v) => {
+          const isChecked = value === v.name;
+          return (
+            <label key={v.name}>
+              <input
+                type="radio"
+                value={v.name}
+                aria-checked={isChecked}
+                checked={isChecked}
+                onChange={onChange}
+              />
+              <span className="circle"></span>
+              <span className="radio-title">{v.label}</span>
+            </label>
+          )
+        })}
+    </span>
+  );
+};
+
+const renderDatePicker = (props) => {
+  const { handleOnChange, selectedDay, setSelectedDay, isTodaySelected, onTodaysDateChange } =
+    props;
+    const onChange = (d) => onDateChange(d, setSelectedDay, handleOnChange);
+    const customInput = (e) =>  renderCustomInput({ ...e, selectedDay, ...props });
+    const renderFooter = () =>  renderToday(isTodaySelected, onTodaysDateChange);
+  return (
+    <div className="date-filter-wrapper">
+      <DatePicker
+        value={selectedDay as any}
+        onChange={onChange}
+        renderInput={customInput} // render a custom input
+        shouldHighlightWeekends
+        colorPrimary="#0078d4"
+        colorPrimaryLight="#0078d41c"
+        renderFooter={renderFooter}
+      />
+    </div>
+  );
+};
+
+const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
+  setSelectedDay(dateObj);
+  handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`);
+};
+
+const ValueEditor: React.FC<ValueEditorProps> = (props) => {
+  const { operator, value, handleOnChange, type, placeHolder, values } = props;
   let inputDisabled = false;
+  let options: any[] = [];
+  let selectedOption;
+  let fieldType = type;
+  let fieldPlaceHolder = placeHolder;
   if (operator === 'null' || operator === 'notNull' || type === 'none') {
-    type = 'text';
+    fieldType = 'text';
     inputDisabled = true;
-    placeHolder = '';
+    fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
   const [selectedDay, setSelectedDay] = useState(null);
   const [isTodaySelected, setTodayDate] = useState(false);
 
-  const onSelectChange = (value: any) => {
-    handleOnChange(value.value);
-  };
-  const onDateChange = (dateObj) => {
-    setSelectedDay(dateObj)
-    handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`);
-  };
-  const onTextInputChange = (e: any) => {
-    handleOnChange(e.target.value);
-  };
-  const onTextAreaChange = (e: any) => {
-    setValue(e.target.value);
-  };
-  const applyTextAreaChange = () => {
-    handleOnChange(_value);
-  };
-  const onCheckboxChange = (e: any) => handleOnChange(e.target.checked);
-  const onAutoSuggetionChange = (value: any) => {
-    handleOnChange(value);
-  };
-
-  const renderCustomInput = ({ ref }) => (
-    <input
-      readOnly
-      ref={ref}
-      placeholder={placeHolder}
-      value={selectedDay ? `${((selectedDay as any).month + "/" + (selectedDay as any).day + "/" + (selectedDay as any).year).toString()}` : ''}
-      className={className}
-    />
-  );
+  const onTextAreaChange = (e: any) => setValue(e.target.value);
 
   const onTodaysDateChange = (e) => {
     const day = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    setSelectedDay({day, month, year})
+    setSelectedDay({ day, month, year });
     handleOnChange(`${month}/${day}/${year}`);
-    setTodayDate(e.target.value)
-  }
+    setTodayDate(e.target.value);
+  };
 
-  const renderToday = () => {
-    return (
-      <label className='label-container'>
-        <input type='radio' checked={isTodaySelected} onChange={onTodaysDateChange} />
-        <span  className='footer-text'>{'Current Date'}</span>
-      </label>
-    )
-  }
-
-  let options: any[] = [];
-  let selectedOption;
   options = values
     ? values.map((item) => {
-        if (item.name == value) {
-          selectedOption = { value: item.name, label: item.label };
-        }
+        if (item.name == value) selectedOption = { value: item.name, label: item.label };
         return { value: item.name, label: item.label };
       })
     : [];
-  switch (type) {
+  switch (fieldType) {
     case 'select':
-      return (
-        <Dropdown
-          placeholder={placeHolder}
-          className={className}
-          value={selectedOption}
-          options={options}
-          onChange={onSelectChange}
-        />
-      );
+      return renderSelect({ ...props, selectedOption, options });
     case 'autocomplete':
-      return (
-        <Autocomplete
-          scrollPositionSupport={true}
-          placeholder={placeHolder}
-          options={options}
-          value={value}
-          onChange={onAutoSuggetionChange}
-          className={className}></Autocomplete>
-      );
+      return renderAutoComplete({ ...props, options });
     case 'checkbox':
-      // tslint:disable-next-line: react-a11y-input-elements
-      return (
-        <input
-          role="checkbox"
-          type="checkbox"
-          className={className}
-          title={title}
-          onChange={onCheckboxChange}
-          aria-checked={!!value}
-          checked={!!value}
-        />
-      );
+      return renderCheckBox(props);
     case 'date':
-      return (
-        <div className='date-filter-wrapper'>
-        <DatePicker
-          value={selectedDay as any}
-          onChange={onDateChange}
-          renderInput={renderCustomInput} // render a custom input
-          shouldHighlightWeekends
-          colorPrimary="#0078d4"
-          colorPrimaryLight="#0078d41c"
-          renderFooter={renderToday}
-        />
-        </div>
-      );
+      return renderDatePicker({
+        ...props,
+        selectedDay,
+        setSelectedDay,
+        isTodaySelected,
+        onTodaysDateChange,
+        placeHolder: fieldPlaceHolder
+      });
     case 'radio':
-      {
-        const radioCls = className ? `${className} radio` : 'radio';
-        return (
-          <span className={radioCls} title={title}>
-            {values &&
-              values.map((v) => {
-                const isChecked = value === v.name;
-                return (
-                  <label key={v.name}>
-                    <input
-                      type="radio"
-                      value={v.name}
-                      aria-checked={isChecked}
-                      checked={isChecked}
-                      onChange={onTextInputChange}
-                    />
-                    <span className="circle"></span>
-                    <span className="radio-title">{v.label}</span>
-                  </label>
-                );
-              })}
-          </span>
-        );
-      }
-      break;
+      return renderRadio(props);
     case 'textarea':
-      return (
-        <div className="rule-value-parent textarea">
-          <textarea
-            spellCheck="false"
-            value={_value}
-            title={title}
-            disabled={inputDisabled}
-            className={className}
-            placeholder="Enter values separated by comma"
-            onChange={onTextAreaChange}
-            onBlur={applyTextAreaChange}
-          />
-        </div>
-      );
+      return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     default:
-      return (
-        <div className="rule-value-parent">
-          <input
-            type={inputType || 'text'}
-            value={value}
-            title={title}
-            disabled={inputDisabled}
-            className={className}
-            placeholder={placeHolder}
-            onChange={onTextInputChange}
-          />{' '}
-        </div>
-      );
+      return renderDefault({ ...props, inputDisabled });
   }
 };
 

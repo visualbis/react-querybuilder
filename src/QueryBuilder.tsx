@@ -202,7 +202,7 @@ const useColumnRuleProps = (getRoot, getFields) =>{
  const hasColumnChildRule = (query?: RuleGroupType | RuleType) => {
   if(!query){
     query = getRoot();
-  };
+  }
   if ((query as RuleGroupType).combinator) {
     const _query: RuleGroupType = query as RuleGroupType;
     const len = _query.rules.length;
