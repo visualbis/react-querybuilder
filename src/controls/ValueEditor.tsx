@@ -180,8 +180,8 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [isTodaySelected, setTodayDate] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<null | {day: number | string, month: number | string, year: number | string}>(null);
+  const [isTodaySelected, setTodayDate] = useState<boolean>(false);
 
   const onTextAreaChange = (e: any) => setValue(e.target.value);
 
