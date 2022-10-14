@@ -11,17 +11,24 @@ module.exports = merge(webpackCommon, {
     index: './src/index.ts'
   },
   module: {
-    rules: [      
-        {
-            test: /\.less$/,
-            use: [
-                { loader: 'style-loader' },
-                { loader: 'css-loader' },
-                { loader: 'less-loader' }
-            ]
-        }
+    rules: [
+      {
+        test: /\.less$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }]
+      },
+      {
+        test: /\.(woff|ttf|ico|woff2|jpg|jpeg|png|svg|webp)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: Math.Infinity
+            }
+          }
+        ]
+      }
     ]
-},
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
@@ -33,6 +40,4 @@ module.exports = merge(webpackCommon, {
   },
 
   devtool: 'none'
-
- 
 });

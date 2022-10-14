@@ -117,6 +117,21 @@
     // height: 32px;
     // width: 100%;
 
+    .date-input-icon {
+      display: flex;
+      justify-content: space-between;
+
+      .icon-class {
+        background-image: url('../_assets/calender.svg');
+        -webkit-appearance: none;
+        width: 20px;
+        padding: 0px;
+        margin: 0px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+      }
+    }
+
     .date-modal-container {
       display: flex;
       flex-direction: column;
@@ -159,7 +174,7 @@
           font-size: 12px;
         }
         .DatePicker__input::before {
-          background-image: url('../_assets/calender-icon.svg');
+          background-image: url('../_assets/calender.svg');
           -webkit-appearance: none;
           width: 20px;
           padding: 0px;
