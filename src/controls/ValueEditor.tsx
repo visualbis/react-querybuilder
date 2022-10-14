@@ -204,7 +204,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         onDateChange
       };
       return renderCustomInput(propList);
-      // return <DatePicker {...propList} />;
     }
 
     case 'radio':
