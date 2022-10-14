@@ -114,24 +114,34 @@
   }
 
   .date-input-container {
-    // height: 32px;
-    // width: 100%;
+    height: 32px;
+    width: 100%;
+    margin-right: 6px;
 
-    .date-input-icon {
-      display: flex;
-      justify-content: space-between;
-
-      .icon-class {
-        background-image: url('../_assets/calender.svg');
-        -webkit-appearance: none;
-        width: 20px;
-        padding: 0px;
-        margin: 0px;
-        cursor: pointer;
-        background-repeat: no-repeat;
-        position: relative;
-        right: 20px;
-        top: 10px;
+    .custom-input-class {
+      border: 1px solid @color0 !important;
+      border-radius: 1px !important;
+      height: @height1;
+      outline: none;
+      overflow: hidden;
+      padding: 0px 0px 0px 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      box-sizing: border-box;
+      margin-left: 4px;
+      background: url(../_assets/calender.svg) no-repeat scroll 117px 10px;
+      &:disabled {
+        cursor: not-allowed;
+      }
+      &:focus {
+        border: 1px solid @color0;
+        height: @height1;
+        outline: none;
+        overflow: hidden;
+        padding: 0px 0px 0px 5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        box-sizing: border-box;
       }
     }
 

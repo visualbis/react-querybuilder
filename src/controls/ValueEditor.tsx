@@ -7,8 +7,8 @@ import DatePickerComponent from './DatePickerComponent';
 const renderCustomInput = (props) => {
   const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
   const formattedValue =
-    selectedDay &&
-    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`;
+    selectedDay ?
+    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}` : '';
 
   const onClick = () => {
     if (!isShowCalendar) setCalendar(true);
@@ -16,10 +16,12 @@ const renderCustomInput = (props) => {
 
   return (
     <div role="button" className={`date-input-container`} onClick={onClick}>
-      <div className='date-input-icon'>
-      <input className={`${className}`} readOnly placeholder={placeHolder} value={formattedValue} />
-      <div className='icon-class' />
-      </div>
+      <input
+        className={`${className} custom-input-class`}
+        readOnly
+        placeholder={placeHolder}
+        value={formattedValue}
+      />
       {isShowCalendar && <DatePickerComponent {...props} />}
     </div>
   );
