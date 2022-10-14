@@ -18,7 +18,7 @@ const renderCustomInput = (props) => {
     <div role="button" className={`date-input-container`} onClick={onClick}>
       <div className='date-input-icon'>
       <input className={`${className}`} readOnly placeholder={placeHolder} value={formattedValue} />
-      <div className='icon-class'></div>
+      <div className='icon-class' />
       </div>
       {isShowCalendar && <DatePickerComponent {...props} />}
     </div>
