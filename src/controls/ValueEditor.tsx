@@ -2,35 +2,30 @@ import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
 import { ValueEditorProps } from '../types';
-import DatePicker from 'react-modern-calendar-datepicker';
+import DatePickerComponent from './DatePickerComponent';
 
-const renderCustomInput = ({ ref, placeHolder, selectedDay, className }) => {
+const renderCustomInput = (props) => {
+  const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
   const formattedValue =
-    selectedDay &&
-    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`;
+    selectedDay ?
+    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}` : '';
+
+  const onClick = () => {
+    if (!isShowCalendar) setCalendar(true);
+  };
+
   return (
-    <input
-      readOnly
-      ref={ref}
-      placeholder={placeHolder}
-      value={formattedValue}
-      className={className}
-    />
+    <div role="button" className={`date-input-container`} onClick={onClick}>
+      <input
+        className={`${className} custom-input-class`}
+        readOnly
+        placeholder={placeHolder}
+        value={formattedValue}
+      />
+      {isShowCalendar && <DatePickerComponent {...props} />}
+    </div>
   );
 };
-
-const renderToday = (isTodaySelected, onTodaysDateChange) => (
-  <label className="label-container">
-    <input
-      role="radio"
-      type="radio"
-      value={''}
-      aria-checked={isTodaySelected}
-      onChange={onTodaysDateChange}
-    />
-    <span className="footer-text">{'Current date'}</span>
-  </label>
-);
 
 const renderDefault = (props) => {
   const { inputType, value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
@@ -117,7 +112,7 @@ const renderAutoComplete = (props) => {
 const renderRadio = (props) => {
   const { value, handleOnChange, className, title, values } = props;
   const onChange = (e) => handleOnChange(e.target.value);
-  
+
   return (
     <span className={`${className && className} radio`} title={title}>
       {values &&
@@ -135,36 +130,15 @@ const renderRadio = (props) => {
               <span className="circle"></span>
               <span className="radio-title">{v.label}</span>
             </label>
-          )
+          );
         })}
     </span>
   );
 };
 
-const renderDatePicker = (props) => {
-  const { handleOnChange, selectedDay, setSelectedDay, isTodaySelected, onTodaysDateChange } =
-    props;
-    const onChange = (d) => onDateChange(d, setSelectedDay, handleOnChange);
-    const customInput = (e) =>  renderCustomInput({ ...e, selectedDay, ...props });
-    const renderFooter = () =>  renderToday(isTodaySelected, onTodaysDateChange);
-  return (
-    <div className="date-filter-wrapper">
-      <DatePicker
-        value={selectedDay as any}
-        onChange={onChange}
-        renderInput={customInput} // render a custom input
-        shouldHighlightWeekends
-        colorPrimary="#0078d4"
-        colorPrimaryLight="#0078d41c"
-        renderFooter={renderFooter}
-      />
-    </div>
-  );
-};
-
 const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
   setSelectedDay(dateObj);
-  handleOnChange(`${dateObj.month}/${dateObj.day}/${dateObj.year}`);
+  handleOnChange(dateObj ? `${dateObj.month}/${dateObj.day}/${dateObj.year}` : null);
 };
 
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
@@ -180,18 +154,29 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
-  const [selectedDay, setSelectedDay] = useState<null | {day: number | string, month: number | string, year: number | string}>(null);
+  const [selectedDay, setSelectedDay] = useState<null | {
+    day: number | string;
+    month: number | string;
+    year: number | string;
+  }>(null);
   const [isTodaySelected, setTodayDate] = useState<boolean>(false);
+  const [isShowCalendar, setCalendar] = useState<boolean>(false);
 
   const onTextAreaChange = (e: any) => setValue(e.target.value);
 
-  const onTodaysDateChange = (e) => {
+  const onTodaysDateChange = () => {
     const day = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    setSelectedDay({ day, month, year });
-    handleOnChange(`${month}/${day}/${year}`);
-    setTodayDate(e.target.value);
+    onDateChange({ day, month, year }, setSelectedDay, handleOnChange);
+    setTodayDate(true);
+  };
+
+  const onSelectDateChange = () => {
+    if (isTodaySelected) {
+      onDateChange(null, setSelectedDay, handleOnChange);
+      setTodayDate(false);
+    }
   };
 
   options = values
@@ -207,15 +192,22 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       return renderAutoComplete({ ...props, options });
     case 'checkbox':
       return renderCheckBox(props);
-    case 'date':
-      return renderDatePicker({
+    case 'date': {
+      const propList = {
         ...props,
-        selectedDay,
-        setSelectedDay,
+        placeHolder: fieldPlaceHolder,
+        isShowCalendar,
+        setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        placeHolder: fieldPlaceHolder
-      });
+        onSelectDateChange,
+        selectedDay,
+        setSelectedDay,
+        onDateChange
+      };
+      return renderCustomInput(propList);
+    }
+
     case 'radio':
       return renderRadio(props);
     case 'textarea':

@@ -15,17 +15,24 @@ module.exports = merge(webpackCommon, {
     path: path.resolve(__dirname, '../dist/demo')
   },
   module: {
-    rules: [      
-        {
-            test: /\.less$/,
-            use: [
-                { loader: 'style-loader' },
-                { loader: 'css-loader' },
-                { loader: 'less-loader' }
-            ]
-        }
+    rules: [
+      {
+        test: /\.less$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }]
+      },
+      {
+        test: /\.(woff|ttf|ico|woff2|jpg|jpeg|png|svg|webp)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: Math.Infinity
+            }
+          }
+        ]
+      }
     ]
-},
+  },
   devtool: 'cheap-module-source-map',
   devServer: {
     historyApiFallback: true,
