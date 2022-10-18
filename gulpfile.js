@@ -14,6 +14,7 @@ function cleanDist() {
 	return del([
 		'./dist',
 		'./css',
+		'./assets',
 	])
 }
 
@@ -83,8 +84,14 @@ function copyCSS() {
 		.pipe(gulp.dest('css/'))
 }
 
+function copyIcons() {
+	return gulp.src(['src/icons/*.svg', 'src/icons/*.png'])
+		.pipe(gulp.dest('assets/icons/'))
+}
+
 const compileCSS = gulp.series(compileLess, copyCSS);
+const copyAssets = gulp.series(copyIcons);
 const compileTS = gulp.series(compileBabel, compileBabelPreact);
 // const generateTypes = gulp.series(buildTypes, concatTypes);
 
-exports.build = gulp.series(cleanDist, compileCSS, compileTS);
+exports.build = gulp.series(cleanDist, compileCSS, compileTS, copyAssets);
