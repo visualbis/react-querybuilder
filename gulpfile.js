@@ -90,8 +90,8 @@ function copyIcons() {
 }
 
 const compileCSS = gulp.series(compileLess, copyCSS);
-const copyIcons = gulp.series(copyIcons);
+const copyAssets = gulp.series(copyIcons);
 const compileTS = gulp.series(compileBabel, compileBabelPreact);
 // const generateTypes = gulp.series(buildTypes, concatTypes);
 
-exports.build = gulp.series(cleanDist, compileCSS, compileTS, copyIcons);
+exports.build = gulp.series(cleanDist, compileCSS, compileTS, copyAssets);
