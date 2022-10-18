@@ -86,7 +86,7 @@ function copyCSS() {
 
 function copyIcons() {
 	return gulp.src(['src/icons/*.svg', 'src/icons/*.png'])
-		.pipe(gulp.dest('assets/'))
+		.pipe(gulp.dest('assets/icons/'))
 }
 
 const compileCSS = gulp.series(compileLess, copyCSS);
