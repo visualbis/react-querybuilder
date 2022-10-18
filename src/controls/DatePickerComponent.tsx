@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Calendar } from 'react-modern-calendar-datepicker';
 
 interface DatePickerComponentProps {
@@ -62,7 +62,9 @@ const renderDatePicker = (props) => {
 
 const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
   const { setCalendar } = props;
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [parentClass, setClass] = useState('date-modal-container');
+  const [st, setSt] = useState<any | string>(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -75,8 +77,23 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const parentModalRef = document.querySelector('.flexi-filter')?.getBoundingClientRect();
+      if (parentModalRef) {
+        const cardEle = cardRef.current.getBoundingClientRect();
+        const inputEle = document.querySelector('.date-input-container')?.getBoundingClientRect(); 
+        if (cardEle && cardEle.bottom > 700) {
+          setSt({top: `${Math.floor(cardEle.bottom) - (parentModalRef.bottom + parentModalRef.top + (inputEle?.height ?? 0))}px`})
+          // setClass(parentClass + ' top-position-modal');
+        }
+      }
+    }
+  }, [cardRef]);
+
   return (
-    <div ref={cardRef} className="date-modal-container">
+    <div ref={cardRef} className={parentClass} style={st}>
       {renderHeader(props)}
       {renderDatePicker(props)}
       {renderFooter(props)}
