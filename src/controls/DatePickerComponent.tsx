@@ -46,8 +46,13 @@ const renderHeader = (props) => {
 };
 
 const renderDatePicker = (props) => {
-  const { handleOnChange, setSelectedDay, onDateChange } = props;
-  const onChange = (d) => onDateChange(d, setSelectedDay, handleOnChange);
+  const { handleOnChange, setSelectedDay, onDateChange, setCalendar } = props;
+
+  const onChange = (d) => {
+    onDateChange(d, setSelectedDay, handleOnChange);
+    setCalendar(false);
+  };
+
   return (
     <div className="date-filter-wrapper">
       <Calendar
@@ -63,7 +68,6 @@ const renderDatePicker = (props) => {
 const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
   const { setCalendar } = props;
   const cardRef = useRef<HTMLDivElement>(null);
-  const [parentClass, setClass] = useState('date-modal-container');
   const [st, setSt] = useState<any | string>(null);
 
   useEffect(() => {
@@ -80,22 +84,25 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
 
   useEffect(() => {
     if (cardRef.current) {
-      const parentModalRef = document.querySelector('.flexi-filter')?.getBoundingClientRect();
+      const parentModalRef = document
+        .querySelector('.mrx-modal-container')
+        ?.getBoundingClientRect();
+
+      const filterContainerRef = document.querySelector('.flexi-filter')?.getBoundingClientRect();
+
+      if (filterContainerRef) setSt({ right: '23px' });
+
       if (parentModalRef) {
         const cardEle = cardRef.current.getBoundingClientRect();
-        const inputEle = document.querySelector('.date-input-container')?.getBoundingClientRect(); 
-        if (cardEle && cardEle.bottom > 700) {
-          setSt({top: `${Math.floor(cardEle.bottom) - (parentModalRef.bottom + parentModalRef.top + (inputEle?.height ?? 0))}px`})
-          // setClass(parentClass + ' top-position-modal');
-        }
+        // if (cardEle.bottom > parentModalRef.bottom) setSt({...st, bottom: 0 }); //get index value
       }
     }
   }, [cardRef]);
 
   return (
-    <div ref={cardRef} className={parentClass} style={st}>
+    <div ref={cardRef} className='date-modal-container' style={st}>
       {renderHeader(props)}
-      {renderDatePicker(props)}
+      {renderDatePicker({ ...props, setCalendar })}
       {renderFooter(props)}
     </div>
   );
