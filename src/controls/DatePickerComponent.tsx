@@ -68,7 +68,7 @@ const renderDatePicker = (props) => {
 const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
   const { setCalendar } = props;
   const cardRef = useRef<HTMLDivElement>(null);
-  const [st, setSt] = useState<React.CSSProperties>({ right: '23px' });
+  const [cardStyle, setCardStyle] = useState<React.CSSProperties>({ right: '23px' });
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -90,13 +90,13 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
 
       if (parentRef && inputRef) {
         if (cardEle.top + cardEle.height > parentRef.top + parentRef.height)
-          setSt({ ...st, bottom: `${inputRef.height}px` });
+          setCardStyle({ ...cardStyle, bottom: `${inputRef.height}px` });
       }
     }
   }, [cardRef]);
 
   return (
-    <div ref={cardRef} className="date-modal-container" style={st && st}>
+    <div ref={cardRef} className="date-modal-container" style={cardStyle && cardStyle}>
       {renderHeader(props)}
       {renderDatePicker({ ...props, setCalendar })}
       {renderFooter(props)}
