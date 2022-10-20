@@ -68,7 +68,7 @@ const renderDatePicker = (props) => {
 const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
   const { setCalendar } = props;
   const cardRef = useRef<HTMLDivElement>(null);
-  const [st, setSt] = useState<any | string>(null);
+  const [st, setSt] = useState<React.CSSProperties>({ right: '23px' });
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -84,23 +84,21 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
 
   useEffect(() => {
     if (cardRef.current) {
-      const parentModalRef = document
-        .querySelector('.mrx-modal-container')
-        ?.getBoundingClientRect();
+      const cardEle = cardRef.current.getBoundingClientRect();
+      const inputRef = cardRef.current.closest('.date-input-container')?.getBoundingClientRect();
+      const parentRef = cardRef.current.closest('.mrx-modal-container')?.getBoundingClientRect();
 
-      const filterContainerRef = document.querySelector('.flexi-filter')?.getBoundingClientRect();
-
-      if (filterContainerRef) setSt({ right: '23px' });
-
-      if (parentModalRef) {
-        const cardEle = cardRef.current.getBoundingClientRect();
-        // if (cardEle.bottom > parentModalRef.bottom) setSt({...st, bottom: 0 }); //get index value
+      if (parentRef && inputRef) {
+        const inputRowHeight = 45;
+        if (cardEle.top + cardEle.height > parentRef.top + parentRef.height)
+          setSt({ ...st, bottom: `${inputRef.height}px` });
+        else setSt({ ...st, top: `${inputRowHeight + inputRef.height}px` });
       }
     }
   }, [cardRef]);
 
   return (
-    <div ref={cardRef} className='date-modal-container' style={st}>
+    <div ref={cardRef} className="date-modal-container" style={st && st}>
       {renderHeader(props)}
       {renderDatePicker({ ...props, setCalendar })}
       {renderFooter(props)}
