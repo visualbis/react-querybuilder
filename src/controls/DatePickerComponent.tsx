@@ -89,10 +89,8 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
       const parentRef = cardRef.current.closest('.mrx-modal-container')?.getBoundingClientRect();
 
       if (parentRef && inputRef) {
-        const inputRowHeight = 45;
         if (cardEle.top + cardEle.height > parentRef.top + parentRef.height)
           setSt({ ...st, bottom: `${inputRef.height}px` });
-        else setSt({ ...st, top: `${inputRowHeight + inputRef.height}px` });
       }
     }
   }, [cardRef]);
