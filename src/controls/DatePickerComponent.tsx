@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Calendar } from 'react-modern-calendar-datepicker';
 
 interface DatePickerComponentProps {
@@ -46,8 +46,13 @@ const renderHeader = (props) => {
 };
 
 const renderDatePicker = (props) => {
-  const { handleOnChange, setSelectedDay, onDateChange } = props;
-  const onChange = (d) => onDateChange(d, setSelectedDay, handleOnChange);
+  const { handleOnChange, setSelectedDay, onDateChange, setCalendar } = props;
+
+  const onChange = (d) => {
+    onDateChange(d, setSelectedDay, handleOnChange);
+    setCalendar(false);
+  };
+
   return (
     <div className="date-filter-wrapper">
       <Calendar
@@ -62,7 +67,8 @@ const renderDatePicker = (props) => {
 
 const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
   const { setCalendar } = props;
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [cardStyle, setCardStyle] = useState<React.CSSProperties>({ right: '23px' });
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -75,10 +81,24 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const cardEle = cardRef.current.getBoundingClientRect();
+      const inputRef = cardRef.current.closest('.date-input-container')?.getBoundingClientRect();
+      const parentRef = cardRef.current.closest('.mrx-modal-container')?.getBoundingClientRect();
+
+      if (parentRef && inputRef) {
+        if (cardEle.top + cardEle.height > parentRef.top + parentRef.height)
+          setCardStyle({ ...cardStyle, bottom: `${inputRef.height}px` });
+      }
+    }
+  }, [cardRef]);
+
   return (
-    <div ref={cardRef} className="date-modal-container">
+    <div ref={cardRef} className="date-modal-container" style={cardStyle && cardStyle}>
       {renderHeader(props)}
-      {renderDatePicker(props)}
+      {renderDatePicker({ ...props, setCalendar })}
       {renderFooter(props)}
     </div>
   );
