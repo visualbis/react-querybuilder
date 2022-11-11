@@ -47,6 +47,8 @@ const renderHeader = (props) => {
 
 const renderDatePicker = (props) => {
   const { handleOnChange, setSelectedDay, onDateChange, setCalendar } = props;
+  const minDate = { year: 1800, month: 1, day: 1 }
+  const maxDate = { year: 2500, month: 12, day: 31 }
 
   const onChange = (d) => {
     onDateChange(d, setSelectedDay, handleOnChange);
@@ -60,6 +62,10 @@ const renderDatePicker = (props) => {
         shouldHighlightWeekends
         colorPrimary="#0078d4"
         colorPrimaryLight="#0078d41c"
+        minimumDate={minDate}
+        maximumDate={maxDate}
+        selectorStartingYear={1800}
+        selectorEndingYear={2500}
       />
     </div>
   );
