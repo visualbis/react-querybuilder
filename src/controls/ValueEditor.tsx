@@ -155,6 +155,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   }
   const [_value, setValue] = useState(value);
   const convertDateObj = (dateString) => {
+    if(!dateString || typeof(dateString) !== "string" || (typeof(dateString) === "string" && !dateString.includes("/"))) return null;
     const d = new Date(dateString);
     const day = d.getDate();
     const month = d.getMonth() + 1;
@@ -167,10 +168,10 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   };
 
   const [selectedDay, setSelectedDay] = useState<null | {
-    day: number | string;
-    month: number | string;
-    year: number | string;
-  }>(value?.includes("/") && convertDateObj(value) || null);
+    day: number;
+    month: number;
+    year: number;
+  }>(convertDateObj(value));
   
   const [isTodaySelected, setTodayDate] = useState<boolean>(false);
   const [isShowCalendar, setCalendar] = useState<boolean>(false);
