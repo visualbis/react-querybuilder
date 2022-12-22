@@ -279,11 +279,8 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
         const operator = parentOperator&& parentOperator.length ? getOperatorsMain(value, false, parentOperator[0].name)[0].name : getOperatorsMain(value)[0].name
         objectAssign(rule, {operator: operator, parentOperator:( parentOperator && parentOperator.length) ? parentOperator[0].name : "", value: getRuleDefaultValue(rule) });
       }
-      if (resetOnOperatorChange && prop === 'operator')    
-        Object.assign(rule, {value: getRuleUpdatedValue(rule, preOperator) });
-
-      if (resetOnOperatorChange && prop === 'parentOperator')    
-        Object.assign(rule, {parentOperator: value, operator: getOperatorsMain(value)[0].name,value: "" });
+      if (resetOnOperatorChange && prop === 'operator')Object.assign(rule, {value: getRuleUpdatedValue(rule, preOperator) });
+      if (resetOnOperatorChange && prop === 'parentOperator')Object.assign(rule, {parentOperator: value, operator: getOperatorsMain(value)[0].name,value: "" });
        updateCombinator(rootCopy);
        setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);

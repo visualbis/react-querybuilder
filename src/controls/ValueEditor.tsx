@@ -59,8 +59,10 @@ const renderNumber = (props) => {
         disabled={inputDisabled}
         className={className}
         placeholder={placeHolder}
-        min='1'
-        max='100000'
+        role='spinbutton'
+        aria-valuemin={0}
+        aria-valuemax={100000}
+        aria-valuenow={1}
         onChange={onChange}
       />
     </div>

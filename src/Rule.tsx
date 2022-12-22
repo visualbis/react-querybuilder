@@ -25,32 +25,16 @@ export const Rule: React.FC<RuleProps> = ({
     removeIconatStart
   }
 }) => {
-  const onElementChanged = (property: string, value: any) => {
-    onPropChange(property, value, id);
-  };
-
-  const onFieldChanged = (value: any) => {
-    onElementChanged('field', value);
-  };
-
-  const onOperatorChanged = (value: any) => {
-    onElementChanged('operator', value);
-  };
-  const onParentOperatorChanged = (value: any) => {
-    onElementChanged('parentOperator', value);
-  };
-
-  const onValueChanged = (value: any) => {
-    onElementChanged('value', value);
-  };
-
+  const onElementChanged = (property: string, value: any) =>  onPropChange(property, value, id);
+  const onFieldChanged = (value: any) =>   onElementChanged('field', value);
+  const onOperatorChanged = (value: any) =>  onElementChanged('operator', value);
+  const onParentOperatorChanged = (value: any) =>  onElementChanged('parentOperator', value);
+  const onValueChanged = (value: any) => onElementChanged('value', value);
   const removeRule = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
     event.stopPropagation();
-
     onRuleRemove(id, parentId);
   };
-
   const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
   const parentOpertators = getOperators(field, true);
@@ -65,7 +49,6 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnClick={removeRule}
         level={level}
       />}
-     
       <controls.fieldSelector
         options={fields}
         title={translations.fields.title}
@@ -130,7 +113,6 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnClick={removeRule}
         level={level}
       />}
-     
     </div>
   );
 };
