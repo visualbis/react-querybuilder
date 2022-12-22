@@ -45,6 +45,27 @@ const renderDefault = (props) => {
   );
 };
 
+const renderNumber = (props) => {
+  const { value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
+  const onChange = (e) => handleOnChange(e.target.value);
+ 
+  return (
+    <div className="rule-value-parent">
+      <input
+        type='number'
+        onKeyUp={onChange}
+        value={value}
+        title={title}
+        disabled={inputDisabled}
+        className={className}
+        placeholder={placeHolder}
+        min='1'
+        max='100000'
+        onChange={onChange}
+      />
+    </div>
+  );
+};
 const renderTextArea = (props) => {
   const { title, inputDisabled, onTextAreaChange, handleOnChange, _value, className } = props;
   const onBlur = () => handleOnChange(_value);
@@ -226,6 +247,8 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       return renderRadio(props);
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
+      case 'numeric':
+        return renderNumber({ ...props,  inputDisabled });
     default:
       return renderDefault({ ...props, inputDisabled });
   }
