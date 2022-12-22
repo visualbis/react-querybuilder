@@ -108,6 +108,7 @@ const defaultControlElements: Controls = {
   combinatorSelector: NavTab,
   fieldSelector: ValueSelector,
   operatorSelector: ValueSelector,
+  parentOperatorSelector: ValueSelector,
   valueEditor: ValueEditor,
   notToggle: NotToggle,
   ruleGroup: RuleGroup,
@@ -129,7 +130,9 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
         const selection = getSelectedColumn();
         if(selection)field = getSelectedColumn();      
       }   
-      return { id: `r-${nanoid()}`, field, value: '', operator: getOperatorsMain(field)[0].name };
+      const parentOperator = getOperatorsMain(field, true);
+      const operator = parentOperator&& parentOperator.length ? getOperatorsMain(field, false, parentOperator[0].name)[0].name : getOperatorsMain(field)[0].name;
+      return { id: `r-${nanoid()}`, field, value: '', operator: operator, parentOperator:( parentOperator && parentOperator.length) ? parentOperator[0].name : "" };
     }; 
     const {getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain,getValidQuery, getNormalQuery, getRuleUpdatedValue} 
   = useQueryBuilderProps (getValueEditorType, getInputType, getValues, getOperators, operators,getPlaceHolder);
@@ -222,7 +225,7 @@ const updateCombinator = (query: RuleGroupType)=>{
 }
 return {hasColumnChildRule, updateCombinator};
 }
-const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
+const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string, isParent?: boolean, parentOperator?: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
   const getRoot = () => root;
   const getFields = () =>  fields;
@@ -272,10 +275,12 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       const preOperator = rule.operator;
       objectAssign(rule, { [prop]: value });    
       if (resetOnFieldChange && prop === 'field') {  // Reset operator and set default value for field change
-        objectAssign(rule, {operator: getOperatorsMain(rule.field)[0].name, value: getRuleDefaultValue(rule) });
+        const parentOperator = getOperatorsMain(value, true);
+        const operator = parentOperator&& parentOperator.length ? getOperatorsMain(value, false, parentOperator[0].name)[0].name : getOperatorsMain(value)[0].name
+        objectAssign(rule, {operator: operator, parentOperator:( parentOperator && parentOperator.length) ? parentOperator[0].name : "", value: getRuleDefaultValue(rule) });
       }
-      if (resetOnOperatorChange && prop === 'operator')    
-        Object.assign(rule, {value: getRuleUpdatedValue(rule, preOperator) });
+      if (resetOnOperatorChange && prop === 'operator')Object.assign(rule, {value: getRuleUpdatedValue(rule, preOperator) });
+      if (resetOnOperatorChange && prop === 'parentOperator')Object.assign(rule, {parentOperator: value, operator: getOperatorsMain(value)[0].name,value: "" });
        updateCombinator(rootCopy);
        setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);
@@ -356,9 +361,9 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     }
     return [];
   }; 
-  const getOperatorsMain = (field: string) => { // Gets the operators for a given field
+  const getOperatorsMain = (field: string, isParent?: boolean, parentOperator?: string) => { // Gets the operators for a given field
     if (getOperators) {
-      const ops = getOperators(field);
+      const ops = getOperators(field, isParent, parentOperator);
       if (ops) return ops;
     }
     return operators;
@@ -413,7 +418,7 @@ const getRuleDefaultValue = (rule: RuleType) => {
      }
     } else {
        const _rule: RuleType = query as RuleType;
-          root = { field: _rule.field, operator: _rule.operator, value: _rule.value };
+          root = { field: _rule.field, operator: _rule.operator, parentOperator: _rule.parentOperator, value: _rule.value };
           parent.rules.push(root);       
     }
  }
