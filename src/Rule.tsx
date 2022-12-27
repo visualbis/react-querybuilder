@@ -7,6 +7,7 @@ export const Rule: React.FC<RuleProps> = ({
   parentId,
   field,
   operator,
+  parentOperator,
   value,
   translations,
   schema: {
@@ -25,31 +26,21 @@ export const Rule: React.FC<RuleProps> = ({
     customRenderer,
   }
 }) => {
-  const onElementChanged = (property: string, value: any) => {
-    onPropChange(property, value, id);
-  };
-
-  const onFieldChanged = (value: any) => {
-    onElementChanged('field', value);
-  };
-
-  const onOperatorChanged = (value: any) => {
-    onElementChanged('operator', value);
-  };
-
-  const onValueChanged = (value: any) => {
-    onElementChanged('value', value);
-  };
-
+  const onElementChanged = (property: string, value: any) =>  onPropChange(property, value, id);
+  const onFieldChanged = (value: any) =>   onElementChanged('field', value);
+  const onOperatorChanged = (value: any) =>  onElementChanged('operator', value);
+  const onParentOperatorChanged = (value: any) =>  onElementChanged('parentOperator', value);
+  const onValueChanged = (value: any) => onElementChanged('value', value);
   const removeRule = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
     event.stopPropagation();
-
     onRuleRemove(id, parentId);
   };
-
   const fieldData = arrayFind(fields, (f) => f.name === field);
   const level = getLevel(id);
+  const parentOpertators = getOperators(field, true);
+  const getOperatorsList = (field) => getOperators(field,false, parentOperator);
+  const enableParentOperaton = !!(parentOpertators && parentOpertators.length) ;
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
      {removeIconatStart && <controls.removeRuleAction
@@ -59,7 +50,6 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnClick={removeRule}
         level={level}
       />}
-     
       <controls.fieldSelector
         options={fields}
         title={translations.fields.title}
@@ -70,18 +60,28 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnChange={onFieldChanged}
         level={level}
       />
-    
-      <controls.operatorSelector
+    {enableParentOperaton && <controls.parentOperatorSelector
         field={field}
         fieldData={fieldData}
         title={translations.operators.title}
         placeHolderTooltip={true}
-        options={getOperators(field)}
+        options={parentOpertators}
+        value={parentOperator}
+        className={`rule-operators ${classNames.operators}`}
+        handleOnChange={onParentOperatorChanged}
+        level={level}
+      />}
+      {!enableParentOperaton && <controls.operatorSelector
+        field={field}
+        fieldData={fieldData}
+        title={translations.operators.title}
+        placeHolderTooltip={true}
+        options={getOperatorsList(field)}
         value={operator}
         className={`rule-operators ${classNames.operators}`}
         handleOnChange={onOperatorChanged}
         level={level}
-      />
+      />}
       <controls.valueEditor
         field={field}
         fieldData={fieldData}
@@ -97,6 +97,17 @@ export const Rule: React.FC<RuleProps> = ({
         level={level}
         customRenderer={customRenderer}
       />
+        {enableParentOperaton && <controls.operatorSelector
+        field={field}
+        fieldData={fieldData}
+        title={translations.operators.title}
+        placeHolderTooltip={true}
+        options={getOperatorsList(field)}
+        value={operator}
+        className={`rule-operators ${classNames.operators}`}
+        handleOnChange={onOperatorChanged}
+        level={level}
+      />}
       {!removeIconatStart && <controls.removeRuleAction
         label={translations.removeRule.label}
         title={translations.removeRule.title}
@@ -104,7 +115,6 @@ export const Rule: React.FC<RuleProps> = ({
         handleOnClick={removeRule}
         level={level}
       />}
-     
     </div>
   );
 };
