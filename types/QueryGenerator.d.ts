@@ -17,5 +17,6 @@ export interface IProps {
     enableNormalView?: boolean;
     onAdvancedClick?(): void;
     getSelectedColumn?(): string;
+    customRenderer?(): any;
 }
 export declare const QueryGenerator: React.FC<IProps>;

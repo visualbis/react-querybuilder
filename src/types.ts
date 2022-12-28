@@ -33,7 +33,7 @@ export type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized'
 
 export type ValueProcessor = (field: string, operator: string, value: any) => string;
 
-export type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'numeric';
+export type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'custom' | 'numeric';
 
 export interface CommonProps {
   /**
@@ -101,6 +101,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
   inputType?: string;
   placeHolder?:string;
   values?: any[];
+  customRenderer?(callback): any;
 }
 
 export interface Controls {
@@ -188,7 +189,7 @@ export interface Schema {
   createRuleGroup(): RuleGroupType;
   getLevel(id: string): number;
   getOperators(field: string, isParent?: boolean, parentOperator?: string): Field[];
-  getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric';
+  getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom';
   getPlaceHolder(field: string, operator: string): string;
   getInputType(field: string, operator: string): string;
   getValues(field: string, operator: string): NameLabelPair[];
@@ -204,6 +205,7 @@ export interface Schema {
   showNotToggle: boolean;
   showAddGroup:boolean;
   showAddRule:boolean;
+  customRenderer?():any;
 }
 
 export interface Translations {
@@ -254,6 +256,7 @@ export interface RuleGroupProps {
   not?: boolean;
   isRoot?: boolean;
   enableClear?: boolean;
+  customRenderer?: any;
 }
 
 export interface RuleProps {
@@ -265,6 +268,7 @@ export interface RuleProps {
   value: any;
   translations: Translations;
   schema: Schema;
+  customRenderer?: any;
 }
 export interface QueryGeneratorProps{
   query?: RuleGroupType;
@@ -299,7 +303,7 @@ export interface QueryGeneratorProps{
    * This is a callback function invoked to get the type of `ValueEditor`
    * for the given field and operator.
    */
-  getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date';
+  getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date' | 'custom';
   /**
    * This is a callback function invoked to get the `type` of `<input />`
    * for the given field and operator (only applicable when
@@ -427,4 +431,8 @@ export interface QueryBuilderProps {
    * Reset the value component when the `operator` changes.
    */
   resetOnOperatorChange?: boolean;
+ /**
+   * Render custom component.
+   */
+  customRenderer?(): any
 }

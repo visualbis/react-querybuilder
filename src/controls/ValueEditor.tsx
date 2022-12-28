@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
@@ -6,9 +7,9 @@ import DatePickerComponent from './DatePickerComponent';
 
 const renderCustomInput = (props) => {
   const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
-  const formattedValue =
-    selectedDay ?
-    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}` : '';
+  const formattedValue = selectedDay
+    ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
+    : '';
 
   const onClick = () => {
     if (!isShowCalendar) setCalendar(true);
@@ -48,18 +49,18 @@ const renderDefault = (props) => {
 const renderNumber = (props) => {
   const { value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
   const onChange = (e) => handleOnChange(e.target.value);
- 
+
   return (
     <div className="rule-value-parent">
       <input
-        type='number'
+        type="number"
         onKeyUp={onChange}
         value={value}
         title={title}
         disabled={inputDisabled}
         className={className}
         placeholder={placeHolder}
-        role='spinbutton'
+        role="spinbutton"
         aria-valuemin={0}
         aria-valuemax={100000}
         aria-valuenow={1}
@@ -165,20 +166,35 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
 };
 
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
-  const { operator, value, handleOnChange, type, placeHolder, values } = props;
+  const { operator, value, handleOnChange, type, placeHolder, values, customRenderer } = props;
   let inputDisabled = false;
   let options: any[] = [];
   let selectedOption;
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
-  if (['null','notNull', 'none','daysInThis','weeksInThis','monthsInThis','yearsInThis'].includes(operator as string)) {
+  if (
+    [
+      'null',
+      'notNull',
+      'none',
+      'daysInThis',
+      'weeksInThis',
+      'monthsInThis',
+      'yearsInThis'
+    ].includes(operator as string)
+  ) {
     fieldType = 'text';
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
   const convertDateObj = (dateString) => {
-    if(!dateString || typeof(dateString) !== "string" || (typeof(dateString) === "string" && !dateString.includes("/"))) return null;
+    if (
+      !dateString ||
+      typeof dateString !== 'string' ||
+      (typeof dateString === 'string' && !dateString.includes('/'))
+    )
+      return null;
     const d = new Date(dateString);
     const day = d.getDate();
     const month = d.getMonth() + 1;
@@ -195,7 +211,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     month: number;
     year: number;
   }>(convertDateObj(value));
-  
+
   const [isTodaySelected, setTodayDate] = useState<boolean>(false);
   const [isShowCalendar, setCalendar] = useState<boolean>(false);
 
@@ -215,6 +231,8 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       setTodayDate(false);
     }
   };
+
+  const onCustomRendererChange = (val) => handleOnChange(val);
 
   options = values
     ? values.map((item) => {
@@ -249,8 +267,11 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       return renderRadio(props);
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
-      case 'numeric':
-        return renderNumber({ ...props,  inputDisabled });
+    case 'custom':
+      if (customRenderer) return customRenderer(onCustomRendererChange);
+      return <></>;
+    case 'numeric':
+      return renderNumber({ ...props, inputDisabled });
     default:
       return renderDefault({ ...props, inputDisabled });
   }
