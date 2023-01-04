@@ -232,7 +232,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
   };
 
-  const onCustomRendererChange = (val) => handleOnChange(val);
+  const onCustomRendererChange = (val) => handleOnChange(val.id);
 
   options = values
     ? values.map((item) => {
@@ -268,7 +268,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'custom':
-      if (customRenderer) return customRenderer(onCustomRendererChange);
+      if (customRenderer) return customRenderer({ ...props, onChange: onCustomRendererChange});
       return <></>;
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
