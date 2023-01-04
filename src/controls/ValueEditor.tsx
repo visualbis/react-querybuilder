@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
@@ -165,6 +164,16 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
   handleOnChange(dateObj ? `${dateObj.month}/${dateObj.day}/${dateObj.year}` : null);
 };
 
+const onCustomRendererChange = (val, handleOnChange) => handleOnChange(val.id);
+
+const onSelectDateChange = (props) => {
+  const {isTodaySelected, setSelectedDay, handleOnChange,setTodayDate} = props;
+  if (isTodaySelected) {
+    onDateChange(null, setSelectedDay, handleOnChange);
+    setTodayDate(false);
+  }
+};
+
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   const { operator, value, handleOnChange, type, placeHolder, values, customRenderer } = props;
   let inputDisabled = false;
@@ -205,7 +214,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       year: year
     };
   };
-
   const [selectedDay, setSelectedDay] = useState<null | {
     day: number;
     month: number;
@@ -224,15 +232,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     onDateChange({ day, month, year }, setSelectedDay, handleOnChange);
     setTodayDate(true);
   };
-
-  const onSelectDateChange = () => {
-    if (isTodaySelected) {
-      onDateChange(null, setSelectedDay, handleOnChange);
-      setTodayDate(false);
-    }
-  };
-
-  const onCustomRendererChange = (val) => handleOnChange(val.id);
 
   options = values
     ? values.map((item) => {
@@ -255,21 +254,20 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange,
+        onSelectDateChange: onSelectDateChange({isTodaySelected, setSelectedDay, handleOnChange,setTodayDate}),
         selectedDay,
         setSelectedDay,
         onDateChange
       };
       return renderCustomInput(propList);
     }
-
     case 'radio':
       return renderRadio(props);
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'custom':
-      if (customRenderer) return customRenderer({ ...props, onChange: onCustomRendererChange});
-      return <></>;
+      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange)});
+      return <></>
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
     default:
