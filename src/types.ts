@@ -102,6 +102,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
   placeHolder?:string;
   values?: any[];
   customRenderer?(callback): any;
+  getSelectionKey?(field: string): string;
 }
 
 export interface Controls {
@@ -206,6 +207,7 @@ export interface Schema {
   showAddGroup:boolean;
   showAddRule:boolean;
   customRenderer?():any;
+  getSelectionKey?(field: string): string,
 }
 
 export interface Translations {
@@ -257,6 +259,7 @@ export interface RuleGroupProps {
   isRoot?: boolean;
   enableClear?: boolean;
   customRenderer?: any;
+  getSelectionKey?(field: string): string;
 }
 
 export interface RuleProps {
@@ -269,6 +272,7 @@ export interface RuleProps {
   translations: Translations;
   schema: Schema;
   customRenderer?: any;
+  getSelectionKey?(field: string): string;
 }
 export interface QueryGeneratorProps{
   query?: RuleGroupType;
@@ -435,4 +439,9 @@ export interface QueryBuilderProps {
    * Render custom component.
    */
   customRenderer?(): any
+
+  /**
+   * Return selection key.
+   */
+  getSelectionKey?(field: string): string;
 }

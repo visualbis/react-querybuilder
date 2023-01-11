@@ -20,6 +20,7 @@ export interface IProps {
   onAdvancedClick?(): void;
   getSelectedColumn?(): string;
   customRenderer?(): any;
+  getSelectionKey?(field: string): string;
 }
 
 export const QueryGenerator: React.FC<IProps> = ({
@@ -38,7 +39,8 @@ export const QueryGenerator: React.FC<IProps> = ({
   enableNormalView,
   onAdvancedClick,
   getSelectedColumn,
-  customRenderer
+  customRenderer,
+  getSelectionKey,
 }) => {
 
   const generatorCls = !showAddGroup ? `query-generator hide-group` : 'query-generator';
@@ -63,6 +65,7 @@ export const QueryGenerator: React.FC<IProps> = ({
         getValues={getValues}
         getSelectedColumn={getSelectedColumn}
         customRenderer={customRenderer}
+        getSelectionKey={getSelectionKey}
       />
     </div>
   );
