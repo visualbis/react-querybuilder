@@ -18,5 +18,6 @@ export interface IProps {
     onAdvancedClick?(): void;
     getSelectedColumn?(): string;
     customRenderer?(): any;
+    getSelectionKey?(field: string): string;
 }
 export declare const QueryGenerator: React.FC<IProps>;

@@ -117,7 +117,7 @@ const defaultControlElements: Controls = {
 
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], operators = defaultOperators, combinators = defaultCombinators, translations = defaultTranslations, controlElements,getPlaceHolder,
    getOperators, getValueEditorType, getInputType, getValues, onQueryChange, controlClassnames, showCombinatorsBetweenRules = false, enableNormalView=false,onAdvancedClick, showNotToggle = false,
-   getSelectedColumn, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false, removeIconatStart = false, customRenderer }) => {
+   getSelectedColumn, resetOnFieldChange = true, showAddGroup=true,showAddRule=true,resetOnOperatorChange = false, removeIconatStart = false, customRenderer, getSelectionKey }) => {
     const getInitialQuery = () => {// Gets the initial query   
       return (query && generateValidQuery(query)) || createRuleGroup();
     };
@@ -142,7 +142,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({query, fields = [], o
  
   const schema = { fields, hasColumnChildRule, combinators,  classNames: { ...defaultControlClassnames, ...controlClassnames }, clearRule, createRule, createRuleGroup, onRuleAdd, onGroupAdd, onRuleRemove, onGroupRemove,
     onPropChange, getLevel: getLevelFromRoot, isRuleGroup, controls: { ...defaultControlElements, ...controlElements }, getOperators: getOperatorsMain,  getValueEditorType: getValueEditorTypeMain,
-    getInputType: getInputTypeMain, getPlaceHolder:getPlaceHolderMain, getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle, removeIconatStart, customRenderer };    
+    getInputType: getInputTypeMain, getPlaceHolder:getPlaceHolderMain, getValues: getValuesMain,  showCombinatorsBetweenRules, showAddGroup,showAddRule,  showNotToggle, removeIconatStart, customRenderer, getSelectionKey };    
   useEffect(() => { // Set the query state when a new query prop comes in
     let rootCopy = generateValidQuery(query || getInitialQuery()) as RuleGroupType;
     rootCopy = updateCombinator(rootCopy);

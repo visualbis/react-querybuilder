@@ -48,14 +48,14 @@ const renderDefault = (props) => {
 const renderNumber = (props) => {
   const { value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
   const onChange = (e) => {
-    e.target.value =  Math.abs(e.target.value);
+    e.target.value = Math.abs(e.target.value);
     handleOnChange(e.target.value);
-  }
- 
+  };
+
   return (
     <div className="rule-value-parent">
       <input
-        type='number'
+        type="number"
         step={1}
         onInput={onChange}
         value={value}
@@ -169,10 +169,12 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
   handleOnChange(dateObj ? `${dateObj.month}/${dateObj.day}/${dateObj.year}` : null);
 };
 
-const onCustomRendererChange = (val, handleOnChange) => handleOnChange(val.id);
+const onCustomRendererChange = (val, handleOnChange, key = 'id') => {
+  handleOnChange(val[key]);
+};
 
 const onSelectDateChange = (props) => {
-  const {isTodaySelected, setSelectedDay, handleOnChange,setTodayDate} = props;
+  const { isTodaySelected, setSelectedDay, handleOnChange, setTodayDate } = props;
   if (isTodaySelected) {
     onDateChange(null, setSelectedDay, handleOnChange);
     setTodayDate(false);
@@ -180,23 +182,23 @@ const onSelectDateChange = (props) => {
 };
 
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
-  const { operator, value, handleOnChange, type, placeHolder, values, customRenderer } = props;
+  const {
+    operator,
+    value,
+    handleOnChange,
+    type,
+    placeHolder,
+    values,
+    customRenderer,
+    getSelectionKey,
+    field
+  } = props;
   let inputDisabled = false;
   let options: any[] = [];
   let selectedOption;
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
-  if (
-    [
-      'null',
-      'notNull',
-      'none',
-      'daysInThis',
-      'weeksInThis',
-      'monthsInThis',
-      'yearsInThis'
-    ].includes(operator as string)
-  ) {
+  if (['null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string) || fieldType === "none") {
     fieldType = 'text';
     inputDisabled = true;
     fieldPlaceHolder = '';
@@ -238,12 +240,10 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     setTodayDate(true);
   };
 
-  options = values
-    ? values.map((item) => {
+  options = values ? values.map((item) => {
         if (item.name == value) selectedOption = { value: item.name, label: item.label };
         return { value: item.name, label: item.label };
-      })
-    : [];
+      }) : [];
   switch (fieldType) {
     case 'select':
       return renderSelect({ ...props, selectedOption, options });
@@ -259,7 +259,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange: onSelectDateChange({isTodaySelected, setSelectedDay, handleOnChange,setTodayDate}),
+        onSelectDateChange: onSelectDateChange({ isTodaySelected, setSelectedDay, handleOnChange, setTodayDate }),
         selectedDay,
         setSelectedDay,
         onDateChange
@@ -270,9 +270,11 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       return renderRadio(props);
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
-    case 'custom':
-      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange)});
-      return <></>
+    case 'custom': {
+      const key = field && getSelectionKey?.(field) || 'id';
+      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange, key)});
+      return <></>;
+    }
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
     default:
