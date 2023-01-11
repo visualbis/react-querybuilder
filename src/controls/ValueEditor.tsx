@@ -47,13 +47,17 @@ const renderDefault = (props) => {
 
 const renderNumber = (props) => {
   const { value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
-  const onChange = (e) => handleOnChange(e.target.value);
-
+  const onChange = (e) => {
+    e.target.value =  Math.abs(e.target.value);
+    handleOnChange(e.target.value);
+  }
+ 
   return (
     <div className="rule-value-parent">
       <input
-        type="number"
-        onKeyUp={onChange}
+        type='number'
+        step={1}
+        onInput={onChange}
         value={value}
         title={title}
         disabled={inputDisabled}
@@ -62,6 +66,7 @@ const renderNumber = (props) => {
         role="spinbutton"
         aria-valuemin={0}
         aria-valuemax={100000}
+        min={0}
         aria-valuenow={1}
         onChange={onChange}
       />
