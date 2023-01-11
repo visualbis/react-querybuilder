@@ -6,9 +6,9 @@ import DatePickerComponent from './DatePickerComponent';
 
 const renderCustomInput = (props) => {
   const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
-  const formattedValue =
-    selectedDay ?
-    `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}` : '';
+  const formattedValue = selectedDay
+    ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
+    : '';
 
   const onClick = () => {
     if (!isShowCalendar) setCalendar(true);
@@ -63,7 +63,7 @@ const renderNumber = (props) => {
         disabled={inputDisabled}
         className={className}
         placeholder={placeHolder}
-        role='spinbutton'
+        role="spinbutton"
         aria-valuemin={0}
         aria-valuemax={100000}
         min={0}
@@ -169,21 +169,46 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
   handleOnChange(dateObj ? `${dateObj.month}/${dateObj.day}/${dateObj.year}` : null);
 };
 
+const onCustomRendererChange = (val, handleOnChange) => handleOnChange(val.id);
+
+const onSelectDateChange = (props) => {
+  const {isTodaySelected, setSelectedDay, handleOnChange,setTodayDate} = props;
+  if (isTodaySelected) {
+    onDateChange(null, setSelectedDay, handleOnChange);
+    setTodayDate(false);
+  }
+};
+
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
-  const { operator, value, handleOnChange, type, placeHolder, values } = props;
+  const { operator, value, handleOnChange, type, placeHolder, values, customRenderer } = props;
   let inputDisabled = false;
   let options: any[] = [];
   let selectedOption;
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
-  if (['null','notNull', 'none','daysInThis','weeksInThis','monthsInThis','yearsInThis'].includes(operator as string)) {
+  if (
+    [
+      'null',
+      'notNull',
+      'none',
+      'daysInThis',
+      'weeksInThis',
+      'monthsInThis',
+      'yearsInThis'
+    ].includes(operator as string)
+  ) {
     fieldType = 'text';
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
   const convertDateObj = (dateString) => {
-    if(!dateString || typeof(dateString) !== "string" || (typeof(dateString) === "string" && !dateString.includes("/"))) return null;
+    if (
+      !dateString ||
+      typeof dateString !== 'string' ||
+      (typeof dateString === 'string' && !dateString.includes('/'))
+    )
+      return null;
     const d = new Date(dateString);
     const day = d.getDate();
     const month = d.getMonth() + 1;
@@ -194,13 +219,12 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       year: year
     };
   };
-
   const [selectedDay, setSelectedDay] = useState<null | {
     day: number;
     month: number;
     year: number;
   }>(convertDateObj(value));
-  
+
   const [isTodaySelected, setTodayDate] = useState<boolean>(false);
   const [isShowCalendar, setCalendar] = useState<boolean>(false);
 
@@ -212,13 +236,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     const year = new Date().getFullYear();
     onDateChange({ day, month, year }, setSelectedDay, handleOnChange);
     setTodayDate(true);
-  };
-
-  const onSelectDateChange = () => {
-    if (isTodaySelected) {
-      onDateChange(null, setSelectedDay, handleOnChange);
-      setTodayDate(false);
-    }
   };
 
   options = values
@@ -242,20 +259,22 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange,
+        onSelectDateChange: onSelectDateChange({isTodaySelected, setSelectedDay, handleOnChange,setTodayDate}),
         selectedDay,
         setSelectedDay,
         onDateChange
       };
       return renderCustomInput(propList);
     }
-
     case 'radio':
       return renderRadio(props);
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
-      case 'numeric':
-        return renderNumber({ ...props,  inputDisabled });
+    case 'custom':
+      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange)});
+      return <></>
+    case 'numeric':
+      return renderNumber({ ...props, inputDisabled });
     default:
       return renderDefault({ ...props, inputDisabled });
   }

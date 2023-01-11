@@ -22,7 +22,8 @@ export const Rule: React.FC<RuleProps> = ({
     getValues,
     onPropChange,
     onRuleRemove,
-    removeIconatStart
+    removeIconatStart,
+    customRenderer,
   }
 }) => {
   const onElementChanged = (property: string, value: any) =>  onPropChange(property, value, id);
@@ -94,6 +95,7 @@ export const Rule: React.FC<RuleProps> = ({
         className={`rule-value ${classNames.value}`}
         handleOnChange={onValueChanged}
         level={level}
+        customRenderer={customRenderer}
       />
         {enableParentOperaton && <controls.operatorSelector
         field={field}
