@@ -198,7 +198,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   let selectedOption;
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
-  if (['null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string)) {
+  if (['null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string) || fieldType === "none") {
     fieldType = 'text';
     inputDisabled = true;
     fieldPlaceHolder = '';
