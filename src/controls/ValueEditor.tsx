@@ -164,7 +164,10 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
   handleOnChange(dateObj ? `${dateObj.month}/${dateObj.day}/${dateObj.year}` : null);
 };
 
-const onCustomRendererChange = (val, handleOnChange) => handleOnChange(val.id);
+const onCustomRendererChange = (val, handleOnChange, field) => {
+   if(field === 'LAST_UPDATED_BY') handleOnChange(val.label);
+   else handleOnChange(val.id);
+}
 
 const onSelectDateChange = (props) => {
   const {isTodaySelected, setSelectedDay, handleOnChange,setTodayDate} = props;
@@ -175,7 +178,7 @@ const onSelectDateChange = (props) => {
 };
 
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
-  const { operator, value, handleOnChange, type, placeHolder, values, customRenderer } = props;
+  const { operator, value, handleOnChange, type, placeHolder, values, customRenderer, field } = props;
   let inputDisabled = false;
   let options: any[] = [];
   let selectedOption;
@@ -266,7 +269,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'custom':
-      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange)});
+      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange, field)});
       return <></>
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
