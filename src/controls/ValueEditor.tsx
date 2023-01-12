@@ -48,7 +48,7 @@ const renderDefault = (props) => {
 const renderNumber = (props) => {
   const { value, title, className, placeHolder, inputDisabled, handleOnChange } = props;
   const onChange = (e) => {
-    e.target.value = Math.abs(e.target.value);
+    e.target.value = Math.abs(e.target.value.replace(/[^0-9]/, ''));
     handleOnChange(e.target.value);
   };
 
