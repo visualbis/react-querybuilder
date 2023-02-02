@@ -256,7 +256,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange: onSelectDateChange,
+        onSelectDateChange,
         selectedDay,
         setSelectedDay,
         onDateChange
