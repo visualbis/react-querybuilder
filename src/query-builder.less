@@ -148,17 +148,28 @@
 
     .date-modal-container {
       display: flex;
-      flex-direction: column;
       height: auto;
+      flex-direction: column;
       position: absolute;
+      justify-content: center;
       padding: 15px;
       gap: 7px;
       box-shadow: 0 1em 4em #00000012;
-      width: 203px;
-      background-color: white;
+      width: 220px;
       z-index: 100;
+      background-color: white;
       right: 0;
-
+      .date-modal-container-select {
+        display: flex;
+        justify-content: space-between;
+      }
+      .today-date-container {
+        font-size: 15px;
+        text-align: left;
+        border: 0.5px solid;
+        padding: 10px;
+        margin-top: 2px;
+      }
       &.top-position-modal {
         top: -32px; //height of input container
       }
@@ -171,12 +182,14 @@
         .footer-text {
           margin-left: 2px;
           font-size: 12px;
+          margin-top: 2px;
         }
       }
       .date-filter-wrapper {
         position: relative;
         height: 175px;
-
+        margin-left: 6px;
+        margin-top: 2px;
         .DatePicker {
           position: absolute;
           display: inline-block;
@@ -733,7 +746,9 @@
           height: 2.45em;
         }
 
-        .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
+        .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(
+            .-selectedBetween
+          ):not(.-selected):hover {
           background: #eaeaea;
           border-radius: 50%;
           color: var(--cl-color-black);
@@ -775,11 +790,15 @@
           border-bottom-left-radius: 100em;
         }
 
-        .Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
+        .Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(
+            .-selectedEnd
+          ):not(.-selectedBetween) {
           color: var(--cl-color-error);
         }
 
-        .Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
+        .Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(
+            .-selectedBetween
+          )::after {
           background: var(--cl-color-error);
         }
 
@@ -798,7 +817,9 @@
           position: relative;
         }
 
-        .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
+        .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(
+            .-selectedBetween
+          )::after {
           content: '';
           position: absolute;
           bottom: 0.2em;
@@ -812,7 +833,9 @@
           transition: 0.2s;
         }
 
-        .Calendar__day.-today:hover:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
+        .Calendar__day.-today:hover:not(.-selectedStart):not(.-selectedEnd):not(
+            .-selectedBetween
+          )::after {
           opacity: 0;
         }
 
