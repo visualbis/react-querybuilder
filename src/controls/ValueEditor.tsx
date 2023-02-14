@@ -173,14 +173,6 @@ const onCustomRendererChange = (val, handleOnChange, key = 'id') => {
   handleOnChange(val[key]);
 };
 
-const onSelectDateChange = (props) => {
-  const { isTodaySelected, setSelectedDay, handleOnChange, setTodayDate } = props;
-  if (isTodaySelected) {
-    onDateChange(null, setSelectedDay, handleOnChange);
-    setTodayDate(false);
-  }
-};
-
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   const {
     operator,
@@ -240,6 +232,11 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     setTodayDate(true);
   };
 
+  const onSelectDateChange = () => {
+      onDateChange(null, setSelectedDay, handleOnChange);
+      setTodayDate(false);
+  };
+
   options = values ? values.map((item) => {
         if (item.name == value) selectedOption = { value: item.name, label: item.label };
         return { value: item.name, label: item.label };
@@ -259,7 +256,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange: onSelectDateChange({ isTodaySelected, setSelectedDay, handleOnChange, setTodayDate }),
+        onSelectDateChange,
         selectedDay,
         setSelectedDay,
         onDateChange

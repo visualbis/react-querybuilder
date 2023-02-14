@@ -47,8 +47,8 @@ const renderHeader = (props) => {
 
 const renderDatePicker = (props) => {
   const { handleOnChange, setSelectedDay, onDateChange, setCalendar } = props;
-  const minDate = { year: 1800, month: 1, day: 1 }
-  const maxDate = { year: 2500, month: 12, day: 31 }
+  const minDate = { year: 1800, month: 1, day: 1 };
+  const maxDate = { year: 2500, month: 12, day: 31 };
 
   const onChange = (d) => {
     onDateChange(d, setSelectedDay, handleOnChange);
@@ -101,11 +101,24 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = (props) => {
     }
   }, [cardRef]);
 
+  const day = new Date().getDate();
+  const month = new Date().getMonth() + 1;
+  const year = new Date().getFullYear();
+  const todayToday = `${month}/${day}/${year}`;
   return (
     <div ref={cardRef} className="date-modal-container" style={cardStyle && cardStyle}>
-      {renderHeader(props)}
-      {renderDatePicker({ ...props, setCalendar })}
-      {renderFooter(props)}
+      <div className="date-modal-container-select">
+        {renderHeader(props)}
+        {renderFooter(props)}
+      </div>
+      {props.isTodaySelected ? (
+        <div className="today-date-container">
+          <b>{todayToday}</b>
+          {`(Today)`}
+        </div>
+      ) : (
+        renderDatePicker({ ...props, setCalendar })
+      )}
     </div>
   );
 };
