@@ -11,6 +11,7 @@ export interface RuleType {
     id?: string;
     field: string;
     operator: string;
+    parentOperator?: string;
     value: any;
 }
 export interface RuleGroupType {
@@ -25,7 +26,7 @@ export interface RuleGroupType {
 }
 export declare type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized';
 export declare type ValueProcessor = (field: string, operator: string, value: any) => string;
-export declare type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'custom';
+export declare type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'custom' | 'numeric';
 export interface CommonProps {
     /**
      * CSS classNames to be applied
@@ -83,6 +84,8 @@ export interface ValueEditorProps extends SelectorEditorProps {
     inputType?: string;
     placeHolder?: string;
     values?: any[];
+    customRenderer?(callback: any): any;
+    getSelectionKey?(field: string): string;
 }
 export interface Controls {
     addGroupAction: React.ComponentType<ActionWithRulesProps>;
@@ -92,6 +95,7 @@ export interface Controls {
     fieldSelector: React.ComponentType<FieldSelectorProps>;
     notToggle: React.ComponentType<NotToggleProps>;
     operatorSelector: React.ComponentType<OperatorSelectorProps>;
+    parentOperatorSelector: React.ComponentType<OperatorSelectorProps>;
     removeGroupAction: React.ComponentType<ActionWithRulesProps>;
     removeRuleAction: React.ComponentType<ActionProps>;
     rule: React.ComponentType<RuleProps>;
@@ -168,8 +172,8 @@ export interface Schema {
     createRule(): RuleType;
     createRuleGroup(): RuleGroupType;
     getLevel(id: string): number;
-    getOperators(field: string): Field[];
-    getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'custom';
+    getOperators(field: string, isParent?: boolean, parentOperator?: string): Field[];
+    getValueEditorType(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom';
     getPlaceHolder(field: string, operator: string): string;
     getInputType(field: string, operator: string): string;
     getValues(field: string, operator: string): NameLabelPair[];
@@ -185,6 +189,8 @@ export interface Schema {
     showNotToggle: boolean;
     showAddGroup: boolean;
     showAddRule: boolean;
+    customRenderer?(): any;
+    getSelectionKey?(field: string): string;
 }
 export interface Translations {
     fields: {
@@ -233,15 +239,20 @@ export interface RuleGroupProps {
     not?: boolean;
     isRoot?: boolean;
     enableClear?: boolean;
+    customRenderer?: any;
+    getSelectionKey?(field: string): string;
 }
 export interface RuleProps {
     id: string;
     parentId: string;
     field: string;
+    parentOperator?: string;
     operator: string;
     value: any;
     translations: Translations;
     schema: Schema;
+    customRenderer?: any;
+    getSelectionKey?(field: string): string;
 }
 export interface QueryGeneratorProps {
     query?: RuleGroupType;
@@ -271,12 +282,12 @@ export interface QueryGeneratorProps {
      * This is a callback function invoked to get the list of allowed
      * operators for the given field.
      */
-    getOperators?(field: string): Field[];
+    getOperators?(field: string, isPrent?: boolean, parentOperator?: string): Field[];
     /**
      * This is a callback function invoked to get the type of `ValueEditor`
      * for the given field and operator.
      */
-    getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'date' | 'custom';
+    getValueEditorType?(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'date' | 'custom';
     /**
      * This is a callback function invoked to get the `type` of `<input />`
      * for the given field and operator (only applicable when
@@ -330,7 +341,7 @@ export interface QueryBuilderProps {
      * This is a callback function invoked to get the list of allowed
      * operators for the given field.
      */
-    getOperators?(field: string): Field[];
+    getOperators?(field: string, isParent?: boolean, parentOperator?: string): Field[];
     /**
      * This is a callback function invoked to get the type of `ValueEditor`
      * for the given field and operator.
@@ -399,4 +410,12 @@ export interface QueryBuilderProps {
      * Reset the value component when the `operator` changes.
      */
     resetOnOperatorChange?: boolean;
+    /**
+      * Render custom component.
+      */
+    customRenderer?(): any;
+    /**
+     * Return selection key.
+     */
+    getSelectionKey?(field: string): string;
 }

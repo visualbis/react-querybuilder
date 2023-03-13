@@ -7,7 +7,7 @@ export interface IProps {
   query?: RuleGroupType;
   fields: Field[];
   getOperators?(field: string): Field[];
-  getValueEditorType?(field: string, operator: string): ValueEditorType;
+  getValueEditorType?(field: string, operator: string, parentOperator?: string): ValueEditorType;
   getInputType?(field: string, operator: string): string;
   getPlaceHolder?(field: string, operator: string): string;
   onQueryChange(query: RuleGroupType, prop?: string, ruleId?: string): void;

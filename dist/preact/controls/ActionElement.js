@@ -4,34 +4,27 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _preactCompat = _interopRequireDefault(require("preact-compat"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var ActionElement = function ActionElement(_ref) {
   var className = _ref.className,
-      handleOnClick = _ref.handleOnClick,
-      label = _ref.label,
-      title = _ref.title;
-
+    handleOnClick = _ref.handleOnClick,
+    label = _ref.label,
+    title = _ref.title;
   var onClick = function onClick(e) {
     return handleOnClick(e);
   };
-
   var renderLabel = function renderLabel(label, className) {
     if (label == "x") {
       return /*#__PURE__*/_preactCompat.default.createElement("span", {
         className: "ms-Icon ms-Icon--Delete"
       });
     }
-
     if (className && className.indexOf("ruleGroup-clearRule") > -1) {
       return /*#__PURE__*/_preactCompat.default.createElement("span", null, /*#__PURE__*/_preactCompat.default.createElement("span", {
         className: "ms-Icon ms-Icon--EraseTool"
       }), label);
     }
-
     if (className && className.indexOf("ruleGroup-addRule") > -1) {
       return /*#__PURE__*/_preactCompat.default.createElement("span", null, /*#__PURE__*/_preactCompat.default.createElement("svg", {
         width: "11",
@@ -43,7 +36,6 @@ var ActionElement = function ActionElement(_ref) {
         fill: "#0078D4"
       })), label);
     }
-
     if (className && className.indexOf("ruleGroup-addGroup ") > -1) {
       return /*#__PURE__*/_preactCompat.default.createElement("span", null, /*#__PURE__*/_preactCompat.default.createElement("svg", {
         width: "10",
@@ -55,17 +47,14 @@ var ActionElement = function ActionElement(_ref) {
         fill: "#0078D4"
       })), label);
     }
-
     return label;
   };
-
   return /*#__PURE__*/_preactCompat.default.createElement("button", {
     className: className,
     title: title,
     onClick: onClick
   }, renderLabel(label, className));
 };
-
 ActionElement.displayName = 'ActionElement';
 var _default = ActionElement;
 exports.default = _default;

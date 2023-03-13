@@ -4,22 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var NavTab = function NavTab(_ref) {
   var className = _ref.className,
-      handleOnChange = _ref.handleOnChange,
-      options = _ref.options,
-      title = _ref.title,
-      value = _ref.value;
-
+    handleOnChange = _ref.handleOnChange,
+    options = _ref.options,
+    title = _ref.title,
+    value = _ref.value;
   var onChange = function onChange(e) {
     handleOnChange(e.target.value);
   };
-
   return /*#__PURE__*/_react.default.createElement("span", {
     className: className,
     title: title
@@ -39,7 +34,9 @@ var NavTab = function NavTab(_ref) {
     }), /*#__PURE__*/_react.default.createElement("span", {
       className: "radio-title"
     }, v.label));
-  })) //   <div className={className}>
+  }))
+
+  //   <div className={className}>
   //       {options.map((option) => {
   //   const key = option.id ? `key-${option.id}` : `key-${option.name}`;
   //   const cls =  value == option.name?"combinators active":"combinators";
