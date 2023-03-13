@@ -190,7 +190,7 @@ export interface Schema {
   createRuleGroup(): RuleGroupType;
   getLevel(id: string): number;
   getOperators(field: string, isParent?: boolean, parentOperator?: string): Field[];
-  getValueEditorType(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom';
+  getValueEditorType(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom';
   getPlaceHolder(field: string, operator: string): string;
   getInputType(field: string, operator: string): string;
   getValues(field: string, operator: string): NameLabelPair[];
@@ -307,7 +307,7 @@ export interface QueryGeneratorProps{
    * This is a callback function invoked to get the type of `ValueEditor`
    * for the given field and operator.
    */
-  getValueEditorType?(field: string, operator: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date' | 'custom';
+  getValueEditorType?(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date' | 'custom';
   /**
    * This is a callback function invoked to get the `type` of `<input />`
    * for the given field and operator (only applicable when

@@ -225,7 +225,7 @@ const updateCombinator = (query: RuleGroupType)=>{
 }
 return {hasColumnChildRule, updateCombinator};
 }
-const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string, isParent?: boolean, parentOperator?: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
+const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string, isParent?: boolean, parentOperator?: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string, parentOperator?: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
   const getRoot = () => root;
   const getFields = () =>  fields;
@@ -333,9 +333,9 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
     })
     return updatedQuery
   }
-  const getValueEditorTypeMain = (field: string, operator: string) => {// Gets the ValueEditor type for a given field and operator  
+  const getValueEditorTypeMain = (field: string, operator: string, parentOperator?: string) => {// Gets the ValueEditor type for a given field and operator  
     if (getValueEditorType) {
-      const vet = getValueEditorType(field, operator);
+      const vet = getValueEditorType(field, operator, parentOperator);
       if (vet) return vet;
     }
     return 'text';

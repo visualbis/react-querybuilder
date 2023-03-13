@@ -1,9 +1,7 @@
 "use strict";
 
 var _chai = require("chai");
-
 var _ = require("..");
-
 describe('isRuleGroup', function () {
   var rule = {
     id: 'r-01234',
