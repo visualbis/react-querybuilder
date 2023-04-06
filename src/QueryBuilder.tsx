@@ -235,7 +235,6 @@ const updateCombinator = (query: RuleGroupType)=>{
 return {hasColumnChildRule, updateCombinator};
 }
 
-// eslint-disable-next-line max-lines-per-function
 const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string, isParent?: boolean, parentOperator?: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
 
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
@@ -247,11 +246,9 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     const parent = findRule(parentId, rootCopy) as RuleGroupType;   
     if (parent) { // istanbul ignore else 
       const groupIndex:number =parent.rules.findIndex((rule)=>{ return (rule as RuleGroupType).combinator});
-      if(groupIndex>-1){
-        parent.rules.splice(groupIndex,0,{ ...rule, value: getRuleDefaultValue(rule) });
-      }else{
-        parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
-      }
+      if(groupIndex>-1) parent.rules.splice(groupIndex,0,{ ...rule, value: getRuleDefaultValue(rule) });
+      else parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
+      
       updateCombinator(rootCopy);
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
@@ -260,11 +257,9 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
   const onAddRullonRootLevel =()=>{
     const rootCopy = cloneDeep(root);   
     const groupIndex:number =rootCopy.rules.findIndex((rule)=>{ return (rule as RuleGroupType).combinator});
-    if(groupIndex>-1){
-      rootCopy.rules.splice(groupIndex,0,createRule());
-    }else{
-      rootCopy.rules.push(createRule());
-    }
+    if(groupIndex>-1)rootCopy.rules.splice(groupIndex,0,createRule());
+    else rootCopy.rules.push(createRule());
+    
     updateCombinator(rootCopy);
     setRoot(rootCopy);
     _notifyQueryChange(rootCopy);  
@@ -288,12 +283,10 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       const isValueProp = prop === 'value';
       const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
       const isPersonField = isValueProp && value && 'id' in value;
-      if (isLastUpdatedField) {
-        updateValue = value[keyNames.LABEL]; // we filter with label for last updated by
-      }
-      if (isPersonField) {
-        updateValue = value[keyNames.ID]; // we filter with person id for person
-      }
+      if (isLastUpdatedField) updateValue = value[keyNames.LABEL]; // we filter with label for last updated by
+      
+      if (isPersonField) updateValue = value[keyNames.ID]; // we filter with person id for person
+      
       const preOperator = rule.operator;
       isLastUpdatedField || isPersonField
         ? objectAssign(rule, { [prop]: updateValue, valueMeta: value['email'] })
@@ -340,9 +333,8 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       updateCombinator(updatedQuery);
       _notifyQueryChange(updatedQuery);
   }
-  const getLevelFromRoot = (id: string) => {//Gets the level of the rule with the provided ID
-    return getLevel(id, 0, root);
-  };
+  const getLevelFromRoot = (id: string) => getLevel(id, 0, root); //Gets the level of the rule with the provided ID 
+  
   const _notifyQueryChange = (newRoot: RuleGroupType, prop?: string, ruleId?: string) => {// Executes the `onQueryChange` function, if provided   
     if (onQueryChange)onQueryChange(cloneDeep(newRoot), prop, ruleId);
   };
