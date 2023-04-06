@@ -14,7 +14,7 @@ const renderRemoveRuleAction = ({ controls, translations, classNames, removeRule
   );
 };
 
-const renderValueEditor = ({ controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta }) => {
+const renderValueEditor = ({ controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta, parentOperator }) => {
   return (
     <controls.valueEditor
     field={field}
@@ -167,7 +167,7 @@ export const Rule: React.FC<RuleProps> = ({
         renderOperatorSelector({
           controls, translations, classNames, fieldData, level, field, getOperatorsList, operator, onOperatorChanged
         })}
-      {renderValueEditor({controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta})}
+      {renderValueEditor({controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta, parentOperator})}
       
       {enableParentOperaton &&
         renderOperatorSelector({
