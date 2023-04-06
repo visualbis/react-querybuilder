@@ -1,4 +1,3 @@
-import { round } from 'lodash';
 import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
@@ -90,6 +89,7 @@ const combinatorCls = removeOr ? "disable-or" : "";
               parentOperator={r.parentOperator}
               schema={schema}
               parentId={id}
+              valueMeta={r.valueMeta ?? "" }
               translations={translations}
             />):null}
         </Fragment>))}
