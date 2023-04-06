@@ -3,7 +3,6 @@ import React from 'react';
 export interface NameLabelPair {
   name: string;
   label: string;
-  email?: string; // to hold email for person and last updated filter
 }
 
 export interface Field extends NameLabelPair {
