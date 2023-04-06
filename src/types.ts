@@ -3,6 +3,7 @@ import React from 'react';
 export interface NameLabelPair {
   name: string;
   label: string;
+  email?: string; // to hold email for person and last updated filter
 }
 
 export interface Field extends NameLabelPair {
@@ -16,6 +17,7 @@ export interface RuleType {
   operator: string;
   parentOperator?: string;
   value: any;
+  valueMeta?: string;
 }
 
 export interface RuleGroupType {
@@ -103,6 +105,7 @@ export interface ValueEditorProps extends SelectorEditorProps {
   values?: any[];
   customRenderer?(callback): any;
   getSelectionKey?(field: string): string;
+  valueMeta?: string
 }
 
 export interface Controls {
@@ -260,6 +263,7 @@ export interface RuleGroupProps {
   enableClear?: boolean;
   customRenderer?: any;
   getSelectionKey?(field: string): string;
+  valueMeta?: string;
 }
 
 export interface RuleProps {
@@ -273,6 +277,7 @@ export interface RuleProps {
   schema: Schema;
   customRenderer?: any;
   getSelectionKey?(field: string): string;
+  valueMeta?: string;
 }
 export interface QueryGeneratorProps{
   query?: RuleGroupType;

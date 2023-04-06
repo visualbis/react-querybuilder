@@ -99,6 +99,15 @@ const defaultControlClassnames: Classnames = {
   removeRule: ''
 };
 
+const fieldNames = {
+  LAST_UPDATED_BY: 'LAST_UPDATED_BY'
+};
+
+const keyNames = {
+  ID: 'id',
+  LABEL: 'label'
+};
+
 const defaultControlElements: Controls = {
   addGroupAction: ActionElement,
   clearRuleAction: ActionElement,
@@ -225,6 +234,7 @@ const updateCombinator = (query: RuleGroupType)=>{
 }
 return {hasColumnChildRule, updateCombinator};
 }
+// eslint-disable-next-line max-lines-per-function
 const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],combinators:NameLabelPair[], createRule:() => RuleType, getInitialQuery:() => RuleGroupType | RuleType, onQueryChange:(query: RuleGroupType, prop?: string, ruleid?: string) => void, getOperatorsMain:(field: string, isParent?: boolean, parentOperator?: string) => any, getValidQuery:(query: RuleGroupType | RuleType, parent: RuleGroupType, isRoot: boolean) => void, getRuleDefaultValue:(rule: RuleType) => any, resetOnFieldChange:boolean, resetOnOperatorChange:boolean,getValueEditorType:((field: string, operator: string) => ValueEditorType) | undefined, getSelectedColumn:(()=>string)|undefined, getRuleUpdatedValue: (rule: RuleType, preOperator: string)=>any)=>{
   const [root, setRoot] = useState(getInitialQuery() as RuleGroupType);
   const getRoot = () => root;
@@ -272,15 +282,28 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     const rootCopy = cloneDeep(root);
     const rule = findRule(ruleId, rootCopy) as RuleType;   
     if (rule) { // istanbul ignore else 
+      let updateValue = value;
+      const isValueProp = prop === 'value';
+      const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
+      const isPersonField = isValueProp && value && 'id' in value;
+      if (isLastUpdatedField) {
+        updateValue = value[keyNames.LABEL]; // we filter with label for last updated by
+      }
+      if (isPersonField) {
+        updateValue = value[keyNames.ID]; // we filter with person id for person
+      }
       const preOperator = rule.operator;
+      isLastUpdatedField || isPersonField
+        ? objectAssign(rule, { [prop]: updateValue, email: value['email'] })
+        : objectAssign(rule, { [prop]: updateValue });
       objectAssign(rule, { [prop]: value });    
       if (resetOnFieldChange && prop === 'field') {  // Reset operator and set default value for field change
-        const parentOperator = getOperatorsMain(value, true);
-        const operator = parentOperator&& parentOperator.length ? getOperatorsMain(value, false, parentOperator[0].name)[0].name : getOperatorsMain(value)[0].name
+        const parentOperator = getOperatorsMain(updateValue, true);
+        const operator = parentOperator&& parentOperator.length ? getOperatorsMain(updateValue, false, parentOperator[0].name)[0].name : getOperatorsMain(updateValue)[0].name
         objectAssign(rule, {operator: operator, parentOperator:( parentOperator && parentOperator.length) ? parentOperator[0].name : "", value: getRuleDefaultValue(rule) });
       }
       if (resetOnOperatorChange && prop === 'operator')Object.assign(rule, {value: getRuleUpdatedValue(rule, preOperator) });
-      if (resetOnOperatorChange && prop === 'parentOperator')Object.assign(rule, {parentOperator: value, operator: getOperatorsMain(value)[0].name,value: "" });
+      if (resetOnOperatorChange && prop === 'parentOperator')Object.assign(rule, {parentOperator: updateValue, operator: getOperatorsMain(updateValue)[0].name,value: "" });
        updateCombinator(rootCopy);
        setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);

@@ -170,7 +170,7 @@ const onDateChange = (dateObj, setSelectedDay, handleOnChange) => {
 };
 
 const onCustomRendererChange = (val, handleOnChange, key = 'id') => {
-  handleOnChange(val[key]);
+  handleOnChange({ [key]: val[key], email: val.value });
 };
 
 const onSelectDateChange = (props) => {
@@ -191,7 +191,8 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     values,
     customRenderer,
     getSelectionKey,
-    field
+    field,
+    valueMeta
   } = props;
   let inputDisabled = false;
   let options: any[] = [];
