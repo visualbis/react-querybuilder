@@ -294,7 +294,7 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
       }
       const preOperator = rule.operator;
       isLastUpdatedField || isPersonField
-        ? objectAssign(rule, { [prop]: updateValue, email: value['email'] })
+        ? objectAssign(rule, { [prop]: updateValue, valueMeta: value['email'] })
         : objectAssign(rule, { [prop]: updateValue });  
       if (resetOnFieldChange && prop === 'field') {  // Reset operator and set default value for field change
         const parentOperator = getOperatorsMain(updateValue, true);
