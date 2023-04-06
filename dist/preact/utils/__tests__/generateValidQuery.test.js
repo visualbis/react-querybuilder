@@ -1,11 +1,8 @@
 "use strict";
 
 var _chai = require("chai");
-
 var _generateValidQuery = _interopRequireDefault(require("../generateValidQuery"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 describe('generateValidQuery', function () {
   describe('when initial query, with ID, is provided', function () {
     var queryWithID = {

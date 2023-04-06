@@ -1,19 +1,12 @@
 "use strict";
 
 var _chai = require("chai");
-
 var _enzyme = require("enzyme");
-
 var _react = _interopRequireDefault(require("react"));
-
 var _sinon = _interopRequireDefault(require("sinon"));
-
 var _ = require("..");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 describe('<ValueEditor />', function () {
   var props = {
     handleOnChange: function handleOnChange() {
@@ -54,11 +47,9 @@ describe('<ValueEditor />', function () {
           value: 'foo'
         }
       };
-
       var onChange = function onChange() {
         return count++;
       };
-
       var dom = (0, _enzyme.shallow)( /*#__PURE__*/_react.default.createElement(_.ValueEditor, _extends({}, props, {
         handleOnChange: onChange
       })));
@@ -82,7 +73,6 @@ describe('<ValueEditor />', function () {
     });
     it('should call the onChange method passed in', function () {
       var handleOnChange = _sinon.default.spy();
-
       var wrapper = (0, _enzyme.mount)( /*#__PURE__*/_react.default.createElement(_.ValueEditor, _extends({}, props, {
         type: "select",
         handleOnChange: handleOnChange,
@@ -103,7 +93,6 @@ describe('<ValueEditor />', function () {
   describe('when rendering a checkbox', function () {
     it('should render the checkbox and react to changes', function () {
       var handleOnChange = _sinon.default.spy();
-
       var wrapper = (0, _enzyme.mount)( /*#__PURE__*/_react.default.createElement(_.ValueEditor, _extends({}, props, {
         type: "checkbox",
         handleOnChange: handleOnChange
@@ -132,7 +121,6 @@ describe('<ValueEditor />', function () {
     });
     it('should call the onChange handler', function () {
       var handleOnChange = _sinon.default.spy();
-
       var wrapper = (0, _enzyme.mount)( /*#__PURE__*/_react.default.createElement(_.ValueEditor, _extends({}, props, {
         type: "radio",
         handleOnChange: handleOnChange,

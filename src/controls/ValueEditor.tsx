@@ -173,14 +173,23 @@ const onCustomRendererChange = (val, handleOnChange, key = 'id') => {
   handleOnChange({ [key]: val[key], email: val.value });
 };
 
-const onSelectDateChange = (props) => {
-  const { isTodaySelected, setSelectedDay, handleOnChange, setTodayDate } = props;
-  if (isTodaySelected) {
-    onDateChange(null, setSelectedDay, handleOnChange);
-    setTodayDate(false);
-  }
+const convertDateObj = (dateString) => {
+  if (
+    !dateString ||
+    typeof dateString !== 'string' ||
+    (typeof dateString === 'string' && !dateString.includes('/'))
+  )
+    return null;
+  const d = new Date(dateString);
+  const day = d.getDate();
+  const month = d.getMonth() + 1;
+  const year = d.getFullYear();
+  return {
+    day: day,
+    month: month,
+    year: year
+  };
 };
-
 const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   const {
     operator,
@@ -199,29 +208,16 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   let selectedOption;
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
-  if (['null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string) || fieldType === "none") {
+  if (
+    [ 'null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string) ||
+    fieldType === 'none'
+  ) {
     fieldType = 'text';
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
   const [_value, setValue] = useState(value);
-  const convertDateObj = (dateString) => {
-    if (
-      !dateString ||
-      typeof dateString !== 'string' ||
-      (typeof dateString === 'string' && !dateString.includes('/'))
-    )
-      return null;
-    const d = new Date(dateString);
-    const day = d.getDate();
-    const month = d.getMonth() + 1;
-    const year = d.getFullYear();
-    return {
-      day: day,
-      month: month,
-      year: year
-    };
-  };
+
   const [selectedDay, setSelectedDay] = useState<null | {
     day: number;
     month: number;
@@ -230,15 +226,18 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
 
   const [isTodaySelected, setTodayDate] = useState<boolean>(false);
   const [isShowCalendar, setCalendar] = useState<boolean>(false);
-
   const onTextAreaChange = (e: any) => setValue(e.target.value);
-
   const onTodaysDateChange = () => {
     const day = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
     onDateChange({ day, month, year }, setSelectedDay, handleOnChange);
     setTodayDate(true);
+  };
+
+  const onSelectDateChange = () => {
+    onDateChange(null, setSelectedDay, handleOnChange);
+    setTodayDate(false);
   };
 
   options = values ? values.map((item) => {
@@ -260,7 +259,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         setCalendar,
         isTodaySelected,
         onTodaysDateChange,
-        onSelectDateChange: onSelectDateChange({ isTodaySelected, setSelectedDay, handleOnChange, setTodayDate }),
+        onSelectDateChange,
         selectedDay,
         setSelectedDay,
         onDateChange
@@ -272,8 +271,12 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'textarea':
       return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'custom': {
-      const key = field && getSelectionKey?.(field) || 'id';
-      if (customRenderer) return customRenderer({ ...props, onChange: (val) => onCustomRendererChange(val, handleOnChange, key)});
+      const key = (field && getSelectionKey?.(field)) || 'id';
+      if (customRenderer)
+        return customRenderer({
+          ...props,
+          onChange: (val) => onCustomRendererChange(val, handleOnChange, key)
+        });
       return <></>;
     }
     case 'numeric':

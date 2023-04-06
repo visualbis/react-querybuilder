@@ -1,9 +1,7 @@
 "use strict";
 
 var _chai = require("chai");
-
 var _ = require("..");
-
 describe('when calculating the level of a rule', function () {
   var query = {
     combinator: 'and',
