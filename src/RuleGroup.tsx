@@ -89,7 +89,7 @@ const combinatorCls = removeOr ? "disable-or" : "";
               parentOperator={r.parentOperator}
               schema={schema}
               parentId={id}
-              valueMeta={r.valueMeta ?? "" }
+              valueMeta={r.valueMeta}
               translations={translations}
             />):null}
         </Fragment>))}

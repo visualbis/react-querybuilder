@@ -279,14 +279,8 @@ const useQueryBuilderActions = (query:RuleGroupType|undefined, fields:Field[],co
     const rootCopy = cloneDeep(root);
     const rule = findRule(ruleId, rootCopy) as RuleType;   
     if (rule) { // istanbul ignore else 
-      let updateValue = value;
-      const isValueProp = prop === 'value';
-      const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
-      const isPersonField = isValueProp && value && 'id' in value;
-      if (isLastUpdatedField) updateValue = value[keyNames.LABEL]; // we filter with label for last updated by
       
-      if (isPersonField) updateValue = value[keyNames.ID]; // we filter with person id for person
-      
+      const {isLastUpdatedField, isPersonField, updateValue} = getValueOnPropChange(value, rule, prop)
       const preOperator = rule.operator;
       isLastUpdatedField || isPersonField
         ? objectAssign(rule, { [prop]: updateValue, valueMeta: value['email'] })
@@ -386,7 +380,7 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
   };
   const getRuleUpdatedValue = (rule: RuleType, preOperator: string) => {
     const preType = getValueEditorType && getValueEditorType(rule.field, preOperator);
-    const curType = getValueEditorType &&getValueEditorType(rule.field, rule.operator);
+    const curType = getValueEditorType && getValueEditorType(rule.field, rule.operator);
     let _value = rule.value;
     if(preType != curType){
       switch(curType){
@@ -405,9 +399,8 @@ const useQueryBuilderProps = (getValueEditorType:any, getInputType:any, getValue
 const getRuleDefaultValue = (rule: RuleType) => {
     let value: any = '';
     const values = getValuesMain(rule.field, rule.operator);
-    if (values.length) {
-      value = "";
-    } else {
+    if (values.length) value = "";
+    else {
       const editorType = getValueEditorTypeMain(rule.field, rule.operator);
       if (editorType === 'checkbox') {
         value = false;
@@ -439,6 +432,16 @@ const getRuleDefaultValue = (rule: RuleType) => {
     }
  }
  return {getRuleUpdatedValue, getValueEditorTypeMain, getInputTypeMain, getOperatorsMain, getRuleDefaultValue, getValuesMain, getPlaceHolderMain, getValidQuery, getNormalQuery };
+}
+
+const getValueOnPropChange = (value: any, rule: RuleType, prop: string) =>{
+  const isValueProp = prop === 'value'
+  const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
+      const isPersonField: boolean = isValueProp && value && 'id' in value;
+      let updateValue = value
+      if (isLastUpdatedField) {updateValue = value[keyNames.LABEL];} // we filter with label for last updated by
+      if (isPersonField) {updateValue = value[keyNames.ID];} // we filter with person id for person
+      return {updateValue, isLastUpdatedField, isPersonField }
 }
 
 QueryBuilder.displayName = 'QueryBuilder';
