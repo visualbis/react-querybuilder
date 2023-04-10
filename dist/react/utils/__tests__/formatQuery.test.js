@@ -1,9 +1,7 @@
 "use strict";
 
 var _chai = require("chai");
-
 var _ = require("..");
-
 var query = {
   id: 'g-067a4722-55e0-49c3-83b5-b31e10e69f9d',
   rules: [{
@@ -126,7 +124,6 @@ describe('formatQuery', function () {
       combinator: 'and',
       not: false
     };
-
     var valueProcessor = function valueProcessor(field, operator, value) {
       if (operator === 'in') {
         return "(".concat(value.map(function (v) {
@@ -136,7 +133,6 @@ describe('formatQuery', function () {
         return "\"".concat(value, "\"");
       }
     };
-
     (0, _chai.expect)((0, _.formatQuery)(queryWithArrayValue, 'sql', valueProcessor)).to.equal('(instrument in ("Guitar","Vocals") and lastName = "Vai")');
   });
   it('handles json_without_ids correctly', function () {

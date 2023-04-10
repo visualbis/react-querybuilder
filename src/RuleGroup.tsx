@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { RuleGroupProps } from './types';
 
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,   }) => {
-  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule,} = schema;
+  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -86,8 +86,10 @@ const combinatorCls = removeOr ? "disable-or" : "";
               field={r.field}
               value={r.value}
               operator={r.operator}
+              parentOperator={r.parentOperator}
               schema={schema}
               parentId={id}
+              valueMeta={r.valueMeta}
               translations={translations}
             />):null}
         </Fragment>))}

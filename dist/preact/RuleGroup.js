@@ -1,66 +1,58 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.RuleGroup = void 0;
-
 var _preactCompat = _interopRequireWildcard(require("preact-compat"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 var RuleGroup = function RuleGroup(_ref) {
   var id = _ref.id,
-      _ref$combinator = _ref.combinator,
-      combinator = _ref$combinator === void 0 ? 'and' : _ref$combinator,
-      _ref$rules = _ref.rules,
-      rules = _ref$rules === void 0 ? [] : _ref$rules,
-      translations = _ref.translations,
-      schema = _ref.schema;
+    _ref$combinator = _ref.combinator,
+    combinator = _ref$combinator === void 0 ? 'and' : _ref$combinator,
+    _ref$rules = _ref.rules,
+    rules = _ref$rules === void 0 ? [] : _ref$rules,
+    translations = _ref.translations,
+    schema = _ref.schema;
   var classNames = schema.classNames,
-      hasColumnChildRule = schema.hasColumnChildRule,
-      combinators = schema.combinators,
-      controls = schema.controls,
-      createRule = schema.createRule,
-      createRuleGroup = schema.createRuleGroup,
-      getLevel = schema.getLevel,
-      isRuleGroup = schema.isRuleGroup,
-      onGroupAdd = schema.onGroupAdd,
-      onPropChange = schema.onPropChange,
-      onRuleAdd = schema.onRuleAdd,
-      showCombinatorsBetweenRules = schema.showCombinatorsBetweenRules,
-      showAddGroup = schema.showAddGroup,
-      showAddRule = schema.showAddRule;
-
+    hasColumnChildRule = schema.hasColumnChildRule,
+    combinators = schema.combinators,
+    controls = schema.controls,
+    createRule = schema.createRule,
+    createRuleGroup = schema.createRuleGroup,
+    getLevel = schema.getLevel,
+    isRuleGroup = schema.isRuleGroup,
+    onGroupAdd = schema.onGroupAdd,
+    onPropChange = schema.onPropChange,
+    onRuleAdd = schema.onRuleAdd,
+    showCombinatorsBetweenRules = schema.showCombinatorsBetweenRules,
+    showAddGroup = schema.showAddGroup,
+    showAddRule = schema.showAddRule,
+    customRenderer = schema.customRenderer;
   var onCombinatorChange = function onCombinatorChange(value) {
     onPropChange('combinator', value, id);
   };
-
   var addRule = function addRule(event) {
     event.preventDefault();
     event.stopPropagation();
     var newRule = createRule();
     onRuleAdd(newRule, id);
   };
-
   var addGroup = function addGroup(event) {
     event.preventDefault();
     event.stopPropagation();
     var newGroup = createRuleGroup();
     onGroupAdd(newGroup, id);
-  }; // const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
+  };
+  // const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
   //   event.preventDefault();
   //   event.stopPropagation();
   //   onGroupRemove(id, parentId || /* istanbul ignore next */ '');
   // };
-
-
-  var level = getLevel(id); // const isClearEnabled = isRoot && enableClear && rules && rules.length;
-
+  var level = getLevel(id);
+  // const isClearEnabled = isRoot && enableClear && rules && rules.length;
   var removeOr = level < 1 && hasColumnChildRule();
   var combinatorCls = removeOr ? "disable-or" : "";
   return /*#__PURE__*/_preactCompat.default.createElement("div", {
@@ -117,12 +109,12 @@ var RuleGroup = function RuleGroup(_ref) {
       field: r.field,
       value: r.value,
       operator: r.operator,
+      parentOperator: r.parentOperator,
       schema: schema,
       parentId: id,
       translations: translations
     }) : null);
   }));
 };
-
 exports.RuleGroup = RuleGroup;
 RuleGroup.displayName = 'RuleGroup';
