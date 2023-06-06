@@ -427,7 +427,7 @@ const getRuleDefaultValue = (rule: RuleType) => {
      }
     } else {
        const _rule: RuleType = query as RuleType;
-          root = { field: _rule.field, operator: _rule.operator, parentOperator: _rule.parentOperator, value: _rule.value };
+          root = getRootRule(_rule);
           parent.rules.push(root);       
     }
  }
@@ -442,6 +442,17 @@ const getValueOnPropChange = (value: any, rule: RuleType, prop: string) =>{
       if (isLastUpdatedField) {updateValue = value[keyNames.LABEL];} // we filter with label for last updated by
       if (isPersonField) {updateValue = value[keyNames.ID];} // we filter with person id for person
       return {updateValue, isLastUpdatedField, isPersonField }
+}
+
+const getRootRule = (rule: RuleType) =>{
+  let root: RuleGroupType | RuleType = { field: rule.field, operator: rule.operator, parentOperator: rule.parentOperator, value: rule.value};
+  if(typeof rule === "object" && "valueMeta" in rule){
+    root = {
+      ...root,
+      valueMeta: rule.valueMeta
+    }
+  }
+  return root
 }
 
 QueryBuilder.displayName = 'QueryBuilder';
