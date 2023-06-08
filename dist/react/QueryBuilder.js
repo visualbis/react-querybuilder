@@ -464,6 +464,9 @@ var useQueryBuilderActions = function useQueryBuilderActions(query, fields, comb
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);
     }
+    var scrollableGrid = document.getElementsByClassName('will-change-auto scrollable-grid');
+    scrollableGrid[0].scrollTop = 0;
+    scrollableGrid[0].scrollLeft = 0;
   };
   var onRuleRemove = function onRuleRemove(ruleId, parentId) {
     //Removes a rule from the query
