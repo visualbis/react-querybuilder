@@ -1103,6 +1103,12 @@
   .no-rule {
     width: auto;
   }
+  .filterOptions{
+    justify-content: flex-end;
+    position: absolute;
+    right: 0px;
+    display: flex;
+  }
   .queryBuilder-header-addfilter {
     display: flex;
     align-items: center;
@@ -1122,9 +1128,8 @@
   &.multiRule {
     min-height: 0;
     .queryBuilder-header-addfilter {
-      position: absolute;
-      top: 10px;
-      right: 0;
+      position: relative;
+      top: 19px;
     }
   }
 }
