@@ -365,6 +365,8 @@ export interface QueryBuilderProps {
 
   onAdvancedClick?(): void;
 
+  onSaveFilter?(): void;
+
   controlElements?: Partial<Controls>;
   /**
    * This is a callback function invoked to get the list of allowed
