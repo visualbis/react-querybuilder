@@ -1,7 +1,7 @@
 {
   "name": "@visualbi/react-querybuilder",
   "version": "0.0.74",
-  "description": "The React <QueryBuilder /> component for constructing queries",
+  "description": "The React <QueryBuilder/> component for constructing queries",
   "main": "dist/",
   "types": "types/index.d.ts",
   "scripts": {
