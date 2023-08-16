@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
 import { Dropdown } from '@visualbi/bifrost-ui/dist/react/forms/DropDown';
@@ -209,10 +210,23 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
   let fieldType = type;
   let fieldPlaceHolder = placeHolder;
   if (
-    [ 'null', 'notNull', 'none', 'daysInThis', 'weeksInThis', 'monthsInThis', 'yearsInThis'].includes(operator as string) ||
+    [
+      'null',
+      'notNull',
+      'none',
+      'daysInThis',
+      'weeksInThis',
+      'monthsInThis',
+      'yearsInThis'
+    ].includes(operator as string) ||
     fieldType === 'none'
   ) {
     fieldType = 'text';
+    inputDisabled = true;
+    fieldPlaceHolder = '';
+  }
+  if (operator === 'equals' && field === 'Dates.date') {
+    fieldType = 'none';
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
@@ -240,10 +254,12 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     setTodayDate(false);
   };
 
-  options = values ? values.map((item) => {
+  options = values
+    ? values.map((item) => {
         if (item.name == value) selectedOption = { value: item.name, label: item.label };
         return { value: item.name, label: item.label };
-      }) : [];
+      })
+    : [];
   switch (fieldType) {
     case 'select':
       return renderSelect({ ...props, selectedOption, options });
@@ -268,19 +284,23 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
     case 'radio':
       return renderRadio(props);
+    // return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'textarea':
-      return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
-    case 'custom': {
+    case 'custom':
+    case 'text': {
       const key = (field && getSelectionKey?.(field)) || 'id';
       if (customRenderer)
         return customRenderer({
           ...props,
+          onTextAreaChange,
           onChange: (val) => onCustomRendererChange(val, handleOnChange, key)
         });
       return <></>;
     }
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
+    case 'none':
+      return <></>;
     default:
       return renderDefault({ ...props, inputDisabled });
   }
