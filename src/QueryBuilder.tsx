@@ -1,4 +1,4 @@
-// tslint:disable:max-line-length
+// tslint:disable: max-func-body-length
 import arrayFindIndex from 'array-find-index';
 import cloneDeep from 'lodash/cloneDeep';
 import { nanoid } from 'nanoid';
