@@ -1,4 +1,5 @@
 // tslint:disable: max-func-body-length
+
 import arrayFindIndex from 'array-find-index';
 import cloneDeep from 'lodash/cloneDeep';
 import { nanoid } from 'nanoid';
@@ -124,26 +125,6 @@ const defaultControlElements: Controls = {
   rule: Rule
 };
 
-const onCreateRule = (fields, getSelectedColumn, getOperatorsMain) => {
-  let field = fields[0].name;
-  if (getSelectedColumn) {
-    const selection = getSelectedColumn();
-    if (selection) field = getSelectedColumn();
-  }
-  const parentOperator = getOperatorsMain(field, true);
-  const operator =
-    parentOperator && parentOperator.length
-      ? getOperatorsMain(field, false, parentOperator[0].name)[0].name
-      : getOperatorsMain(field)[0].name;
-  return {
-    id: `r-${nanoid()}`,
-    field,
-    value: '',
-    operator: operator,
-    parentOperator: parentOperator && parentOperator.length ? parentOperator[0].name : ''
-  };
-};
-
 export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   query,
   fields = [],
@@ -180,7 +161,23 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     return { id: `g-${nanoid()}`, rules: [], combinator: combinators[0].name, not: false };
   };
   const createRule = (): RuleType => {
-    return onCreateRule(fields, getSelectedColumn, getOperatorsMain);
+    let field = fields[0].name;
+    if (getSelectedColumn) {
+      const selection = getSelectedColumn();
+      if (selection) field = getSelectedColumn();
+    }
+    const parentOperator = getOperatorsMain(field, true);
+    const operator =
+      parentOperator && parentOperator.length
+        ? getOperatorsMain(field, false, parentOperator[0].name)[0].name
+        : getOperatorsMain(field)[0].name;
+    return {
+      id: `r-${nanoid()}`,
+      field,
+      value: '',
+      operator: operator,
+      parentOperator: parentOperator && parentOperator.length ? parentOperator[0].name : ''
+    };
   };
   const {
     getValueEditorTypeMain,
@@ -384,123 +381,6 @@ const useColumnRuleProps = (getRoot, getFields) => {
   return { hasColumnChildRule, updateCombinator };
 };
 
-const onAddRule = (
-  root,
-  parentId,
-  rule,
-  getRuleDefaultValue,
-  updateCombinator,
-  setRoot,
-  _notifyQueryChange
-) => {
-  const rootCopy = cloneDeep(root);
-  const parent = findRule(parentId, rootCopy) as RuleGroupType;
-  if (parent) {
-    // istanbul ignore else
-    const groupIndex: number = parent.rules.findIndex((rule) => {
-      return (rule as RuleGroupType).combinator;
-    });
-    if (groupIndex > -1)
-      parent.rules.splice(groupIndex, 0, { ...rule, value: getRuleDefaultValue(rule) });
-    else parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
-
-    updateCombinator(rootCopy);
-    setRoot(rootCopy);
-    _notifyQueryChange(rootCopy);
-  }
-};
-
-const onAddGroup = (
-  root,
-  parentId,
-  createRule,
-  group,
-  setRoot,
-  getRuleDefaultValue,
-  _notifyQueryChange
-) => {
-  const rootCopy = cloneDeep(root);
-  const parent = findRule(parentId, rootCopy) as RuleGroupType;
-  if (parent) {
-    // istanbul ignore else
-    const newRule = createRule();
-    group.rules.push({ ...newRule, value: getRuleDefaultValue(newRule) });
-    parent.rules.push(group);
-    setRoot(rootCopy);
-    _notifyQueryChange(rootCopy);
-  }
-};
-
-const onClearRule = (root, updateCombinator, _notifyQueryChange) => {
-  const rootCopy = cloneDeep(root);
-  const updatedQuery: RuleGroupType = {
-    id: rootCopy.id,
-    name: rootCopy.name ? rootCopy.name : '',
-    email: rootCopy.email ? rootCopy.email : '',
-    isActive: rootCopy.isActive,
-    disabled: rootCopy.disabled,
-    rules: [],
-    combinator: rootCopy.combinator
-  };
-  updateCombinator(updatedQuery);
-  _notifyQueryChange(updatedQuery);
-};
-
-const onRemoveGroup = (root, parentId, groupId, getValidQuery, _notifyQueryChange) => {
-  const rootCopy = cloneDeep(root);
-  const parent = findRule(parentId, rootCopy) as RuleGroupType;
-  if (parent) {
-    // istanbul ignore else
-    const index = arrayFindIndex(parent.rules, (x) => x.id === groupId);
-    parent.rules.splice(index, 1);
-    const updatedQuery: RuleGroupType = {
-      id: rootCopy.id,
-      name: rootCopy.name ? rootCopy.name : '',
-      email: rootCopy.email ? rootCopy.email : '',
-      isActive: rootCopy.isActive,
-      disabled: rootCopy.disabled,
-      rules: [],
-      combinator: rootCopy.combinator
-    };
-    getValidQuery(rootCopy, updatedQuery, true);
-    getValidQuery(updatedQuery);
-    _notifyQueryChange(updatedQuery);
-  }
-};
-
-const onRemoveRule = (root, parentId, ruleId, getValidQuery, setRoot, _notifyQueryChange) => {
-  const rootCopy = cloneDeep(root);
-  const parent = findRule(parentId, rootCopy) as RuleGroupType;
-  if (parent) {
-    // istanbul ignore else
-    const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
-    parent.rules.splice(index, 1);
-    const updatedQuery: RuleGroupType = {
-      id: rootCopy.id,
-      name: rootCopy.name ? rootCopy.name : '',
-      email: rootCopy.email ? rootCopy.email : '',
-      rules: [],
-      combinator: rootCopy.combinator
-    };
-    getValidQuery(rootCopy, updatedQuery, true);
-    setRoot(updatedQuery);
-    _notifyQueryChange(updatedQuery);
-  }
-};
-
-const onRootLevelAddRule = (root, createRule, updateCombinator, setRoot, _notifyQueryChange) => {
-  const rootCopy = cloneDeep(root);
-  const groupIndex: number = rootCopy.rules.findIndex((rule) => {
-    return (rule as RuleGroupType).combinator;
-  });
-  if (groupIndex > -1) rootCopy.rules.splice(groupIndex, 0, createRule());
-  else rootCopy.rules.push(createRule());
-
-  updateCombinator(rootCopy);
-  setRoot(rootCopy);
-  _notifyQueryChange(rootCopy);
-};
-
 const useQueryBuilderActions = (
   query: RuleGroupType | undefined,
   fields: Field[],
@@ -523,22 +403,46 @@ const useQueryBuilderActions = (
   const { hasColumnChildRule, updateCombinator } = useColumnRuleProps(getRoot, getFields);
   const onRuleAdd = (rule: RuleType, parentId: string) => {
     // Adds a rule to the query
-    onAddRule(
-      root,
-      parentId,
-      rule,
-      getRuleDefaultValue,
-      updateCombinator,
-      setRoot,
-      _notifyQueryChange
-    );
+    const rootCopy = cloneDeep(root);
+    const parent = findRule(parentId, rootCopy) as RuleGroupType;
+    if (parent) {
+      // istanbul ignore else
+      const groupIndex: number = parent.rules.findIndex((rule) => {
+        return (rule as RuleGroupType).combinator;
+      });
+      if (groupIndex > -1)
+        parent.rules.splice(groupIndex, 0, { ...rule, value: getRuleDefaultValue(rule) });
+      else parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
+
+      updateCombinator(rootCopy);
+      setRoot(rootCopy);
+      _notifyQueryChange(rootCopy);
+    }
   };
   const onAddRullonRootLevel = () => {
-    onRootLevelAddRule(root, createRule, updateCombinator, setRoot, _notifyQueryChange);
+    const rootCopy = cloneDeep(root);
+    const groupIndex: number = rootCopy.rules.findIndex((rule) => {
+      return (rule as RuleGroupType).combinator;
+    });
+    if (groupIndex > -1) rootCopy.rules.splice(groupIndex, 0, createRule());
+    else rootCopy.rules.push(createRule());
+
+    updateCombinator(rootCopy);
+    setRoot(rootCopy);
+    _notifyQueryChange(rootCopy);
   };
   const onGroupAdd = (group: RuleGroupType, parentId: string) => {
     //Adds a rule group to the query
-    onAddGroup(root, parentId, clearRule, group, setRoot, getRuleDefaultValue, _notifyQueryChange);
+    const rootCopy = cloneDeep(root);
+    const parent = findRule(parentId, rootCopy) as RuleGroupType;
+    if (parent) {
+      // istanbul ignore else
+      const newRule = createRule();
+      group.rules.push({ ...newRule, value: getRuleDefaultValue(newRule) });
+      parent.rules.push(group);
+      setRoot(rootCopy);
+      _notifyQueryChange(rootCopy);
+    }
   };
   const onPropChange = (prop: string, value: any, ruleId: string) => {
     const rootCopy = cloneDeep(root);
@@ -583,14 +487,59 @@ const useQueryBuilderActions = (
   };
   const onRuleRemove = (ruleId: string, parentId: string) => {
     //Removes a rule from the query
-    onRemoveRule(root, parentId, ruleId, getValidQuery, setRoot, _notifyQueryChange);
+    const rootCopy = cloneDeep(root);
+    const parent = findRule(parentId, rootCopy) as RuleGroupType;
+    if (parent) {
+      // istanbul ignore else
+      const index = arrayFindIndex(parent.rules, (x) => x.id === ruleId);
+      parent.rules.splice(index, 1);
+      const updatedQuery: RuleGroupType = {
+        id: rootCopy.id,
+        name: rootCopy.name ? rootCopy.name : '',
+        email: rootCopy.email ? rootCopy.email : '',
+        rules: [],
+        combinator: rootCopy.combinator
+      };
+      getValidQuery(rootCopy, updatedQuery, true);
+      setRoot(updatedQuery);
+      _notifyQueryChange(updatedQuery);
+    }
   };
   const onGroupRemove = (groupId: string, parentId: string) => {
     //Removes a rule group from the query
-    onRemoveGroup(root, parentId, groupId, getValidQuery, _notifyQueryChange);
+    const rootCopy = cloneDeep(root);
+    const parent = findRule(parentId, rootCopy) as RuleGroupType;
+    if (parent) {
+      // istanbul ignore else
+      const index = arrayFindIndex(parent.rules, (x) => x.id === groupId);
+      parent.rules.splice(index, 1);
+      const updatedQuery: RuleGroupType = {
+        id: rootCopy.id,
+        name: rootCopy.name ? rootCopy.name : '',
+        email: rootCopy.email ? rootCopy.email : '',
+        isActive: rootCopy.isActive,
+        disabled: rootCopy.disabled,
+        rules: [],
+        combinator: rootCopy.combinator
+      };
+      getValidQuery(rootCopy, updatedQuery, true);
+      updateCombinator(updatedQuery);
+      _notifyQueryChange(updatedQuery);
+    }
   };
   const clearRule = () => {
-    onClearRule(root, updateCombinator, _notifyQueryChange);
+    const rootCopy = cloneDeep(root);
+    const updatedQuery: RuleGroupType = {
+      id: rootCopy.id,
+      name: rootCopy.name ? rootCopy.name : '',
+      email: rootCopy.email ? rootCopy.email : '',
+      isActive: rootCopy.isActive,
+      disabled: rootCopy.disabled,
+      rules: [],
+      combinator: rootCopy.combinator
+    };
+    updateCombinator(updatedQuery);
+    _notifyQueryChange(updatedQuery);
   };
   const getLevelFromRoot = (id: string) => getLevel(id, 0, root); //Gets the level of the rule with the provided ID
 
@@ -616,56 +565,6 @@ const useQueryBuilderActions = (
     onRuleAdd
   };
 };
-
-const getValueEditorTypeMain = (
-  field: string,
-  operator: string,
-  getValueEditorType,
-  parentOperator?: string
-) => {
-  // Gets the ValueEditor type for a given field and operator
-  if (getValueEditorType) {
-    const vet = getValueEditorType(field, operator, parentOperator);
-    if (vet) return vet;
-  }
-  return 'text';
-};
-
-const queryObject = (query) => {
-  const updatedQuery: RuleGroupType = {
-    id: query.id,
-    name: query.name ? query.name : '',
-    email: query.email ? query.email : '',
-    isActive: query.isActive,
-    disabled: query.disabled,
-    rules: [],
-    combinator: query.combinator
-  };
-  query.rules.forEach((rule) => {
-    if (!(rule as RuleGroupType).combinator) updatedQuery.rules.push(rule);
-  });
-  return updatedQuery;
-};
-
-const getUpdatedRuleValue = (getValueEditorType, rule, preOperator) => {
-  const preType = getValueEditorType && getValueEditorType(rule.field, preOperator);
-  const curType = getValueEditorType && getValueEditorType(rule.field, rule.operator);
-  let _value = rule.value;
-  if (preType != curType) {
-    switch (curType) {
-      case 'checkbox':
-        _value = true;
-        break;
-      case 'radio':
-        _value = true;
-        break;
-      default:
-        _value = '';
-    }
-  }
-  return _value;
-};
-
 const useQueryBuilderProps = (
   getValueEditorType: any,
   getInputType: any,
@@ -675,13 +574,32 @@ const useQueryBuilderProps = (
   getPlaceHolder: any
 ) => {
   const getNormalQuery = (query: RuleGroupType) => {
-    return queryObject(query);
+    const updatedQuery: RuleGroupType = {
+      id: query.id,
+      name: query.name ? query.name : '',
+      email: query.email ? query.email : '',
+      isActive: query.isActive,
+      disabled: query.disabled,
+      rules: [],
+      combinator: query.combinator
+    };
+    query.rules.forEach((rule) => {
+      if (!(rule as RuleGroupType).combinator) updatedQuery.rules.push(rule);
+    });
+    return updatedQuery;
   };
-
+  const getValueEditorTypeMain = (field: string, operator: string, parentOperator?: string) => {
+    // Gets the ValueEditor type for a given field and operator
+    if (getValueEditorType) {
+      const vet = getValueEditorType(field, operator, parentOperator);
+      if (vet) return vet;
+    }
+    return 'text';
+  };
   const getPlaceHolderMain = (field: string, operator: string) => {
     // Gets the `<input />` type for a given field and operator
     if (getPlaceHolder) {
-      const placeHolder = getPlaceHolder(field, operator, getValueEditorType);
+      const placeHolder = getPlaceHolder(field, operator);
       if (placeHolder) return placeHolder;
     }
     return '';
@@ -711,14 +629,29 @@ const useQueryBuilderProps = (
     return operators;
   };
   const getRuleUpdatedValue = (rule: RuleType, preOperator: string) => {
-    return getUpdatedRuleValue(getValueEditorType, rule, preOperator);
+    const preType = getValueEditorType && getValueEditorType(rule.field, preOperator);
+    const curType = getValueEditorType && getValueEditorType(rule.field, rule.operator);
+    let _value = rule.value;
+    if (preType != curType) {
+      switch (curType) {
+        case 'checkbox':
+          _value = true;
+          break;
+        case 'radio':
+          _value = true;
+          break;
+        default:
+          _value = '';
+      }
+    }
+    return _value;
   };
   const getRuleDefaultValue = (rule: RuleType) => {
     let value: any = '';
     const values = getValuesMain(rule.field, rule.operator);
     if (values.length) value = '';
     else {
-      const editorType = getValueEditorTypeMain(rule.field, rule.operator, getValueEditorType);
+      const editorType = getValueEditorTypeMain(rule.field, rule.operator);
       if (editorType === 'checkbox') {
         value = false;
       }
