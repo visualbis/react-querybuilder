@@ -225,11 +225,18 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
-  if (operator === 'equals' && field === 'Dates.date') {
-    fieldType = 'none';
-    inputDisabled = true;
-    fieldPlaceHolder = '';
-  }
+  if (
+    [
+      'equals',
+      'notEqual',
+      'lessThan',
+      'greaterThan',
+      'lessThanOrEquals',
+      'greaterThanOrEquals'
+    ].includes(operator as string)
+  )
+    fieldType = 'custom';
+  if (['isOneof', 'isNotOneof'].includes(operator as string)) fieldType = 'textarea';
   const [_value, setValue] = useState(value);
 
   const [selectedDay, setSelectedDay] = useState<null | {
@@ -260,10 +267,12 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         return { value: item.name, label: item.label };
       })
     : [];
+
   switch (fieldType) {
     case 'select':
       return renderSelect({ ...props, selectedOption, options });
     case 'autocomplete':
+    case 'text':
       return renderAutoComplete({ ...props, options });
     case 'checkbox':
       return renderCheckBox(props);
@@ -284,10 +293,8 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
     case 'radio':
       return renderRadio(props);
-    // return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'textarea':
-    case 'custom':
-    case 'text': {
+    case 'custom': {
       const key = (field && getSelectionKey?.(field)) || 'id';
       if (customRenderer)
         return customRenderer({
@@ -299,8 +306,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
-    case 'none':
-      return <></>;
     default:
       return renderDefault({ ...props, inputDisabled });
   }
