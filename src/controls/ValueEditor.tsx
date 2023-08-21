@@ -126,13 +126,14 @@ const renderSelect = (props) => {
 
 const renderAutoComplete = (props) => {
   const { placeHolder, value, options, handleOnChange, className } = props;
+  const showValue = value.replace(/CALC_VARIABLE_\d+/g, '');
   const onChange = (val) => handleOnChange(val);
   return (
     <Autocomplete
       scrollPositionSupport={true}
       placeholder={placeHolder}
       options={options}
-      value={value}
+      value={showValue}
       onChange={onChange}
       className={className}></Autocomplete>
   );
@@ -272,7 +273,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'select':
       return renderSelect({ ...props, selectedOption, options });
     case 'autocomplete':
-    case 'text':
       return renderAutoComplete({ ...props, options });
     case 'checkbox':
       return renderCheckBox(props);
@@ -294,6 +294,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'radio':
       return renderRadio(props);
     case 'textarea':
+    case 'text':
     case 'custom': {
       const key = (field && getSelectionKey?.(field)) || 'id';
       if (customRenderer)
