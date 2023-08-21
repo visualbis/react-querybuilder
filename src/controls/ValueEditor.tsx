@@ -226,18 +226,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
-  if (
-    [
-      'equals',
-      'notEqual',
-      'lessThan',
-      'greaterThan',
-      'lessThanOrEquals',
-      'greaterThanOrEquals'
-    ].includes(operator as string)
-  )
-    fieldType = 'custom';
-  if (['isOneof', 'isNotOneof'].includes(operator as string)) fieldType = 'textarea';
+
   const [_value, setValue] = useState(value);
 
   const [selectedDay, setSelectedDay] = useState<null | {
