@@ -126,13 +126,14 @@ const renderSelect = (props) => {
 
 const renderAutoComplete = (props) => {
   const { placeHolder, value, options, handleOnChange, className } = props;
+  const showValue = value.replace(/CALC_VARIABLE_\d+/g, '');
   const onChange = (val) => handleOnChange(val);
   return (
     <Autocomplete
       scrollPositionSupport={true}
       placeholder={placeHolder}
       options={options}
-      value={value}
+      value={showValue}
       onChange={onChange}
       className={className}></Autocomplete>
   );
@@ -225,11 +226,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     inputDisabled = true;
     fieldPlaceHolder = '';
   }
-  if (operator === 'equals' && field === 'Dates.date') {
-    fieldType = 'none';
-    inputDisabled = true;
-    fieldPlaceHolder = '';
-  }
+
   const [_value, setValue] = useState(value);
 
   const [selectedDay, setSelectedDay] = useState<null | {
@@ -260,6 +257,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
         return { value: item.name, label: item.label };
       })
     : [];
+
   switch (fieldType) {
     case 'select':
       return renderSelect({ ...props, selectedOption, options });
@@ -284,7 +282,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
     case 'radio':
       return renderRadio(props);
-    // return renderTextArea({ ...props, onTextAreaChange, _value, inputDisabled });
     case 'textarea':
     case 'custom':
     case 'text': {
@@ -299,8 +296,6 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     }
     case 'numeric':
       return renderNumber({ ...props, inputDisabled });
-    case 'none':
-      return <></>;
     default:
       return renderDefault({ ...props, inputDisabled });
   }
