@@ -21,6 +21,7 @@ export interface IProps {
   getSelectedColumn?(): string;
   customRenderer?(): any;
   getSelectionKey?(field: string): string;
+  saveFilter?(): void;
 }
 
 export const QueryGenerator: React.FC<IProps> = ({
@@ -41,8 +42,8 @@ export const QueryGenerator: React.FC<IProps> = ({
   getSelectedColumn,
   customRenderer,
   getSelectionKey,
+  saveFilter
 }) => {
-
   const generatorCls = !showAddGroup ? `query-generator hide-group` : 'query-generator';
   return (
     <div className={generatorCls}>
@@ -66,6 +67,7 @@ export const QueryGenerator: React.FC<IProps> = ({
         getSelectedColumn={getSelectedColumn}
         customRenderer={customRenderer}
         getSelectionKey={getSelectionKey}
+        onSaveFilter={saveFilter}
       />
     </div>
   );
