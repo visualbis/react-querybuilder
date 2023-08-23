@@ -281,29 +281,16 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
         {(isNoRulesApplied || enableNormalView) && (
           <div className={`queryBuilder-header ${hederRuleClass}`}>
             {isNoRulesApplied && <span className="no-rule"> No filters applied</span>}
-            <div className="filterOptions">
-              {enableNormalView && (
-                // <div className="queryBuilder-footer">
-                <div
-                  title="Open advanced filter"
-                  role="button"
-                  className="queryBuilder-header-addfilter advanced"
-                  onClick={onAdvancedClick}>
-                  <span className="queryBuilder-footer-title">Advanced</span>
-                </div>
-                // </div>
-              )}
-              {enableNormalView && (
-                <div
-                  title="Add new filter"
-                  role="button"
-                  className="queryBuilder-header-addfilter"
-                  onClick={onAddRullonRootLevel}>
-                  <span className="ms-Icon ms-Icon--Add"></span>
-                  <span className="queryBuilder-footer-title">Add Filter</span>
-                </div>
-              )}
-            </div>
+            {enableNormalView && (
+              <div
+                title="Add new filter"
+                role="button"
+                className="queryBuilder-header-addfilter"
+                onClick={onAddRullonRootLevel}>
+                <span className="ms-Icon ms-Icon--Add"></span>
+                <span className="queryBuilder-footer-title">Add Filter</span>
+              </div>
+            )}
           </div>
         )}
 
@@ -321,13 +308,15 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
         )}
       </div>
       {enableNormalView && (
-        <div className="queryBuilder-footer">
+        <div className="queryBuilder-footerAdvanced">
           <div
             title="Open advanced filter"
             role="button"
+            style={{ padding: 2 }}
             className="queryBuilder-footer-advanced"
-            onClick={onSaveFilter}>
-            {<span className="queryBuilder-footer-title">Save Filter</span>}
+            onClick={onAdvancedClick}>
+            <span className="ms-Icon ms-Icon--FilterSettings advanced-filter-icon" />
+            <span className="advanced-filter-title">Advanced</span>
           </div>
         </div>
       )}
