@@ -41,8 +41,7 @@ export const QueryGenerator: React.FC<IProps> = ({
   onAdvancedClick,
   getSelectedColumn,
   customRenderer,
-  getSelectionKey,
-  saveFilter
+  getSelectionKey
 }) => {
   const generatorCls = !showAddGroup ? `query-generator hide-group` : 'query-generator';
   return (
@@ -67,7 +66,6 @@ export const QueryGenerator: React.FC<IProps> = ({
         getSelectedColumn={getSelectedColumn}
         customRenderer={customRenderer}
         getSelectionKey={getSelectionKey}
-        onSaveFilter={saveFilter}
       />
     </div>
   );
