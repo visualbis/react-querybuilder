@@ -14,25 +14,43 @@ const renderRemoveRuleAction = ({ controls, translations, classNames, removeRule
   );
 };
 
-const renderValueEditor = ({ controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta, parentOperator }) => {
+const renderValueEditor = ({
+  controls,
+  translations,
+  classNames,
+  onValueChanged,
+  field,
+  customRenderer,
+  getSelectionKey,
+  level,
+  fieldData,
+  operator,
+  getValueEditorType,
+  value,
+  getInputType,
+  getPlaceHolder,
+  getValues,
+  valueMeta,
+  parentOperator
+}) => {
   return (
     <controls.valueEditor
-    field={field}
-    fieldData={fieldData}
-    title={translations.value.title}
-    operator={operator}
-    value={value}
-    type={getValueEditorType(field, operator, parentOperator)}
-    inputType={getInputType(field, operator)}
-    placeHolder={getPlaceHolder(field, operator)}
-    values={getValues(field, operator)}
-    className={`rule-value ${classNames.value}`}
-    handleOnChange={onValueChanged}
-    level={level}
-    customRenderer={customRenderer}
-    getSelectionKey={getSelectionKey}
-    valueMeta={valueMeta}
-  />
+      field={field}
+      fieldData={fieldData}
+      title={translations.value.title}
+      operator={operator}
+      value={value}
+      type={getValueEditorType(field, operator, parentOperator)}
+      inputType={getInputType(field, operator)}
+      placeHolder={getPlaceHolder(field, operator)}
+      values={getValues(field, operator)}
+      className={`rule-value ${classNames.value}`}
+      handleOnChange={onValueChanged}
+      level={level}
+      customRenderer={customRenderer}
+      getSelectionKey={getSelectionKey}
+      valueMeta={valueMeta}
+    />
   );
 };
 
@@ -142,7 +160,13 @@ export const Rule: React.FC<RuleProps> = ({
   const onFieldChanged = (value: any) => onElementChanged('field', value);
   const onOperatorChanged = (value: any) => onElementChanged('operator', value);
   const onParentOperatorChanged = (value: any) => onElementChanged('parentOperator', value);
-  const onValueChanged = (value: any) => onElementChanged('value', value);
+  const onValueChanged = (value: any) => {
+    const isDateRange = parentOperator === 'dateRange';
+    if (isDateRange) {
+      onOperatorChanged(value);
+    }
+    onElementChanged('value', value);
+  };
   const removeRule = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -155,23 +179,74 @@ export const Rule: React.FC<RuleProps> = ({
   const enableParentOperaton = !!(parentOpertators && parentOpertators.length);
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
-      {removeIconatStart && renderRemoveRuleAction({ controls, translations, classNames, removeRule, level })}
+      {removeIconatStart &&
+        renderRemoveRuleAction({ controls, translations, classNames, removeRule, level })}
       {renderFieldSelector({
-        controls, translations, classNames, fields, level, field, operator, onFieldChanged
+        controls,
+        translations,
+        classNames,
+        fields,
+        level,
+        field,
+        operator,
+        onFieldChanged
       })}
       {enableParentOperaton &&
         renderParentOperatorSelector({
-          controls, translations, classNames, fieldData, level, field, parentOpertators, parentOperator, onParentOperatorChanged
+          controls,
+          translations,
+          classNames,
+          fieldData,
+          level,
+          field,
+          parentOpertators,
+          parentOperator,
+          onParentOperatorChanged
         })}
       {!enableParentOperaton &&
         renderOperatorSelector({
-          controls, translations, classNames, fieldData, level, field, getOperatorsList, operator, onOperatorChanged
+          controls,
+          translations,
+          classNames,
+          fieldData,
+          level,
+          field,
+          getOperatorsList,
+          operator,
+          onOperatorChanged
         })}
-      {renderValueEditor({controls, translations, classNames, onValueChanged, field, customRenderer, getSelectionKey, level, fieldData, operator, getValueEditorType, value, getInputType, getPlaceHolder, getValues, valueMeta, parentOperator})}
-      
-      {enableParentOperaton &&
+      {renderValueEditor({
+        controls,
+        translations,
+        classNames,
+        onValueChanged,
+        field,
+        customRenderer,
+        getSelectionKey,
+        level,
+        fieldData,
+        operator: parentOperator === 'dateRange' ? parentOperator : operator,
+        getValueEditorType,
+        value,
+        getInputType,
+        getPlaceHolder,
+        getValues,
+        valueMeta,
+        parentOperator
+      })}
+
+      {parentOperator !== 'dateRange' &&
+        enableParentOperaton &&
         renderOperatorSelector({
-          controls, translations, classNames, fieldData, level, field, getOperatorsList, operator, onOperatorChanged
+          controls,
+          translations,
+          classNames,
+          fieldData,
+          level,
+          field,
+          getOperatorsList,
+          operator,
+          onOperatorChanged
         })}
       {!removeIconatStart &&
         renderRemoveRuleAction({ controls, translations, classNames, removeRule, level })}
