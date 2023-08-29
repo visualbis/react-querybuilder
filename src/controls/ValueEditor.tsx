@@ -7,10 +7,11 @@ import { ValueEditorProps } from '../types';
 import DatePickerComponent from './DatePickerComponent';
 
 const renderCustomInput = (props) => {
-  const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
-  const formattedValue = selectedDay
-    ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
-    : '';
+  const { placeHolder, selectedDay, className, isShowCalendar, setCalendar, value } = props;
+  const formattedValue =
+    value !== '' && selectedDay
+      ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
+      : '';
 
   const onClick = () => {
     if (!isShowCalendar) setCalendar(true);
