@@ -693,7 +693,7 @@ const getValueOnPropChange = (value: any, rule: RuleType, prop: string) => {
   const isPersonField: boolean = isValueProp && typeof value === 'object' && 'id' in value;
   let updateValue = value;
   if (isLastUpdatedField) {
-    updateValue = value[keyNames.LABEL];
+    updateValue = value[keyNames.LABEL] || updateValue;
   } // we filter with label for last updated by
   if (isPersonField) {
     updateValue = value[keyNames.ID];

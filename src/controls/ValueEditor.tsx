@@ -210,8 +210,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     values,
     customRenderer,
     getSelectionKey,
-    field,
-    valueMeta
+    field
   } = props;
   let inputDisabled = false;
   let options: any[] = [];
