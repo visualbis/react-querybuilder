@@ -1,4 +1,4 @@
-/* eslint-disable max-lines-per-function */
+// /* eslint-disable max-lines-per-function */
 // tslint:disable: max-func-body-length
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
