@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 // tslint:disable: max-func-body-length
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
@@ -127,7 +128,13 @@ const renderSelect = (props) => {
 
 const renderAutoComplete = (props) => {
   const { placeHolder, value, options, handleOnChange, className } = props;
-  const showValue = value.replace(/CALC_VARIABLE_\d+/g, '');
+  let showValue = value;
+  const hasCalcVariable = value?.includes('CALC_VARIABLE_');
+  if (hasCalcVariable) {
+    options.forEach(function (option) {
+      if (option.value.includes('CALC_VARIABLE_')) showValue = option.label;
+    });
+  }
   const onChange = (val) => handleOnChange(val);
   return (
     <Autocomplete
