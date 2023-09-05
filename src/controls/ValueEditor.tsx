@@ -131,7 +131,7 @@ const renderAutoComplete = (props) => {
   let showValue = value;
   const hasCalcVariable = value?.includes('CALC_VARIABLE_');
   if (hasCalcVariable) {
-    options.forEach(function (option) {
+    options.forEach((option) =>  {
       if (option.value.includes('CALC_VARIABLE_')) showValue = option.label;
     });
   }
