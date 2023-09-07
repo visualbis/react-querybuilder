@@ -1,3 +1,4 @@
+// /* eslint-disable max-lines-per-function */
 // tslint:disable: max-func-body-length
 import React, { useState } from 'react';
 import { Autocomplete } from '@visualbi/bifrost-ui/dist/react/forms/Autocomplete';
@@ -6,10 +7,11 @@ import { ValueEditorProps } from '../types';
 import DatePickerComponent from './DatePickerComponent';
 
 const renderCustomInput = (props) => {
-  const { placeHolder, selectedDay, className, isShowCalendar, setCalendar } = props;
-  const formattedValue = selectedDay
-    ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
-    : '';
+  const { placeHolder, selectedDay, className, isShowCalendar, setCalendar, value } = props;
+  const formattedValue =
+    value !== '' && selectedDay
+      ? `${(selectedDay as any).month}/${(selectedDay as any).day}/${(selectedDay as any).year}`
+      : '';
 
   const onClick = () => {
     if (!isShowCalendar) setCalendar(true);
@@ -219,8 +221,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     values,
     customRenderer,
     getSelectionKey,
-    field,
-    valueMeta
+    field
   } = props;
   let inputDisabled = false;
   let options: any[] = [];
