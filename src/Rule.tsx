@@ -161,7 +161,7 @@ export const Rule: React.FC<RuleProps> = ({
   const onOperatorChanged = (value: any) => onElementChanged('operator', value);
   const onParentOperatorChanged = (value: any) => onElementChanged('parentOperator', value);
   const onValueChanged = (value: any) => {
-    const isDateRange = parentOperator === 'dateRange';
+    const isDateRange = parentOperator === 'dateRange' || parentOperator === 'singleDate';
     if (isDateRange) {
       onOperatorChanged(value);
     }
@@ -225,7 +225,7 @@ export const Rule: React.FC<RuleProps> = ({
         getSelectionKey,
         level,
         fieldData,
-        operator: parentOperator === 'dateRange' ? parentOperator : operator,
+        operator: parentOperator === 'dateRange' || parentOperator === 'singleDate' ? parentOperator : operator,
         getValueEditorType,
         value,
         getInputType,
@@ -235,7 +235,7 @@ export const Rule: React.FC<RuleProps> = ({
         parentOperator
       })}
 
-      {parentOperator !== 'dateRange' &&
+      {parentOperator !== 'dateRange' && parentOperator !== 'singleDate' &&
         enableParentOperaton &&
         renderOperatorSelector({
           controls,
