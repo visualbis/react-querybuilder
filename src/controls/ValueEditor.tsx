@@ -128,12 +128,23 @@ const renderSelect = (props) => {
 
 const renderAutoComplete = (props) => {
   const { placeHolder, value, options, handleOnChange, className } = props;
-  let showValue = value;
-  const hasCalcVariable = value?.includes('CALC_VARIABLE_');
+  let matches;
+  let showValue;
+  const hasCalcVariable = value.includes('CALC_VARIABLE_');
   if (hasCalcVariable) {
-    options.forEach((option) =>  {
-      if (option.value.includes('CALC_VARIABLE_')) showValue = option.label;
+    matches = value.match(/CALC_VARIABLE_(.{5})/);
+    if (value?.includes('PRESET_VARIABLE_')) {
+      matches = value.match(/CALC_VARIABLE_PRESET_VARIABLE_\d+/g);
+    }
+  }
+  const val = matches ? matches[0] : '';
+  if (hasCalcVariable) {
+    options.forEach((option) => {
+      if (option.value.includes(val)) showValue = option.label;
     });
+  }
+  else{
+    showValue = value
   }
   const onChange = (val) => handleOnChange(val);
   return (
