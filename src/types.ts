@@ -34,7 +34,7 @@ export type ExportFormat = 'json' | 'sql' | 'json_without_ids' | 'parameterized'
 
 export type ValueProcessor = (field: string, operator: string, value: any) => string;
 
-export type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'custom' | 'numeric';
+export type ValueEditorType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'none' | 'date' | 'custom' | 'numeric' | 'person';
 
 export interface CommonProps {
   /**
@@ -192,7 +192,7 @@ export interface Schema {
   createRuleGroup(): RuleGroupType;
   getLevel(id: string): number;
   getOperators(field: string, isParent?: boolean, parentOperator?: string): Field[];
-  getValueEditorType(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom';
+  getValueEditorType(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom' | 'person';
   getPlaceHolder(field: string, operator: string): string;
   getInputType(field: string, operator: string): string;
   getValues(field: string, operator: string): NameLabelPair[];
@@ -311,7 +311,7 @@ export interface QueryGeneratorProps{
    * This is a callback function invoked to get the type of `ValueEditor`
    * for the given field and operator.
    */
-  getValueEditorType?(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date' | 'custom';
+  getValueEditorType?(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio'| 'date' | 'custom' | 'person';
   /**
    * This is a callback function invoked to get the `type` of `<input />`
    * for the given field and operator (only applicable when
