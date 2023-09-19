@@ -301,6 +301,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
     case 'radio':
       return renderRadio(props);
     case 'textarea':
+    case 'person':
     case 'custom': {
       const key = (field && getSelectionKey?.(field)) || 'id';
       if (customRenderer)
