@@ -151,7 +151,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   removeIconatStart = false,
   customRenderer,
   getSelectionKey,
-  onSaveFilter,
+  onSaveFilter
 }) => {
   const getInitialQuery = () => {
     // Gets the initial query
@@ -256,7 +256,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     showNotToggle,
     removeIconatStart,
     customRenderer,
-    getSelectionKey,
+    getSelectionKey
   };
   useEffect(() => {
     // Set the query state when a new query prop comes in

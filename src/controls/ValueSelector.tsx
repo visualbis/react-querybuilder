@@ -7,7 +7,7 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   handleOnChange,
   options,
   value,
-  placeHolderTooltip,
+  placeHolderTooltip
 }) => {
   const onChange = (value: any) => { handleOnChange(value.value) }
   let selectedValue;
