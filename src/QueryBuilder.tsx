@@ -152,7 +152,6 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   customRenderer,
   getSelectionKey,
   onSaveFilter,
-  showSummationIcon,
 }) => {
   const getInitialQuery = () => {
     // Gets the initial query
@@ -258,7 +257,6 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     removeIconatStart,
     customRenderer,
     getSelectionKey,
-    showSummationIcon,
   };
   useEffect(() => {
     // Set the query state when a new query prop comes in
