@@ -71,6 +71,7 @@ export interface SelectorEditorProps extends CommonProps {
 export interface ValueSelectorProps extends SelectorEditorProps {
   options: Field[];
   placeHolderTooltip?: boolean;
+  showSummationIcon?: boolean;
 }
 
 export interface NotToggleProps extends CommonProps {
@@ -210,6 +211,7 @@ export interface Schema {
   showAddRule:boolean;
   customRenderer?():any;
   getSelectionKey?(field: string): string,
+  showSummationIcon?: boolean,
 }
 
 export interface Translations {
@@ -450,4 +452,8 @@ export interface QueryBuilderProps {
    * Return selection key.
    */
   getSelectionKey?(field: string): string;
+ /**
+   * Show remove summation icon.
+   */
+  showSummationIcon?: boolean
 }

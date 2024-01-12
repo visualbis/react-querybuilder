@@ -7,12 +7,13 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   handleOnChange,
   options,
   value,
-  placeHolderTooltip
+  placeHolderTooltip,
+  showSummationIcon = true
 }) => {
   const onChange = (value: any) => { handleOnChange(value.value) }
   let selectedValue;
   const _options: any[] = options ? options.map((item) => {
-    const prefix: string = item.type === "number" ? "Σ " : "";
+    const prefix: string = item.type  === "number" && showSummationIcon ? "Σ " : "";
     if (item.name === value) {
       selectedValue = { value: item.name, label: prefix + item.label };
     }

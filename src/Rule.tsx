@@ -62,7 +62,8 @@ const renderFieldSelector = ({
   level,
   field,
   operator,
-  onFieldChanged
+  onFieldChanged,
+  showSummationIcon
 }) => {
   return (
     <controls.fieldSelector
@@ -74,6 +75,7 @@ const renderFieldSelector = ({
       className={`rule-fields ${classNames.fields}`}
       handleOnChange={onFieldChanged}
       level={level}
+      showSummationIcon={showSummationIcon}
     />
   );
 };
@@ -153,7 +155,8 @@ export const Rule: React.FC<RuleProps> = ({
     onRuleRemove,
     removeIconatStart,
     customRenderer,
-    getSelectionKey
+    getSelectionKey,
+    showSummationIcon,
   }
 }) => {
   const onElementChanged = (property: string, value: any) => onPropChange(property, value, id);
@@ -189,7 +192,8 @@ export const Rule: React.FC<RuleProps> = ({
         level,
         field,
         operator,
-        onFieldChanged
+        onFieldChanged,
+        showSummationIcon
       })}
       {enableParentOperaton &&
         renderParentOperatorSelector({
