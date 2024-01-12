@@ -8,6 +8,7 @@ export interface NameLabelPair {
 export interface Field extends NameLabelPair {
   id?: string;
   [x: string]: any;
+  hideIcon?: boolean
 }
 
 export interface RuleType {

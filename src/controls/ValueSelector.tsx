@@ -12,7 +12,7 @@ const ValueSelector: React.FC<ValueSelectorProps> = ({
   const onChange = (value: any) => { handleOnChange(value.value) }
   let selectedValue;
   const _options: any[] = options ? options.map((item) => {
-    const prefix: string = item.type === "number" ? "Σ " : "";
+    const prefix: string = item.type  === "number" && !item.hideIcon ? "Σ " : "";
     if (item.name === value) {
       selectedValue = { value: item.name, label: prefix + item.label };
     }
