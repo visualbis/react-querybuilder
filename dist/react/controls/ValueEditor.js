@@ -161,7 +161,7 @@ var renderAutoComplete = function renderAutoComplete(props) {
     handleOnChange = props.handleOnChange,
     className = props.className;
     const showOption = options?.find(option => option.value === value);
-    showValue= showOption?.label || value;
+  var showValue= showOption?.label || value;
   var onChange = function onChange(val) {
     return handleOnChange(val);
   };
