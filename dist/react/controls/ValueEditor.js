@@ -160,6 +160,8 @@ var renderAutoComplete = function renderAutoComplete(props) {
     options = props.options,
     handleOnChange = props.handleOnChange,
     className = props.className;
+    const showOption = options?.find(option => option.value === value);
+    showValue= showOption?.label || value;
   var onChange = function onChange(val) {
     return handleOnChange(val);
   };
@@ -167,7 +169,7 @@ var renderAutoComplete = function renderAutoComplete(props) {
     scrollPositionSupport: true,
     placeholder: placeHolder,
     options: options,
-    value: value,
+    value: showValue,
     onChange: onChange,
     className: className
   });
