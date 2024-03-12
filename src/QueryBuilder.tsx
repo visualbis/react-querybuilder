@@ -690,7 +690,7 @@ const useQueryBuilderProps = (
 const getValueOnPropChange = (value: any, rule: RuleType, prop: string) => {
   const isValueProp = prop === 'value';
   const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
-  const isPersonField: boolean = isValueProp && typeof value === 'object' && 'id' in value;
+  const isPersonField: boolean = isValueProp && value !== null && typeof value === 'object' && 'id' in value;
   let updateValue = value;
   if (isLastUpdatedField) {
     updateValue = value[keyNames.LABEL] || updateValue;
