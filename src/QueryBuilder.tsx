@@ -585,10 +585,10 @@ const useQueryBuilderProps = (
     }
     return 'text';
   };
-  const getPlaceHolderMain = (field: string, operator: string) => {
+  const getPlaceHolderMain = (field: string, operator: string, parentOperator :string) => {
     // Gets the `<input />` type for a given field and operator
     if (getPlaceHolder) {
-      const placeHolder = getPlaceHolder(field, operator);
+      const placeHolder = getPlaceHolder(field, operator, parentOperator);
       if (placeHolder) return placeHolder;
     }
     return '';

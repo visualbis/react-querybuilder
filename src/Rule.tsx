@@ -42,7 +42,7 @@ const renderValueEditor = ({
       value={value}
       type={getValueEditorType(field, operator, parentOperator)}
       inputType={getInputType(field, operator)}
-      placeHolder={getPlaceHolder(field, operator)}
+      placeHolder={getPlaceHolder(field, operator, parentOperator)}
       values={getValues(field, operator)}
       className={`rule-value ${classNames.value}`}
       handleOnChange={onValueChanged}
@@ -177,6 +177,14 @@ export const Rule: React.FC<RuleProps> = ({
   const parentOpertators = getOperators(field, true);
   const getOperatorsList = (field) => getOperators(field, false, parentOperator);
   const enableParentOperaton = !!(parentOpertators && parentOpertators.length);
+  const dateRestrictedOperators = [ 'equals__D',
+    'notEqual__D',
+    'lessThan__D',
+    'greaterThan__D',
+    'lessThanOrEquals__D',
+    'greaterThanOrEquals__D',
+    'singleDate',
+    'dateRange',]
   return (
     <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
       {removeIconatStart &&
@@ -235,7 +243,7 @@ export const Rule: React.FC<RuleProps> = ({
         parentOperator
       })}
 
-      {parentOperator !== 'dateRange' && parentOperator !== 'singleDate' &&
+      {!dateRestrictedOperators.includes(parentOperator) &&
         enableParentOperaton &&
         renderOperatorSelector({
           controls,
