@@ -146,6 +146,10 @@ const renderAutoComplete = (props) => {
   else{
     showValue = value
   }
+  const isValidValue = options.find(option =>  option?.value === showValue)
+  if(!isValidValue){
+    showValue = ''
+  }
   const onChange = (val) => handleOnChange(val);
   return (
     <Autocomplete
