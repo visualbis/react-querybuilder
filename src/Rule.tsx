@@ -169,52 +169,42 @@ export const Rule: React.FC<RuleProps> = ({
         'singleDate',
         'dateRange',
     ];
+    const generalProps =  { 
+        controls,
+        translations,
+        classNames,
+        level,
+        field };
     return (
         <div className={`rule ${classNames.rule}`} data-rule-id={id} data-level={level}>
             {removeIconatStart && renderRemoveRuleAction({ controls, translations, classNames, removeRule, level })}
             {renderFieldSelector({
-                controls,
-                translations,
-                classNames,
+                ...generalProps,
                 fields,
-                level,
-                field,
                 operator,
                 onFieldChanged,
             })}
             {enableParentOperaton &&
                 renderParentOperatorSelector({
-                    controls,
-                    translations,
-                    classNames,
+                    ...generalProps,
                     fieldData,
-                    level,
-                    field,
                     parentOpertators,
                     parentOperator,
                     onParentOperatorChanged,
                 })}
             {!enableParentOperaton &&
                 renderOperatorSelector({
-                    controls,
-                    translations,
-                    classNames,
+                    ...generalProps,
                     fieldData,
-                    level,
-                    field,
                     getOperatorsList,
                     operator,
                     onOperatorChanged,
                 })}
             {renderValueEditor({
-                controls,
-                translations,
-                classNames,
+                ...generalProps,
                 onValueChanged,
-                field,
                 customRenderer,
                 getSelectionKey,
-                level,
                 fieldData,
                 operator: parentOperator === 'dateRange' || parentOperator === 'singleDate' ? parentOperator : operator,
                 getValueEditorType,
@@ -226,20 +216,16 @@ export const Rule: React.FC<RuleProps> = ({
                 parentOperator,
             })}
 
-            {!dateRestrictedOperators.includes(parentOperator) &&
+            {!dateRestrictedOperators.includes(parentOperator as string) &&
                 enableParentOperaton &&
                 renderOperatorSelector({
-                    controls,
-                    translations,
-                    classNames,
+                    ...generalProps,
                     fieldData,
-                    level,
-                    field,
                     getOperatorsList,
                     operator,
                     onOperatorChanged,
                 })}
-            {!removeIconatStart && renderRemoveRuleAction({ controls, translations, classNames, removeRule, level })}
+            {!removeIconatStart && renderRemoveRuleAction({  ...generalProps,removeRule, level })}
         </div>
     );
 };
