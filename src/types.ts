@@ -194,7 +194,7 @@ export interface Schema {
   getLevel(id: string): number;
   getOperators(field: string, isParent?: boolean, parentOperator?: string): Field[];
   getValueEditorType(field: string, operator: string, parentOperator?: string): 'text' | 'select' | 'checkbox' | 'radio' | 'autocomplete' | 'date' | 'numeric' | 'custom' | 'person';
-  getPlaceHolder(field: string, operator: string): string;
+  getPlaceHolder(field: string, operator: string, parentOperator: string): string;
   getInputType(field: string, operator: string): string;
   getValues(field: string, operator: string): NameLabelPair[];
   isRuleGroup(ruleOrGroup: RuleType | RuleGroupType): ruleOrGroup is RuleGroupType;
