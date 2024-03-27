@@ -151,7 +151,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   removeIconatStart = false,
   customRenderer,
   getSelectionKey,
-  onSaveFilter
+  enableDrilldown = false,
+  onSaveFilter,
 }) => {
   const getInitialQuery = () => {
     // Gets the initial query
@@ -256,7 +257,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     showNotToggle,
     removeIconatStart,
     customRenderer,
-    getSelectionKey
+    getSelectionKey,
+    enableDrilldown,
   };
   useEffect(() => {
     // Set the query state when a new query prop comes in
@@ -307,7 +309,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
           />
         )}
       </div>
-      {enableNormalView && (
+      {enableNormalView && !enableDrilldown && (
         <div className="queryBuilder-footerAdvanced">
           <div
             title="Open advanced filter"
