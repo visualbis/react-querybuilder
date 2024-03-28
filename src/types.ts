@@ -451,4 +451,9 @@ export interface QueryBuilderProps {
    * Return selection key.
    */
   getSelectionKey?(field: string): string;
+
+  /**
+   * Checking drill down is enabled
+   */
+  enableDrilldown?: boolean
 }
