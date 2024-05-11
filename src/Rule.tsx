@@ -216,7 +216,7 @@ export const Rule: React.FC<RuleProps> = ({
                 parentOperator,
             })}
 
-            {!['datePeriods'].includes(parentOperator) && !dateRestrictedOperators.includes(parentOperator as string) &&
+            {!['datePeriods'].includes(parentOperator as string) && !dateRestrictedOperators.includes(parentOperator as string) &&
                 enableParentOperaton &&
                 renderOperatorSelector({
                     ...generalProps,
