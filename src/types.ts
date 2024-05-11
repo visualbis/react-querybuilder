@@ -18,6 +18,7 @@ export interface RuleType {
   parentOperator?: string;
   value: any;
   valueMeta?: string;
+  isCategoryFilter?: boolean  
 }
 
 export interface RuleGroupType {
