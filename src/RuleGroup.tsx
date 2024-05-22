@@ -1,6 +1,25 @@
 import React, { Fragment } from 'react';
-import { RuleGroupProps } from './types';
+import { Classnames, Controls, RuleGroupProps, RuleGroupType, RuleType, Schema, Translations } from './types';
+interface RulesRendererProps{
+  rules: (RuleType | RuleGroupType)[],
+  showCombinatorsBetweenRules:boolean,
+  classNames:Classnames,
+  controls:Controls,
+  combinators:{
+    name: string;
+    label: string;
+}[],
+  combinator:string,
+  linkColors:string[],
+  translations:Translations,
+  combinatorCls:"disable-or" | "",
+  onCombinatorChange:(value: any) => void,
+  level:number,
+  isRuleGroup:(ruleOrGroup: RuleType | RuleGroupType) => ruleOrGroup is RuleGroupType,
+  schema:Schema,
+  id:string
 
+}
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,parentId   }) => {
   const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
   const onCombinatorChange = (value: any) => {
@@ -18,11 +37,6 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
     const newGroup = createRuleGroup();
     onGroupAdd(newGroup, id);
   };
-  // const removeGroup = (event: React.MouseEvent<Element, MouseEvent>) => {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   onGroupRemove(id, parentId || /* istanbul ignore next */ '');
-  // };
   const level = getLevel(id);
 // const isClearEnabled = isRoot && enableClear && rules && rules.length;
 const removeOr = level < 1 && hasColumnChildRule();
@@ -89,51 +103,75 @@ const onRemoveGroup=(event)=>{
           </div>
         )}
         {rules.length > 0 &&
-          rules.map((r, idx) => (
-            <Fragment key={r.id}>
-              {idx === 1 && showCombinatorsBetweenRules && (
-                <div className={`ruleGroup-header ${classNames.header}`}>
-                  {' '}
-                  <controls.combinatorSelector
-                    options={combinators}
-                    value={combinator}
-                    title={translations.combinators.title}
-                    className={`ruleGroup-combinators betweenRules ${combinatorCls}  ${classNames.combinators}`}
-                    handleOnChange={onCombinatorChange}
-                    rules={rules}
-                    level={level}
-                  />
-                </div>
-              )}
-              {isRuleGroup(r) ? (
-                <div className={`rule-connect-link ${rules?.length >1 ? linkColors[(level % 6)]:null }`}><RuleGroup
-                id={r.id}
-                schema={schema}
-                parentId={id}
-                combinator={r.combinator}
-                translations={translations}
-                rules={r.rules}
-                not={!!r.not}
-              /></div>
-              ) : r.id ? (
-                <div className={`rule-connect-link ${rules?.length >1? linkColors[(level % 6)]:null }`}><controls.rule
-                id={r.id}
-                field={r.field}
-                value={r.value}
-                operator={r.operator}
-                parentOperator={r.parentOperator}
-                schema={schema}
-                parentId={id}
-                valueMeta={r.valueMeta}
-                translations={translations}
-              /></div>
-              ) : null}
-            </Fragment>
-          ))}
+          <RulesRenderer key={id} rules={rules} 
+          showCombinatorsBetweenRules={showCombinatorsBetweenRules} 
+          classNames={classNames}
+          controls={controls}
+          combinator={combinator}
+          combinators={combinators}
+          linkColors={linkColors}
+          translations={translations}
+          combinatorCls={combinatorCls}
+          onCombinatorChange={onCombinatorChange}
+          level={level}
+          isRuleGroup={isRuleGroup}
+          schema={schema}
+          id={id}
+
+          />}
       </div>
 
   );
 };
+
+const RulesRenderer=(props:RulesRendererProps)=>{
+  const {rules,showCombinatorsBetweenRules,classNames,controls,combinators,linkColors}=props
+  const{combinator,translations,combinatorCls,onCombinatorChange,level,isRuleGroup,schema,id}=props
+  return <>{
+    rules.map((r, idx) => (
+      <Fragment key={r.id}>
+        {idx === 1 && showCombinatorsBetweenRules && (
+          <div className={`ruleGroup-header ${classNames.header}`}>
+            {' '}
+            <controls.combinatorSelector
+              options={combinators}
+              value={combinator}
+              title={translations.combinators.title}
+              className={`ruleGroup-combinators betweenRules ${combinatorCls}  ${classNames.combinators}`}
+              handleOnChange={onCombinatorChange}
+              rules={rules}
+              level={level}
+            />
+          </div>
+        )}
+        {isRuleGroup(r) ? (
+          <div className={`rule-connect-link ${rules?.length >1 ? linkColors[(level % 6)]:null }`}><RuleGroup
+          id={r.id}
+          schema={schema}
+          parentId={id}
+          combinator={r.combinator}
+          translations={translations}
+          rules={r.rules}
+          not={!!r.not}
+        /></div>
+        ) : r.id ? (
+          <div className={`rule-connect-link ${rules?.length >1? linkColors[(level % 6)]:null }`}><controls.rule
+          id={r.id}
+          field={r.field}
+          value={r.value}
+          operator={r.operator}
+          parentOperator={r.parentOperator}
+          schema={schema}
+          parentId={id}
+          valueMeta={r.valueMeta}
+          translations={translations}
+        /></div>
+        ) : null}
+      </Fragment>
+    ))
+  }
+  </> 
+}
 
 const RuleGroupHeader=({level,onRemoveGroup})=>{
   return<div className='ruleGroup-title'>
