@@ -1,27 +1,18 @@
 import React, { Fragment } from 'react';
-import { Classnames, Controls, RuleGroupProps, RuleGroupType, RuleType, Schema, Translations } from './types';
+import {  RuleGroupProps, RuleGroupType, RuleType, Schema, Translations } from './types';
 interface RulesRendererProps{
   rules: (RuleType | RuleGroupType)[],
-  showCombinatorsBetweenRules:boolean,
-  classNames:Classnames,
-  controls:Controls,
-  combinators:{
-    name: string;
-    label: string;
-}[],
   combinator:string,
-  linkColors:string[],
   translations:Translations,
   combinatorCls:"disable-or" | "",
   onCombinatorChange:(value: any) => void,
   level:number,
-  isRuleGroup:(ruleOrGroup: RuleType | RuleGroupType) => ruleOrGroup is RuleGroupType,
   schema:Schema,
   id:string
 
 }
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,parentId   }) => {
-  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel, isRuleGroup, onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
+  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel,  onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -41,7 +32,6 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
 // const isClearEnabled = isRoot && enableClear && rules && rules.length;
 const removeOr = level < 1 && hasColumnChildRule();
 const combinatorCls = removeOr ? "disable-or" : "";
-const linkColors=['violetLink','orangeLink','greenLink','yellowLink','redLink','blueLink']
 const onRemoveGroup=(event)=>{
   event.preventDefault();
   event.stopPropagation();
@@ -104,20 +94,13 @@ const onRemoveGroup=(event)=>{
         )}
         {rules.length > 0 &&
           <RulesRenderer key={id} rules={rules} 
-          showCombinatorsBetweenRules={showCombinatorsBetweenRules} 
-          classNames={classNames}
-          controls={controls}
           combinator={combinator}
-          combinators={combinators}
-          linkColors={linkColors}
           translations={translations}
           combinatorCls={combinatorCls}
           onCombinatorChange={onCombinatorChange}
           level={level}
-          isRuleGroup={isRuleGroup}
           schema={schema}
           id={id}
-
           />}
       </div>
 
@@ -125,8 +108,9 @@ const onRemoveGroup=(event)=>{
 };
 
 const RulesRenderer=(props:RulesRendererProps)=>{
-  const {rules,showCombinatorsBetweenRules,classNames,controls,combinators,linkColors}=props
-  const{combinator,translations,combinatorCls,onCombinatorChange,level,isRuleGroup,schema,id}=props
+  const linkColors=['violetLink','orangeLink','greenLink','yellowLink','redLink','blueLink']
+  const{rules,combinator,translations,combinatorCls,onCombinatorChange,level,schema,id}=props
+  const {isRuleGroup,combinators,controls,classNames,showCombinatorsBetweenRules}=schema
   return <>{
     rules.map((r, idx) => (
       <Fragment key={r.id}>
