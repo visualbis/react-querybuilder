@@ -38,19 +38,7 @@ const onRemoveGroup=(event)=>{
         data-rule-group-id={id}
         data-level={level}>
         {level > 0 && (
-          <div className='ruleGroup-title'>
-            <div className='group-filter-title-content'>
-              <span className='group-filter-icon'>
-                <span className='group-filter-level-icon'>{level}</span>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M10 0V4.375H3.125V0H10ZM9.375 0.625H3.75V3.75H9.375V0.625ZM3.125 5.625H10V10H3.125V5.625ZM3.75 9.375H9.375V6.25H3.75V9.375ZM0.532227 3.21777L2.31934 5L0.532227 6.78223L0.0927734 6.34277L1.43066 5L0.0927734 3.65723L0.532227 3.21777Z" fill="#000000"></path></svg></span>
-              <span className='group-filter-title'>Group Filter</span>
-            </div>
-            <div>
-              <button className="rule-remove " title="Remove group" onClick={onRemoveGroup}>
-                <span className="ms-Icon ms-Icon--Delete"></span>
-              </button>
-            </div>
-          </div>
+          <RuleGroupHeader level={level} onRemoveGroup={onRemoveGroup}/>
         )}
         {((!showCombinatorsBetweenRules && rules && rules.length > 1) ||
           showAddGroup ||
@@ -146,5 +134,21 @@ const onRemoveGroup=(event)=>{
 
   );
 };
+
+const RuleGroupHeader=({level,onRemoveGroup})=>{
+  return<div className='ruleGroup-title'>
+  <div className='group-filter-title-content'>
+    <span className='group-filter-icon'>
+      <span className='group-filter-level-icon'>{level}</span>
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M10 0V4.375H3.125V0H10ZM9.375 0.625H3.75V3.75H9.375V0.625ZM3.125 5.625H10V10H3.125V5.625ZM3.75 9.375H9.375V6.25H3.75V9.375ZM0.532227 3.21777L2.31934 5L0.532227 6.78223L0.0927734 6.34277L1.43066 5L0.0927734 3.65723L0.532227 3.21777Z" fill="#000000"></path></svg></span>
+    <span className='group-filter-title'>Group Filter</span>
+  </div>
+  <div>
+    <button className="rule-remove " title="Remove group" onClick={onRemoveGroup}>
+      <span className="ms-Icon ms-Icon--Delete"></span>
+    </button>
+  </div>
+</div>
+}
 
 RuleGroup.displayName = 'RuleGroup';
