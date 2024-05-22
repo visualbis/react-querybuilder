@@ -14,6 +14,7 @@
 .rule {
   display: flex;
   flex-direction: row;
+
   .dropdown-root {
     height: @height1;
     outline: none;
@@ -21,6 +22,7 @@
     white-space: nowrap;
     margin: 0px 4px;
     border: none;
+
     &:focus {
       height: @height1;
       outline: none;
@@ -28,47 +30,58 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .dropdown-control {
       border: 1px solid #ddd;
       font-size: 12px;
       font-weight: normal;
+
       .dropdown-placeholder {
         color: #a6a6a6;
       }
     }
+
     .dropdown-menu {
       border: 1px solid #ddd;
       max-height: 140px;
+
       .dropdown-option {
         color: #201f1e;
         padding: 0px 5px;
         line-height: 36px;
       }
+
       .dropdown-option.is-selected {
         background-color: #f5f5f5;
       }
     }
   }
+
   .form-auto-complete:not([multiple]):not([size]) {
     background-color: white;
   }
+
   .form-auto-complete {
     margin: 0px 4px;
     font-size: 12px;
     min-height: auto;
+
     .form-input {
       height: 32px;
       margin-top: 0px;
       border: 1px solid #ddd;
       border-radius: 2px;
     }
+
     .menu {
       min-width: auto;
       transform: none;
       max-height: 140px;
+
       div {
         overflow: hidden;
       }
+
       .menu-item {
         button {
           &:hover {
@@ -83,6 +96,7 @@
     padding: 0px 4px;
     font-family: 'Nunito Sans', sans-serif;
     box-sizing: border-box;
+
     .rule-value {
       border: 1px solid @color0;
       height: @height1;
@@ -92,9 +106,11 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       box-sizing: border-box;
+
       &:disabled {
         cursor: not-allowed;
       }
+
       &:focus {
         border: 1px solid @color0;
         height: @height1;
@@ -107,6 +123,7 @@
       }
     }
   }
+
   .textarea {
     .rule-value {
       resize: none;
@@ -131,9 +148,11 @@
       margin-left: 4px;
       background: url(../assets/icons/calender.svg) no-repeat;
       background-position: right 9px top 9px;
+
       &:disabled {
         cursor: not-allowed;
       }
+
       &:focus {
         border: 1px solid @color0;
         height: @height1;
@@ -159,10 +178,12 @@
       z-index: 100;
       background-color: white;
       right: 0;
+
       .date-modal-container-select {
         display: flex;
         justify-content: space-between;
       }
+
       .today-date-container {
         font-size: 15px;
         text-align: left;
@@ -170,6 +191,7 @@
         padding: 10px;
         margin-top: 2px;
       }
+
       &.top-position-modal {
         top: -32px; //height of input container
       }
@@ -179,17 +201,20 @@
         display: flex;
         justify-content: flex-start;
         align-items: end;
+
         .footer-text {
           margin-left: 2px;
           font-size: 12px;
           margin-top: 2px;
         }
       }
+
       .date-filter-wrapper {
         position: relative;
         height: 175px;
         margin-left: 6px;
         margin-top: 2px;
+
         .DatePicker {
           position: absolute;
           display: inline-block;
@@ -204,6 +229,7 @@
           text-align: left;
           font-size: 12px;
         }
+
         .DatePicker__input::before {
           // background-image: url('../assets/icons/calender.svg');
           -webkit-appearance: none;
@@ -221,7 +247,7 @@
           color: #979797;
         }
 
-        .DatePicker__calendarContainer.-top + .DatePicker__calendarArrow {
+        .DatePicker__calendarContainer.-top+.DatePicker__calendarArrow {
           top: auto;
           bottom: calc(100% + 10px);
           transform: translateY(-2.5rem) rotate(180deg);
@@ -243,6 +269,7 @@
         .Calendar {
           min-width: 175px;
           height: 175px;
+
           * {
             margin: 0;
             padding: 0;
@@ -303,7 +330,7 @@
           outline: none !important;
         }
 
-        .Calendar > :not(.Calendar__footer) button {
+        .Calendar> :not(.Calendar__footer) button {
           font-family: inherit;
           background: transparent;
           cursor: pointer;
@@ -344,6 +371,7 @@
         .Calendar__monthArrowWrapper.-left {
           transform: rotate(90deg);
         }
+
         .Calendar.-rtl .Calendar__monthArrowWrapper.-left {
           transform: rotate(-90deg);
         }
@@ -351,6 +379,7 @@
         .Calendar__monthArrowWrapper.-right {
           transform: rotate(-90deg);
         }
+
         .Calendar.-rtl .Calendar__monthArrowWrapper.-right {
           transform: rotate(90deg);
         }
@@ -375,6 +404,7 @@
           flex: 1;
           position: relative;
         }
+
         .Calendar__monthArrowWrapper span {
           font-size: 7px !important;
         }
@@ -424,7 +454,7 @@
           animation: var(--animation-duration) fadeTextToCenter forwards;
         }
 
-        .Calendar__monthYear > * {
+        .Calendar__monthYear>* {
           // padding: 0.2em 0.5em;
           border: 1px solid transparent;
           transition: var(--animation-duration);
@@ -437,8 +467,8 @@
           border-radius: 5px;
         }
 
-        .Calendar__monthYear:not(.-shown) > *,
-        .Calendar__monthYear > *.-hidden {
+        .Calendar__monthYear:not(.-shown)>*,
+        .Calendar__monthYear>*.-hidden {
           cursor: default;
           pointer-events: none;
         }
@@ -446,19 +476,21 @@
         .Calendar__monthText {
           margin-left: -0.3em;
         }
+
         .Calendar__yearText:last-child {
           margin-right: -0.3em;
         }
 
-        .Calendar__monthYear.-shown > *:hover,
-        .Calendar:not(.-noFocusOutline) .Calendar__monthYear.-shown > *:focus,
-        .Calendar__monthYear > *.-activeBackground {
+        .Calendar__monthYear.-shown>*:hover,
+        .Calendar:not(.-noFocusOutline) .Calendar__monthYear.-shown>*:focus,
+        .Calendar__monthYear>*.-activeBackground {
           background: #f5f5f5;
         }
 
         .Calendar__monthText:hover {
           transform: translateX(-0.2em) scale(0.95);
         }
+
         .Calendar.-rtl .Calendar__monthText:hover {
           transform: translateX(0.2em) scale(0.95);
         }
@@ -466,6 +498,7 @@
         .Calendar__yearText:hover {
           transform: translateX(0.2em) scale(0.95);
         }
+
         .Calendar.-rtl .Calendar__yearText:hover {
           transform: translateX(-0.2em) scale(0.95);
         }
@@ -488,7 +521,7 @@
           transform: translateX(50%);
         }
 
-        .Calendar__monthYear:not(.-shown) > * {
+        .Calendar__monthYear:not(.-shown)>* {
           pointer-events: none;
         }
 
@@ -626,8 +659,7 @@
           transition: 0.3s;
         }
 
-        .Calendar__monthSelectorItem:not(.-active)
-          .Calendar__monthSelectorItemText:not(:disabled):hover,
+        .Calendar__monthSelectorItem:not(.-active) .Calendar__monthSelectorItemText:not(:disabled):hover,
         .Calendar__yearSelectorItem:not(.-active) .Calendar__yearSelectorText:not(:disabled):hover {
           background: #f5f5f5;
         }
@@ -746,9 +778,7 @@
           height: 2.45em;
         }
 
-        .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(
-            .-selectedBetween
-          ):not(.-selected):hover {
+        .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
           background: #eaeaea;
           border-radius: 50%;
           color: var(--cl-color-black);
@@ -790,15 +820,11 @@
           border-bottom-left-radius: 100em;
         }
 
-        .Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(
-            .-selectedEnd
-          ):not(.-selectedBetween) {
+        .Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
           color: var(--cl-color-error);
         }
 
-        .Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(
-            .-selectedBetween
-          )::after {
+        .Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
           background: var(--cl-color-error);
         }
 
@@ -807,9 +833,11 @@
           background: transparent !important;
           cursor: default !important;
         }
+
         .Calendar__day.-selected {
           border-radius: 50%;
         }
+
         .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
           font-weight: 600;
           color: var(--cl-color-black);
@@ -817,9 +845,7 @@
           position: relative;
         }
 
-        .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(
-            .-selectedBetween
-          )::after {
+        .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
           content: '';
           position: absolute;
           bottom: 0.2em;
@@ -833,9 +859,7 @@
           transition: 0.2s;
         }
 
-        .Calendar__day.-today:hover:not(.-selectedStart):not(.-selectedEnd):not(
-            .-selectedBetween
-          )::after {
+        .Calendar__day.-today:hover:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
           opacity: 0;
         }
 
@@ -892,25 +916,30 @@
     }
   }
 }
+
 .ruleGroup {
   background: @color1;
   border: 1px solid @color0;
   padding: 2px;
+
   .ruleGroup-combinators.betweenRules {
     margin: 10px;
   }
+
   .rule {
     background: @color1;
     width: 100%;
     min-height: 32px;
     padding: 5px 0px;
   }
+
   .ruleGroup {
     background: @color1;
     margin: 5px;
     padding: 5px;
   }
 }
+
 .rule-remove {
   background: transparent;
   border: none;
@@ -919,12 +948,14 @@
   padding-left: 10px;
   text-align: start;
 }
+
 .ruleGroup-remove {
   background: transparent;
   border: none;
   border: none;
   min-width: @width2;
 }
+
 .query-generator {
   .queryBuilder {
     max-height: 500px;
@@ -933,19 +964,23 @@
     overflow-y: auto;
     margin: 5px;
     border: 1px solid #cccccc;
+
     .queryBuilder-header {
       display: flex;
       flex-direction: row;
     }
   }
+
   .queryBuilder-footer {
     display: flex;
     flex-direction: row;
   }
 }
+
 .ruleGroup-header {
   display: flex;
   margin: 0px 5px;
+
   .ruleGroup-addGroup {
     background: @color1;
     border: none;
@@ -953,6 +988,7 @@
     margin-left: auto;
     outline: none;
     padding: 5px 15px;
+
     &:focus {
       background: @color1;
       border: none;
@@ -963,6 +999,7 @@
     }
   }
 }
+
 .ruleGroup-addRule {
   background: @color1;
   border: none;
@@ -970,6 +1007,7 @@
   margin-left: 5px;
   outline: none;
   padding: 5px 15px;
+
   &:focus {
     background: @color1;
     border: none;
@@ -979,6 +1017,7 @@
     padding: 5px 15px;
   }
 }
+
 .ruleGroup-clearRule {
   background: @color1;
   border: none;
@@ -986,6 +1025,7 @@
   margin-left: auto;
   outline: none;
   padding: 5px 15px;
+
   &:focus {
     background: @color1;
     border: none;
@@ -1001,23 +1041,27 @@
     .ruleGroup-addGroup {
       display: none;
     }
+
     .ruleGroup-addRule {
       margin-left: auto;
     }
   }
 }
+
 .disable-or label:nth-child(2),
 .disable-or label:nth-child(2) .circle,
-.disable-or label:nth-child(2) > input[type='radio'] {
+.disable-or label:nth-child(2)>input[type='radio'] {
   cursor: not-allowed;
   pointer-events: all !important;
   opacity: 0.5;
 }
+
 .ruleGroup-combinators {
   border: none;
   display: flex;
   flex-direction: row;
   padding: 0px;
+
   label {
     padding-right: 10px;
   }
@@ -1038,6 +1082,7 @@
 .radio input {
   display: none;
 }
+
 .radio .circle {
   position: relative;
   height: 12px;
@@ -1046,6 +1091,7 @@
   display: inline-block;
   border-radius: 50%;
 }
+
 .radio .circle:after {
   content: '';
   display: block;
@@ -1056,15 +1102,18 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
+
 .radio .radio-title {
   padding-left: 5px;
 }
-.radio input:checked ~ .circle:after {
+
+.radio input:checked~.circle:after {
   background: #0078d4;
   width: 6px;
   height: 6px;
 }
-.radio input:checked ~ .circle {
+
+.radio input:checked~.circle {
   border: 1px solid#0078D4;
 }
 
@@ -1075,12 +1124,14 @@
   width: 100%;
   height: 32px;
 }
+
 .queryBuilder .rule .rule-value-parent.textarea,
 .queryBuilder .rule .textarea .rule-value {
   height: 55px;
   max-height: 55px;
   white-space: pre-line;
 }
+
 .queryBuilder .no-rule {
   width: 100%;
   padding-left: 10px;
@@ -1091,42 +1142,52 @@
   line-height: 32px;
   font-size: 11px;
 }
+
 .queryBuilder .clear-rule {
   font-size: 12px;
 }
+
 .flexi-filter-dropdown .queryBuilder-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   min-height: 32px;
+
   .no-rule {
     width: auto;
   }
-  .filterOptions{
+
+  .filterOptions {
     justify-content: flex-end;
     position: absolute;
     right: 0px;
     display: flex;
   }
+
   .queryBuilder-header-addfilter {
     display: flex;
     align-items: center;
     padding-right: 10px;
+
     span:first-child {
       color: #0078d4;
     }
+
     .queryBuilder-footer-title {
       margin-left: 4px;
       font-weight: 600;
       font-size: 11px;
     }
   }
+
   &.singleRule {
     justify-content: flex-end;
   }
+
   &.multiRule {
     min-height: 0;
+
     .queryBuilder-header-addfilter {
       position: absolute;
       top: 10px;
@@ -1134,19 +1195,22 @@
     }
   }
 }
+
 .queryBuilder-footerAdvanced {
-      position: absolute;
-      right: 0;
-      bottom: 5px;
-      margin: 0 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  margin: 0 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .advanced-filter-icon {
   margin-left: 3px;
   margin-right: 7px;
 }
+
 .advanced-filter-title {
   font-size: 12px;
   margin-right: 5px;
@@ -1156,4 +1220,163 @@
   .queryBuilder-footer-title {
     padding: 4px 6px;
   }
+}
+
+.ruleGroupFirst {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ruleGroup-firstHeader {
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #dddddd;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  margin: 0;
+}
+
+.rule-firstRule {
+  padding: 5px;
+}
+
+.ruleGroup .ruleGroup-title {
+  display: flex;
+  justify-content: space-between;
+
+  .group-filter-title-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .group-filter-icon,
+    .group-filter-title {
+      padding: 0 5px;
+    }
+
+    .group-filter-icon {
+      position: relative;
+
+      .group-filter-level-icon {
+        position: absolute;
+        left: 13px;
+        top: -2px;
+        width: 12px;
+        height: 12px;
+        font-size: 7.5px;
+        margin: 0;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border-color: transparent transparent rgba(0, 120, 212, 0.7);
+        background-color: #0078d4;
+      }
+
+      svg {
+        width: 14px;
+        height: 13px;
+      }
+    }
+  }
+}
+
+.rule-group-connect {
+  .rule-connect-link {
+    margin-left: 5px;
+    padding: 0 7px;
+    line-height: 20px;
+    display: flex;
+  }
+
+  .violetLink {
+    border-left: 1px solid #800080;
+  }
+
+  .orangeLink {
+    border-left: 1px solid #f05500;
+  }
+
+  .greenLink {
+    border-left: 1px solid #377d22;
+  }
+
+  .yellowLink {
+    border-left: 1px solid #f2c811;
+  }
+
+  .redLink {
+    border-left: 1px solid #ff000a;
+  }
+
+  .blueLink {
+    border-left: 1px solid #0e4fa2;
+  }
+
+  .rule-connect-link:last-child {
+    border-left: none;
+  }
+
+  .rule-connect-link::before {
+    position: relative;
+    top: 0em;
+    height: 1em;
+    width: 12px;
+    color: white;
+    content: '';
+    display: inline-block;
+    left: -7px;
+    margin-right: -10px;
+  }
+
+  .violetLink::before {
+    border-bottom: 1px solid #800080;
+  }
+
+  .orangeLink::before {
+    border-bottom: 1px solid #f05500;
+  }
+
+  .greenLink::before {
+    border-bottom: 1px solid #377d22;
+  }
+
+  .yellowLink::before {
+    border-bottom: 1px solid #f2c811;
+  }
+
+  .redLink::before {
+    border-bottom: 1px solid #ff000a;
+  }
+
+  .blueLink::before {
+    border-bottom: 1px solid #0e4fa2;
+  }
+
+  .violetLink:last-child::before {
+    border-left: 1px solid #800080;
+  }
+
+  .orangeLink:last-child::before {
+    border-left: 1px solid #f05500;
+  }
+
+  .greenLink:last-child::before {
+    border-left: 1px solid #377d22;
+  }
+
+  .yellowLink:last-child::before {
+    border-left: 1px solid #f2c811;
+  }
+
+  .redLink:last-child::before {
+    border-left: 1px solid #ff000a;
+  }
+
+  .blueLink:last-child::before {
+    border-left: 1px solid #0e4fa2;
+  }
+
 }
