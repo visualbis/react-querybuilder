@@ -9,10 +9,11 @@ interface RulesRendererProps{
   level:number,
   schema:Schema,
   id:string
+  enableClear:boolean
 
 }
-export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,parentId   }) => {
-  const { classNames, hasColumnChildRule, hasMeasureChildRule, controls, createRule, createRuleGroup, getLevel,  onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
+export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,parentId ,enableClear =false }) => {
+  const { classNames, hasColumnChildRule, hasMeasureChildRule,combinators, controls, createRule, createRuleGroup, getLevel,  onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -38,10 +39,10 @@ const onRemoveGroup=(event)=>{
   onGroupRemove(id, parentId ||"")
 }
   return (<div
-        className={`ruleGroup ${classNames.ruleGroup} rule-group-connect ${level==0?'ruleGroupFirst':null}` }
+        className={`ruleGroup ${classNames.ruleGroup} ${!enableClear?'rule-group-connect':null} ${level==0&& !enableClear?'ruleGroupFirst':null}` }
         data-rule-group-id={id}
         data-level={level}>
-        {level > 0 && (
+        {level > 0 && !enableClear &&(
           <RuleGroupHeader level={level} onRemoveGroup={onRemoveGroup}/>
         )}
         {((!showCombinatorsBetweenRules && rules && rules.length > 1) ||
@@ -49,7 +50,7 @@ const onRemoveGroup=(event)=>{
           showAddRule) && (
           <div
             className={`ruleGroup-header ${classNames.header} ${
-              level === 0 ? 'ruleGroup-firstHeader' : null
+              level === 0 && !enableClear? 'ruleGroup-firstHeader' : null
             }`}>
             {!showCombinatorsBetweenRules && rules && rules.length > 1 && (
               <controls.combinatorSelector
@@ -79,7 +80,7 @@ const onRemoveGroup=(event)=>{
                 level={level}
               />
             )}
-
+            {showAddGroup && showAddRule &&<span className='add-rule-separated-line'></span>}
             {showAddRule && (
               <controls.addRuleAction
                 label={translations.addRule.label}
@@ -101,6 +102,7 @@ const onRemoveGroup=(event)=>{
           level={level}
           schema={schema}
           id={id}
+          enableClear={enableClear}
           />}
       </div>
 
@@ -109,7 +111,7 @@ const onRemoveGroup=(event)=>{
 
 const RulesRenderer=(props:RulesRendererProps)=>{
   const linkColors=['violetLink','orangeLink','greenLink','yellowLink','redLink','blueLink']
-  const{rules,combinator,translations,combinatorCls,onCombinatorChange,level,schema,id}=props
+  const{rules,combinator,translations,combinatorCls,onCombinatorChange,level,schema,id,enableClear}=props
   const {isRuleGroup,combinators,controls,classNames,showCombinatorsBetweenRules}=schema
   return <>{
     rules.map((r, idx) => (
@@ -129,7 +131,8 @@ const RulesRenderer=(props:RulesRendererProps)=>{
           </div>
         )}
         {isRuleGroup(r) ? (
-          <div className={`rule-connect-link ${rules?.length >1 ? linkColors[(level % 6)]:null }`}><RuleGroup
+          <div className={`${!enableClear && 'rule-connect-link'}
+             ${rules?.length >1 && !enableClear ? linkColors[(level % 6)]:null }`}><RuleGroup
           id={r.id}
           schema={schema}
           parentId={id}
@@ -139,7 +142,7 @@ const RulesRenderer=(props:RulesRendererProps)=>{
           not={!!r.not}
         /></div>
         ) : r.id ? (
-          <div className={`rule-connect-link ${rules?.length >1? linkColors[(level % 6)]:null }`}><controls.rule
+          <div className={`${!enableClear&&'rule-connect-link'} ${rules?.length>1&& !enableClear? linkColors[(level % 6)]:null }`}><controls.rule
           id={r.id}
           field={r.field}
           value={r.value}
