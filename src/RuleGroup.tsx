@@ -12,7 +12,7 @@ interface RulesRendererProps{
 
 }
 export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  rules = [],  translations,  schema,parentId   }) => {
-  const { classNames, hasColumnChildRule, combinators, controls, createRule, createRuleGroup, getLevel,  onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
+  const { classNames, hasColumnChildRule, hasMeasureChildRule, controls, createRule, createRuleGroup, getLevel,  onGroupAdd,  onPropChange, onRuleAdd, showCombinatorsBetweenRules, showAddGroup,showAddRule, customRenderer,onGroupRemove} = schema;
   const onCombinatorChange = (value: any) => {
     onPropChange('combinator', value, id);
   }; 
@@ -30,7 +30,7 @@ export const RuleGroup: React.FC<RuleGroupProps> = ({ id, combinator = 'and',  r
   };
   const level = getLevel(id);
 // const isClearEnabled = isRoot && enableClear && rules && rules.length;
-const removeOr = level < 1 && hasColumnChildRule();
+const removeOr = level < 1 && (hasColumnChildRule() || hasMeasureChildRule());
 const combinatorCls = removeOr ? "disable-or" : "";
 const onRemoveGroup=(event)=>{
   event.preventDefault();
