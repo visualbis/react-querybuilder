@@ -188,6 +188,7 @@ export interface Schema {
   fields: Field[];
   classNames: Classnames;
   hasColumnChildRule(query?: RuleGroupType | RuleType) : boolean | undefined;
+  hasMeasureChildRule(query?: RuleGroupType | RuleType) : boolean | undefined;
   combinators: { name: string; label: string }[];
   controls: Controls;
   createRule(): RuleType;
@@ -212,6 +213,7 @@ export interface Schema {
   showAddRule:boolean;
   customRenderer?():any;
   getSelectionKey?(field: string): string,
+  
 }
 
 export interface Translations {
