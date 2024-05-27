@@ -918,9 +918,8 @@
 }
 
 .ruleGroup {
-  background: @color1;
   border: 1px solid @color0;
-  padding: 2px;
+  padding: 2px 0;
 
   .ruleGroup-combinators.betweenRules {
     margin: 10px;
@@ -934,9 +933,7 @@
   }
 
   .ruleGroup {
-    background: @color1;
     margin: 5px;
-    padding: 5px;
   }
 }
 
@@ -960,7 +957,7 @@
   .queryBuilder {
     max-height: 500px;
     max-width: 500px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     margin: 5px;
     border: 1px solid #cccccc;
@@ -980,6 +977,7 @@
 .ruleGroup-header {
   display: flex;
   margin: 0px 5px;
+  align-items: center;
 
   .ruleGroup-addGroup {
     background: @color1;
@@ -998,6 +996,11 @@
       padding: 5px 15px;
     }
   }
+
+  .add-rule-separated-line {
+    border-left: 1px solid #dddddd;
+    height: 18px;
+  }
 }
 
 .ruleGroup-addRule {
@@ -1006,7 +1009,6 @@
   color: @color2;
   margin-left: 5px;
   outline: none;
-  padding: 5px 15px;
 
   &:focus {
     background: @color1;
@@ -1224,8 +1226,10 @@
 
 .ruleGroupFirst {
   margin-top: 0;
-  border-top: 0;
+  border: none;
   padding-top: 0;
+  width: fit-content;
+  min-width: 100%;
 }
 
 .ruleGroup-firstHeader {
@@ -1244,6 +1248,7 @@
 .ruleGroup .ruleGroup-title {
   display: flex;
   justify-content: space-between;
+  min-width: 350px;
 
   .group-filter-title-content {
     display: flex;
@@ -1253,6 +1258,7 @@
     .group-filter-icon,
     .group-filter-title {
       padding: 0 5px;
+      font-size: 12px;
     }
 
     .group-filter-icon {
