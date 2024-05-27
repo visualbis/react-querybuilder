@@ -152,7 +152,7 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   customRenderer,
   getSelectionKey,
   enableDrilldown = false,
-  onSaveFilter,
+  onSaveFilter
 }) => {
   const getInitialQuery = () => {
     // Gets the initial query
@@ -203,6 +203,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     root,
     hasColumnChildRule,
     updateCombinator,
+    hasMeasureChildRule,
+    updateMeasureFilterCombinator,
     clearRule,
     setRoot,
     _notifyQueryChange,
@@ -233,6 +235,8 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
   const schema = {
     fields,
     hasColumnChildRule,
+    hasMeasureChildRule,
+    updateMeasureFilterCombinator,
     combinators,
     classNames: { ...defaultControlClassnames, ...controlClassnames },
     clearRule,
@@ -258,12 +262,13 @@ export const QueryBuilder: React.FC<QueryBuilderProps> = ({
     removeIconatStart,
     customRenderer,
     getSelectionKey,
-    enableDrilldown,
+    enableDrilldown
   };
   useEffect(() => {
     // Set the query state when a new query prop comes in
     let rootCopy = generateValidQuery(query || getInitialQuery()) as RuleGroupType;
     rootCopy = updateCombinator(rootCopy);
+    rootCopy = updateMeasureFilterCombinator(rootCopy)
     setRoot(rootCopy);
   }, [query]);
   useEffect(() => {
@@ -372,6 +377,54 @@ const useColumnRuleProps = (getRoot, getFields) => {
   return { hasColumnChildRule, updateCombinator };
 };
 
+const useMeasureRuleProps = (getRoot, getFields) => {
+  const hasMeasureRule = (query: RuleGroupType | RuleType, isRoot: boolean) => {
+    if ((query as RuleGroupType).combinator) {
+      const _query: RuleGroupType = query as RuleGroupType;
+      const len = _query.rules.length;
+      for (let i = 0; i < len; i++) {
+        const rule = _query.rules[i];
+        const hasColumn = hasMeasureRule(rule, false);
+        if (hasColumn) return true;
+      }
+    } else {
+      const _rule: RuleType = query as RuleType;
+      const fields = getFields();
+      if (
+        fields.filter((field) => field.fieldType === 'measure' && field.name === _rule.field)
+          .length &&
+        !isRoot
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const hasMeasureChildRule = (query?: RuleGroupType | RuleType) => {
+    if (!query) {
+      query = getRoot();
+    }
+    if ((query as RuleGroupType).combinator) {
+      const _query: RuleGroupType = query as RuleGroupType;
+      const len = _query.rules.length;
+      for (let i = 0; i < len; i++) {
+        const rule = _query.rules[i];
+        const hasColumn = hasMeasureRule(rule, true);
+        if (hasColumn) return true;
+      }
+    }
+    return false;
+  };
+  const updateMeasureFilterCombinator = (query: RuleGroupType) => {
+    if (hasMeasureChildRule(query)) {
+      query.combinator = 'and';
+    }
+    return query;
+  };
+  return { hasMeasureChildRule, updateMeasureFilterCombinator };
+};
+
 const useQueryBuilderActions = (
   query: RuleGroupType | undefined,
   fields: Field[],
@@ -392,6 +445,10 @@ const useQueryBuilderActions = (
   const getRoot = () => root;
   const getFields = () => fields;
   const { hasColumnChildRule, updateCombinator } = useColumnRuleProps(getRoot, getFields);
+  const { hasMeasureChildRule, updateMeasureFilterCombinator } = useMeasureRuleProps(
+    getRoot,
+    getFields
+  );
   const onRuleAdd = (rule: RuleType, parentId: string) => {
     // Adds a rule to the query
     const rootCopy = cloneDeep(root);
@@ -406,6 +463,7 @@ const useQueryBuilderActions = (
       else parent.rules.push({ ...rule, value: getRuleDefaultValue(rule) });
 
       updateCombinator(rootCopy);
+      updateMeasureFilterCombinator(rootCopy);
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy);
     }
@@ -419,6 +477,7 @@ const useQueryBuilderActions = (
     else rootCopy.rules.push(createRule());
 
     updateCombinator(rootCopy);
+    updateMeasureFilterCombinator(rootCopy)
     setRoot(rootCopy);
     _notifyQueryChange(rootCopy);
   };
@@ -472,6 +531,7 @@ const useQueryBuilderActions = (
           value: ''
         });
       updateCombinator(rootCopy);
+      updateMeasureFilterCombinator(rootCopy)
       setRoot(rootCopy);
       _notifyQueryChange(rootCopy, prop, ruleId);
     }
@@ -515,6 +575,7 @@ const useQueryBuilderActions = (
       };
       getValidQuery(rootCopy, updatedQuery, true);
       updateCombinator(updatedQuery);
+      updateMeasureFilterCombinator(updatedQuery)
       _notifyQueryChange(updatedQuery);
     }
   };
@@ -530,6 +591,7 @@ const useQueryBuilderActions = (
       combinator: rootCopy.combinator
     };
     updateCombinator(updatedQuery);
+    updateMeasureFilterCombinator(updatedQuery)
     _notifyQueryChange(updatedQuery);
   };
   const getLevelFromRoot = (id: string) => getLevel(id, 0, root); //Gets the level of the rule with the provided ID
@@ -546,6 +608,8 @@ const useQueryBuilderActions = (
     createRule,
     _notifyQueryChange,
     hasColumnChildRule,
+    hasMeasureChildRule,
+    updateMeasureFilterCombinator,
     updateCombinator,
     getLevelFromRoot,
     onGroupRemove,
@@ -587,7 +651,7 @@ const useQueryBuilderProps = (
     }
     return 'text';
   };
-  const getPlaceHolderMain = (field: string, operator: string, parentOperator :string) => {
+  const getPlaceHolderMain = (field: string, operator: string, parentOperator: string) => {
     // Gets the `<input />` type for a given field and operator
     if (getPlaceHolder) {
       const placeHolder = getPlaceHolder(field, operator, parentOperator);
@@ -692,7 +756,8 @@ const useQueryBuilderProps = (
 const getValueOnPropChange = (value: any, rule: RuleType, prop: string) => {
   const isValueProp = prop === 'value';
   const isLastUpdatedField = rule.field === fieldNames.LAST_UPDATED_BY && isValueProp; // ensuring updated value is valid only on value change and not other prop change
-  const isPersonField: boolean = isValueProp && value !== null && typeof value === 'object' && 'id' in value;
+  const isPersonField: boolean =
+    isValueProp && value !== null && typeof value === 'object' && 'id' in value;
   let updateValue = value;
   if (isLastUpdatedField) {
     updateValue = value[keyNames.LABEL] || updateValue;
