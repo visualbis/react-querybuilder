@@ -25,7 +25,7 @@ function updateVersionNumber() {
 }
 
 function logVersionNumber() {
-    console.log(`npm install @visualbi/react-querybuilder@${packageJSON.version}`.blue);
+    console.log(`yarn install @visualbi/react-querybuilder@${packageJSON.version}`.blue);
 }
 
 async function main() {

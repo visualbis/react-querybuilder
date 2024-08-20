@@ -14,8 +14,8 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           
       - run:
-          name: install-npm-packages
-          command: npm install
+          name: install-yarn-packages
+          command: yarn install
 
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
@@ -33,16 +33,16 @@ jobs:
           command: node updateversion.js
       - run:
           name: "Running Lint"
-          command: npm run lint
+          command: yarn run lint
       - run:
           name: "Running Audit"
-          command: echo 'npm audit --audit-level=moderate'
+          command: echo 'yarn audit --audit-level=moderate'
       - run:
-          name: "Publish npm package"
+          name: "Publish yarn package"
           command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == "visualbis" ]; then
-                 npm run dist
-                 npm publish
+                 yarn run dist
+                 yarn publish
             else
                  yarn lint
             fi

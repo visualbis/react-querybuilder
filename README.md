@@ -1,6 +1,6 @@
 # react-querybuilder
 
-[![npm](https://img.shields.io/npm/v/react-querybuilder.svg?maxAge=2592000)](https://www.npmjs.com/package/react-querybuilder)
+[![npm](https://img.shields.io/yarn/v/react-querybuilder.svg?maxAge=2592000)](https://www.npmjs.com/package/react-querybuilder)
 [![Build Status](https://travis-ci.org/sapientglobalmarkets/react-querybuilder.svg?branch=master)](https://travis-ci.org/sapientglobalmarkets/react-querybuilder)
 [![codecov.io](https://codecov.io/github/sapientglobalmarkets/react-querybuilder/coverage.svg?branch=master)](https://codecov.io/github/sapientglobalmarkets/react-querybuilder?branch=master)
 
@@ -20,7 +20,7 @@
 ## Getting Started
 
 ```shell
-npm install react-querybuilder --save
+yarn install react-querybuilder --save
 ```
 
 OR
@@ -37,8 +37,8 @@ OR
 
 To run the demo yourself, go through the following steps:
 
-1. `npm install` _Install npm packages_
-2. `npm start` _Run a local server_
+1. `yarn install` _Install yarn packages_
+2. `yarn start` _Run a local server_
 3. http://localhost:8080/ _Visit your localhost in your browser_
 
 ## Usage
@@ -568,7 +568,7 @@ We are using [github-changes](https://github.com/lalitkapoor/github-changes) to 
 To use it:
 
 1. tag your commit using [semantic versioning](http://semver.org/)
-2. run `npm run generate-changelog`
+2. run `yarn run generate-changelog`
 3. enter your github credentials at the prompt
 4. commit
 5. push your commit and tags
