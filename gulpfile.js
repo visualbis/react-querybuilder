@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const less = require('gulp-less');
 const concat = require("gulp-concat");
 const ts = require('gulp-typescript');
@@ -8,7 +8,6 @@ const del = require('del');
 
 const babelrc = require('./.babelrc.js');
 
-sass.compiler = require('node-sass');
 
 function cleanDist() {
 	return del([
