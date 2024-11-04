@@ -127,7 +127,8 @@ const renderSelect = (props) => {
 };
 
 const renderAutoComplete = (props) => {
-  const { placeHolder, value, options, handleOnChange, className } = props;
+  const { placeHolder, value, options, handleOnChange, className, fieldData } = props;
+  const showLabel = fieldData?.showLabel
   let matches;
   let showValue;
   const hasCalcVariable = value.includes('CALC_VARIABLE_');
@@ -138,9 +139,12 @@ const renderAutoComplete = (props) => {
     }
   }
   const val = matches ? matches[0] : '';
-  if (hasCalcVariable) {
+  if (hasCalcVariable || showLabel) {
     options.forEach((option) => {
-      if (option.value.includes(val)) showValue = option.label;
+      if(showLabel) {
+        if(option.value === value) showValue = option.label;
+      }
+      else if (option.value.includes(val)) showValue = option.label;
     });
   }
   else{
