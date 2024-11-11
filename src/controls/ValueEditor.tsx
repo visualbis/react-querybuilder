@@ -139,13 +139,14 @@ const renderAutoComplete = (props) => {
     }
   }
   const val = matches ? matches[0] : '';
-  if (hasCalcVariable || showLabel) {
+  if (hasCalcVariable) {
     options.forEach((option) => {
-      if(showLabel) {
-        if(option.value === value) showValue = option.label;
-      }
-      else if (option.value.includes(val)) showValue = option.label;
+      if (option.value.includes(val)) showValue = option.label;
     });
+  }
+  else if(showLabel){
+    const displayValue = options.find(option => option.value === value)?.label
+    showValue = displayValue ? displayValue : value
   }
   else{
     showValue = value
