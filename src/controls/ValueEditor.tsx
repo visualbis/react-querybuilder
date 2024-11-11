@@ -128,7 +128,7 @@ const renderSelect = (props) => {
 
 const renderAutoComplete = (props) => {
   const { placeHolder, value, options, handleOnChange, className, fieldData } = props;
-  const showLabel = fieldData?.showLabel
+  const showLabel = fieldData?.showLabel;
   let matches;
   let showValue;
   const hasCalcVariable = value.includes('CALC_VARIABLE_');
@@ -143,13 +143,11 @@ const renderAutoComplete = (props) => {
     options.forEach((option) => {
       if (option.value.includes(val)) showValue = option.label;
     });
-  }
-  else if(showLabel){
-    const displayValue = options.find(option => option.value === value)?.label
-    showValue = displayValue ? displayValue : value
-  }
-  else{
-    showValue = value
+  } else if (showLabel) {
+    const displayValue = options.find((option) => option.value === value)?.label;
+    showValue = displayValue ? displayValue : value;
+  } else {
+    showValue = value;
   }
   // const isValidValue = options.find(option =>  option?.value === showValue)
   // if(!isValidValue && !hasCalcVariable){
@@ -311,7 +309,7 @@ const ValueEditor: React.FC<ValueEditorProps> = (props) => {
       return renderRadio(props);
     case 'textarea':
     case 'person':
-    case 'custom': 
+    case 'custom':
     case 'datePeriods': {
       const key = (field && getSelectionKey?.(field)) || 'id';
       if (customRenderer)
